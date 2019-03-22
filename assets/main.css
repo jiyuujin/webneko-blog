@@ -1,0 +1,50 @@
+a {
+  text-decoration: none;
+}
+
+.body {
+  color: #000;
+  text-align: center;
+  word-break : break-word;
+}
+
+.body h2 {
+  padding: 0.24em 0.48em;
+  text-align: left;
+  border-left: solid 5px #42b883;
+  color: #35495e;
+}
+
+.body h3 {
+  padding: 0.24em 0.48em;
+  text-align: left;
+  border-left: solid 5px #35495e;
+}
+
+.body p {
+  padding: 0.16em 0.24em;
+  text-align: left;
+}
+
+.body ul {
+  margin-left: 4%;
+  padding: 0.16em 0.24em;
+  text-align: left;
+}
+
+.body ol {
+  margin-left: 4%;
+  padding: 0.16em 0.24em;
+  text-align: left;
+}
+
+.body pre {
+  padding: 0.15em 0.25em;
+  text-align: left;
+}
+
+.body img {
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: center;
+}
