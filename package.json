@@ -6,14 +6,15 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
+    "build": "nuxt build --no-lock",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate --no-lock",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
   },
   "dependencies": {
     "@nuxt/typescript": "^2.5.1",
+    "@nuxt/vue-app": "^2.5.1",
     "@nuxtjs/apollo": "^4.0.0-rc2.3",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/google-adsense": "^1.1.3",
