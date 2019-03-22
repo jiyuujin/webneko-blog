@@ -162,6 +162,9 @@ export default {
       if (isClient) {
         config.devtool = '#source-map'
       }
+    },
+    typescript: {
+      typeCheck: false // or ForkTsChecker options
     }
   },
 
