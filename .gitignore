@@ -91,3 +91,5 @@ yarn.lock
 
 .firebase.json
 .github.json
+
+static/sw.js
