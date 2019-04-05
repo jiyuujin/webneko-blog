@@ -50,6 +50,7 @@ const GoogleAdsense = () => import('~/components/atoms/GoogleAdsense.vue')
       meta: [
         { property: 'og:title', content: this.currentPost.fields.title || '' },
         { property: 'og:description', content: this.currentPost.fields.description || '' },
+        { property: 'og:image', content: `https:${this.currentPost.fields.heroImage.fields.file.url}` || '' },
         { hid: 'og:title', name: 'og:title', content: this.currentPost.fields.title || '' },
         { hid: 'og:description', name: 'og:description', content: this.currentPost.fields.description || '' },
         { hid: 'og:image', name: 'og:image', content: `https:${this.currentPost.fields.heroImage.fields.file.url}` || '' },
