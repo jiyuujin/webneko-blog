@@ -3,6 +3,7 @@
     <header-text />
     <div class="main">
       <top />
+      <tags />
     </div>
   </main-template>
 </template>
@@ -11,6 +12,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 const MainTemplate = () => import('~/components/templates/MainTemplate.vue')
 const Top = () => import('~/components/post/Top.vue')
+const Tags = () => import('~/components/post/Tags.vue')
 const HeaderText = () => import('~/components/layouts/HeaderText.vue')
 
 @Component({
@@ -22,6 +24,7 @@ const HeaderText = () => import('~/components/layouts/HeaderText.vue')
   components: {
     MainTemplate,
     Top,
+    Tags,
     HeaderText
   },
   // computed: {

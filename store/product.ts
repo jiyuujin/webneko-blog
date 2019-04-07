@@ -1,6 +1,7 @@
 import { Module, ActionContext, ActionTree, MutationTree } from 'vuex';
 import { RootState } from './types';
 import { createClient } from '~/plugins/contentful'
+import {stringLiteral} from "~/node_modules/@types/babel-types";
 
 const client = createClient();
 
@@ -16,7 +17,8 @@ export const state = (): State => ({
   currentPost: null,
   page: 1,
   pagesTotal: 0,
-  loading: false
+  loading: false,
+  tags: []
 });
 
 interface Dictionary<T> {
@@ -40,6 +42,7 @@ export interface State {
   page: number;
   pagesTotal: number;
   loading: boolean | false;
+  tags: Array<string>;
 }
 
 export interface RootState extends State {
@@ -64,6 +67,9 @@ export const mutations: MutationTree<State> = {
   },
   setLoading (state, payload) {
     state.loading = payload
+  },
+  setTags (state, payload) {
+    state.tags = payload
   }
 };
 
@@ -79,15 +85,13 @@ export const actions: RootActionTree<State, RootState> = {
     // ページを設定する
     commit('setPage', page)
 
-    const contentfulOptions = {
-      content_type: process.env.CTF_BLOG_POST_TYPE_ID,
-      order: ORDER,
-      skip: (state.page - 1) * PAGE_SIZE,
-      limit: PAGE_SIZE
-    }
-
     await client
-      .getEntries(contentfulOptions)
+      .getEntries({
+        content_type: process.env.CTF_BLOG_POST_TYPE_ID,
+        order: ORDER,
+        skip: (state.page - 1) * PAGE_SIZE,
+        limit: PAGE_SIZE
+      })
       .then((entries: any) => {
         // console.log(entries)
 
@@ -98,6 +102,28 @@ export const actions: RootActionTree<State, RootState> = {
         commit('setPagesTotal', Math.ceil(entries.total / PAGE_SIZE))
       })
       .catch(console.error)
+
+    await client
+      .getEntries({
+        content_type: process.env.CTF_BLOG_POST_TYPE_ID,
+        order: ORDER
+      })
+      .then((entries: any) => {
+        // console.log(entries)
+
+        let array: Array<string> = []
+        entries.items.forEach(item => {
+          item.fields.tags.forEach(tag => {
+            array.push(tag)
+          })
+        })
+
+        // タグ一覧を設定する
+        commit('setTags', array.filter((x, i, self) => {
+          return self.indexOf(x) === i
+        }))
+      })
+      .catch(console.error)
   },
   async initPosts (
     { commit, state }: ActionContext<State, RootState>,
@@ -106,13 +132,11 @@ export const actions: RootActionTree<State, RootState> = {
     if (params.slug !== '') {
       commit('setLoading', true)
 
-      const CONTENTFUL_OPTION = {
-        content_type: process.env.CTF_BLOG_POST_TYPE_ID,
-        order: ORDER
-      }
-
       await client
-        .getEntries(CONTENTFUL_OPTION)
+        .getEntries({
+          content_type: process.env.CTF_BLOG_POST_TYPE_ID,
+          order: ORDER
+        })
         .then((entries: any) => {
           // console.log(entries)
           const currentPost = entries.items.filter((item: any) => {
@@ -132,15 +156,13 @@ export const actions: RootActionTree<State, RootState> = {
     // ページを設定する
     commit('setPage', state.page)
 
-    const CONTENTFUL_OPTION = {
-      content_type: process.env.CTF_BLOG_POST_TYPE_ID,
-      order: ORDER,
-      skip: (state.page - 1) * PAGE_SIZE,
-      limit: PAGE_SIZE
-    }
-
     await client
-      .getEntries(CONTENTFUL_OPTION)
+      .getEntries({
+        content_type: process.env.CTF_BLOG_POST_TYPE_ID,
+        order: ORDER,
+        skip: (state.page - 1) * PAGE_SIZE,
+        limit: PAGE_SIZE
+      })
       .then((entries: any) => {
         // console.log(entries)
 
@@ -149,6 +171,28 @@ export const actions: RootActionTree<State, RootState> = {
 
         // ページ数合計を設定する
         commit('setPagesTotal', Math.ceil(entries.total / PAGE_SIZE))
+      })
+      .catch(console.error)
+
+    await client
+      .getEntries({
+        content_type: process.env.CTF_BLOG_POST_TYPE_ID,
+        order: ORDER
+      })
+      .then((entries: any) => {
+        // console.log(entries)
+
+        let array: Array<string> = []
+        entries.items.forEach(item => {
+          item.fields.tags.forEach(tag => {
+            array.push(tag)
+          })
+        })
+
+        // タグ一覧を設定する
+        commit('setTags', array.filter((x, i, self) => {
+          return self.indexOf(x) === i
+        }))
       })
       .catch(console.error)
   }
