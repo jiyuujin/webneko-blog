@@ -35,6 +35,8 @@ const getWorkQuery = gql`
       company
       startAt
       endAt
+      title
+      description
     }
   }
 `;

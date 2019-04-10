@@ -13,7 +13,9 @@
       v-for="item in data"
       :key="item.id"
     >
-      <li>
+      <li
+        v-if="!item.company"
+      >
         <p class="timeline-date">
           {{ getDateFormat(item.startAt) }}
         </p>
@@ -39,7 +41,9 @@ interface Work {
   id: number,
   company: string,
   startAt: Date,
-  endAt: Date
+  endAt: Date,
+  title: string,
+  description: string
 }
 
 @Component({
@@ -67,7 +71,7 @@ ul > li {
   margin-bottom: 60px;
 }
 
-@media ( min-width : 640px ){
+@media (min-width : 640px) {
   ul > li {
     overflow: hidden;
     margin: 0;
@@ -83,8 +87,10 @@ ul > li {
   .timeline-content {
     width: 75%;
     float: left;
-    border-left: 3px #e5e5d1 solid;
+    text-align: left;
+    border-left: 3px #35495e solid;
     padding-left: 30px;
+    font-size: 2vmin;
   }
 
   .timeline-content:before {
