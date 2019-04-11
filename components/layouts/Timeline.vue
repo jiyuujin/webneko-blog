@@ -65,6 +65,7 @@ export default class Career extends Vue {
 <style scoped>
 ul {
   list-style: none;
+  padding: 0;
 }
 
 ul > li {
@@ -85,7 +86,7 @@ ul > li {
   }
 
   .timeline-content {
-    width: 75%;
+    width: 85%;
     float: left;
     text-align: left;
     border-left: 3px #35495e solid;
