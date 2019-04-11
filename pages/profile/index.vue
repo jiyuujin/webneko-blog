@@ -2,7 +2,7 @@
   <main-template>
     <div class="profile">
       <biography />
-      <double-rows-menu
+      <timeline
         :data="allWorks"
         title="経歴"
       />
@@ -23,7 +23,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 const MainTemplate = ()=> import('~/components/templates/MainTemplate.vue')
 const SingleRowsMenu = () => import('~/components/layouts/SingleRowsMenu.vue')
-const DoubleRowsMenu = () => import('~/components/layouts/DoubleRowsMenu.vue')
+const Timeline = () => import('~/components/layouts/Timeline.vue')
 const Biography = () => import('~/components/profile/Biography.vue')
 const Contact = () => import('~/components/profile/Contact.vue')
 import gql from 'graphql-tag'
@@ -35,6 +35,8 @@ const getWorkQuery = gql`
       company
       startAt
       endAt
+      title
+      description
     }
   }
 `;
@@ -65,7 +67,7 @@ const getActivityQuery = gql`
   components: {
     MainTemplate,
     SingleRowsMenu,
-    DoubleRowsMenu,
+    Timeline,
     Biography,
     Contact,
   },
