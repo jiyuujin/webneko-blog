@@ -1,5 +1,5 @@
 <template>
-  <div class="career">
+  <div>
     <title-label
       :is-center="isCenter"
       :is-bold="isBold"
