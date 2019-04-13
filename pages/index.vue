@@ -27,6 +27,7 @@ const HeaderText = () => import('~/components/layouts/HeaderText.vue')
     Tags,
     HeaderText
   },
+  scrollToTop: true
   // computed: {
   //   ...mapState({
   //     'posts': (state: any) => state.product.posts

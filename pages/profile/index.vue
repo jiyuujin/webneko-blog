@@ -81,6 +81,7 @@ const getActivityQuery = gql`
     allProducts: getProductQuery,
     allActivities: getActivityQuery
   },
+  scrollToTop: true
 })
 export default class Index extends Vue {}
 </script>

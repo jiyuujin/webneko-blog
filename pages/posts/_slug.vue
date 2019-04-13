@@ -48,9 +48,9 @@ const GoogleAdsense = () => import('~/components/atoms/GoogleAdsense.vue')
       title : this.currentPost.fields.title || '',
       // title : this.title || '',
       meta: [
-        { property: 'og:title', content: this.currentPost.fields.title || '' },
-        { property: 'og:description', content: this.currentPost.fields.description || '' },
-        { property: 'og:image', content: `https:${this.currentPost.fields.heroImage.fields.file.url}` || '' },
+        { hid: 'og:title', property: 'og:title', content: this.currentPost.fields.title || '' },
+        { hid: 'og:description', property: 'og:description', content: this.currentPost.fields.description || '' },
+        { hid: 'og:image', property: 'og:image', content: `https:${this.currentPost.fields.heroImage.fields.file.url}` || '' },
         { hid: 'og:title', name: 'og:title', content: this.currentPost.fields.title || '' },
         { hid: 'og:description', name: 'og:description', content: this.currentPost.fields.description || '' },
         { hid: 'og:image', name: 'og:image', content: `https:${this.currentPost.fields.heroImage.fields.file.url}` || '' },
@@ -73,6 +73,7 @@ const GoogleAdsense = () => import('~/components/atoms/GoogleAdsense.vue')
       // heroImage: store.state.product.currentPost ? store.state.product.currentPost.fields.heroImage.fields.file.url : ''
     }
   },
+  scrollToTop: true
 })
 export default class Slug extends Vue {
   adSlot: string = '2995295864';

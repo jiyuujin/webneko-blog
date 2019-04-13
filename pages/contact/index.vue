@@ -28,7 +28,8 @@ const New = () => import('~/components/contact/New.vue')
     return {
       title: 'お問い合わせ'
     }
-  }
+  },
+  scrollToTop: true
 })
 export default class Index extends Vue {}
 </script>

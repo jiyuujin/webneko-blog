@@ -18,7 +18,8 @@ const PrivacyPolicy = () => import('~/components/atoms/PrivacyPolicy.vue')
     return {
       title: 'プライバシーポリシー'
     }
-  }
+  },
+  scrollToTop: true
 })
 export default class Index extends Vue {}
 </script>
