@@ -1,18 +1,9 @@
 <template>
-  <div>
-    <div>
-      <label>
-        {{ column }}
-      </label>
-    </div>
-    <div>
-      <input
-        v-model="newVal"
-        :type="column === 'Password' ? 'password' : null"
-        :placeholder="column"
-      >
-    </div>
-  </div>
+  <input
+    v-model="newVal"
+    :type="column === 'Password' ? 'password' : null"
+    :placeholder="column"
+  >
 </template>
 
 <script lang="ts">

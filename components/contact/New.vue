@@ -18,12 +18,9 @@
     <form-template>
       <input-form
         :data="form.email"
-        column="メールアドレス"
+        column="メールアドレス (任意)"
         @form-data="applyEmail"
       />
-      <p>
-        ※ 返信が必要な方はメールアドレスも入力してください
-      </p>
     </form-template>
     <form-template>
       <text-area-form

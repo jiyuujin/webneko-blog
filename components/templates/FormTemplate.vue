@@ -15,6 +15,6 @@ export default class FormTemplate extends Vue {}
 .form {
   width: 80%;
   margin: 0 auto;
-  padding: 2px;
+  padding: 1px;
 }
 </style>

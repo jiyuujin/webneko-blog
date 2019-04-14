@@ -1,18 +1,9 @@
 <template>
-  <div>
-    <div>
-      <label>
-        {{ column }}
-      </label>
-    </div>
-    <div>
-      <textarea
-        v-model="newVal"
-        :type="column === 'Password' ? 'password' : null"
-        :placeholder="column + 'を入力してください'"
-      />
-    </div>
-  </div>
+  <textarea
+    v-model="newVal"
+    :type="column === 'Password' ? 'password' : null"
+    :placeholder="column + 'を入力してください'"
+  />
 </template>
 
 <script lang="ts">
