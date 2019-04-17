@@ -10,14 +10,14 @@
       Tags
     </title-label>
     <div class="tags">
-    <span
-      v-for="tag in tags"
-      :key="tag"
-    >
-      <label-form
-        :tag-text="tag"
-      />
-    </span>
+      <span
+        v-for="tag in tags"
+        :key="tag"
+      >
+        <label-form
+          :tag-text="tag"
+        />
+      </span>
     </div>
   </div>
 </template>

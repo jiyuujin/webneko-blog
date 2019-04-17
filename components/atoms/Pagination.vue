@@ -1,22 +1,20 @@
 <template>
-  <div class="pager">
-    <div class="pagination">
-      <a
-        :class="page === 1 ? 'disabled' : ''"
-        :style="page === 1 ? 'opacity: 0.5;' : 'opacity: 1;'"
-        href="#"
-        @click="prev(page)"
-      >
-        &laquo;
-      </a>
-      <a
-        :class="page === max ? 'disabled' : ''"
-        href="#"
-        @click="next(page)"
-      >
-        &raquo;
-      </a>
-    </div>
+  <div class="pagination">
+    <a
+      :class="page === 1 ? 'disabled' : ''"
+      :style="page === 1 ? 'opacity: 0.5;' : 'opacity: 1;'"
+      href="#"
+      @click="prev(page)"
+    >
+      &laquo;
+    </a>
+    <a
+      :class="page === max ? 'disabled' : ''"
+      href="#"
+      @click="next(page)"
+    >
+      &raquo;
+    </a>
   </div>
 </template>
 
@@ -45,10 +43,6 @@ export default class Pagination extends Vue {
 </script>
 
 <style scoped>
-.pager {
-  margin: 0 auto;
-}
-
 .pagination {
   display: inline-block;
 }

@@ -31,17 +31,29 @@
             {{ post.fields.description }}
           </p>
         </h3>
+        <div class="tags">
+          <span
+            v-for="tag in post.fields.tags"
+            :key="tag"
+          >
+            <label-form
+              :tag-text="tag"
+            />
+          </span>
+        </div>
         <p>
           {{ (new Date(post.fields.publishDate)).toDateString() }}
         </p>
       </nuxt-link>
       <hr>
     </div>
-    <Pagination
-      :page="page"
-      :max="pagesTotal"
-      @page-data="applyPage"
-    />
+    <div class="pager">
+      <pagination
+        :page="page"
+        :max="pagesTotal"
+        @page-data="applyPage"
+      />
+    </div>
   </div>
 </template>
 
@@ -49,11 +61,13 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 const TitleLabel = () => import('~/components/atoms/TitleLabel.vue')
 const Pagination = () => import('~/components/atoms/Pagination.vue')
+const LabelForm = () => import('~/components/atoms/LabelForm.vue')
 
 @Component({
   components: {
     TitleLabel,
-    Pagination
+    Pagination,
+    LabelForm
   },
   // computed: {
   //   ...mapState({
@@ -103,6 +117,7 @@ export default class Top extends Vue {
   font-size: 18px;
   height: 2.4em;
   line-height: 1.2;
+  text-align: center;
 }
 
 .card h3 {
@@ -119,6 +134,11 @@ export default class Top extends Vue {
   text-align: right;
 }
 
+.card .tags {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
 .card hr {
   color: #808080;
 }
@@ -132,6 +152,10 @@ export default class Top extends Vue {
 .hero-image img:hover {
   transform: scale(1.1);
   transition-duration: 0.3s;
+}
+
+.pager {
+  margin: 0 auto;
 }
 
 @media (max-width: 500px) {

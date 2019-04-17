@@ -35,25 +35,4 @@ export default class Detail extends Vue {
 .post img {
   width: 25%;
 }
-
-.post h2 {
-  font-size: 18px;
-  margin-top: 30px;
-  margin-bottom: 15px;
-}
-
-.post p {
-  font-size: 14px;
-  text-align: right;
-}
-
-.post .body {
-  color: #000;
-  text-align: left;
-  word-break : break-word;
-}
-
-.post .body img {
-  width: 100%;
-}
 </style>

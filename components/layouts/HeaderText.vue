@@ -41,7 +41,7 @@ export default class HeaderText extends Vue {}
   display: flex;
   align-items: center;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
 }
 
 .profile a {
