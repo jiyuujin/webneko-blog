@@ -28,7 +28,7 @@ const Biography = () => import('~/components/profile/Biography.vue')
 const Contact = () => import('~/components/profile/Contact.vue')
 import gql from 'graphql-tag'
 
-const getWorkQuery = gql`
+const getQuery = gql`
   query {
     allWorks(orderBy: startAt_DESC) {
       id
@@ -38,22 +38,12 @@ const getWorkQuery = gql`
       title
       description
     }
-  }
-`;
-
-const getProductQuery = gql`
-  query {
     allProducts {
       id
       title
       url
       tag
     }
-  }
-`;
-
-const getActivityQuery = gql`
-  query {
     allActivities(orderBy: time_DESC) {
       id
       title
@@ -77,9 +67,9 @@ const getActivityQuery = gql`
     }
   },
   apollo: {
-    allWorks: getWorkQuery,
-    allProducts: getProductQuery,
-    allActivities: getActivityQuery
+    allWorks: getQuery,
+    allProducts: getQuery,
+    allActivities: getQuery
   },
   scrollToTop: true
 })
