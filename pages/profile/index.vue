@@ -1,6 +1,10 @@
 <template>
   <main-template>
     <div class="profile">
+      <card
+        background-color="#000"
+        color="#fff"
+      />
       <biography />
       <timeline
         :data="allWorks"
@@ -24,6 +28,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 const MainTemplate = ()=> import('~/components/templates/MainTemplate.vue')
 const SingleRowsMenu = () => import('~/components/layouts/SingleRowsMenu.vue')
 const Timeline = () => import('~/components/layouts/Timeline.vue')
+const Card = () => import('~/components/profile/Card.vue')
 const Biography = () => import('~/components/profile/Biography.vue')
 const Contact = () => import('~/components/profile/Contact.vue')
 import gql from 'graphql-tag'
@@ -58,6 +63,7 @@ const getQuery = gql`
     MainTemplate,
     SingleRowsMenu,
     Timeline,
+    Card,
     Biography,
     Contact,
   },

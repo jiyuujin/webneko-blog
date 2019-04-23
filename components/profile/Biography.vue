@@ -1,59 +1,27 @@
 <template>
-  <div>
-    <div class="header">
-      <div class="avatar">
+  <div class="biography">
+    <title-label
+      :is-center="!isCenter"
+      :is-bold="!isBold"
+      width="92%"
+      horizontal-margin="4%"
+    >
+      Webエンジニア。2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。最近は関数型プログラミング言語を中心に、サーバーサイドのScalaやKotlinを学んでいます。
+    </title-label>
+    <title-label
+      v-if="$route.name === `profile`"
+      width="92%"
+      horizontal-margin="4%"
+    >
+      <div class="skill__icon">
         <img
-          src="../../static/bakeneko.png"
-          alt="avatar"
+          v-for="item in skillset"
+          :key="item"
+          :src="'./' + item + '.png'"
+          :alt="item"
         >
       </div>
-      <h2>
-        Web猫
-      </h2>
-      <h3>
-        jiyuujin LAB.
-      </h3>
-    </div>
-    <div class="biography">
-      <title-label
-        :is-center="isCenter"
-        :is-bold="isBold"
-        width="40%"
-        horizontal-margin="30%"
-        color="#42b883"
-      >
-        紹介
-      </title-label>
-      <title-label
-        :is-center="!isCenter"
-        :is-bold="!isBold"
-        width="92%"
-        horizontal-margin="4%"
-      >
-        Webエンジニア。2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。最近は関数型プログラミング言語を中心に、サーバーサイドのScalaやKotlinを学んでいます。
-      </title-label>
-      <title-label
-        width="92%"
-        horizontal-margin="4%"
-      >
-        <ul>
-          <li>
-            <a href="https://github.com/jiyuujin">https://github.com/jiyuujin</a>
-          </li>
-          <li>
-            <a href="https://bitbucket.org/jiyuujin">https://bitbucket.org/jiyuujin</a>
-          </li>
-        </ul>
-        <div class="skill__icon">
-          <img
-            v-for="item in skillset"
-            :key="item"
-            :src="'./' + item + '.png'"
-            :alt="item"
-          >
-        </div>
-      </title-label>
-    </div>
+    </title-label>
   </div>
 </template>
 
@@ -85,30 +53,6 @@ export default class Biography extends Vue {
 </script>
 
 <style scoped>
-.header {
-  background-color: #000;
-  color: #fff;
-  max-width: 100%;
-  display: flex;
-  padding: 2.4rem 2rem 0;
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
-}
-
-.avatar {
-  position: relative;
-  z-index: 1;
-}
-
-.avatar img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-width: 150px;
-  border-radius: 500rem;
-}
-
 .header h2 {
   font-size: 18px;
 }
