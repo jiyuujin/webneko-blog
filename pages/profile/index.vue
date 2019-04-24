@@ -5,7 +5,9 @@
         background-color="#000"
         color="#fff"
       />
-      <biography />
+      <biography
+        fontSize="18px"
+      />
       <timeline
         :data="allWorks"
         title="経歴"

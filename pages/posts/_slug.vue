@@ -9,7 +9,9 @@
           color="#000"
           style="margin-bottom: 36px;"
         />
-        <biography />
+        <biography
+          fontSize="12px"
+        />
         <a
           href="https://webneko.info/profile"
           target="_blank"
@@ -128,7 +130,7 @@ export default class Slug extends Vue {
 .profile-card {
   float: left;
   width: 300px;
-  margin-right: 8px;
+  margin-right: 24px;
 }
 
 .profile-card a {
@@ -140,8 +142,8 @@ export default class Slug extends Vue {
 
 .blog-card {
   float: right;
-  width : -webkit-calc(100% - 300px - 8px) ;
-  width : calc(100% - 300px - 8px);
+  width : -webkit-calc(100% - 300px - 24px) ;
+  width : calc(100% - 300px - 24px);
 }
 
 @media (max-width: 500px) {

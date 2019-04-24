@@ -1,12 +1,14 @@
 <template>
-  <div class="biography">
+  <div>
     <title-label
       :is-center="!isCenter"
       :is-bold="!isBold"
       width="92%"
       horizontal-margin="4%"
     >
-      Webエンジニア。2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。最近は関数型プログラミング言語を中心に、サーバーサイドのScalaやKotlinを学んでいます。
+      <div :style="`font-size: ${fontSize};`">
+        Webエンジニア。2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。最近は関数型プログラミング言語を中心に、サーバーサイドのScalaやKotlinを学んでいます。
+      </div>
     </title-label>
     <title-label
       v-if="$route.name === `profile`"
@@ -26,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import TitleLabel from '~/components/atoms/TitleLabel.vue'
 
 const SKILL_SET: string[] = [
@@ -46,6 +48,8 @@ const SKILL_SET: string[] = [
   }
 })
 export default class Biography extends Vue {
+  @Prop() fontSize: string;
+
   skillset: string[] = SKILL_SET;
   isCenter: boolean = true;
   isBold: boolean = true;
@@ -53,18 +57,6 @@ export default class Biography extends Vue {
 </script>
 
 <style scoped>
-.header h2 {
-  font-size: 18px;
-}
-
-.header h3 {
-  font-size: 14px;
-}
-.biography ul li {
-  margin-bottom: 15px;
-  text-align: left;
-}
-
 .skill__icon {
   text-align: center;
 }
