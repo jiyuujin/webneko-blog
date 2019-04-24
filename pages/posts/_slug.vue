@@ -2,28 +2,47 @@
   <main-template
     v-if="currentPost"
   >
-    <div class="blog">
-      <p>
-        <nuxt-link to="/">Home</nuxt-link> > {{ currentPost.fields.title }}
-      </p>
-      <detail
-        :post="currentPost"
-      />
-      <div>
-        <google-adsense
-          :slot="adSlot"
-          :ad-format="adFormat"
-          :ad-layout="adLayout"
-          :ad-style="adStyle"
+    <div class="article">
+      <div class="profile-card">
+        <card
+          background-color="#fff"
+          color="#000"
+          style="margin-bottom: 36px;"
         />
+        <biography
+          fontSize="12px"
+        />
+        <a
+          href="https://webneko.info/profile"
+          target="_blank"
+        >
+          This's Profile
+        </a>
       </div>
-      <div>
+
+      <div class="blog-card">
         <p>
-          コメントを残す
+          <nuxt-link to="/">Home</nuxt-link> > {{ currentPost.fields.title }}
         </p>
-        <new
-          :blog-title="currentPost.fields.title"
+        <detail
+          :post="currentPost"
         />
+        <div>
+          <google-adsense
+            :slot="adSlot"
+            :ad-format="adFormat"
+            :ad-layout="adLayout"
+            :ad-style="adStyle"
+          />
+        </div>
+        <div>
+          <p>
+            コメントを残す
+          </p>
+          <new
+            :blog-title="currentPost.fields.title"
+          />
+        </div>
       </div>
     </div>
   </main-template>
@@ -32,16 +51,20 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 const MainTemplate = () => import('~/components/templates/MainTemplate.vue')
+const Card = () => import('~/components/profile/Card.vue')
+const Biography = () => import('~/components/profile/Biography.vue')
 const Detail = () => import('~/components/post/Detail.vue')
 const New = () => import('~/components/contact/New.vue')
 const GoogleAdsense = () => import('~/components/atoms/GoogleAdsense.vue')
 
 @Component({
   components: {
-    New,
-    GoogleAdsense,
+    MainTemplate,
+    Card,
+    Biography,
     Detail,
-    MainTemplate
+    New,
+    GoogleAdsense
   },
   head(this: Slug) {
     return {
@@ -90,16 +113,46 @@ export default class Slug extends Vue {
 </script>
 
 <style scoped>
-.blog {
-  width: 80%;
-  margin: 2% 10% 2% 10%;
+.article {
+  width: 84%;
+  margin: 2% 8% 2% 8%;
   text-align: center;
+  overflow: hidden;
 }
 
-.blog p {
+.article p {
   text-align: left;
   font-size: 16px;
   color: #35495e;
   padding-right: 16px;
+}
+
+.profile-card {
+  float: left;
+  width: 300px;
+  margin-right: 24px;
+}
+
+.profile-card a {
+  text-decoration: none;
+  margin: 0 1em;
+  padding-right: 16px;
+  background: url(../../static/external_link.png) no-repeat right center;
+}
+
+.blog-card {
+  float: right;
+  width : -webkit-calc(100% - 300px - 24px) ;
+  width : calc(100% - 300px - 24px);
+}
+
+@media (max-width: 500px) {
+  .profile-card {
+    display: none;
+  }
+
+  .blog-card {
+    width: 100%;
+  }
 }
 </style>
