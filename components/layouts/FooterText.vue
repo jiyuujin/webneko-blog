@@ -1,19 +1,10 @@
 <template>
   <div>
-    <!--
-    <div class="above-footer">
-      <description-space>
-        <nuxt-link to="/privacy">
-          プライバシーポリシー
-        </nuxt-link>
-      </description-space>
-      <description-space>
-        <nuxt-link to="/contact">
-          お問い合わせ
-        </nuxt-link>
-      </description-space>
+    <div class="info">
+      <nuxt-link to="/contact">
+        お問い合わせ
+      </nuxt-link>
     </div>
-    -->
     <footer>
       <div class="footer-text">
         {{ footerText }}
@@ -32,7 +23,7 @@ export default class Footer extends Vue {
 </script>
 
 <style scoped>
-.above-footer {
+.info {
   text-align: center;
 }
 
