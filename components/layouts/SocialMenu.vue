@@ -42,8 +42,10 @@ export default class SocialMenu extends Vue {
 }
 
 .social-menu img {
-  width: 24px;
+  width: 32px;
+  height: 32px;
   margin: 8px;
+  border-radius: 50%;
 }
 
 @media (max-width: 500px) {
