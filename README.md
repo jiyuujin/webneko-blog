@@ -6,20 +6,18 @@ Nuxt + TypeScript + Contentful
 
 ```bash
 # Local Dev Server
-$ npm run dev
+yarn dev
 ```
+
+### トップページ
+![](./docs/index.png)
+
+### ブログ詳細ページ
+![](./docs/slug.png)
 
 ## 設計原則
 
-- Atomic Designで言うatomsに最小単位コンポーネントを、templatesにテンプレートを設定する。ただし、Vuexストアにアクセスしない。
+- Atomic Designで言うatomsに最小単位コンポーネントを、templatesにテンプレートを設定する。ただしこれらのコンポーネントでは、Vuexストアにアクセスしない。
 - 各エンティティごとに小〜中規模程度のコンポーネントを設定する。Vuexストアにアクセスしても良い。
-   1. post
-   2. profile
-   3. layouts
-   4. contact
-
-### Vuexストア
-
-Page components、各エンティティで使用することを想定する。
-
-asyncDataメソッドでブログコンテンツを取得。と同時にslugオプションを利用して、各ページコンテンツを取得する必要があった。
+   - asyncDataメソッドでブログコンテンツを取得。slugオプションを利用して、各ページコンテンツを取得する必要があった。
+   - post / profile / layouts / contact
