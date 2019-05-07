@@ -2,24 +2,11 @@
   <main-template
     v-if="currentPost"
   >
+    <social-menu
+      :slug-text="currentPost.fields.slug"
+      :title="currentPost.fields.title"
+    />
     <div class="article">
-      <div class="profile-card">
-        <card
-          background-color="#fff"
-          color="#000"
-          style="margin-bottom: 36px;"
-        />
-        <biography
-          fontSize="12px"
-        />
-        <a
-          href="https://webneko.info/profile"
-          target="_blank"
-        >
-          This's Profile
-        </a>
-      </div>
-
       <div class="blog-card">
         <p>
           <nuxt-link to="/">Home</nuxt-link> > {{ currentPost.fields.title }}
@@ -44,6 +31,23 @@
           />
         </div>
       </div>
+
+      <div class="profile-card">
+        <card
+          background-color="#fff"
+          color="#000"
+          style="margin-bottom: 36px;"
+        />
+        <biography
+          fontSize="12px"
+        />
+        <a
+          href="https://webneko.info/profile"
+          target="_blank"
+        >
+          This's Profile
+        </a>
+      </div>
     </div>
   </main-template>
 </template>
@@ -51,6 +55,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 const MainTemplate = () => import('~/components/templates/MainTemplate.vue')
+const SocialMenu = () => import('~/components/layouts/SocialMenu.vue')
 const Card = () => import('~/components/profile/Card.vue')
 const Biography = () => import('~/components/profile/Biography.vue')
 const Detail = () => import('~/components/post/Detail.vue')
@@ -60,6 +65,7 @@ const GoogleAdsense = () => import('~/components/atoms/GoogleAdsense.vue')
 @Component({
   components: {
     MainTemplate,
+    SocialMenu,
     Card,
     Biography,
     Detail,
@@ -127,10 +133,16 @@ export default class Slug extends Vue {
   padding-right: 16px;
 }
 
-.profile-card {
+.blog-card {
   float: left;
+  width : -webkit-calc(100% - 300px - 24px) ;
+  width : calc(100% - 300px - 24px);
+}
+
+.profile-card {
+  float: right;
   width: 300px;
-  margin-right: 24px;
+  margin-left: 24px;
 }
 
 .profile-card a {
@@ -140,19 +152,13 @@ export default class Slug extends Vue {
   background: url(../../static/external_link.png) no-repeat right center;
 }
 
-.blog-card {
-  float: right;
-  width : -webkit-calc(100% - 300px - 24px) ;
-  width : calc(100% - 300px - 24px);
-}
-
 @media (max-width: 500px) {
-  .profile-card {
-    display: none;
-  }
-
   .blog-card {
     width: 100%;
+  }
+
+  .profile-card {
+    display: none;
   }
 }
 </style>
