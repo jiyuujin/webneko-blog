@@ -92,7 +92,8 @@ footer {
 
 @media (max-width: 500px) {
   footer {
-    display: flex;
+    margin-top: 0;
+    min-height: 0;
     padding: 1rem 2rem 1rem;
   }
 
