@@ -52,14 +52,13 @@ export default class HeaderText extends Vue {}
   color: #fff;
 }
 
-.header .title {
+.title {
   display: inline;
   top: 50%;
+  text-align: center;
   padding: 20px;
   line-height: 1;
   transform: translateY(-50%);
-  align-items: center;
-  vertical-align: middle;
   color: #fff;
   font-size: 2rem;
 }

@@ -44,7 +44,13 @@ a {
 }
 
 .body img {
-  margin-left: 25%;
-  margin-right: 25%;
-  text-align: center;
+  width: 36%!important;
+  margin: 0 32%;
+}
+
+@media (max-width: 500px) {
+  .body img {
+    width: 84%!important;
+    margin: 0 8%;
+  }
 }
