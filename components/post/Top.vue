@@ -1,14 +1,5 @@
 <template>
   <div class="top">
-    <title-label
-      :is-center="isCenter"
-      :is-bold="isBold"
-      width="40%"
-      horizontal-margin="30%"
-      color="#42b883"
-    >
-      Articles
-    </title-label>
     <div
       v-for="post in posts"
       :key="post.fields.title"
