@@ -55,7 +55,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 const MainTemplate = () => import('~/components/templates/MainTemplate.vue')
-const SocialMenu = () => import('~/components/layouts/SocialMenu.vue')
+const SocialMenu = () => import('~/components/profile/SocialMenu.vue')
 const Card = () => import('~/components/profile/Card.vue')
 const Biography = () => import('~/components/profile/Biography.vue')
 const Detail = () => import('~/components/post/Detail.vue')

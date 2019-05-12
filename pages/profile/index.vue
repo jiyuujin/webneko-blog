@@ -12,11 +12,11 @@
         :data="allWorks"
         title="経歴"
       />
-      <single-rows-menu
+      <product
         :data="allProducts"
         title="プロダクト一覧"
       />
-      <single-rows-menu
+      <activity
         :data="allActivities"
         title="活動履歴"
       />
@@ -28,10 +28,11 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 const MainTemplate = ()=> import('~/components/templates/MainTemplate.vue')
-const SingleRowsMenu = () => import('~/components/layouts/SingleRowsMenu.vue')
-const Timeline = () => import('~/components/layouts/Timeline.vue')
 const Card = () => import('~/components/profile/Card.vue')
 const Biography = () => import('~/components/profile/Biography.vue')
+const Timeline = () => import('~/components/profile/Timeline.vue')
+const Product = () => import('~/components/profile/Product.vue')
+const Activity = () => import('~/components/profile/Activity.vue')
 const Contact = () => import('~/components/profile/Contact.vue')
 import gql from 'graphql-tag'
 
@@ -50,6 +51,7 @@ const getQuery = gql`
       title
       url
       tag
+      image
     }
     allActivities(orderBy: time_DESC) {
       id
@@ -63,10 +65,11 @@ const getQuery = gql`
 @Component({
   components: {
     MainTemplate,
-    SingleRowsMenu,
-    Timeline,
     Card,
     Biography,
+    Timeline,
+    Product,
+    Activity,
     Contact,
   },
   head() {

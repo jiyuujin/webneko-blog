@@ -62,9 +62,9 @@ export default class Biography extends Vue {
 }
 
 .skill__icon img {
-  width: 25px;
-  height: 25px;
-  margin-left: 15px;
-  margin-right: 15px;
+  width: 48px;
+  height: 48px;
+  margin-left: 12px;
+  margin-right: 12px;
 }
 </style>
