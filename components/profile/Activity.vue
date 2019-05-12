@@ -1,5 +1,5 @@
 <template>
-  <div class="list-menu">
+  <div>
     <title-label
       :is-center="isCenter"
       :is-bold="isBold"
@@ -36,7 +36,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'nuxt-property-decorator'
+import { Component, Vue, Prop } from '~/node_modules/nuxt-property-decorator'
 const TitleLabel = () => import('~/components/atoms/TitleLabel.vue')
 
 @Component({
