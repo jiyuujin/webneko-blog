@@ -14,6 +14,13 @@
             :alt="post.fields.title"
           >
         </div>
+        <div class="category">
+          <label-form
+            :tag-text="post.fields.category ? getCategory(post.fields.category) : '未分類'"
+            background-color="#42b883"
+            color="#000"
+          />
+        </div>
         <h2>
           {{ post.fields.title }}
         </h2>
@@ -22,6 +29,9 @@
             {{ post.fields.description }}
           </p>
         </h3>
+        <div class="date">
+          {{ getDate(post.fields.publishDate) }}
+        </div>
         <div class="tags">
           <span
             v-for="tag in post.fields.tags"
@@ -32,9 +42,6 @@
             />
           </span>
         </div>
-        <p>
-          {{ (new Date(post.fields.publishDate)).toDateString() }}
-        </p>
       </nuxt-link>
       <hr>
     </div>
@@ -50,6 +57,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
+import dayjs from 'dayjs'
 const TitleLabel = () => import('~/components/atoms/TitleLabel.vue')
 const Pagination = () => import('~/components/atoms/Pagination.vue')
 const LabelForm = () => import('~/components/atoms/LabelForm.vue')
@@ -88,6 +96,21 @@ export default class Top extends Vue {
     return this.$store.state.product.pagesTotal
   }
 
+  getCategory(category: string) {
+    switch (category) {
+      case 'Front':
+        return 'フロントエンド'
+      case 'Server':
+        return 'サーバーサイド'
+      default:
+        return 'その他'
+    }
+  }
+
+  getDate(date: Date) {
+    return dayjs(date).format('MM月 DD日')
+  }
+
   isCenter: boolean = true;
   isBold: boolean = true;
 }
@@ -102,6 +125,23 @@ export default class Top extends Vue {
 .card {
   width: calc(33.3% - 24px);
   margin: 8px;
+  position: relative;
+}
+
+.card .date {
+  font-size: 14px;
+  text-align: right;
+}
+
+.card .category {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 0.2em;
+  /*border-left: solid 4px #42b883;*/
+  /*border-radius: 24px;*/
+  /*background-color: #42b883;*/
+  /*color: #fff;*/
 }
 
 .card h2 {
@@ -119,10 +159,6 @@ export default class Top extends Vue {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.card p {
-  text-align: right;
 }
 
 .card .tags {
