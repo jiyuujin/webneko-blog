@@ -41,7 +41,7 @@
     "markdown-it-highlightjs": "^3.0.0",
     "markdown-it-toc": "^1.1.0",
     "moment": "^2.23.0",
-    "nuxt": "^2.6.1",
+    "nuxt": "^2.7.1",
     "nuxt-property-decorator": "^2.0.1",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
