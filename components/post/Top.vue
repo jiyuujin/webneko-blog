@@ -138,10 +138,6 @@ export default class Top extends Vue {
   top: 0;
   right: 0;
   padding-right: 0.2em;
-  /*border-left: solid 4px #42b883;*/
-  /*border-radius: 24px;*/
-  /*background-color: #42b883;*/
-  /*color: #fff;*/
 }
 
 .card h2 {
@@ -174,11 +170,6 @@ export default class Top extends Vue {
   width: 100%;
   height: 200px;
   object-fit: cover;
-}
-
-.hero-image img:hover {
-  transform: scale(1.1);
-  transition-duration: 0.3s;
 }
 
 .pager {

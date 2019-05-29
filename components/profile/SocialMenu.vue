@@ -1,7 +1,7 @@
 <template>
   <div class="social-menu">
     <a
-      :href="`http://twitter.com/share?text=${title}&url=https://webneko.info/posts/${slugText}`"
+      :href="`http://twitter.com/share?text=${title}&url=https://webneko.dev/posts/${slugText}`"
       onClick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;"
     >
       <img
@@ -10,7 +10,7 @@
       >
     </a>
     <a
-      :href="`http://b.hatena.ne.jp/entry/webneko.info/posts/${slugText}`"
+      :href="`http://b.hatena.ne.jp/entry/webneko.dev/posts/${slugText}`"
       onClick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;"
     >
       <img
