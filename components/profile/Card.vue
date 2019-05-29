@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
-const ProfileImage = () => import('~/components/profile/Image.vue')
+const ProfileImage = () => import('~/components/profile/ProfileImage.vue')
 
 @Component({
   components: {

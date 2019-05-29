@@ -14,6 +14,7 @@
         <detail
           :post="currentPost"
         />
+        <!--
         <div>
           <google-adsense
             :slot="adSlot"
@@ -22,6 +23,7 @@
             :ad-style="adStyle"
           />
         </div>
+        -->
         <div>
           <p>
             コメントを残す
@@ -42,7 +44,7 @@
           fontSize="12px"
         />
         <a
-          href="https://webneko.info/profile"
+          href="./profile"
           target="_blank"
         >
           This's Profile

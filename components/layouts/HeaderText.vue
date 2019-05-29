@@ -1,17 +1,6 @@
 <template>
   <div class="header">
-    <div class="profile">
-      <p>
-        <a href="https://webneko.info/profile">
-          プロフィール
-        </a>
-      </p>
-    </div>
-    <div class="title">
-      <h2>
-        Web猫ブログ
-      </h2>
-    </div>
+    Web猫ブログ
   </div>
 </template>
 
@@ -24,42 +13,16 @@ export default class HeaderText extends Vue {}
 
 <style scoped>
 .header {
+  position: fixed;
   text-align: center;
-  max-width: 1440px;
-  min-height: 240px;
-  background-image: url('../../static/neko.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-.profile {
-  position: absolute;
-  top: 16px;
   width: 100%;
-  display: flex;
-  align-items: center;
-  color: #fff;
-  font-size: 0.8rem;
-}
-
-.profile a {
-  text-decoration: none;
-  margin: 0 1em;
-  padding-right: 16px;
-  background: url(../../static/external_link.png) no-repeat right center;
-  color: #fff;
-}
-
-.title {
-  display: inline;
-  top: 50%;
-  text-align: center;
-  padding: 20px;
-  line-height: 1;
-  transform: translateY(-50%);
-  color: #fff;
-  font-size: 2rem;
+  padding: 12px;
+  top: 0;
+  left: 0;
+  background: #42b883;
+  box-shadow:0 2px 8px rgba(30,30,80,.3);
+  line-height: 1.2;
+  font-size: 3vmin;
+  z-index:24;
 }
 </style>

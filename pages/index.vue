@@ -40,5 +40,6 @@ export default class Index extends Vue {}
 <style scoped>
 .main {
   margin: 24px 10% 8px;
+  padding-top: 36px;
 }
 </style>

@@ -1,13 +1,12 @@
 import { Module, ActionContext, ActionTree, MutationTree } from 'vuex';
 import { RootState } from './types';
 import { createClient } from '~/plugins/contentful'
-import {stringLiteral} from "~/node_modules/@types/babel-types";
 
 const client = createClient();
 
 const ORDER = '-fields.publishDate';
 
-const PAGE_SIZE = 12;
+const PAGE_SIZE = 9;
 
 const namespaced = true;
 

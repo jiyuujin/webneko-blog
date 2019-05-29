@@ -12,7 +12,7 @@
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component({})
-export default class Image extends Vue {
+export default class ProfileImage extends Vue {
   @Prop() width: string;
 }
 </script>
