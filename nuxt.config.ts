@@ -72,7 +72,7 @@ export default {
     [
       '@nuxtjs/google-analytics',
       {
-        id: 'UA-128757208-1'
+        id: 'UA-141123200-1'
       }
     ],
     '@nuxtjs/sitemap',
