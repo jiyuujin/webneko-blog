@@ -49,6 +49,7 @@
         >
           This's Profile
         </a>
+        <latest-list />
       </div>
     </div>
   </main-template>
@@ -61,6 +62,7 @@ const SocialMenu = () => import('~/components/profile/SocialMenu.vue')
 const Card = () => import('~/components/profile/Card.vue')
 const Biography = () => import('~/components/profile/Biography.vue')
 const Detail = () => import('~/components/post/Detail.vue')
+const LatestList = () => import('~/components/post/LatestList.vue')
 const New = () => import('~/components/contact/New.vue')
 const GoogleAdsense = () => import('~/components/atoms/GoogleAdsense.vue')
 
@@ -71,6 +73,7 @@ const GoogleAdsense = () => import('~/components/atoms/GoogleAdsense.vue')
     Card,
     Biography,
     Detail,
+    LatestList,
     New,
     GoogleAdsense
   },
