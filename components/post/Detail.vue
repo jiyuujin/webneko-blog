@@ -12,7 +12,7 @@
         {{ post.fields.title }}
       </h2>
       <p>
-        {{ (new Date(post.fields.publishDate)).toDateString() }}
+        {{ getDate(post.fields.publishDate) }}
       </p>
       <div
         class="body"
@@ -24,10 +24,15 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
+import dayjs from 'dayjs'
 
 @Component({})
 export default class Detail extends Vue {
   @Prop() post: object;
+
+  getDate(date: Date) {
+    return dayjs(date).format('MM月 DD日')
+  }
 }
 </script>
 

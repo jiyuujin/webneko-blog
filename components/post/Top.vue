@@ -21,14 +21,14 @@
             color="#000"
           />
         </div>
-        <h2>
+        <div class="title">
           {{ post.fields.title }}
-        </h2>
-        <h3>
+        </div>
+        <div class="description">
           <p>
             {{ post.fields.description }}
           </p>
-        </h3>
+        </div>
         <div class="date">
           {{ getDate(post.fields.publishDate) }}
         </div>
@@ -58,23 +58,14 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import dayjs from 'dayjs'
-const TitleLabel = () => import('~/components/atoms/TitleLabel.vue')
 const Pagination = () => import('~/components/atoms/Pagination.vue')
 const LabelForm = () => import('~/components/atoms/LabelForm.vue')
 
 @Component({
   components: {
-    TitleLabel,
     Pagination,
     LabelForm
-  },
-  // computed: {
-  //   ...mapState({
-  //     'posts': (state: any) => state.product.posts,
-  //     'page': (state: any) => state.product.page,
-  //     'pagesTotal': (state: any) => state.product.pagesTotal
-  //   })
-  // }
+  }
 })
 export default class Top extends Vue {
   async applyPage(value: number) {
@@ -103,7 +94,7 @@ export default class Top extends Vue {
       case 'Server':
         return 'サーバーサイド'
       default:
-        return 'その他'
+        return '未分類'
     }
   }
 
@@ -140,18 +131,18 @@ export default class Top extends Vue {
   padding-right: 0.2em;
 }
 
-.card h2 {
-  font-size: 18px;
+.card .title {
+  font-size: 3vmin;
   height: 2.4em;
   line-height: 1.2;
   text-align: center;
 }
 
-.card h3 {
-  font-size: 14px;
+.card .description {
+  font-size: 1.8vmin;
 }
 
-.card h3 p {
+.card .description p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
