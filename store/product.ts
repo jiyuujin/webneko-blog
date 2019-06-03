@@ -1,47 +1,34 @@
 import { Module, ActionContext, ActionTree, MutationTree } from 'vuex';
+import { Dictionary, Post, Param } from '~/types/blog';
 import { RootState } from './types';
-import { createClient } from '~/plugins/contentful'
+import { createClient } from '~/plugins/contentful';
 
 const client = createClient();
 
 const ORDER = '-fields.publishDate';
 
-const PAGE_SIZE = 9;
+const PAGE = 9;
 
 const namespaced = true;
 
 export const state = (): State => ({
   isCookieAccepted: false,
+  latestPosts: {},
   posts: {},
   currentPost: null,
   page: 1,
   pagesTotal: 0,
-  loading: false,
   tags: []
 });
 
-interface Dictionary<T> {
-  [key: string]: T
-}
-
-export interface Post {
-  title: string;
-  description: string;
-  body: string;
-}
-
-export interface Param {
-  slug: string;
-}
-
 export interface State {
   isCookieAccepted: boolean | false;
+  latestPosts: Dictionary<Post>;
   posts: Dictionary<Post>;
   currentPost: Post | null;
   page: number;
   pagesTotal: number;
-  loading: boolean | false;
-  tags: Array<string>;
+  tags: string[];
 }
 
 export interface RootState extends State {
@@ -51,6 +38,9 @@ export interface RootState extends State {
 export const mutations: MutationTree<State> = {
   acceptCookie (state) {
     state.isCookieAccepted = true
+  },
+  setLatestPosts (state, payload) {
+    state.latestPosts = payload
   },
   setPosts (state, payload) {
     state.posts = payload
@@ -64,9 +54,6 @@ export const mutations: MutationTree<State> = {
   setPagesTotal (state, payload) {
     state.pagesTotal = payload
   },
-  setLoading (state, payload) {
-    state.loading = payload
-  },
   setTags (state, payload) {
     state.tags = payload
   }
@@ -76,60 +63,36 @@ export const actions: RootActionTree<State, RootState> = {
   async nuxtServerInit(
     { commit, state }: ActionContext<State, RootState>,
   ) {
-    let page = 1
-    if (!state.page) {
-      page = 1
-    }
-
-    // ページを設定する
-    commit('setPage', page)
+    commit('setPage', !state.page ? 1 : state.page)
 
     await client
       .getEntries({
         content_type: process.env.CTF_BLOG_POST_TYPE_ID,
         order: ORDER,
-        skip: (state.page - 1) * PAGE_SIZE,
-        limit: PAGE_SIZE
+        skip: (state.page - 1) * PAGE,
+        limit: PAGE
       })
       .then((entries: any) => {
-        // console.log(entries)
-
-        // ポストを設定する
         commit('setPosts', entries.items)
-
-        // ページ数合計を設定する
-        commit('setPagesTotal', Math.ceil(entries.total / PAGE_SIZE))
+        commit('setPagesTotal', Math.ceil(entries.total / PAGE))
       })
-      .catch(console.error)
-
-    await client
-      .getEntries({
-        content_type: process.env.CTF_BLOG_POST_TYPE_ID,
-        order: ORDER
-      })
-      .then((entries: any) => {
-        // console.log(entries)
-
-        let array: Array<string> = []
-        entries.items.forEach(item => {
-          item.fields.tags.forEach(tag => {
-            array.push(tag)
-          })
-        })
-
-        // タグ一覧を設定する
-        commit('setTags', array.filter((x, i, self) => {
-          return self.indexOf(x) === i
-        }))
-      })
-      .catch(console.error)
   },
   async initPosts (
     { commit, state }: ActionContext<State, RootState>,
     params: Param
   ) {
     if (params.slug !== '') {
-      commit('setLoading', true)
+      const LATEST_PAGE = 12
+
+      await client
+        .getEntries({
+          content_type: process.env.CTF_BLOG_POST_TYPE_ID,
+          order: ORDER,
+          limit: LATEST_PAGE
+        })
+        .then((entries: any) => {
+          commit('setLatestPosts', entries.items)
+        })
 
       await client
         .getEntries({
@@ -137,41 +100,28 @@ export const actions: RootActionTree<State, RootState> = {
           order: ORDER
         })
         .then((entries: any) => {
-          // console.log(entries)
           const currentPost = entries.items.filter((item: any) => {
             return item.fields.slug === params.slug
           })
 
-          // 現在のポストを設定する
           commit('setCurrentPost', currentPost[0])
-        })
-        .catch(console.error)
-        .finally(() => {
-          commit('setLoading', false)
         })
       return
     }
 
-    // ページを設定する
     commit('setPage', state.page)
 
     await client
       .getEntries({
         content_type: process.env.CTF_BLOG_POST_TYPE_ID,
         order: ORDER,
-        skip: (state.page - 1) * PAGE_SIZE,
-        limit: PAGE_SIZE
+        skip: (state.page - 1) * PAGE,
+        limit: PAGE
       })
       .then((entries: any) => {
-        // console.log(entries)
-
-        // ポストを設定する
         commit('setPosts', entries.items)
-
-        // ページ数合計を設定する
-        commit('setPagesTotal', Math.ceil(entries.total / PAGE_SIZE))
+        commit('setPagesTotal', Math.ceil(entries.total / PAGE))
       })
-      .catch(console.error)
 
     await client
       .getEntries({
@@ -179,21 +129,17 @@ export const actions: RootActionTree<State, RootState> = {
         order: ORDER
       })
       .then((entries: any) => {
-        // console.log(entries)
-
-        let array: Array<string> = []
+        let array: string[] = []
         entries.items.forEach(item => {
           item.fields.tags.forEach(tag => {
             array.push(tag)
           })
         })
 
-        // タグ一覧を設定する
         commit('setTags', array.filter((x, i, self) => {
           return self.indexOf(x) === i
         }))
       })
-      .catch(console.error)
   }
 };
 

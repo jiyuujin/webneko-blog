@@ -54,6 +54,7 @@ export default {
   ],
 
   plugins: [
+    '~plugins/contentful.ts',
     '~plugins/firebase.ts',
   ],
 
@@ -164,7 +165,7 @@ export default {
       }
     },
     typescript: {
-      typeCheck: false // or ForkTsChecker options
+      typeCheck: true // or ForkTsChecker options
     }
   },
 

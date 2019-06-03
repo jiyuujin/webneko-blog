@@ -1,5 +1,14 @@
 <template>
   <div>
+    <div
+      v-if="validationText"
+      class="validate"
+    >
+      {{ validationText }}
+    </div>
+    <div v-if="responseText">
+      {{ responseText }}
+    </div>
     <form-template>
       <input-form
         :data="form.title"
@@ -31,8 +40,8 @@
     </form-template>
     <form-template>
       <a
-        href="#"
-        @click="submit"
+        href="javascript: void(0)"
+        @click="submit(); return false;"
       >
         送信します
       </a>
@@ -42,9 +51,9 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
-import moment from 'moment'
+import dayjs from 'dayjs'
 import Firestore from '~/plugins/firebase.ts'
-import { isValidText, setDialog } from '~/store/utils.ts'
+import { isValidText } from '~/store/utils.ts'
 const FormTemplate = () => import('~/components/templates/FormTemplate.vue')
 const InputForm = () => import('~/components/atoms/InputForm.vue')
 const SingleSelectForm = () => import('~/components/atoms/SingleSelectForm.vue')
@@ -89,7 +98,7 @@ const ContactCategories: ContactCategory[] = [
     TextAreaForm
   }
 })
-export default class New extends Vue {
+export default class NewContact extends Vue {
   @Prop() category!: string;
   @Prop() blogTitle!: string;
 
@@ -99,6 +108,8 @@ export default class New extends Vue {
     email: '',
     description: ''
   };
+  validationText: string = '';
+  responseText: string = '';
 
   contactCategories: ContactCategory[] = ContactCategories;
 
@@ -123,21 +134,28 @@ export default class New extends Vue {
     this.form.contactCategory = 0
     this.form.email = ''
     this.form.description = ''
+    this.validationText = ''
   }
 
   async submit() {
-    const error = true;
+    this.responseText = '';
 
     if (isValidText(this.form.title)) {
-      return setDialog(error, 'タイトル')
+      if (isValidText(this.form.description)) {
+        this.validationText = 'タイトル・詳細は必須です';
+        return;
+      }
+      this.validationText = 'タイトルは必須です';
+      return;
     }
 
     if (isValidText(this.form.description)) {
-      return setDialog(error, '詳細')
+      this.validationText = '詳細は必須です';
+      return;
     }
 
     await contactsCollection.add({
-      'time': moment().format(),
+      'time': dayjs().format(),
       'title': this.form.title,
       'category': this.getCategory(),
       'email': this.form.email,
@@ -146,7 +164,7 @@ export default class New extends Vue {
 
     this.reset();
 
-    return setDialog(!error, 'ご協力ありがとうございました！')
+    this.responseText = '送信に成功しました';
   }
 
   getCategory(): ContactCategory | undefined {
@@ -175,5 +193,10 @@ a {
   transition: all 0.3s ease-out;
   -webkit-font-smoothing: antialiased;
   text-decoration: none;
+}
+
+.validate {
+  text-align: left;
+  color: #c71582;
 }
 </style>

@@ -7,6 +7,7 @@
       <img
         :src="post.fields.heroImage.fields.file.url"
         :alt="post.fields.title"
+        decoding="async"
       >
       <h2>
         {{ post.fields.title }}

@@ -20,6 +20,7 @@
       <img
         src="../static/iyashi.png"
         alt="iyashi"
+        decoding="async"
       >
     </div>
   </section>
