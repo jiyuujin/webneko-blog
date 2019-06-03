@@ -35,7 +35,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from '~/node_modules/nuxt-property-decorator'
 const TitleLabel = () => import('~/components/atoms/TitleLabel.vue')
-import moment from '~/node_modules/moment'
+import dayjs from 'dayjs'
 
 interface Work {
   id: number,
@@ -57,7 +57,7 @@ export default class Career extends Vue {
   isBold: boolean = true;
 
   getDateFormat(d: Date) {
-    return moment(d).format('YYYY/MM')
+    return dayjs(d).format('YYYY/MM')
   }
 }
 </script>

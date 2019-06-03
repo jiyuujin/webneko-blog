@@ -7,6 +7,7 @@
       <img
         src="../../static/twitter.png"
         alt="twitter"
+        decoding="async"
       >
     </a>
     <a
@@ -16,6 +17,7 @@
       <img
         src="../../static/hatena.png"
         alt="hatena"
+        decoding="async"
       >
     </a>
   </div>

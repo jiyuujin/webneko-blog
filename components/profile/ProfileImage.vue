@@ -4,6 +4,7 @@
       :style="`max-width: ${width};`"
       src="../../static/nekos.png"
       alt="avatar"
+      decoding="async"
     >
   </div>
 </template>

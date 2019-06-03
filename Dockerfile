@@ -3,7 +3,7 @@
 # docker push 972799352477.dkr.ecr.ap-northeast-1.amazonaws.com/webneko-blog:latest
 
 # Nodeイメージを取得する
-FROM node:9.11.1-alpine
+FROM node:10.14.2-alpine
 
 # ワーキングディレクトリを指定する
 WORKDIR /app

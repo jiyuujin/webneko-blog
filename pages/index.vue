@@ -28,11 +28,6 @@ const HeaderText = () => import('~/components/layouts/HeaderText.vue')
     HeaderText
   },
   scrollToTop: true
-  // computed: {
-  //   ...mapState({
-  //     'posts': (state: any) => state.product.posts
-  //   })
-  // }
 })
 export default class Index extends Vue {}
 </script>

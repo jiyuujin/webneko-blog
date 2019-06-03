@@ -21,6 +21,7 @@
           :key="item"
           :src="'./' + item + '.png'"
           :alt="item"
+          decoding="async"
         >
       </div>
     </title-label>

@@ -21,6 +21,7 @@
         <img
           :src="`${item.image}.png`"
           :alt="item.title"
+          decoding="async"
         >
       </a>
     </div>

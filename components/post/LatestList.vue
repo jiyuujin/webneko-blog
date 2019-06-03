@@ -10,7 +10,7 @@
       最新記事一覧
     </title-label>
     <div
-      v-for="post in posts"
+      v-for="post in latestPosts"
       :key="post.fields.title"
       class="sub-card"
     >
@@ -21,6 +21,7 @@
           <img
             :src="post.fields.heroImage.fields.file.url"
             :alt="post.fields.title"
+            decoding="async"
           >
         </div>
         <div class="detail">
@@ -47,12 +48,12 @@ const TitleLabel = () => import('~/components/atoms/TitleLabel.vue')
     TitleLabel
   }
 })
-export default class Top extends Vue {
+export default class LatestList extends Vue {
   isCenter: boolean = true;
   isBold: boolean = true;
 
-  get posts() {
-    return this.$store.state.product.posts
+  get latestPosts() {
+    return this.$store.state.product.latestPosts
   }
 
   getDate(date: Date) {
