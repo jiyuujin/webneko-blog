@@ -1,4 +1,4 @@
-# webneko-blog-ver2
+# webneko-blog
 
 Nuxt + TypeScript + Contentful
 
