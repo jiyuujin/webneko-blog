@@ -46,6 +46,7 @@
         <a
           href="../profile"
           target="_blank"
+          rel="noopener"
         >
           This's Profile
         </a>

@@ -1,6 +1,6 @@
 import { Configuration } from 'webpack';
 import { Context } from '@nuxt/vue-app';
-import {ContentfulClientApi} from "contentful";
+import { ContentfulClientApi } from 'contentful';
 
 const contentful = require('contentful');
 
@@ -19,22 +19,22 @@ export default {
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Web猫ブログ' },
       { property: 'og:description', content: '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。' },
-      { property: 'og:image', content: 'https://webneko.dev/nyanko.png' },
-      { property: 'twitter:card', content: 'summary_large_image' },
+      { property: 'og:image', content: 'https://webneko.dev/kuroneko.png' },
+      { property: 'twitter:card', content: 'summary' },
       { property: 'twitter:site', content: '@jiyuujinlab' }
     ],
     link: [
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: './nyanko.png'
+        href: 'kuroneko.png'
       }
     ],
     script: [
-      {
-        async: true,
-        src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
-      }
+      // {
+      //   async: true,
+      //   src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+      // }
     ]
   },
 
@@ -61,15 +61,14 @@ export default {
   modules: [
     '@nuxtjs/pwa',
     '@nuxtjs/apollo',
-    '@nuxtjs/axios',
     '@nuxtjs/dotenv',
-    [
-      '@nuxtjs/google-adsense',
-      {
-        id: 'ca-pub-7095980629133842',
-        pageLevelAds: true
-      }
-    ],
+    // [
+    //   '@nuxtjs/google-adsense',
+    //   {
+    //     id: 'ca-pub-7095980629133842',
+    //     pageLevelAds: true
+    //   }
+    // ],
     [
       '@nuxtjs/google-analytics',
       {
@@ -84,10 +83,6 @@ export default {
     clientConfigs: {
       default: '~/apollo/client-configs/default.ts'
     }
-  },
-
-  axios: {
-    //
   },
 
   markdownit: {

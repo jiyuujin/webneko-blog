@@ -17,6 +17,7 @@
       <a
         :href="item.url"
         target="_blank"
+        rel="noopener"
       >
         <img
           :src="`${item.image}.png`"
