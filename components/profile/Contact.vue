@@ -17,6 +17,7 @@
       <a
         href="https://twitter.com/jiyuujinlab"
         target="_blank"
+        rel="noopener"
       >
         @jiyuujinlab
       </a>

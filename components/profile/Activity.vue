@@ -25,6 +25,7 @@
             <a
               :href="item.url"
               target="_blank"
+              rel="noopener"
             >
               {{ item.description ? item.description : item.url }}
             </a>

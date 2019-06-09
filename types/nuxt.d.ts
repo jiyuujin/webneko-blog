@@ -1,5 +1,4 @@
 declare module 'nuxt' {
-  import { AxiosInstance, AxiosRequestConfig } from 'axios';
   import { Store } from 'vuex';
   import { Route } from 'vue-router';
 
@@ -13,15 +12,8 @@ declare module 'nuxt' {
     render(): void;
   }
 
-  export interface NuxtAxiosInstance {
-    $delete(url: string, config?: AxiosRequestConfig): Promise<any>;
-    $get(url: string, config?: AxiosRequestConfig): Promise<any>;
-    $post(url: string, data?: any, config?: AxiosRequestConfig): Promise<any>;
-    $put(url: string, data?: any, config?: AxiosRequestConfig): Promise<any>;
-  }
-
   export interface NuxtApp {
-    $axios: AxiosInstance & NuxtAxiosInstance;
+    //
   }
 
   export interface NuxtConfig {
