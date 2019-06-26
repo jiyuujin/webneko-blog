@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from '~/node_modules/nuxt-property-decorator'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 const TitleLabel = () => import('~/components/atoms/TitleLabel.vue')
 
 @Component({

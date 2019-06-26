@@ -33,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from '~/node_modules/nuxt-property-decorator'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 const TitleLabel = () => import('~/components/atoms/TitleLabel.vue')
 import dayjs from 'dayjs'
 
@@ -51,7 +51,7 @@ interface Work {
     TitleLabel
   }
 })
-export default class Career extends Vue {
+export default class Timeline extends Vue {
   @Prop() data!: Work;
   isCenter: boolean = true;
   isBold: boolean = true;

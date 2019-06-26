@@ -16,24 +16,17 @@
         :data="allProducts"
         title="プロダクト一覧"
       />
-      <activity
-        :data="allActivities"
-        title="活動履歴"
-      />
-      <contact />
     </div>
   </main-template>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-const MainTemplate = ()=> import('~/components/templates/MainTemplate.vue')
+const MainTemplate = ()=> import('~/components/layouts/MainTemplate.vue')
 const Card = () => import('~/components/profile/Card.vue')
 const Biography = () => import('~/components/profile/Biography.vue')
 const Timeline = () => import('~/components/profile/Timeline.vue')
 const Product = () => import('~/components/profile/Product.vue')
-const Activity = () => import('~/components/profile/Activity.vue')
-const Contact = () => import('~/components/profile/Contact.vue')
 import gql from 'graphql-tag'
 
 const getQuery = gql`
@@ -53,12 +46,6 @@ const getQuery = gql`
       tag
       image
     }
-    allActivities(orderBy: time_DESC) {
-      id
-      title
-      description
-      url
-    }
   }
 `;
 
@@ -69,20 +56,11 @@ const getQuery = gql`
     Biography,
     Timeline,
     Product,
-    Activity,
-    Contact,
-  },
-  head() {
-    return {
-      title: 'プロフィール'
-    }
   },
   apollo: {
     allWorks: getQuery,
-    allProducts: getQuery,
-    allActivities: getQuery
-  },
-  scrollToTop: true
+    allProducts: getQuery
+  }
 })
 export default class Index extends Vue {}
 </script>

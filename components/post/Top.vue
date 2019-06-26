@@ -134,7 +134,7 @@ export default class Top extends Vue {
 
 .card .title {
   font-size: 3vmin;
-  height: 2.4em;
+  height: 3.6em;
   line-height: 1.2;
   text-align: center;
 }

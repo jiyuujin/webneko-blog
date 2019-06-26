@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-const MainTemplate = () => import('~/components/templates/MainTemplate.vue')
+const MainTemplate = () => import('~/components/layouts/MainTemplate.vue')
 const Top = () => import('~/components/post/Top.vue')
 const Tags = () => import('~/components/post/Tags.vue')
 const HeaderText = () => import('~/components/layouts/HeaderText.vue')
@@ -26,8 +26,7 @@ const HeaderText = () => import('~/components/layouts/HeaderText.vue')
     Top,
     Tags,
     HeaderText
-  },
-  scrollToTop: true
+  }
 })
 export default class Index extends Vue {}
 </script>
