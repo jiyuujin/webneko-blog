@@ -26,11 +26,10 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import dayjs from 'dayjs'
-import microlink from '@microlink/vanilla/umd/microlink'
 
 @Component({
   async mounted() {
-    microlink('.link-preview')
+    this.$microlinkjs('.link-preview')
   }
 })
 export default class Detail extends Vue {

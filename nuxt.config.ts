@@ -54,7 +54,10 @@ export default {
   ],
 
   plugins: [
-    '~plugins/contentful.ts',
+    {
+      src: '~plugins/microlink.ts',
+      mode: 'client'
+    },
     '~plugins/firebase.ts',
   ],
 
