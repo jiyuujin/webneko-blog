@@ -16,7 +16,7 @@ export default class TitleLabel extends Vue {
   @Prop() color!: string;
   @Prop() isCenter!: boolean;
   @Prop() isBold!: boolean;
-  @Prop() width: string;
+  @Prop() width!: string;
   @Prop() horizontalMargin!: string;
 }
 </script>

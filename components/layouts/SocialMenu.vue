@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from '~/node_modules/nuxt-property-decorator'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component({})
 export default class SocialMenu extends Vue {
@@ -44,8 +44,8 @@ export default class SocialMenu extends Vue {
 }
 
 .social-menu img {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   margin: 8px;
   border-radius: 50%;
 }

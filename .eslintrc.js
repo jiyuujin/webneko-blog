@@ -2,10 +2,12 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true
+    node: true,
+    es6: true
   },
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: 'babel-eslint',
+    sourceType: 'module'
   },
   extends: [
     'eslint:recommended'
@@ -22,6 +24,7 @@ module.exports = {
     '@typescript-eslint/adjacent-overload-signatures': 'error',
     'no-undef': 'error',
     'typeof': false,
-    'strictFunctionTypes': false
+    'strictFunctionTypes': false,
+    'no-unused-vars': 'off'
   }
 }

@@ -60,7 +60,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import dayjs from 'dayjs'
 const Pagination = () => import('~/components/atoms/Pagination.vue')
-const LabelForm = () => import('~/components/atoms/LabelForm.vue')
+const LabelForm = () => import('~/components/atoms/LabelText.vue')
 
 @Component({
   components: {
@@ -134,7 +134,7 @@ export default class Top extends Vue {
 
 .card .title {
   font-size: 3vmin;
-  height: 2.4em;
+  height: 3.6em;
   line-height: 1.2;
   text-align: center;
 }

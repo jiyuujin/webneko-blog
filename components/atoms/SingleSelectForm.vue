@@ -30,7 +30,6 @@ export default class SingleSelectForm extends Vue {
   @Prop() text!: string;
   @Prop() number!: number;
   @Prop() column!: string;
-
   defautValue: number = 0;
 
   get newVal() {

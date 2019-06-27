@@ -1,9 +1,17 @@
 <template>
-  <input
-    v-model="newVal"
-    :type="column === 'Password' ? 'password' : null"
-    :placeholder="column"
-  >
+  <div>
+    <input
+      v-if="!isTextArea"
+      v-model="newVal"
+      :type="column === 'Password' ? 'password' : null"
+      :placeholder="column"
+    >
+    <textarea
+      v-else
+      v-model="newVal"
+      :placeholder="column + 'を入力してください'"
+    />
+  </div>
 </template>
 
 <script lang="ts">
@@ -13,6 +21,7 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 export default class InputForm extends Vue {
   @Prop() data!: string;
   @Prop() column!: string;
+  @Prop() isTextArea: boolean;
 
   get newVal() {
     return this.data
@@ -27,6 +36,21 @@ export default class InputForm extends Vue {
 <style scoped>
 input {
   width: 80%;
+  font-size: 14px;
+  font-weight: bold;
+  border: solid 1px;
+  border-radius: 5px;
+  margin: 10px 10px 10px 0;
+  padding: 2px 6px 3px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  -webkit-font-smoothing: antialiased;
+}
+
+textarea {
+  width: 80%;
+  height: 100px;
   font-size: 14px;
   font-weight: bold;
   border: solid 1px;

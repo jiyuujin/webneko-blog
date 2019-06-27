@@ -25,7 +25,6 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 export default class Pagination extends Vue {
   @Prop() page!: number;
   @Prop() max!: number;
-
   disabled: boolean = true;
 
   prev(newVal: number) {
@@ -53,14 +52,15 @@ export default class Pagination extends Vue {
   padding: 8px 16px;
   text-decoration: none;
   transition: background-color .3s;
-  border: 1px solid #ddd;
+  border: solid 4px #ddd;
+  border-radius: 24px;
   margin: 0 4px;
 }
 
 .pagination a.active {
   background-color: #42b883;
   color: white;
-  border: 1px solid #42b883;
+  border: solid 4px #42b883;
 }
 
 .pagination a:hover:not(.active) {

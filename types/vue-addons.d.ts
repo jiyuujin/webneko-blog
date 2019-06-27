@@ -2,9 +2,12 @@ import { NuxtContext } from 'nuxt';
 import Vue from 'vue';
 import { Route } from 'vue-router';
 import { MetaInfo } from 'vue-meta';
+import { MicrolinkPlugin } from '~/plugins/microlink';
 
 declare module 'vue/types/vue' {
-  //
+  interface Vue {
+    $microlinkjs: MicrolinkPlugin;
+  }
 }
 
 declare module 'vue/types/options' {

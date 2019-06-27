@@ -9,43 +9,47 @@
     <div v-if="responseText">
       {{ responseText }}
     </div>
-    <form-template>
+    <main-template :is-form="isForm">
       <input-form
         :data="form.title"
         column="タイトル"
         @form-data="applyTitle"
       />
-    </form-template>
-    <form-template v-if="category === 'manual'">
+    </main-template>
+    <main-template
+      v-if="category === 'manual'"
+      :is-form="isForm"
+    >
       <single-select-form
         :option="contactCategories"
         :number="form.contactCategory"
         column="カテゴリー"
         @form-data="applyContactCategory"
       />
-    </form-template>
-    <form-template>
+    </main-template>
+    <main-template :is-form="isForm">
       <input-form
         :data="form.email"
         column="メールアドレス (任意)"
         @form-data="applyEmail"
       />
-    </form-template>
-    <form-template>
-      <text-area-form
+    </main-template>
+    <main-template :is-form="isForm">
+      <input-form
         :data="form.description"
+        :is-text-area="isTextArea"
         column="詳細"
         @form-data="applyDescription"
       />
-    </form-template>
-    <form-template>
+    </main-template>
+    <main-template :is-form="isForm">
       <a
         href="javascript: void(0)"
         @click="submit(); return false;"
       >
         送信します
       </a>
-    </form-template>
+    </main-template>
   </div>
 </template>
 
@@ -54,10 +58,9 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import dayjs from 'dayjs'
 import Firestore from '~/plugins/firebase.ts'
 import { isValidText } from '~/store/utils.ts'
-const FormTemplate = () => import('~/components/templates/FormTemplate.vue')
+const MainTemplate = () => import('~/components/layouts/MainTemplate.vue')
 const InputForm = () => import('~/components/atoms/InputForm.vue')
 const SingleSelectForm = () => import('~/components/atoms/SingleSelectForm.vue')
-const TextAreaForm = () => import('~/components/atoms/TextAreaForm.vue')
 
 const adminFirestore: any = Firestore.firestore();
 
@@ -92,15 +95,16 @@ const ContactCategories: ContactCategory[] = [
 
 @Component({
   components: {
-    FormTemplate,
+    MainTemplate,
     InputForm,
-    SingleSelectForm,
-    TextAreaForm
+    SingleSelectForm
   }
 })
 export default class NewContact extends Vue {
   @Prop() category!: string;
   @Prop() blogTitle!: string;
+  isForm: boolean = true;
+  isTextArea: boolean = true;
 
   form: Category = {
     title: '',

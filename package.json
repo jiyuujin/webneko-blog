@@ -13,6 +13,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@microlink/vanilla": "^3.0.5",
     "@nuxt/typescript": "^2.8.0",
     "@nuxt/vue-app": "^2.8.0",
     "@nuxtjs/apollo": "^4.0.0-rc6",
@@ -41,9 +42,7 @@
     "nuxt": "^2.8.0",
     "nuxt-property-decorator": "^2.3.0",
     "vue-cookie-law": "^1.10.0",
-    "vue-no-ssr": "^1.1.1",
-    "vuex": "^3.1.1",
-    "vuex-class": "^0.3.2"
+    "vue-no-ssr": "^1.1.1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^1.6.0",
