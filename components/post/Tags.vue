@@ -1,6 +1,6 @@
 <template>
   <div>
-    <title-label
+    <title-text
       :is-center="isCenter"
       :is-bold="isBold"
       width="40%"
@@ -8,13 +8,13 @@
       color="#42b883"
     >
       Tags
-    </title-label>
+    </title-text>
     <div class="tags">
       <span
         v-for="tag in tags"
         :key="tag"
       >
-        <label-form
+        <label-text
           :tag-text="tag"
         />
       </span>
@@ -24,13 +24,13 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-const TitleLabel = () => import('~/components/atoms/TitleLabel.vue')
-const LabelForm = () => import('~/components/atoms/LabelForm.vue')
+const TitleText = () => import('~/components/atoms/TitleText.vue')
+const LabelText = () => import('~/components/atoms/LabelText.vue')
 
 @Component({
   components: {
-    TitleLabel,
-    LabelForm
+    TitleText,
+    LabelText
   }
 })
 export default class Tags extends Vue {

@@ -1,6 +1,6 @@
 <template>
   <div class="sub-top">
-    <title-label
+    <title-text
       :is-center="isCenter"
       :is-bold="isBold"
       width="40%"
@@ -8,7 +8,7 @@
       color="#42b883"
     >
       最新記事一覧
-    </title-label>
+    </title-text>
     <div
       v-for="post in latestPosts"
       :key="post.fields.title"
@@ -41,11 +41,11 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import dayjs from 'dayjs'
-const TitleLabel = () => import('~/components/atoms/TitleLabel.vue')
+const TitleText = () => import('~/components/atoms/TitleText.vue')
 
 @Component({
   components: {
-    TitleLabel
+    TitleText
   }
 })
 export default class LatestList extends Vue {

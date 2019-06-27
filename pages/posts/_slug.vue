@@ -38,10 +38,8 @@
         <card
           background-color="#fff"
           color="#000"
-          style="margin-bottom: 36px;"
-        />
-        <biography
           fontSize="12px"
+          style="margin-bottom: 36px;"
         />
         <a
           href="../profile"
@@ -62,7 +60,6 @@ import { Component, Vue } from 'nuxt-property-decorator'
 const MainTemplate = () => import('~/components/layouts/MainTemplate.vue')
 const SocialMenu = () => import('~/components/layouts/SocialMenu.vue')
 const Card = () => import('~/components/profile/Card.vue')
-const Biography = () => import('~/components/profile/Biography.vue')
 const Detail = () => import('~/components/post/Detail.vue')
 const LatestList = () => import('~/components/post/LatestList.vue')
 const New = () => import('~/components/contact/New.vue')
@@ -73,7 +70,6 @@ const New = () => import('~/components/contact/New.vue')
     MainTemplate,
     SocialMenu,
     Card,
-    Biography,
     Detail,
     LatestList,
     New,

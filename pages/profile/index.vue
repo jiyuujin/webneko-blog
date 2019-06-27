@@ -4,17 +4,11 @@
       <card
         background-color="#000"
         color="#fff"
-      />
-      <biography
         fontSize="18px"
       />
       <timeline
         :data="allWorks"
         title="経歴"
-      />
-      <product
-        :data="allProducts"
-        title="プロダクト一覧"
       />
     </div>
   </main-template>
@@ -24,9 +18,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 const MainTemplate = ()=> import('~/components/layouts/MainTemplate.vue')
 const Card = () => import('~/components/profile/Card.vue')
-const Biography = () => import('~/components/profile/Biography.vue')
 const Timeline = () => import('~/components/profile/Timeline.vue')
-const Product = () => import('~/components/profile/Product.vue')
 import gql from 'graphql-tag'
 
 const getQuery = gql`
@@ -39,13 +31,7 @@ const getQuery = gql`
       title
       description
     }
-    allProducts {
-      id
-      title
-      url
-      tag
-      image
-    }
+    # 必要に応じて随時追加
   }
 `;
 
@@ -53,13 +39,11 @@ const getQuery = gql`
   components: {
     MainTemplate,
     Card,
-    Biography,
-    Timeline,
-    Product,
+    Timeline
   },
   apollo: {
-    allWorks: getQuery,
-    allProducts: getQuery
+    allWorks: getQuery
+    // 必要に応じて随時追加
   }
 })
 export default class Index extends Vue {}

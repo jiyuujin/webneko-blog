@@ -2,7 +2,7 @@
   <main-template>
     <header-text />
     <div class="main">
-      <top />
+      <top-list />
       <tags />
     </div>
   </main-template>
@@ -11,7 +11,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 const MainTemplate = () => import('~/components/layouts/MainTemplate.vue')
-const Top = () => import('~/components/post/Top.vue')
+const TopList = () => import('~/components/post/TopList.vue')
 const Tags = () => import('~/components/post/Tags.vue')
 const HeaderText = () => import('~/components/layouts/HeaderText.vue')
 
@@ -23,7 +23,7 @@ const HeaderText = () => import('~/components/layouts/HeaderText.vue')
   },
   components: {
     MainTemplate,
-    Top,
+    TopList,
     Tags,
     HeaderText
   }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <title-label
+    <title-text
       :is-center="isCenter"
       :is-bold="isBold"
       width="40%"
@@ -8,7 +8,7 @@
       color="#42b883"
     >
       経歴
-    </title-label>
+    </title-text>
     <ul
       v-for="item in data"
       :key="item.id"
@@ -34,7 +34,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
-const TitleLabel = () => import('~/components/atoms/TitleLabel.vue')
+const TitleText = () => import('~/components/atoms/TitleText.vue')
 import dayjs from 'dayjs'
 
 interface Work {
@@ -48,7 +48,7 @@ interface Work {
 
 @Component({
   components: {
-    TitleLabel
+    TitleText
   }
 })
 export default class Timeline extends Vue {

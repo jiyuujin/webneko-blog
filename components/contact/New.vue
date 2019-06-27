@@ -35,8 +35,9 @@
       />
     </main-template>
     <main-template :is-form="isForm">
-      <text-area-form
+      <input-form
         :data="form.description"
+        :is-text-area="isTextArea"
         column="詳細"
         @form-data="applyDescription"
       />
@@ -60,7 +61,6 @@ import { isValidText } from '~/store/utils.ts'
 const MainTemplate = () => import('~/components/layouts/MainTemplate.vue')
 const InputForm = () => import('~/components/atoms/InputForm.vue')
 const SingleSelectForm = () => import('~/components/atoms/SingleSelectForm.vue')
-const TextAreaForm = () => import('~/components/atoms/TextAreaForm.vue')
 
 const adminFirestore: any = Firestore.firestore();
 
@@ -97,14 +97,14 @@ const ContactCategories: ContactCategory[] = [
   components: {
     MainTemplate,
     InputForm,
-    SingleSelectForm,
-    TextAreaForm
+    SingleSelectForm
   }
 })
 export default class NewContact extends Vue {
   @Prop() category!: string;
   @Prop() blogTitle!: string;
   isForm: boolean = true;
+  isTextArea: boolean = true;
 
   form: Category = {
     title: '',

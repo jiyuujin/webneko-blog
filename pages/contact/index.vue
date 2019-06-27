@@ -26,7 +26,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 const MainTemplate = () => import('~/components/layouts/MainTemplate.vue')
 const New = () => import('~/components/contact/New.vue')
-const PrivacyPolicy = () => import('~/components/atoms/PrivacyPolicy.vue')
+const PrivacyPolicy = () => import('~/components/layouts/PrivacyPolicy.vue')
 
 @Component({
   components: {
