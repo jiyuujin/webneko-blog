@@ -39,7 +39,7 @@
     "markdown-it-container": "^2.0.0",
     "markdown-it-highlightjs": "^3.0.0",
     "markdown-it-toc": "^1.1.0",
-    "nuxt": "^2.8.0",
+    "nuxt": "^2.8.1",
     "nuxt-property-decorator": "^2.3.0",
     "vue-cookie-law": "^1.10.0",
     "vue-no-ssr": "^1.1.1"
