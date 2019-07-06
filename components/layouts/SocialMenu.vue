@@ -20,6 +20,16 @@
         decoding="async"
       >
     </a>
+    <a
+      :href="`https://note.mu/intent/post?url=${slugText}`"
+      onClick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;"
+    >
+      <img
+        src="../../static/note.png"
+        alt="note"
+        decoding="async"
+      >
+    </a>
   </div>
 </template>
 
