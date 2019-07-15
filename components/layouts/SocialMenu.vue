@@ -58,6 +58,17 @@ export default class SocialMenu extends Vue {
   height: 36px;
   margin: 8px;
   border-radius: 50%;
+	filter: #aaa;
+  -webkit-filter: grayscale(1);
+	filter: grayscale(1);
+}
+
+.social-menu img:hover {
+  background: #fff;
+  opacity: 100%;
+  filter: none;
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
 }
 
 @media (max-width: 500px) {
