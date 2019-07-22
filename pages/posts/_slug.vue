@@ -5,6 +5,7 @@
     <social-menu
       :slug-text="currentPost.fields.slug"
       :title="currentPost.fields.title"
+      :is-side="!isSide"
     />
     <div class="article">
       <div class="blog-card">
@@ -24,6 +25,11 @@
           />
         </div>
         -->
+        <social-menu
+          :slug-text="currentPost.fields.slug"
+          :title="currentPost.fields.title"
+          :is-side="isSide"
+        />
         <div>
           <p>
             コメントを残す
@@ -99,6 +105,8 @@ const New = () => import('~/components/contact/New.vue')
   scrollToTop: true
 })
 export default class Slug extends Vue {
+  isSide: boolean = true
+
   get currentPost() {
     return this.$store.state.product.currentPost
   }

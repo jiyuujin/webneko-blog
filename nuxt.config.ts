@@ -58,7 +58,11 @@ export default {
       src: '~plugins/microlink.ts',
       mode: 'client'
     },
-    '~plugins/firebase.ts',
+    {
+      src: '~plugins/infinite-loading.ts',
+      mode: 'client'
+    },
+    '~plugins/firebase.ts'
   ],
 
   modules: [
@@ -163,7 +167,7 @@ export default {
       }
     },
     typescript: {
-      typeCheck: true // or ForkTsChecker options
+      typeCheck: false // or ForkTsChecker options
     }
   },
 
