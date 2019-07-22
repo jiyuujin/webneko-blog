@@ -1,8 +1,9 @@
 <template>
   <div class="top">
     <div
-      v-for="post in posts"
+      v-for="(post, index) in posts"
       :key="post.fields.title"
+      v-if="index < count"
       class="card"
     >
       <nuxt-link
@@ -46,6 +47,7 @@
       </nuxt-link>
       <hr>
     </div>
+    <!--
     <div class="pager">
       <pagination
         :page="page"
@@ -53,18 +55,27 @@
         @page-data="applyPage"
       />
     </div>
+    -->
+    <no-ssr>
+      <infinite-loading 
+        spinner="spiral"
+        @infinite="infiniteHandler"
+      >
+        <span slot="no-more">読み込み終わりました</span>
+      </infinite-loading>
+    </no-ssr>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import dayjs from 'dayjs'
-const Pagination = () => import('~/components/atoms/Pagination.vue')
+// const Pagination = () => import('~/components/atoms/Pagination.vue')
 const LabelForm = () => import('~/components/atoms/LabelText.vue')
 
 @Component({
   components: {
-    Pagination,
+    // Pagination,
     LabelForm
   }
 })
@@ -103,8 +114,20 @@ export default class Top extends Vue {
     return dayjs(date).format('MM月 DD日')
   }
 
+  infiniteHandler($state: any) {
+    setTimeout(() => {
+      if (this.count < this.posts.length) {
+        this.count += 9
+        $state.loaded()
+      } else {
+        $state.complete()
+      }
+    }, 1000)
+  }
+
   isCenter: boolean = true;
   isBold: boolean = true;
+  count: number = 9;
 }
 </script>
 
@@ -133,7 +156,7 @@ export default class Top extends Vue {
 }
 
 .card .title {
-  font-size: 3vmin;
+  font-size: 3.6vmin;
   height: 3.6em;
   line-height: 1.2;
   text-align: center;
@@ -164,9 +187,17 @@ export default class Top extends Vue {
   object-fit: cover;
 }
 
-.pager {
-  margin: 0 auto;
+infinite-loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 680px;
+  margin: 100px 0;
 }
+
+/*.pager {
+  margin: 0 auto;
+}*/
 
 @media (max-width: 500px) {
   .card {

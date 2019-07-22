@@ -3,8 +3,27 @@ declare module '*.vue' {
   export default Vue;
 }
 
-// デコレータで @Component を使う時に必要
+// デコレータで @Component を使うため必要
 declare module 'vue-class-component'
 
-// クッキーの利用を明示するために必要
+// クッキーの利用を明示するため必要
 declare module 'vue-cookie-law'
+
+// 無限スクロールを使うため必要
+declare module 'vue-infinite-loading' {
+  import Vue from 'vue'
+
+  export default class InfiniteLoading extends Vue {
+    distance: number;
+    onInfinite: Function;
+    spinner: string;
+    direction: string;
+    forceUseInfiniteWrapper: boolean;
+  }
+
+  export interface StateChanger {
+    loaded(): void;
+    complete(): void;
+    reset(): void;
+  }
+}
