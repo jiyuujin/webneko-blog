@@ -14,10 +14,10 @@ declare module 'vue-infinite-loading' {
   import Vue from 'vue'
 
   export default class InfiniteLoading extends Vue {
-    distance: number;
-    onInfinite: Function;
     spinner: string;
     direction: string;
+    distance: number;
+    onInfinite: Function;
     forceUseInfiniteWrapper: boolean;
   }
 

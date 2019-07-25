@@ -2,11 +2,14 @@
   <main-template
     v-if="currentPost"
   >
+    <!--
     <social-menu
       :slug-text="currentPost.fields.slug"
       :title="currentPost.fields.title"
-      :is-side="!isSide"
+      :is-side="isVertical"
     />
+    -->
+
     <div class="article">
       <div class="blog-card">
         <p>
@@ -28,7 +31,7 @@
         <social-menu
           :slug-text="currentPost.fields.slug"
           :title="currentPost.fields.title"
-          :is-side="isSide"
+          :is-vertical="!isVertical"
         />
         <div>
           <p>
@@ -101,11 +104,10 @@ const New = () => import('~/components/contact/New.vue')
     return {
       currentPost: store.state.product.currentPost,
     }
-  },
-  scrollToTop: true
+  }
 })
 export default class Slug extends Vue {
-  isSide: boolean = true
+  isVertical: boolean = true
 
   get currentPost() {
     return this.$store.state.product.currentPost

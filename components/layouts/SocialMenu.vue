@@ -1,38 +1,22 @@
 <template>
-  <div
-    :style="isSide ? `display: inline;` : `position: sticky; left: 2%; top: 60px;`"
-    class="social-menu"
-  >
-    <a
-      :href="`http://twitter.com/share?text=${title}&url=https://webneko.dev/posts/${slugText}`"
-      onClick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;"
+  <div>
+    <div
+      :class="isVertical ? `vertical` : `horizontal`"
+      class="social-menu"
     >
-      <img
-        src="../../static/twitter.png"
-        alt="twitter"
-        decoding="async"
+      <a
+        v-for="item in socialMenu"
+        :key="item"
+        href="#"
+        @click="handleClick(item)"
       >
-    </a>
-    <a
-      :href="`http://b.hatena.ne.jp/entry/webneko.dev/posts/${slugText}`"
-      onClick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;"
-    >
-      <img
-        src="../../static/hatena.png"
-        alt="hatena"
-        decoding="async"
-      >
-    </a>
-    <a
-      :href="`https://note.mu/intent/post?url=https://webneko.dev/posts/${slugText}`"
-      onClick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;"
-    >
-      <img
-        src="../../static/note.png"
-        alt="note"
-        decoding="async"
-      >
-    </a>
+        <img
+          :src="`/${item}.png`"
+          :alt="item"
+          decoding="async"
+        >
+      </a>
+    </div>
   </div>
 </template>
 
@@ -43,7 +27,35 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 export default class SocialMenu extends Vue {
   @Prop() slugText: string;
   @Prop() title: string;
-  @Prop() isSide: boolean;
+  @Prop() isVertical: boolean;
+
+  socialMenu: string[] = [
+    'twitter',
+    'hatena',
+    'note'
+  ];
+
+  handleClick(item: string) {
+    let url: string = '';
+
+    switch (item) {
+      case 'twitter':
+        url = `http://twitter.com/share?text=${this.title}&url=https://webneko.dev/posts/${this.slugText}`;
+        break;
+      case 'hatena':
+        url = `http://b.hatena.ne.jp/entry/webneko.dev/posts/${this.slugText}`;
+        break;
+      case 'note':
+        url = `https://note.mu/intent/post?url=https://webneko.dev/posts/${this.slugText}`;
+        break;
+      default:
+        break;
+    }
+
+    window.open(encodeURI(decodeURI(url)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1');
+
+    return false;
+  }
 }
 </script>
 
@@ -52,6 +64,17 @@ export default class SocialMenu extends Vue {
   z-index: 100;
   width: 4%;
   height: 0;
+}
+
+.vertical {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 2%;
+  top: 60px;
+}
+
+.horizontal {
+  display: inline;
 }
 
 .social-menu img {
