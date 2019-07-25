@@ -192,7 +192,7 @@ export default {
   },
 
   generate: {
-    //
+    subFolders: false
   },
 
   env: {
