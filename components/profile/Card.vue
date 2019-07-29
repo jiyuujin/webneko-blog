@@ -11,7 +11,7 @@
         Web猫
       </h2>
       <h3>
-        jiyuujin LAB.
+        Yuma Kitamura
       </h3>
     </div>
     <title-text

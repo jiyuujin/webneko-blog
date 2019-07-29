@@ -16,13 +16,6 @@
         <nuxt-link to="/">ホーム</nuxt-link>
       </h2>
     </div>
-    <div class="cat">
-      <img
-        src="../static/iyashi.png"
-        alt="iyashi"
-        decoding="async"
-      >
-    </div>
   </section>
 </template>
 
@@ -57,13 +50,5 @@ export default class Error extends Vue {
   color: #526488;
   word-spacing: 5px;
   padding-bottom: 15px;
-}
-
-.cat {
-  padding-top: 15px;
-}
-
-img {
-  width: 50%;
 }
 </style>

@@ -47,7 +47,7 @@
       </nuxt-link>
       <hr>
     </div>
-    <!--
+
     <div class="pager">
       <pagination
         :page="page"
@@ -55,7 +55,8 @@
         @page-data="applyPage"
       />
     </div>
-    -->
+
+    <!--
     <no-ssr>
       <infinite-loading 
         spinner="spiral"
@@ -64,18 +65,19 @@
         <span slot="no-more">読み込み終わりました</span>
       </infinite-loading>
     </no-ssr>
+    -->
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import dayjs from 'dayjs'
-// const Pagination = () => import('~/components/atoms/Pagination.vue')
+const Pagination = () => import('~/components/atoms/Pagination.vue')
 const LabelForm = () => import('~/components/atoms/LabelText.vue')
 
 @Component({
   components: {
-    // Pagination,
+    Pagination,
     LabelForm
   }
 })

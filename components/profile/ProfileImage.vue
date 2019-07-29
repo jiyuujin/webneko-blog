@@ -2,7 +2,7 @@
   <div class="avatar">
     <img
       :style="`max-width: ${width};`"
-      src="../../static/nekos.png"
+      src="../../static/icon_kuma.png"
       alt="avatar"
       decoding="async"
     >
