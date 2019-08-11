@@ -8,8 +8,7 @@ module.exports = {
     'no-unused-vars': 1,
     strictFunctionTypes: false,
     typeof: false,
-    'no-undef': 'error',
-    '@typescript-eslint/adjacent-overload-signatures': 'error'
+    'no-undef': 'error'
   },
   parserOptions: {
     parser: '@typescript-eslint/parser'
