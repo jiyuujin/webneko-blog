@@ -16,8 +16,10 @@
     "pretty": true,
     "sourceMap": true,
     "types": [
+      "@types/graphql",
       "@types/node",
       "@types/webpack",
+      "@types/webpack-env",
       "@nuxt/vue-app"
     ],
     "target": "esnext",
