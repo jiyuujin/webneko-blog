@@ -39,5 +39,17 @@
         "./*"
       ]
     }
-  }
+  },
+  "include": [
+    "components/**/*",
+    "layouts/**/*",
+    "middleware/**/*",
+    "pages/**/*",
+    "plugins/**/*",
+    "store/**/*",
+    "utils/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
