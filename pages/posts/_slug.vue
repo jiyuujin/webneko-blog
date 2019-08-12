@@ -75,6 +75,14 @@ const New = () => import('~/components/contact/New.vue')
 // const GoogleAdsense = () => import('~/components/atoms/GoogleAdsense.vue')
 
 @Component({
+  async asyncData({ store, params }) {
+    await store.dispatch('product/initPosts', {
+      'slug': params.slug
+    });
+    return {
+      currentPost: store.state.product.currentPost,
+    }
+  },
   components: {
     MainTemplate,
     SocialMenu,
@@ -97,14 +105,6 @@ const New = () => import('~/components/contact/New.vue')
       ]
     }
   },
-  async fetch({ store, params }) {
-    await store.dispatch('product/initPosts', {
-      'slug': params.slug
-    });
-    return {
-      currentPost: store.state.product.currentPost,
-    }
-  }
 })
 export default class Slug extends Vue {
   isVertical: boolean = true
