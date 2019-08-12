@@ -25,7 +25,7 @@ jobs:
           @typescript-eslint/parser \
           @typescript-eslint/typescript-estree
       script:
-        - node_modules/eslint/bin/eslint.js .
+#        - node_modules/eslint/bin/eslint.js .
     # Build Compile
     - stage: "compile"
       name: "Build Compile"
