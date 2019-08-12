@@ -3,13 +3,17 @@ declare module '*.vue' {
   export default Vue;
 }
 
-// デコレータで @Component を使うため必要
-declare module 'vue-class-component'
+// vue-cookie-law
+declare module 'vue-cookie-law' {
+  //
+}
 
-// クッキーの利用を明示するため必要
-declare module 'vue-cookie-law'
+// @microlink/vanilla
+declare module '@microlink/vanilla' {
+  //
+}
 
-// 無限スクロールを使うため必要
+// vue-infinite-loading
 declare module 'vue-infinite-loading' {
   import Vue from 'vue'
 

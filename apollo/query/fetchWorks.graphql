@@ -1,0 +1,11 @@
+query {
+  allWorks(orderBy: startAt_DESC) {
+    id
+    company
+    startAt
+    endAt
+    title
+    description
+  }
+  # 必要に応じて随時追加
+}

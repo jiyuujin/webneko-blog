@@ -29,7 +29,7 @@ import dayjs from 'dayjs'
 
 @Component({
   async mounted() {
-    this.$microlinkjs('.link-preview')
+    (this as any).$microlinkjs('.link-preview')
   }
 })
 export default class Detail extends Vue {
