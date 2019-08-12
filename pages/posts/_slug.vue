@@ -1,15 +1,5 @@
 <template>
-  <main-template
-    v-if="currentPost"
-  >
-    <!--
-    <social-menu
-      :slug-text="currentPost.fields.slug"
-      :title="currentPost.fields.title"
-      :is-side="isVertical"
-    />
-    -->
-
+  <main-template v-if="currentPost">
     <div class="article">
       <div class="blog-card">
         <p>
@@ -18,16 +8,14 @@
         <detail
           :post="currentPost"
         />
-        <!--
         <div>
           <google-adsense
-            :slot="adSlot"
-            :ad-format="adFormat"
-            :ad-layout="adLayout"
-            :ad-style="adStyle"
+            slot="5228106955"
+            ad-format="fluid"
+            ad-layout="in-article"
+            :ad-style="{ display: 'block', 'text-align': 'center' }"
           />
         </div>
-        -->
         <social-menu
           :slug-text="currentPost.fields.slug"
           :title="currentPost.fields.title"
@@ -58,6 +46,13 @@
           This's Profile
         </a>
         <latest-list />
+        <div>
+          <google-adsense
+            slot="8547878202"
+            ad-format="auto"
+            :ad-style="{ display: 'block' }"
+          />
+        </div>
       </div>
     </div>
   </main-template>
@@ -65,14 +60,13 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-// import { ADS } from '~/utils/ads'
 const MainTemplate = () => import('~/components/layouts/MainTemplate.vue')
 const SocialMenu = () => import('~/components/layouts/SocialMenu.vue')
 const Card = () => import('~/components/profile/Card.vue')
 const Detail = () => import('~/components/post/Detail.vue')
 const LatestList = () => import('~/components/post/LatestList.vue')
 const New = () => import('~/components/contact/New.vue')
-// const GoogleAdsense = () => import('~/components/atoms/GoogleAdsense.vue')
+const GoogleAdsense = () => import('~/components/layouts/GoogleAdsense.vue')
 
 @Component({
   async asyncData({ store, params }) {
@@ -90,7 +84,7 @@ const New = () => import('~/components/contact/New.vue')
     Detail,
     LatestList,
     New,
-    // GoogleAdsense
+    GoogleAdsense
   },
   head(this: Slug) {
     return {

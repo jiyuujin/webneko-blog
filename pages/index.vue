@@ -3,6 +3,13 @@
     <header-text />
     <div class="main">
       <top-list />
+      <div>
+        <google-adsense
+          slot="5919567639"
+          ad-format="auto"
+          :ad-style="{ display: 'block' }"
+        />
+      </div>
     </div>
   </main-template>
 </template>
@@ -12,6 +19,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 const MainTemplate = () => import('~/components/layouts/MainTemplate.vue')
 const TopList = () => import('~/components/post/TopList.vue')
 const HeaderText = () => import('~/components/layouts/HeaderText.vue')
+const GoogleAdsense = () => import('~/components/layouts/GoogleAdsense.vue')
 
 @Component({
   async asyncData ({ store }) {
@@ -22,7 +30,8 @@ const HeaderText = () => import('~/components/layouts/HeaderText.vue')
   components: {
     MainTemplate,
     TopList,
-    HeaderText
+    HeaderText,
+    GoogleAdsense
   }
 })
 export default class Index extends Vue {}
