@@ -3,16 +3,6 @@ declare module '*.vue' {
   export default Vue;
 }
 
-// nuxt-property-decorator
-declare module 'nuxt-property-decorator' {
-  //
-}
-
-// vue-class-component
-declare module 'vue-class-component' {
-  //
-}
-
 // vue-cookie-law
 declare module 'vue-cookie-law' {
   //
