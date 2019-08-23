@@ -21,7 +21,7 @@
       "@types/node",
       "@types/webpack",
       "@types/webpack-env",
-      "@nuxt/vue-app"
+      "@nuxt/types"
     ],
     "target": "esnext",
     "module": "esnext",

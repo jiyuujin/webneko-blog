@@ -1,5 +1,5 @@
 import { Configuration } from 'webpack';
-import { Context } from '@nuxt/vue-app';
+import { Context } from '@nuxt/types';
 import { ContentfulClientApi } from 'contentful';
 
 const contentful = require('contentful');
@@ -162,11 +162,18 @@ export default {
       if (isClient) {
         config.devtool = '#source-map'
       }
-    },
-    typescript: {
-      typeCheck: true // or ForkTsChecker options
     }
   },
+
+  buildModules: [
+    [
+      '@nuxt/typescript-build',
+      {
+        typeCheck: true,
+        ignoreNotFoundWarnings: true
+      }
+    ]
+  ],
 
   router: {
     // scrollToTopが効かない問題に対処
