@@ -1,15 +1,35 @@
 language: node_js
 
+stages:
+  - lint
+  - compile
+
 node_js:
   - "10"
 
 cache:
-  yarn: true
+#  yarn: true
   directories:
     - node_modules
 
-install:
-  - yarn install
-
-script:
-  - yarn build
+jobs:
+  include:
+    # ESLint
+    - stage: "lint"
+      name: "ESLint"
+      install:
+        - |
+          npm install eslint \
+          eslint-plugin-vue \
+          typescript \
+          @typescript-eslint/parser \
+          @typescript-eslint/typescript-estree
+      script:
+#        - node_modules/eslint/bin/eslint.js .
+    # Build Compile
+    - stage: "compile"
+      name: "Build Compile"
+      install:
+        - npm install
+      script:
+        - npm run build

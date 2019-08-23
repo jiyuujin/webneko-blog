@@ -21,19 +21,7 @@ const Card = () => import('~/components/profile/Card.vue')
 const Timeline = () => import('~/components/profile/Timeline.vue')
 import gql from 'graphql-tag'
 
-const getQuery = gql`
-  query {
-    allWorks(orderBy: startAt_DESC) {
-      id
-      company
-      startAt
-      endAt
-      title
-      description
-    }
-    # 必要に応じて随時追加
-  }
-`;
+const getQuery = gql('~/apollo/query/fetchWorks.graphql')
 
 @Component({
   components: {
@@ -41,12 +29,15 @@ const getQuery = gql`
     Card,
     Timeline
   },
-  apollo: {
-    allWorks: getQuery
-    // 必要に応じて随時追加
-  }
 })
-export default class Index extends Vue {}
+export default class Index extends Vue {
+  get apollo() {
+    return {
+      allWorks: getQuery
+      // 必要に応じて随時追加
+    }
+  }
+}
 </script>
 
 <style scoped>

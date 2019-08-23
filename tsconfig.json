@@ -9,6 +9,7 @@
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
@@ -16,9 +17,11 @@
     "pretty": true,
     "sourceMap": true,
     "types": [
+      "@types/graphql",
       "@types/node",
       "@types/webpack",
-      "@nuxt/vue-app"
+      "@types/webpack-env",
+      "@nuxt/types"
     ],
     "target": "esnext",
     "module": "esnext",
@@ -37,5 +40,17 @@
         "./*"
       ]
     }
-  }
+  },
+  "include": [
+    "components/**/*",
+    "layouts/**/*",
+    "middleware/**/*",
+    "pages/**/*",
+    "plugins/**/*",
+    "store/**/*",
+    "utils/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

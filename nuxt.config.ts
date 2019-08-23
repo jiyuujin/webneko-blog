@@ -1,8 +1,10 @@
 import { Configuration } from 'webpack';
-import { Context } from '@nuxt/vue-app';
+import { Context } from '@nuxt/types';
 import { ContentfulClientApi } from 'contentful';
 
 const contentful = require('contentful');
+
+require('dotenv').config();
 
 export default {
   mode: 'universal',
@@ -31,16 +33,11 @@ export default {
       }
     ],
     script: [
-      // {
-      //   async: true,
-      //   src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
-      // }
+      { async: true, src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' }
     ]
   },
 
-  loading: {
-    color: '#fff'
-  },
+  loading: { color: '#fff' },
 
   css: [
     {
@@ -69,13 +66,13 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/apollo',
     '@nuxtjs/dotenv',
-    // [
-    //   '@nuxtjs/google-adsense',
-    //   {
-    //     id: 'ca-pub-7095980629133842',
-    //     pageLevelAds: true
-    //   }
-    // ],
+    [
+      '@nuxtjs/google-adsense',
+      {
+        id: 'ca-pub-7095980629133842',
+        pageLevelAds: true
+      }
+    ],
     [
       '@nuxtjs/google-analytics',
       {
@@ -165,11 +162,18 @@ export default {
       if (isClient) {
         config.devtool = '#source-map'
       }
-    },
-    typescript: {
-      typeCheck: false // or ForkTsChecker options
     }
   },
+
+  buildModules: [
+    [
+      '@nuxt/typescript-build',
+      {
+        typeCheck: true,
+        ignoreNotFoundWarnings: true
+      }
+    ]
+  ],
 
   router: {
     // scrollToTopが効かない問題に対処
