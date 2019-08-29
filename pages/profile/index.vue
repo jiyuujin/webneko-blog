@@ -6,10 +6,12 @@
         color="#fff"
         fontSize="18px"
       />
+      <!--
       <timeline
         :data="allWorks"
         title="経歴"
       />
+      -->
     </div>
   </main-template>
 </template>
@@ -19,9 +21,9 @@ import { Component, Vue } from 'nuxt-property-decorator'
 const MainTemplate = ()=> import('~/components/layouts/MainTemplate.vue')
 const Card = () => import('~/components/profile/Card.vue')
 const Timeline = () => import('~/components/profile/Timeline.vue')
-import gql from 'graphql-tag'
-
-const getQuery = gql('~/apollo/query/fetchWorks.graphql')
+// import gql from 'graphql-tag'
+//
+// const getQuery = gql('~/apollo/query/fetchWorks.graphql')
 
 @Component({
   components: {
@@ -31,12 +33,11 @@ const getQuery = gql('~/apollo/query/fetchWorks.graphql')
   },
 })
 export default class Index extends Vue {
-  get apollo() {
-    return {
-      allWorks: getQuery
-      // 必要に応じて随時追加
-    }
-  }
+  // get apollo() {
+  //   return {
+  //     allWorks: getQuery
+  //   }
+  // }
 }
 </script>
 
