@@ -44,8 +44,8 @@ a {
 }
 
 .body img {
-  width: 36%!important;
-  margin: 0 32%;
+  width: 80%!important;
+  margin: 0 10%;
 }
 
 @media (max-width: 500px) {

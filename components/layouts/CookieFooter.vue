@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <no-ssr>
+    <client-only>
       <vue-cookie-law
         theme="dark-lime"
         button-text="受け入れる"
@@ -10,7 +10,7 @@
           {{ message }}
         </div>
       </vue-cookie-law>
-    </no-ssr>
+    </client-only>
   </footer>
 </template>
 
