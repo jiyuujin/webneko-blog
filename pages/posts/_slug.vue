@@ -1,13 +1,26 @@
 <template>
   <main-template v-if="currentPost">
+    <div class="cover">
+      <img
+        :src="currentPost.fields.heroImage.fields.file.url"
+        :alt="currentPost.fields.title"
+        decoding="async"
+      >
+        <div class="title">
+          {{ currentPost.fields.title }}
+        </div>
+        <div class="date">
+          {{ getDate(currentPost.fields.publishDate) }}
+        </div>
+    </div>
+
     <div class="article">
       <div class="blog-card">
-        <p>
-          <nuxt-link to="/">Home</nuxt-link> > {{ currentPost.fields.title }}
-        </p>
-        <detail
-          :post="currentPost"
+        <div
+          class="body"
+          v-html="$md.render(currentPost.fields.body)"
         />
+
         <div>
           <google-adsense
             slot="5228106955"
@@ -60,10 +73,10 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
+import dayjs from 'dayjs'
 const MainTemplate = () => import('~/components/layouts/MainTemplate.vue')
 const SocialMenu = () => import('~/components/layouts/SocialMenu.vue')
 const Card = () => import('~/components/profile/Card.vue')
-const Detail = () => import('~/components/post/Detail.vue')
 const LatestList = () => import('~/components/post/LatestList.vue')
 const New = () => import('~/components/contact/New.vue')
 const GoogleAdsense = () => import('~/components/layouts/GoogleAdsense.vue')
@@ -72,16 +85,12 @@ const GoogleAdsense = () => import('~/components/layouts/GoogleAdsense.vue')
   async asyncData({ store, params }) {
     await store.dispatch('product/initPosts', {
       'slug': params.slug
-    });
-    return {
-      currentPost: store.state.product.currentPost,
-    }
+    })
   },
   components: {
     MainTemplate,
     SocialMenu,
     Card,
-    Detail,
     LatestList,
     New,
     GoogleAdsense
@@ -106,10 +115,52 @@ export default class Slug extends Vue {
   get currentPost() {
     return this.$store.state.product.currentPost
   }
+
+  getDate(date: Date) {
+    return dayjs(date).format('MM月 DD日')
+  }
 }
 </script>
 
 <style scoped>
+.cover {
+  position: relative;
+}
+
+.cover img {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  background-position: center;
+  background-size: cover;
+  filter: brightness(60%);
+}
+
+.cover .title {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: calc(50% - 25px);
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 48px;
+}
+
+.cover .date {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: calc(75% + 25px);
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 24px;
+}
+
 .article {
   width: 84%;
   margin: 2% 8% 2% 8%;
