@@ -1,5 +1,6 @@
 <template>
   <main-template v-if="currentPost">
+    <header-text />
     <div class="cover">
       <img
         :src="currentPost.fields.heroImage.fields.file.url"
@@ -15,57 +16,34 @@
     </div>
 
     <div class="article">
-      <div class="blog-card">
-        <div
-          class="body"
-          v-html="$md.render(currentPost.fields.body)"
-        />
+      <div
+        class="body"
+        v-html="$md.render(currentPost.fields.body)"
+      ></div>
 
-        <div>
-          <google-adsense
-            slot="5228106955"
-            ad-format="fluid"
-            ad-layout="in-article"
-            :ad-style="{ display: 'block', 'text-align': 'center' }"
-          />
-        </div>
-        <social-menu
-          :slug-text="currentPost.fields.slug"
-          :title="currentPost.fields.title"
-          :is-vertical="!isVertical"
+      <div>
+        <google-adsense
+          slot="5228106955"
+          ad-format="fluid"
+          ad-layout="in-article"
+          :ad-style="{ display: 'block', 'text-align': 'center' }"
         />
-        <div>
-          <p>
-            コメントを残す
-          </p>
-          <new
-            :blog-title="currentPost.fields.title"
-          />
-        </div>
       </div>
-
-      <div class="profile-card">
-        <card
-          background-color="#fff"
-          color="#000"
-          fontSize="12px"
-          style="margin-bottom: 36px;"
+      <social-menu
+        :slug-text="currentPost.fields.slug"
+        :title="currentPost.fields.title"
+        :is-vertical="!isVertical"
+      />
+      <div>
+        <p>
+          コメントを残す
+        </p>
+        <new
+          :blog-title="currentPost.fields.title"
         />
-        <a
-          href="../profile"
-          target="_blank"
-          rel="noopener"
-        >
-          This's Profile
-        </a>
+      </div>
+      <div class="late-article">
         <latest-list />
-        <div>
-          <google-adsense
-            slot="8547878202"
-            ad-format="auto"
-            :ad-style="{ display: 'block' }"
-          />
-        </div>
       </div>
     </div>
   </main-template>
@@ -75,6 +53,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import dayjs from 'dayjs'
 const MainTemplate = () => import('~/components/layouts/MainTemplate.vue')
+const HeaderText = () => import('~/components/layouts/HeaderText.vue')
 const SocialMenu = () => import('~/components/layouts/SocialMenu.vue')
 const Card = () => import('~/components/profile/Card.vue')
 const LatestList = () => import('~/components/post/LatestList.vue')
@@ -89,6 +68,7 @@ const GoogleAdsense = () => import('~/components/layouts/GoogleAdsense.vue')
   },
   components: {
     MainTemplate,
+    HeaderText,
     SocialMenu,
     Card,
     LatestList,
@@ -162,8 +142,8 @@ export default class Slug extends Vue {
 }
 
 .article {
-  width: 84%;
-  margin: 2% 8% 2% 8%;
+  width: 60%;
+  margin: 2% 20% 2% 20%;
   text-align: center;
   overflow: hidden;
 }
@@ -175,32 +155,17 @@ export default class Slug extends Vue {
   padding-right: 16px;
 }
 
-.blog-card {
-  float: left;
-  width : -webkit-calc(100% - 300px - 24px) ;
-  width : calc(100% - 300px - 24px);
-}
-
-.profile-card {
-  float: right;
-  width: 300px;
-  margin-left: 24px;
-}
-
-.profile-card a {
-  text-decoration: none;
-  margin: 0 1em;
-  padding-right: 16px;
-  background: url(../../static/external_link.png) no-repeat right center;
+.late-article {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (max-width: 500px) {
-  .blog-card {
-    width: 100%;
-  }
-
-  .profile-card {
-    display: none;
+  .article {
+    width: 92%;
+    margin: 2% 4% 2% 4%;
+    text-align: center;
+    overflow: hidden;
   }
 }
 </style>
