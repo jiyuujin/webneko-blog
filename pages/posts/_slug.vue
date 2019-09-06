@@ -16,10 +16,7 @@
     </div>
 
     <div class="article">
-      <div
-        class="body"
-        v-html="$md.render(currentPost.fields.body)"
-      ></div>
+      <detail :post="currentPost" />
 
       <div>
         <google-adsense
@@ -29,11 +26,13 @@
           :ad-style="{ display: 'block', 'text-align': 'center' }"
         />
       </div>
+
       <social-menu
         :slug-text="currentPost.fields.slug"
         :title="currentPost.fields.title"
         :is-vertical="!isVertical"
       />
+
       <div>
         <p>
           コメントを残す
@@ -42,6 +41,7 @@
           :blog-title="currentPost.fields.title"
         />
       </div>
+
       <div class="late-article">
         <latest-list />
       </div>
@@ -54,6 +54,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import dayjs from 'dayjs'
 const MainTemplate = () => import('~/components/layouts/MainTemplate.vue')
 const HeaderText = () => import('~/components/layouts/HeaderText.vue')
+const Detail = () => import('~/components/post/Detail.vue')
 const SocialMenu = () => import('~/components/layouts/SocialMenu.vue')
 const Card = () => import('~/components/profile/Card.vue')
 const LatestList = () => import('~/components/post/LatestList.vue')
@@ -69,6 +70,7 @@ const GoogleAdsense = () => import('~/components/layouts/GoogleAdsense.vue')
   components: {
     MainTemplate,
     HeaderText,
+    Detail,
     SocialMenu,
     Card,
     LatestList,
@@ -87,9 +89,6 @@ const GoogleAdsense = () => import('~/components/layouts/GoogleAdsense.vue')
         { hid: 'og:image', name: 'og:image', content: `https:${this.currentPost.fields.heroImage.fields.file.url}` || '' },
       ]
     }
-  },
-  async mounted() {
-    (this as any).$microlinkjs('.link-preview')
   }
 })
 export default class Slug extends Vue {
@@ -144,8 +143,8 @@ export default class Slug extends Vue {
 }
 
 .article {
-  width: 60%;
-  margin: 2% 20% 2% 20%;
+  width: 52%;
+  margin: 2% 24% 2% 24%;
   text-align: center;
   overflow: hidden;
 }
@@ -163,6 +162,11 @@ export default class Slug extends Vue {
 }
 
 @media (max-width: 500px) {
+  .cover .title {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
   .article {
     width: 92%;
     margin: 2% 4% 2% 4%;

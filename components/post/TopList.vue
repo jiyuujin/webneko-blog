@@ -127,8 +127,6 @@ export default class Top extends Vue {
   //   }, 1000)
   // }
 
-  isCenter: boolean = true;
-  isBold: boolean = true;
   count: number = 9;
 }
 </script>
