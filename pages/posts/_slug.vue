@@ -88,6 +88,9 @@ const GoogleAdsense = () => import('~/components/layouts/GoogleAdsense.vue')
       ]
     }
   },
+  async mounted() {
+    (this as any).$microlinkjs('.link-preview')
+  }
 })
 export default class Slug extends Vue {
   isVertical: boolean = true
@@ -108,7 +111,6 @@ export default class Slug extends Vue {
 }
 
 .cover img {
-  overflow: hidden;
   width: 100%;
   height: 100%;
   vertical-align: middle;

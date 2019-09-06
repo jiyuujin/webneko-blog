@@ -55,7 +55,7 @@ export default class LatestList extends Vue {
 }
 
 .title {
-  font-size: 4vmin;
+  font-size: 3vmin;
 }
 
 .sub-card hr {

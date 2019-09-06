@@ -24,6 +24,7 @@ a {
 .body p {
   padding: 0.16em 0.24em;
   text-align: left;
+  line-height: 2;
 }
 
 .body ul {
