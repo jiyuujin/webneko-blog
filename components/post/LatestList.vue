@@ -5,8 +5,9 @@
       :is-bold="isBold"
       width="60%"
     >
-      あわせてよむ..
+      あわせてよみたい..
     </title-text>
+    <hr>
     <div
       v-for="post in latestPosts"
       :key="post.fields.title"
@@ -19,7 +20,6 @@
           {{ post.fields.title }}
         </div>
       </nuxt-link>
-      <hr>
     </div>
   </div>
 </template>
