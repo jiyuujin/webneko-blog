@@ -57,7 +57,7 @@ export default Vue.extend({
             title
             description
           }
-          allActivities {
+          allActivities(orderBy: time_DESC) {
             id
             title
             url
