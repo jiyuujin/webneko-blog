@@ -1,25 +1,18 @@
 <template>
   <div>
     <title-text
-      :is-center="isCenter"
+      :is-center="!isCenter"
       :is-bold="isBold"
-      width="40%"
-      horizontal-margin="30%"
-      color="#42b883"
+      width="60%"
     >
       経歴
     </title-text>
-    <ul
-      v-for="item in data"
-      :key="item.id"
-    >
-      <li
-        v-if="!item.company"
-      >
-        <p class="timeline-date">
+    <ul v-for="item in list" :key="item.id">
+      <li>
+        <p class="work-timeline-date">
           {{ getDateFormat(item.startAt) }}
         </p>
-        <div class="timeline-content">
+        <div class="work-timeline-content">
           <h3>
             {{ item.title }}
           </h3>
@@ -33,33 +26,31 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'nuxt-property-decorator'
-const TitleText = () => import('~/components/atoms/TitleText.vue')
+import Vue from 'vue'
 import dayjs from 'dayjs'
+const TitleText = () => import('~/components/atoms/TitleText.vue')
 
-interface Work {
-  id: number,
-  company: string,
-  startAt: Date,
-  endAt: Date,
-  title: string,
-  description: string
-}
-
-@Component({
+export default Vue.extend({
   components: {
     TitleText
+  },
+  props: {
+    list: {
+      type: Array
+    }
+  },
+  data() {
+    return {
+      isCenter: true,
+      isBold: true
+    }
+  },
+  methods: {
+    getDateFormat(d) {
+      return dayjs(d).format('YYYY/MM')
+    }
   }
 })
-export default class Timeline extends Vue {
-  @Prop() data!: Work;
-  isCenter: boolean = true;
-  isBold: boolean = true;
-
-  getDateFormat(d: Date) {
-    return dayjs(d).format('YYYY/MM')
-  }
-}
 </script>
 
 <style scoped>
@@ -79,14 +70,14 @@ ul > li {
     position: relative;
   }
 
-  .timeline-date {
+  .work-timeline-date {
     width: 110px;
     float: left;
     margin-top: 20px;
   }
 
-  .timeline-content {
-    width: 85%;
+  .work-timeline-content {
+    width: 75%;
     float: left;
     text-align: left;
     border-left: 3px #35495e solid;
@@ -94,7 +85,7 @@ ul > li {
     font-size: 2vmin;
   }
 
-  .timeline-content:before {
+  .work-timeline-content:before {
     content: '';
     width: 12px;
     height: 12px;

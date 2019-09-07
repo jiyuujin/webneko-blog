@@ -1,31 +1,14 @@
 <template>
-  <div>
+  <div v-if="post" class="post">
     <div
-      v-if="post"
-      class="post"
-    >
-      <img
-        :src="post.fields.heroImage.fields.file.url"
-        :alt="post.fields.title"
-        decoding="async"
-      >
-      <h2>
-        {{ post.fields.title }}
-      </h2>
-      <p>
-        {{ getDate(post.fields.publishDate) }}
-      </p>
-      <div
-        class="body"
-        v-html="$md.render(post.fields.body)"
-      />
-    </div>
+      class="body"
+      v-html="$md.render(post.fields.body)"
+    ></div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
-import dayjs from 'dayjs'
 
 @Component({
   async mounted() {
@@ -33,16 +16,6 @@ import dayjs from 'dayjs'
   }
 })
 export default class Detail extends Vue {
-  @Prop() post: object;
-
-  getDate(date: Date) {
-    return dayjs(date).format('MM月 DD日')
-  }
+    @Prop() post: object;
 }
 </script>
-
-<style scoped>
-.post img {
-  width: 25%;
-}
-</style>

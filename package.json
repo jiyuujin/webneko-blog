@@ -46,7 +46,6 @@
     "@nuxt/types": "^0.2.2",
     "@nuxt/typescript-build": "^0.1.8",
     "@nuxt/typescript-runtime": "^0.1.2",
-    "@types/graphql": "^14.2.0",
     "@types/node": "^12.7.1",
     "@types/webpack": "^4.4.32",
     "@types/webpack-env": "^1.14.0",

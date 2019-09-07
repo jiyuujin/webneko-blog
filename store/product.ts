@@ -82,7 +82,7 @@ export const actions: RootActionTree<State, RootState> = {
     params: Param
   ) {
     if (params.slug !== '') {
-      const LATEST_PAGE = 12
+      const LATEST_PAGE = 6
 
       await client
         .getEntries({
