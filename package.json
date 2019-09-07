@@ -22,7 +22,6 @@
     "@nuxtjs/markdownit-loader": "^1.1.1",
     "@nuxtjs/pwa": "^3.0.0-beta.16",
     "@nuxtjs/sitemap": "^0.2.2",
-    "apollo-boost": "^0.4.4",
     "apollo-cache-inmemory": "^1.6.0",
     "apollo-link": "^1.2.11",
     "apollo-link-http": "^1.5.14",

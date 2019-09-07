@@ -1,26 +1,35 @@
 <template>
-  <div class="slides">
-    <div
+  <div>
+    <title-text
+      :is-center="!isCenter"
+      :is-bold="isBold"
+      width="80%"
+    >
+      登壇一覧
+    </title-text>
+    <div class="slides">
+      <div
         v-for="slide in list"
         :key="slide.id"
         class="slide-card"
-    >
-      <div class="slide-card-content">
-        <div class="title">
-          {{ slide.title }}
+      >
+        <div class="slide-card-content">
+          <div class="title">
+            {{ slide.title }}
+          </div>
+          <div class="description">
+            {{ getDateFormat(slide.time) }} {{ slide.event }} で登壇させていただいております。
+          </div>
         </div>
-        <div class="description">
-          {{ getDateFormat(slide.time) }} {{ slide.event }} で登壇させていただいております。
-        </div>
-      </div>
-      <div class="slide-card-link">
-        <a
+        <div class="slide-card-link">
+          <a
             :href="slide.url"
             rel="noopener"
             target="_blank"
-        >
-          Go to Slide!
-        </a>
+          >
+            Go to Slide!
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -31,12 +40,23 @@ import Vue from 'vue'
 import dayjs from 'dayjs'
 import 'dayjs/locale/ja'
 
+const TitleText = () => import('~/components/atoms/TitleText.vue')
+
 dayjs.locale('ja')
 
 export default Vue.extend({
+  components: {
+    TitleText
+  },
   props: {
     list: {
       type: Array
+    }
+  },
+  data() {
+    return {
+      isCenter: true,
+      isBold: true
     }
   },
   methods: {

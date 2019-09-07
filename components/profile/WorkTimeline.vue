@@ -1,5 +1,12 @@
 <template>
   <div>
+    <title-text
+      :is-center="!isCenter"
+      :is-bold="isBold"
+      width="60%"
+    >
+      経歴
+    </title-text>
     <ul v-for="item in list" :key="item.id">
       <li>
         <p class="work-timeline-date">
@@ -21,11 +28,21 @@
 <script lang="ts">
 import Vue from 'vue'
 import dayjs from 'dayjs'
+const TitleText = () => import('~/components/atoms/TitleText.vue')
 
 export default Vue.extend({
+  components: {
+    TitleText
+  },
   props: {
     list: {
       type: Array
+    }
+  },
+  data() {
+    return {
+      isCenter: true,
+      isBold: true
     }
   },
   methods: {

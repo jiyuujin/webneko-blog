@@ -14,11 +14,18 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import ApolloClient from 'apollo-boost'
+import ApolloClient from 'apollo-client'
+import { HttpLink } from 'apollo-link-http'
+import { InMemoryCache } from 'apollo-cache-inmemory'
 import gql from 'graphql-tag'
+import fetch from 'node-fetch'
 
 const apolloClient = new ApolloClient({
-  uri: process.env.GRAPH_API
+  link: new HttpLink({
+    uri: process.env.GRAPH_API,
+    fetch
+  }),
+  cache: new InMemoryCache()
 })
 
 const MainTemplate = ()=> import('~/components/layouts/MainTemplate.vue')
