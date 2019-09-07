@@ -42,6 +42,10 @@
         />
       </div>
 
+      <div class="buy-me-a-coffee">
+        <buy-me-a-coffee />
+      </div>
+
       <div class="late-article">
         <latest-list />
       </div>
@@ -59,6 +63,7 @@ const SocialMenu = () => import('~/components/layouts/SocialMenu.vue')
 const LatestList = () => import('~/components/post/LatestList.vue')
 const New = () => import('~/components/contact/New.vue')
 const GoogleAdsense = () => import('~/components/layouts/GoogleAdsense.vue')
+const BuyMeACoffee = () => import('~/components/layouts/BuyMeACoffee.vue')
 
 @Component({
   async asyncData({ store, params }) {
@@ -73,7 +78,8 @@ const GoogleAdsense = () => import('~/components/layouts/GoogleAdsense.vue')
     SocialMenu,
     LatestList,
     New,
-    GoogleAdsense
+    GoogleAdsense,
+    BuyMeACoffee
   },
   head(this: Slug) {
     return {
@@ -152,6 +158,15 @@ export default class Slug extends Vue {
   font-size: 16px;
   color: #35495e;
   padding-right: 16px;
+}
+
+.buy-me-a-coffee {
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  display: table-cell;
+  vertical-align: middle;
+  height: 120px;
 }
 
 .late-article {
