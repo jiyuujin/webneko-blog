@@ -56,7 +56,6 @@ const MainTemplate = () => import('~/components/layouts/MainTemplate.vue')
 const HeaderText = () => import('~/components/layouts/HeaderText.vue')
 const Detail = () => import('~/components/post/Detail.vue')
 const SocialMenu = () => import('~/components/layouts/SocialMenu.vue')
-const Card = () => import('~/components/profile/Card.vue')
 const LatestList = () => import('~/components/post/LatestList.vue')
 const New = () => import('~/components/contact/New.vue')
 const GoogleAdsense = () => import('~/components/layouts/GoogleAdsense.vue')
@@ -72,7 +71,6 @@ const GoogleAdsense = () => import('~/components/layouts/GoogleAdsense.vue')
     HeaderText,
     Detail,
     SocialMenu,
-    Card,
     LatestList,
     New,
     GoogleAdsense

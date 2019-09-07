@@ -1,44 +1,74 @@
 <template>
   <main-template>
     <div class="profile">
-      <card
+      <profile-card
         background-color="#000"
         color="#fff"
         fontSize="18px"
       />
-      <!--
-      <timeline
-        :data="allWorks"
-        title="経歴"
-      />
-      -->
+      <slide-cards :list="allActivities" />
+      <work-timeline :list="allWorks" />
     </div>
   </main-template>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
-const MainTemplate = ()=> import('~/components/layouts/MainTemplate.vue')
-const Card = () => import('~/components/profile/Card.vue')
-const Timeline = () => import('~/components/profile/Timeline.vue')
-// import gql from 'graphql-tag'
-//
-// const getQuery = gql('~/apollo/query/fetchWorks.graphql')
+import Vue from 'vue'
+import ApolloClient from 'apollo-boost'
+import gql from 'graphql-tag'
 
-@Component({
+const apolloClient = new ApolloClient({
+  uri: process.env.GRAPH_API
+})
+
+const MainTemplate = ()=> import('~/components/layouts/MainTemplate.vue')
+const ProfileCard = () => import('~/components/profile/ProfileCard.vue')
+const SlideCards = () => import('~/components/profile/SlideCards.vue')
+const WorkTimeline = () => import('~/components/profile/WorkTimeline.vue')
+
+export default Vue.extend({
   components: {
     MainTemplate,
-    Card,
-    Timeline
+    ProfileCard,
+    SlideCards,
+    WorkTimeline
   },
+  data() {
+    return {
+      allWorks: null,
+      allActivities: null
+    }
+  },
+  async mounted() {
+    await apolloClient.query({
+      query: gql`
+        query {
+          allWorks(orderBy: startAt_DESC) {
+            id
+            startAt
+            endAt
+            title
+            description
+          }
+          allActivities {
+            id
+            title
+            url
+            event
+            time
+            enabled
+          }
+        }
+      `,
+    })
+    .then(res => {
+      this.allWorks = res.data.allWorks
+      this.allActivities = res.data
+        .allActivities
+        .filter(activity => activity.enabled === true)
+    })
+  }
 })
-export default class Index extends Vue {
-  // get apollo() {
-  //   return {
-  //     allWorks: getQuery
-  //   }
-  // }
-}
 </script>
 
 <style scoped>

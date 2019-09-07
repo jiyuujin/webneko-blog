@@ -28,12 +28,12 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-const Card = () => import('~/components/profile/Card.vue')
+const ProfileCard = () => import('~/components/profile/ProfileCard.vue')
 const ProfileImage = () => import('~/components/profile/ProfileImage.vue')
 
 @Component({
   components: {
-    Card,
+    ProfileCard,
     ProfileImage
   }
 })
