@@ -1,10 +1,10 @@
-import { Configuration } from 'webpack';
-import { Context } from '@nuxt/types';
-import { ContentfulClientApi } from 'contentful';
+import { Configuration } from 'webpack'
+import { Context } from '@nuxt/types'
+import { ContentfulClientApi } from 'contentful'
 
-const contentful = require('contentful');
+const contentful = require('contentful')
 
-require('dotenv').config();
+require('dotenv').config()
 
 export default {
   mode: 'universal',
@@ -105,16 +105,16 @@ export default {
       'markdown-it-toc'
     ],
     highlight: (str: string, lang: string) => {
-      const hljs = require('highlight.js');
+      const hljs = require('highlight.js')
       if (lang && hljs.getLanguage(lang)) {
         return '<pre class="hljs"><code>' +
           hljs.highlight(lang, str, true).value +
-          '</code></pre>';
+          '</code></pre>'
       }
       // 言語設定が無い場合、プレーンテキストとして表示
       return '<pre class="hljs"><code>' +
         hljs.highlight('plaintext', str, true).value +
-        '</code></pre>';
+        '</code></pre>'
     }
   },
 
@@ -136,19 +136,19 @@ export default {
       const client: ContentfulClientApi = contentful.createClient({
         space: process.env.CTF_SPACE_ID,
         accessToken: process.env.CTF_CDA_ACCESS_TOKEN
-      });
+      })
 
       const posts = await client.getEntries({
         'content_type': process.env.CTF_BLOG_POST_TYPE_ID,
         order: '-fields.publishDate'
-      });
+      })
 
-      let urls: string[] = [];
+      let urls: string[] = []
       posts.items.forEach((val: any, idx: number) => {
         urls[idx] = 'posts/' + val.fields.slug
-      });
+      })
 
-      return urls;
+      return urls
     }
   },
 
@@ -192,6 +192,7 @@ export default {
     AUTH_DOMAIN: process.env.AUTH_DOMAIN,
     PROJECT_ID: process.env.PROJECT_ID,
     GRAPH_API: process.env.GRAPH_API,
-    APOLLO_KEY: process.env.APOLLO_KEY
+    APOLLO_KEY: process.env.APOLLO_KEY,
+    MICROLINK_API: process.env.MICROLINK_API
   }
 }
