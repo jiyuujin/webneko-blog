@@ -1,6 +1,6 @@
 {
   "name": "webneko-blog",
-  "version": "3.0.1",
+  "version": "3.0.4",
   "description": "Nuxt.js project",
   "author": "yuukit <yuma.kitamura@ponos.co.jp>",
   "private": true,
@@ -20,7 +20,7 @@
     "@nuxtjs/google-analytics": "2.2.0",
     "@nuxtjs/markdownit": "1.2.6",
     "@nuxtjs/markdownit-loader": "1.1.1",
-    "@nuxtjs/pwa": "3.0.0-beta.17",
+    "@nuxtjs/pwa": "3.0.0-beta.19",
     "@nuxtjs/sitemap": "0.2.2",
     "apollo-cache-inmemory": "1.6.3",
     "apollo-client": "2.6.4",
@@ -46,9 +46,9 @@
   },
   "devDependencies": {
     "@nuxt/types": "0.2.11",
-    "@nuxt/typescript-build": "0.1.11",
+    "@nuxt/typescript-build": "0.2.6",
     "@nuxt/typescript-runtime": "0.1.5",
-    "@types/node": "12.7.4",
+    "@types/node": "12.7.5",
     "@types/webpack": "4.39.1",
     "@types/webpack-env": "1.14.0",
     "@typescript-eslint/eslint-plugin": "1.13.0",
