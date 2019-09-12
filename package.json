@@ -20,7 +20,7 @@
     "@nuxtjs/google-analytics": "2.2.0",
     "@nuxtjs/markdownit": "1.2.6",
     "@nuxtjs/markdownit-loader": "1.1.1",
-    "@nuxtjs/pwa": "3.0.0-beta.17",
+    "@nuxtjs/pwa": "3.0.0-beta.19",
     "@nuxtjs/sitemap": "0.2.2",
     "apollo-cache-inmemory": "1.6.3",
     "apollo-client": "^2.6.4",
