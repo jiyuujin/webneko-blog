@@ -32,7 +32,7 @@
     "graphql": "14.5.4",
     "graphql-tag": "2.10.1",
     "markdown-it": "10.0.0",
-    "markdown-it-attrs": "2.4.1",
+    "markdown-it-attrs": "3.0.1",
     "markdown-it-container": "2.0.0",
     "markdown-it-highlightjs": "3.0.0",
     "markdown-it-toc": "1.1.0",
