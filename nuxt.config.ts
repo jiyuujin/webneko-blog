@@ -64,7 +64,6 @@ export default {
 
   modules: [
     '@nuxtjs/pwa',
-    '@nuxtjs/apollo',
     '@nuxtjs/dotenv',
     [
       '@nuxtjs/google-adsense',
@@ -82,12 +81,6 @@ export default {
     '@nuxtjs/sitemap',
     '@nuxtjs/markdownit',
   ],
-
-  apollo: {
-    clientConfigs: {
-      default: '~/apollo/client-configs/default.ts'
-    }
-  },
 
   markdownit: {
     preset: 'default',
