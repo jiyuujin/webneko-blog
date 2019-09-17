@@ -14,20 +14,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import ApolloClient from 'apollo-client'
-import { HttpLink } from 'apollo-link-http'
-import { InMemoryCache } from 'apollo-cache-inmemory'
-import gql from 'graphql-tag'
-import fetch from 'node-fetch'
-
-const apolloClient = new ApolloClient({
-  link: new HttpLink({
-    uri: process.env.GRAPH_API,
-    fetch
-  }),
-  cache: new InMemoryCache()
-})
-
+import { fetchProfile } from '~/services/profile'
 const MainTemplate = ()=> import('~/components/layouts/MainTemplate.vue')
 const ProfileCard = () => import('~/components/profile/ProfileCard.vue')
 const SlideCards = () => import('~/components/profile/SlideCards.vue')
@@ -47,33 +34,11 @@ export default Vue.extend({
     }
   },
   async mounted() {
-    await apolloClient.query({
-      query: gql`
-        query {
-          allWorks(orderBy: startAt_DESC) {
-            id
-            startAt
-            endAt
-            title
-            description
-          }
-          allActivities(orderBy: time_DESC) {
-            id
-            title
-            url
-            event
-            time
-            enabled
-          }
-        }
-      `,
-    })
-    .then(res => {
-      this.allWorks = res.data.allWorks
-      this.allActivities = res.data
-        .allActivities
-        .filter(activity => activity.enabled === true)
-    })
+      const responseData = await fetchProfile()
+      this.allWorks = responseData.data.allWorks
+      this.allActivities = responseData.data
+          .allActivities
+          .filter(activity => activity.enabled === true)
   }
 })
 </script>
