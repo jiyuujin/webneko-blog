@@ -109,7 +109,8 @@ export default class Slug extends Vue {
 
 .cover img {
   width: 100%;
-  height: 100%;
+  height: 50vh;
+  object-fit: cover;
   vertical-align: middle;
   background-position: center;
   background-size: cover;
