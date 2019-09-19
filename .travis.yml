@@ -26,9 +26,9 @@ jobs:
     # Build Compile
     - stage: "compile"
       name: "Build Compile"
-      before_install: npm i -g npm@latest
+      before_install:
+        - if [[ $TRAVIS_NODE_VERSION == 8 ]]; then npm i -g npm@latest; fi
       install:
-#        - rm -rf node_modules && npm install
-        - npm ci
+        - rm -rf node_modules && npm install
       script:
         - npm run build
