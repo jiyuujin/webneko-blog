@@ -7,10 +7,7 @@ stages:
 node_js:
   - "10"
 
-cache:
-#  yarn: true
-  directories:
-    - node_modules
+cache: npm
 
 jobs:
   include:
@@ -29,7 +26,9 @@ jobs:
     # Build Compile
     - stage: "compile"
       name: "Build Compile"
+      before_install:
+        - if [[ $TRAVIS_NODE_VERSION == 8 ]]; then npm i -g npm@latest; fi
       install:
-        - npm install
+        - rm -rf node_modules && npm install
       script:
         - npm run build
