@@ -26,6 +26,7 @@ jobs:
     # Build Compile
     - stage: "compile"
       name: "Build Compile"
+      before_install: npm i -g npm@latest
       install:
 #        - rm -rf node_modules && npm install
         - npm ci
