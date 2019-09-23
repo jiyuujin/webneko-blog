@@ -45,7 +45,7 @@
   "devDependencies": {
     "@nuxt/types": "0.2.14",
     "@nuxt/typescript-build": "0.2.9",
-    "@nuxt/typescript-runtime": "0.1.6",
+    "@nuxt/typescript-runtime": "0.1.7",
     "@types/node": "12.7.5",
     "@types/webpack": "4.39.1",
     "@types/webpack-env": "1.14.0",
