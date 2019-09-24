@@ -6,6 +6,7 @@
         color="#fff"
         fontSize="18px"
       />
+      <skillset :list="allSkills" />
       <slide-cards :list="allActivities" />
       <work-timeline :list="allWorks" />
     </div>
@@ -19,26 +20,30 @@ const MainTemplate = ()=> import('~/components/layouts/MainTemplate.vue')
 const ProfileCard = () => import('~/components/profile/ProfileCard.vue')
 const SlideCards = () => import('~/components/profile/SlideCards.vue')
 const WorkTimeline = () => import('~/components/profile/WorkTimeline.vue')
+const Skillset = () => import('~/components/profile/Skillset.vue')
 
 export default Vue.extend({
   components: {
     MainTemplate,
     ProfileCard,
     SlideCards,
-    WorkTimeline
+    WorkTimeline,
+    Skillset
   },
   data() {
     return {
       allWorks: null,
-      allActivities: null
+      allActivities: null,
+      allSkills: null
     }
   },
   async mounted() {
-      const responseData = await fetchProfile()
-      this.allWorks = responseData.data.allWorks
-      this.allActivities = responseData.data
-          .allActivities
-          .filter(activity => activity.enabled === true)
+    const responseData = await fetchProfile()
+    this.allWorks = responseData.data.allWorks
+    this.allActivities = responseData.data
+      .allActivities
+      .filter(activity => activity.enabled === true)
+    this.allSkills = responseData.data.allSkills
   }
 })
 </script>

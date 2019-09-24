@@ -20,6 +20,9 @@
             {{ item.description }}
           </p>
         </div>
+        <div v-if="!item.endAt" class="work-timeline-status">
+          継続中
+        </div>
       </li>
     </ul>
   </div>
@@ -94,6 +97,12 @@ ul > li {
     left: 106px;
     top: 24px;
     border-radius: 100%;
+  }
+
+  .work-timeline-status {
+    text-align: right;
+    color: #d9534f;
+    margin-top: 24px;
   }
 }
 </style>

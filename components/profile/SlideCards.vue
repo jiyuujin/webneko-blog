@@ -61,7 +61,7 @@ export default Vue.extend({
   },
   methods: {
     getDateFormat(d) {
-      return dayjs(d).format('YYYY/MM')
+      return dayjs(d).format('YYYY年 MM月 DD日 dddd')
     }
   }
 })
