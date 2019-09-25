@@ -9,11 +9,12 @@
     </title-text>
     <ul v-for="item in list" :key="item.id">
       <li>
-        <progress-bar
+        <j-progress-bar
           :background-color="item.color"
+          text-color="#fff"
           :title="item.name"
           :ratio="item.ratio"
-        ></progress-bar>
+        ></j-progress-bar>
       </li>
     </ul>
   </div>
@@ -21,12 +22,10 @@
 
 <script lang="ts">
 const TitleText = () => import('~/components/atoms/TitleText.vue')
-const ProgressBar = () => import('~/components/atoms/ProgressBar.vue')
 
 export default {
   components: {
-    TitleText,
-    ProgressBar
+    TitleText
   },
   props: {
     list: {
