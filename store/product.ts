@@ -69,8 +69,8 @@ export const actions: RootActionTree<State, RootState> = {
       .getEntries({
         content_type: process.env.CTF_BLOG_POST_TYPE_ID,
         order: ORDER,
-        skip: (state.page - 1) * PAGE,
-        limit: PAGE
+        // skip: (state.page - 1) * PAGE,
+        // limit: PAGE
       })
       .then((entries: any) => {
         commit('setPosts', entries.items)
@@ -115,8 +115,8 @@ export const actions: RootActionTree<State, RootState> = {
       .getEntries({
         content_type: process.env.CTF_BLOG_POST_TYPE_ID,
         order: ORDER,
-        skip: (state.page - 1) * PAGE,
-        limit: PAGE
+        // skip: (state.page - 1) * PAGE,
+        // limit: PAGE
       })
       .then((entries: any) => {
         commit('setPosts', entries.items)

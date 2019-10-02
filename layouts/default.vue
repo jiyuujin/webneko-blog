@@ -39,14 +39,6 @@ html {
   margin: 0;
 }
 
-h2, h3 {
-  margin-top: 30px;
-}
-
-.body img {
-  width: 50%;
-}
-
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s
 }

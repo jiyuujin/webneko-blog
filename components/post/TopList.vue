@@ -3,84 +3,58 @@
     <div
       v-for="(post, index) in posts"
       :key="post.fields.title"
-      v-if="index < count"
       class="card"
     >
-      <nuxt-link
-        :to="{ name: 'posts-slug', params: { slug: post.fields.slug }}"
-      >
-        <div class="hero-image">
-          <img
-            :src="post.fields.heroImage.fields.file.url"
-            :alt="post.fields.title"
-            decoding="async"
-          >
-        </div>
-        <div class="category">
-          <label-form
-            :tag-text="post.fields.category ? getCategory(post.fields.category) : '未分類'"
-            background-color="#42b883"
-            color="#000"
-          />
-        </div>
-        <div class="title">
-          {{ post.fields.title }}
-        </div>
-        <div class="description">
-          <p>
-            {{ post.fields.description }}
-          </p>
-        </div>
-        <div class="date">
-          {{ getDate(post.fields.publishDate) }}
-        </div>
-        <div class="tags">
-          <span
-            v-for="tag in post.fields.tags"
-            :key="tag"
-          >
-            <label-form
-              :tag-text="tag"
-            />
-          </span>
-        </div>
-      </nuxt-link>
-      <hr>
+      <template v-if="index < count">
+        <nuxt-link :to="{ name: 'posts-slug', params: { slug: post.fields.slug }}">
+          <div class="hero-image">
+            <img
+              :src="post.fields.heroImage.fields.file.url"
+              :alt="post.fields.title"
+              decoding="async"
+            >
+          </div>
+          <!--
+          <div class="category">
+            <j-label
+              :tag-text="post.fields.category ? getCategory(post.fields.category) : '未分類'"
+              background-color="#42b883"
+              text-color="#000"
+            ></j-label>
+          </div>
+          -->
+          <div class="title">
+            {{ post.fields.title }}
+          </div>
+          <div class="description">
+            <p>
+              {{ post.fields.description }}
+            </p>
+          </div>
+          <div class="date">
+            {{ getDate(post.fields.publishDate) }}
+          </div>
+        </nuxt-link>
+        <hr>
+      </template>
     </div>
 
-    <div class="pager">
-      <pagination
-        :page="page"
-        :max="pagesTotal"
-        @page-data="applyPage"
-      />
-    </div>
-
-    <!--
     <client-only>
       <infinite-loading
         spinner="spiral"
         @infinite="infiniteHandler"
       >
-        <span slot="no-more">読み込み終わりました</span>
+        <span slot="no-more"></span>
       </infinite-loading>
     </client-only>
-    -->
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import dayjs from 'dayjs'
-const Pagination = () => import('~/components/atoms/Pagination.vue')
-const LabelForm = () => import('~/components/atoms/LabelText.vue')
 
-@Component({
-  components: {
-    Pagination,
-    LabelForm
-  }
-})
+@Component({})
 export default class Top extends Vue {
   async applyPage(value: number) {
     await this.$store.commit('product/setPage', value)
@@ -116,18 +90,19 @@ export default class Top extends Vue {
     return dayjs(date).format('MM月 DD日')
   }
 
-  // infiniteHandler($state: any) {
-  //   setTimeout(() => {
-  //     if (this.count < this.posts.length) {
-  //       this.count += 9
-  //       $state.loaded()
-  //     } else {
-  //       $state.complete()
-  //     }
-  //   }, 1000)
-  // }
+  infiniteHandler($state: any) {
+    setTimeout(() => {
+      if (this.count < this.posts.length) {
+        this.count += 9
+        $state.loaded()
+      } else {
+        $state.complete()
+      }
+    }, 1000)
+  }
 
   count: number = 9;
+  currentPage: number = 1;
 }
 </script>
 
@@ -152,7 +127,6 @@ export default class Top extends Vue {
   position: absolute;
   top: 0;
   right: 0;
-  padding-right: 0.2em;
 }
 
 .card .title {
@@ -169,11 +143,6 @@ export default class Top extends Vue {
 .card .description p {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.card .tags {
-  overflow-x: auto;
   white-space: nowrap;
 }
 
