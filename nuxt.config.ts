@@ -59,7 +59,9 @@ export default {
       src: '~plugins/infinite-loading.ts',
       mode: 'client'
     },
-    '~plugins/firebase.ts'
+    '~plugins/firebase.ts',
+    '~plugins/j-stylebook.ts',
+    '~plugins/profile-component.ts'
   ],
 
   modules: [

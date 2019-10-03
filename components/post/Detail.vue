@@ -1,7 +1,7 @@
 <template>
   <div v-if="post" class="post">
     <div
-      class="body"
+      class="post-detail"
       v-html="$md.render(post.fields.body)"
     ></div>
   </div>

@@ -1,54 +1,52 @@
 <template>
   <div>
-    <div
-      v-if="validationText"
-      class="validate"
-    >
+    <div v-if="validationText" class="validate">
       {{ validationText }}
     </div>
     <div v-if="responseText">
       {{ responseText }}
     </div>
-    <main-template :is-form="isForm">
-      <input-form
-        :data="form.title"
-        column="タイトル"
-        @form-data="applyTitle"
-      />
+    <main-template :is-form="isForm" class="form">
+      <j-input
+        placeholder="タイトル"
+        input-type="text"
+        width="80%"
+        @handleInput="applyTitle"
+      ></j-input>
     </main-template>
     <main-template
-      v-if="category === 'manual'"
-      :is-form="isForm"
-    >
-      <single-select-form
-        :option="contactCategories"
-        :number="form.contactCategory"
-        column="カテゴリー"
-        @form-data="applyContactCategory"
-      />
+      v-if="category === 'manual'" :is-form="isForm" class="form">
+      <j-select
+        :options="contactCategories"
+        :multiple="Boolean(false)"
+        :selected-values="form.contactCategory"
+        width="80%"
+        @handleSelect="applyContactCategory"
+      ></j-select>
     </main-template>
-    <main-template :is-form="isForm">
-      <input-form
-        :data="form.email"
-        column="メールアドレス (任意)"
-        @form-data="applyEmail"
-      />
+    <main-template :is-form="isForm" class="form">
+      <j-input
+        placeholder="メールアドレス (任意)"
+        input-type="text"
+        width="80%"
+        @handleInput="applyEmail"
+      ></j-input>
     </main-template>
-    <main-template :is-form="isForm">
-      <input-form
-        :data="form.description"
-        :is-text-area="isTextArea"
-        column="詳細"
-        @form-data="applyDescription"
-      />
+    <main-template :is-form="isForm" class="form">
+      <j-input
+        placeholder="詳細"
+        input-type="text"
+        width="80%"
+        @handleInput="applyDescription"
+      ></j-input>
     </main-template>
-    <main-template :is-form="isForm">
-      <a
-        href="javascript: void(0)"
-        @click="submit(); return false;"
-      >
-        送信します
-      </a>
+    <main-template :is-form="isForm" class="form">
+      <j-button
+        text="送信します"
+        width="128px"
+        variant-style="text"
+        @handleClick="submit"
+      ></j-button>
     </main-template>
   </div>
 </template>
@@ -59,8 +57,6 @@ import dayjs from 'dayjs'
 import Firestore from '~/plugins/firebase.ts'
 import { isValidText } from '~/store/utils.ts'
 const MainTemplate = () => import('~/components/layouts/MainTemplate.vue')
-const InputForm = () => import('~/components/atoms/InputForm.vue')
-const SingleSelectForm = () => import('~/components/atoms/SingleSelectForm.vue')
 
 const adminFirestore: any = Firestore.firestore();
 
@@ -95,16 +91,13 @@ const ContactCategories: ContactCategory[] = [
 
 @Component({
   components: {
-    MainTemplate,
-    InputForm,
-    SingleSelectForm
+    MainTemplate
   }
 })
 export default class NewContact extends Vue {
   @Prop() category!: string;
   @Prop() blogTitle!: string;
   isForm: boolean = true;
-  isTextArea: boolean = true;
 
   form: Category = {
     title: '',
@@ -202,5 +195,9 @@ a {
 .validate {
   text-align: left;
   color: #c71582;
+}
+
+.form {
+  margin: 8px auto;
 }
 </style>
