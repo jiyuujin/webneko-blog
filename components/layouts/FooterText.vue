@@ -2,8 +2,8 @@
   <footer>
     <div class="footer-text">
       <profile-card
-        name="フロントエンドを中心にばりばり書いて、ゆるふわに交流しているなど。"
-        nickname="Web猫ブログ"
+        name="Yuma Kitamura"
+        nickname="Web猫"
         :imgName="imgName"
         background-color="#35495e"
       ></profile-card>
@@ -68,22 +68,25 @@ footer {
   background: url(../../static/external_link.png) no-repeat right center;
 }
 
+.menu a:last-child {
+  margin-right: 0;
+}
+
 .copyright {
   display: flex;
-  vertical-align: center;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  font-size: 1.8vmin;
 }
 
 @media (max-width: 500px) {
   footer {
     margin-top: 0;
     min-height: 0;
-    padding: 1rem 2rem 1rem;
   }
 
-  .menu {
-    display: none;
+  .copyright {
+    font-size: 12px;
   }
 }
 </style>

@@ -175,5 +175,13 @@ infinite-loading {
     width: calc(100% - 10px);
     margin: 5px;
   }
+
+  .card .title {
+    font-size: 2.4vmax;
+  }
+
+  .card .description {
+    font-size: 1.8vmax;
+  }
 }
 </style>
