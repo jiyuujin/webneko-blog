@@ -52,7 +52,7 @@
     "@typescript-eslint/eslint-plugin": "2.3.2",
     "@typescript-eslint/parser": "2.3.2",
     "core-js": "2.6.9",
-    "eslint": "6.4.0",
+    "eslint": "6.5.1",
     "eslint-loader": "3.0.2",
     "eslint-plugin-vue": "5.2.3"
   }
