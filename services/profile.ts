@@ -20,6 +20,17 @@ export const fetchProfile = async () => {
                     time
                     enabled
                 }
+                allSkills(orderBy: name_DESC) {
+                    id
+                    color
+                    name
+                    ratio
+                }
+                allSocial(orderBy: service_DESC) {
+                    id
+                    username
+                    service
+                }
             }
         `
     })

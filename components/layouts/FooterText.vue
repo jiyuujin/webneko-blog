@@ -1,47 +1,37 @@
 <template>
   <footer>
     <div class="footer-text">
+      <profile-card
+        name="Yuma Kitamura"
+        nickname="Web猫"
+        :imgName="imgName"
+        background-color="#35495e"
+      ></profile-card>
       <div class="menu">
-        <nuxt-link to="/profile">
+        <a href="https://nekohack.app/docs">
           プロフィール
-        </nuxt-link>
+        </a>
         <nuxt-link to="/contact">
           お問い合わせ
         </nuxt-link>
       </div>
-      <div class="title">
-        <profile-image
-          width="50px"
-          style="margin-right: 1.2em;"
-        />
-        {{ blogTitle }}
-      </div>
-      <div class="description">
-        {{ blogDescription }}
-      </div>
       <div class="copyright">
-        {{ footerText }}
+        Created © 2019 jiyuujin LAB. All Rights Reserved.
       </div>
     </div>
   </footer>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
-const ProfileCard = () => import('~/components/profile/ProfileCard.vue')
-const ProfileImage = () => import('~/components/profile/ProfileImage.vue')
+import Vue from 'vue'
 
-@Component({
-  components: {
-    ProfileCard,
-    ProfileImage
+export default Vue.extend({
+  data() {
+    return {
+      imgName: require('../../static/bakeneko2.png')
+    }
   }
 })
-export default class Footer extends Vue {
-  blogTitle = 'Web猫ブログ';
-  blogDescription = 'フロントエンドを中心にばりばり書いて、ゆるふわに交流しているなど。';
-  footerText: string = 'Created © 2019 jiyuujin LAB. All Rights Reserved.';
-}
 </script>
 
 <style scoped>
@@ -65,6 +55,9 @@ footer {
 
 .menu {
   display: flex;
+  vertical-align: center;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 2em;
 }
 
@@ -75,38 +68,25 @@ footer {
   background: url(../../static/external_link.png) no-repeat right center;
 }
 
-.title {
-  display: flex;
-  margin-bottom: 0.8em;
-  align-items: center;
-}
-
-.description {
-  display: flex;
-  margin-bottom: 1.2em;
+.menu a:last-child {
+  margin-right: 0;
 }
 
 .copyright {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8vmin;
 }
 
 @media (max-width: 500px) {
   footer {
     margin-top: 0;
     min-height: 0;
-    padding: 1rem 2rem 1rem;
   }
 
-  .menu {
-    display: none;
-  }
-
-  .title {
-    display: none;
-  }
-
-  .description {
-    display: none;
+  .copyright {
+    font-size: 12px;
   }
 }
 </style>

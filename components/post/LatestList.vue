@@ -1,12 +1,8 @@
 <template>
   <div class="sub-top">
-    <title-text
-      :is-center="!isCenter"
-      :is-bold="isBold"
-      width="60%"
-    >
+    <h2 class="title">
       あわせてよみたい..
-    </title-text>
+    </h2>
     -----
     <div
       v-for="post in latestPosts"
@@ -26,13 +22,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-const TitleText = () => import('~/components/atoms/TitleText.vue')
 
-@Component({
-  components: {
-    TitleText
-  }
-})
+@Component({})
 export default class LatestList extends Vue {
   isCenter: boolean = true;
   isBold: boolean = true;
