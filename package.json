@@ -28,7 +28,7 @@
     "apollo-link-http": "1.5.16",
     "contentful": "7.10.0",
     "dayjs": "1.8.16",
-    "firebase": "7.1.0",
+    "firebase": "7.2.0",
     "graphql": "14.5.8",
     "graphql-tag": "2.10.1",
     "markdown-it": "10.0.0",
