@@ -13,7 +13,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "@microlink/vanilla": "3.0.5",
+    "@microlink/vanilla": "4.2.2",
     "@nekohack/j-stylebook": "0.1.9",
     "@nekohack/profile-component": "0.1.2",
     "@nuxtjs/dotenv": "1.4.1",
