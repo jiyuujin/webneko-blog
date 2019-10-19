@@ -88,13 +88,13 @@ export default class Index extends Vue {
 }
 
 .title {
-  font-size: 2.4vmin;
+  font-size: 2.4vmax;
   line-height: 1.2;
   text-align: left;
 }
 
 .description {
-  font-size: 1.2vmin;
+  font-size: 1.2vmax;
   line-height: 1.2;
   height: 4.8em;
   text-align: left;

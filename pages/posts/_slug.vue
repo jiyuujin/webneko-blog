@@ -236,13 +236,13 @@ export default class Slug extends Vue {
 
 @media (max-width: 500px) {
   .title {
-    font-size: 24px;
-    line-height: 24px;
+    font-size: 12px;
+    line-height: 2;
   }
 
   .date {
-    font-size: 18px;
-    line-height: 18px;
+    font-size: 8px;
+    line-height: 1.5;
   }
 
   .article {
