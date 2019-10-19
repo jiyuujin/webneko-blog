@@ -56,7 +56,7 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import dayjs from 'dayjs'
 import Firestore from '~/plugins/firebase.ts'
 import { isValidText } from '~/store/utils.ts'
-const MainTemplate = () => import('~/components/layouts/MainTemplate.vue')
+const MainTemplate = () => import('~/components/MainTemplate.vue')
 
 const adminFirestore: any = Firestore.firestore();
 

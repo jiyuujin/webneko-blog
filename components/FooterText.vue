@@ -28,7 +28,7 @@ import Vue from 'vue'
 export default Vue.extend({
   data() {
     return {
-      imgName: require('../../static/bakeneko2.png')
+      imgName: require('../static/bakeneko2.png')
     }
   }
 })
@@ -65,7 +65,7 @@ footer {
   color: #fff;
   margin-right: 1em;
   padding-right: 16px;
-  background: url(../../static/external_link.png) no-repeat right center;
+  background: url(../static/external_link.png) no-repeat right center;
 }
 
 .menu a:last-child {

@@ -1,31 +1,37 @@
 <template>
   <main-template v-if="currentPost">
     <header-text />
-    <div class="cover">
-      <img
-        :src="currentPost.fields.heroImage.fields.file.url"
-        :alt="currentPost.fields.title"
-        decoding="async"
-      >
-        <div class="title">
-          {{ currentPost.fields.title }}
-        </div>
-        <div class="date">
-          {{ getDate(currentPost.fields.publishDate) }}
-        </div>
+
+    <div :class="currentPost.fields.heroImage ? 'cover' : 'space'">
+      <template v-if="currentPost.fields.heroImage">
+        <img
+          :src="currentPost.fields.heroImage.fields.file.url"
+          :alt="currentPost.fields.title"
+          decoding="async"
+        >
+      </template>
+
+      <div class="title">
+        {{ currentPost.fields.title }}
+      </div>
+
+      <div class="date">
+        {{ getDate(currentPost.fields.publishDate) }}
+      </div>
     </div>
 
     <div class="article">
-      <detail :post="currentPost" />
+      <div
+        class="post-detail"
+        v-html="$md.render(currentPost.fields.body)"
+      ></div>
 
-      <div>
-        <google-adsense
-          slot="5228106955"
-          ad-format="fluid"
-          ad-layout="in-article"
-          :ad-style="{ display: 'block', 'text-align': 'center' }"
-        />
-      </div>
+      <google-adsense
+        slot="5228106955"
+        ad-format="fluid"
+        ad-layout="in-article"
+        :ad-style="{ display: 'block', 'text-align': 'center' }"
+      />
 
       <social-menu
         :slug-text="currentPost.fields.slug"
@@ -37,13 +43,29 @@
         <p>
           コメントを残す
         </p>
-        <new
+        <new-contact
           :blog-title="currentPost.fields.title"
-        />
+        ></new-contact>
       </div>
 
       <div class="late-article">
-        <latest-list />
+        <h2 class="title">
+          あわせてよみたい..
+        </h2>
+        -----
+        <div
+          v-for="post in latestPosts"
+          :key="post.fields.title"
+          class="item"
+        >
+          <nuxt-link
+            :to="{ name: 'posts-slug', params: { slug: post.fields.slug }}"
+          >
+            <div class="item-title">
+              {{ post.fields.title }}
+            </div>
+          </nuxt-link>
+        </div>
       </div>
     </div>
   </main-template>
@@ -52,13 +74,11 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import dayjs from 'dayjs'
-const MainTemplate = () => import('~/components/layouts/MainTemplate.vue')
-const HeaderText = () => import('~/components/layouts/HeaderText.vue')
-const Detail = () => import('~/components/post/Detail.vue')
-const SocialMenu = () => import('~/components/layouts/SocialMenu.vue')
-const LatestList = () => import('~/components/post/LatestList.vue')
-const New = () => import('~/components/contact/New.vue')
-const GoogleAdsense = () => import('~/components/layouts/GoogleAdsense.vue')
+const MainTemplate = () => import('~/components/MainTemplate.vue')
+const HeaderText = () => import('~/components/HeaderText.vue')
+const SocialMenu = () => import('~/components/SocialMenu.vue')
+const NewContact = () => import('~/components/NewContact.vue')
+const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 
 @Component({
   async asyncData({ store, params }) {
@@ -69,24 +89,29 @@ const GoogleAdsense = () => import('~/components/layouts/GoogleAdsense.vue')
   components: {
     MainTemplate,
     HeaderText,
-    Detail,
     SocialMenu,
-    LatestList,
-    New,
+    NewContact,
     GoogleAdsense
   },
   head(this: Slug) {
+    let heroImage = ''
+    if (this.currentPost.fields.heroImage) {
+      heroImage = `https:${this.currentPost.fields.heroImage.fields.file.url}`
+    }
     return {
       title : this.currentPost.fields.title || '',
       meta: [
+        { hid: 'description', name: 'description', content:this.currentPost.fields.description || '' },
+        { hid: 'og:type', property: 'og:type', content: 'article' },
         { hid: 'og:title', property: 'og:title', content: this.currentPost.fields.title || '' },
         { hid: 'og:description', property: 'og:description', content: this.currentPost.fields.description || '' },
-        { hid: 'og:image', property: 'og:image', content: `https:${this.currentPost.fields.heroImage.fields.file.url}` || '' },
-        { hid: 'og:title', name: 'og:title', content: this.currentPost.fields.title || '' },
-        { hid: 'og:description', name: 'og:description', content: this.currentPost.fields.description || '' },
-        { hid: 'og:image', name: 'og:image', content: `https:${this.currentPost.fields.heroImage.fields.file.url}` || '' },
+        { hid: 'og:url', property: 'og:url', content: `https://webneko.dev/posts/${this.currentPost.fields.slug}` || '' },
+        { hid: 'og:image', property: 'og:image', content: heroImage || '' }
       ]
     }
+  },
+  async mounted() {
+    (this as any).$microlinkjs('.link-preview')
   }
 })
 export default class Slug extends Vue {
@@ -94,6 +119,10 @@ export default class Slug extends Vue {
 
   get currentPost() {
     return this.$store.state.product.currentPost
+  }
+
+  get latestPosts() {
+    return this.$store.state.product.latestPosts
   }
 
   getDate(date: Date) {
@@ -105,16 +134,6 @@ export default class Slug extends Vue {
 <style scoped>
 .cover {
   position: relative;
-}
-
-.cover img {
-  width: 100%;
-  height: 50vh;
-  object-fit: cover;
-  vertical-align: middle;
-  background-position: center;
-  background-size: cover;
-  filter: brightness(60%);
 }
 
 .cover .title {
@@ -141,6 +160,47 @@ export default class Slug extends Vue {
   line-height: 24px;
 }
 
+.cover img {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+  vertical-align: middle;
+  background-position: center;
+  background-size: cover;
+  filter: brightness(60%);
+}
+
+.space {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  vertical-align: middle;
+}
+
+.space .title {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: calc(50% - 25px);
+  text-align: center;
+  color: #000;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 48px;
+}
+
+.space .date {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: calc(75% + 25px);
+  text-align: center;
+  color: #000;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 24px;
+}
+
 .article {
   width: 52%;
   margin: 2% 24% 2% 24%;
@@ -158,17 +218,36 @@ export default class Slug extends Vue {
 .late-article {
   margin-left: auto;
   margin-right: auto;
+  text-align: left;
+}
+
+.late-article .title {
+  font-size: 2vmin;
+}
+
+.late-article .item {
+  overflow: hidden;
+  height: 40px;
+}
+
+.late-article .item-title {
+  font-size: 2vmin;
 }
 
 @media (max-width: 500px) {
-  .cover .title {
+  .title {
     font-size: 24px;
     line-height: 24px;
   }
 
+  .date {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
   .article {
-    width: 92%;
-    margin: 2% 4% 2% 4%;
+    width: 98%;
+    margin: 2% 1% 2% 1%;
     text-align: center;
     overflow: hidden;
   }
