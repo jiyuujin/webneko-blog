@@ -1,4 +1,5 @@
 import { Module, ActionContext, ActionTree, MutationTree } from 'vuex';
+import { PAGE } from '~/services/blog';
 import { Dictionary, Post, Param } from '~/types/blog';
 import { RootState } from './types';
 import { createClient } from '~/plugins/contentful';
@@ -6,8 +7,6 @@ import { createClient } from '~/plugins/contentful';
 const client = createClient();
 
 const ORDER = '-fields.publishDate';
-
-const PAGE = 9;
 
 const namespaced = true;
 

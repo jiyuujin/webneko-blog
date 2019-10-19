@@ -7,6 +7,7 @@
         <div
           v-for="(post, index) in posts"
           :key="post.fields.title"
+          :style="index < count ? 'margin: 12px 4%;' : ''"
           class="card"
         >
           <template v-if="index < count">
@@ -37,6 +38,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import dayjs from 'dayjs'
+import { PAGE } from '~/services/blog';
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const HeaderText = () => import('~/components/HeaderText.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
@@ -62,7 +64,7 @@ export default class Index extends Vue {
     return dayjs(date).format('MM月 DD日')
   }
 
-  count: number = 9;
+  count: number = PAGE;
 }
 </script>
 
@@ -121,10 +123,6 @@ export default class Index extends Vue {
     width: 98%;
     margin: 0 auto;
     padding-top: 16px;
-  }
-
-  .card {
-    margin: 0 4%;
   }
 }
 </style>
