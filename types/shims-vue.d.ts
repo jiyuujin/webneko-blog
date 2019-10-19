@@ -3,17 +3,10 @@ declare module '*.vue' {
   export default Vue;
 }
 
-// vue-cookie-law
-declare module 'vue-cookie-law' {
-  //
-}
+declare module 'vue-cookie-law'
 
-// @microlink/vanilla
-declare module '@microlink/vanilla' {
-  //
-}
+declare module '@microlink/vanilla'
 
-// vue-infinite-loading
 declare module 'vue-infinite-loading' {
   import Vue from 'vue'
 
