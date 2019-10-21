@@ -94,6 +94,15 @@ footer {
     min-height: 0;
   }
 
+  .menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu a {
+    margin-bottom: 12px;
+  }
+
   .copyright {
     font-size: 12px;
   }
