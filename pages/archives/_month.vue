@@ -3,26 +3,23 @@
     <header-text />
 
     <div class="main">
-      <div class="top">
+      <div class="archive">
         <div
-          v-for="(post, index) in posts"
+          v-for="post in archives"
           :key="post.fields.title"
-          :style="index < count ? 'margin: 12px 4%;' : ''"
           class="card"
         >
-          <template v-if="index < count">
-            <nuxt-link :to="{ name: 'posts-slug', params: { slug: post.fields.slug }}">
-              <div class="title">
-                {{ post.fields.title }}
-              </div>
-              <div class="date">
-                {{ getDate(post.fields.publishDate) }}
-              </div>
-              <div class="description">
-                {{ post.fields.description }}
-              </div>
-            </nuxt-link>
-          </template>
+          <nuxt-link :to="{ name: 'posts-slug', params: { slug: post.fields.slug }}">
+            <div class="title">
+              {{ post.fields.title }}
+            </div>
+            <div class="date">
+              {{ getDate(post.fields.publishDate) }}
+            </div>
+            <div class="description">
+              {{ post.fields.description }}
+            </div>
+          </nuxt-link>
         </div>
       </div>
 
@@ -38,14 +35,16 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import dayjs from 'dayjs'
-import { PAGE } from '~/services/blog';
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const HeaderText = () => import('~/components/HeaderText.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 
 @Component({
-  async asyncData ({ store }) {
-    await store.dispatch('product/fetchAllPosts')
+  async asyncData ({ store, route }) {
+    await store.dispatch('product/fetchPost', {
+      'slug': '',
+      'month': route.params.month
+    })
   },
   components: {
     MainTemplate,
@@ -53,16 +52,14 @@ const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
     GoogleAdsense
   }
 })
-export default class Index extends Vue {
-  get posts() {
-    return this.$store.state.product.posts
+export default class Month extends Vue {
+  get archives() {
+    return this.$store.state.product.archives
   }
 
   getDate(date: Date) {
     return dayjs(date).format('MM月 DD日')
   }
-
-  count: number = PAGE;
 }
 </script>
 
@@ -72,7 +69,7 @@ export default class Index extends Vue {
   padding-top: 36px;
 }
 
-.top {
+.archive {
   width: 52%;
   margin: 2% 24% 2% 24%;
   padding-top: 36px;
@@ -83,6 +80,7 @@ export default class Index extends Vue {
 .card {
   position: relative;
   width: 100%;
+  margin: 12px 4%;
 }
 
 .title {
@@ -117,7 +115,7 @@ export default class Index extends Vue {
     margin: 0;
   }
 
-  .top {
+  .archive {
     width: 98%;
     margin: 0 auto;
     padding-top: 16px;

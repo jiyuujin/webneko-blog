@@ -11,6 +11,9 @@
         <a href="https://nekohack.app/docs">
           プロフィール
         </a>
+        <nuxt-link :to="`/archives/${getCurrentMonth}`">
+          アーカイヴ
+        </nuxt-link>
         <nuxt-link to="/contact">
           お問い合わせ
         </nuxt-link>
@@ -24,11 +27,17 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import dayjs from 'dayjs'
 
 export default Vue.extend({
   data() {
     return {
       imgName: require('../static/bakeneko2.png')
+    }
+  },
+  computed: {
+    getCurrentMonth(): string {
+      return dayjs().format('YYYY-MM')
     }
   }
 })

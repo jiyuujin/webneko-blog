@@ -82,8 +82,9 @@ const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 
 @Component({
   async asyncData({ store, params }) {
-    await store.dispatch('product/initPosts', {
-      'slug': params.slug
+    await store.dispatch('product/fetchPost', {
+      'slug': params.slug,
+      'month': ''
     })
   },
   components: {
@@ -235,7 +236,7 @@ export default class Slug extends Vue {
 }
 
 @media (max-width: 500px) {
-  .title {
+  .cover .title {
     font-size: 12px;
     line-height: 2;
   }
