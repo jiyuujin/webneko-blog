@@ -43,7 +43,7 @@
     "@nuxt/typescript-build": "0.3.2",
     "@nuxt/typescript-runtime": "0.2.2",
     "@types/node": "12.11.2",
-    "@types/webpack": "4.39.4",
+    "@types/webpack": "4.39.5",
     "@types/webpack-env": "1.14.1",
     "@typescript-eslint/eslint-plugin": "2.4.0",
     "@typescript-eslint/parser": "2.4.0",
