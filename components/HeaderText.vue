@@ -1,14 +1,26 @@
 <template>
   <div class="header">
-    Web猫ブログ
+    Web猫ブログ <span v-if="isMonthMatched">{{ getMonth }} - {{ archives.length }} 件</span>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import Vue from 'vue'
+import dayjs from 'dayjs'
 
-@Component({})
-export default class HeaderText extends Vue {}
+export default Vue.extend({
+  computed: {
+    archives() {
+      return this.$store.state.product.archives
+    },
+    getMonth(): string {
+      return dayjs(this.$route.params.month).format('YYYY年 MM月')
+    },
+    isMonthMatched(): boolean {
+      return this.$route.path === `/archives/${dayjs(this.$route.params.month).format('YYYY-MM')}`
+    }
+  }
+})
 </script>
 
 <style scoped>

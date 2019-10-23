@@ -82,8 +82,9 @@ const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 
 @Component({
   async asyncData({ store, params }) {
-    await store.dispatch('product/initPosts', {
-      'slug': params.slug
+    await store.dispatch('product/fetchPost', {
+      'slug': params.slug,
+      'month': ''
     })
   },
   components: {
@@ -144,7 +145,7 @@ export default class Slug extends Vue {
   text-align: center;
   color: #fff;
   font-weight: bold;
-  font-size: 48px;
+  font-size: 1.8vmax;
   line-height: 48px;
 }
 
@@ -156,7 +157,7 @@ export default class Slug extends Vue {
   text-align: center;
   color: #fff;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 1.2vmax;
   line-height: 24px;
 }
 
@@ -185,7 +186,7 @@ export default class Slug extends Vue {
   text-align: center;
   color: #000;
   font-weight: bold;
-  font-size: 48px;
+  font-size: 1.8vmax;
   line-height: 48px;
 }
 
@@ -197,7 +198,7 @@ export default class Slug extends Vue {
   text-align: center;
   color: #000;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 1.2vmax;
   line-height: 24px;
 }
 
@@ -222,7 +223,7 @@ export default class Slug extends Vue {
 }
 
 .late-article .title {
-  font-size: 2vmin;
+  font-size: 1.2vmax;
 }
 
 .late-article .item {
@@ -231,20 +232,10 @@ export default class Slug extends Vue {
 }
 
 .late-article .item-title {
-  font-size: 2vmin;
+  font-size: 1.8vmax;
 }
 
 @media (max-width: 500px) {
-  .title {
-    font-size: 12px;
-    line-height: 2;
-  }
-
-  .date {
-    font-size: 8px;
-    line-height: 1.5;
-  }
-
   .article {
     width: 98%;
     margin: 2% 1% 2% 1%;
