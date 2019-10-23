@@ -56,38 +56,13 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import dayjs from 'dayjs'
 import Firestore from '~/plugins/firebase.ts'
 import { isValidText } from '~/store/utils.ts'
-const MainTemplate = () => import('~/components/layouts/MainTemplate.vue')
+import { ContactCategories } from '~/services/contact'
+import { ContactCategory, Category } from '~/types/contact'
+const MainTemplate = () => import('~/components/MainTemplate.vue')
 
 const adminFirestore: any = Firestore.firestore();
 
 const contactsCollection: any = adminFirestore.collection('contacts')
-
-interface Category {
-  title: string,
-  contactCategory: number,
-  email: string,
-  description: string
-}
-
-interface ContactCategory {
-  value: number,
-  text: string
-}
-
-const ContactCategories: ContactCategory[] = [
-  {
-    value: 1,
-    text: '仕事のご依頼'
-  },
-  {
-    value: 2,
-    text: '当ブログへのご提案'
-  },
-  {
-    value: 99,
-    text: 'その他'
-  }
-];
 
 @Component({
   components: {

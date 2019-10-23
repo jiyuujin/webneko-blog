@@ -126,7 +126,7 @@ export default {
     path: '/sitemap.xml',
     hostname: 'https://webneko.dev/',
     cacheTime: 1000 * 60 * 15,
-    generate: false,
+    generate: true,
     async routes () {
       const client: ContentfulClientApi = contentful.createClient({
         space: process.env.CTF_SPACE_ID,
@@ -175,7 +175,7 @@ export default {
   },
 
   generate: {
-    subFolders: false
+    //
   },
 
   env: {

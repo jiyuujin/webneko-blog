@@ -11,6 +11,9 @@
         <a href="https://nekohack.app/docs">
           プロフィール
         </a>
+        <nuxt-link :to="`/archives/${getCurrentMonth}`">
+          アーカイヴ
+        </nuxt-link>
         <nuxt-link to="/contact">
           お問い合わせ
         </nuxt-link>
@@ -24,11 +27,17 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import dayjs from 'dayjs'
 
 export default Vue.extend({
   data() {
     return {
-      imgName: require('../../static/bakeneko2.png')
+      imgName: require('../static/bakeneko2.png')
+    }
+  },
+  computed: {
+    getCurrentMonth(): string {
+      return dayjs().format('YYYY-MM')
     }
   }
 })
@@ -65,7 +74,7 @@ footer {
   color: #fff;
   margin-right: 1em;
   padding-right: 16px;
-  background: url(../../static/external_link.png) no-repeat right center;
+  background: url(../static/external_link.png) no-repeat right center;
 }
 
 .menu a:last-child {
@@ -83,6 +92,15 @@ footer {
   footer {
     margin-top: 0;
     min-height: 0;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu a {
+    margin-bottom: 12px;
   }
 
   .copyright {

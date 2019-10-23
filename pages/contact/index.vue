@@ -24,9 +24,9 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-const MainTemplate = () => import('~/components/layouts/MainTemplate.vue')
-const New = () => import('~/components/contact/New.vue')
-const PrivacyPolicy = () => import('~/components/layouts/PrivacyPolicy.vue')
+const MainTemplate = () => import('~/components/MainTemplate.vue')
+const New = () => import('~/components/NewContact.vue')
+const PrivacyPolicy = () => import('~/components/PrivacyPolicy.vue')
 
 @Component({
   components: {

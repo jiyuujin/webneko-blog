@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import CookieFooter from '~/components/layouts/CookieFooter.vue'
+import CookieFooter from '~/components/CookieFooter.vue'
 
 @Component({
   components: {
