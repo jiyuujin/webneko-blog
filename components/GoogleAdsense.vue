@@ -16,10 +16,10 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component({})
 export default class GoogleAdsense extends Vue {
-  @Prop() adSlot: string;
-  @Prop() adFormat: string;
-  @Prop() adLayout: string;
-  @Prop() adStyle: object;
+    @Prop() adSlot: string;
+    @Prop() adFormat: string;
+    @Prop() adLayout: string;
+    @Prop() adStyle: object;
 }
 </script>
 

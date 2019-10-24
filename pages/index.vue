@@ -44,23 +44,23 @@ const HeaderText = () => import('~/components/HeaderText.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 
 @Component({
-  async asyncData ({ store }) {
-    await store.dispatch('product/fetchAllPosts')
-  },
-  components: {
-    MainTemplate,
-    HeaderText,
-    GoogleAdsense
-  }
+    async asyncData ({ store }) {
+        await store.dispatch('product/fetchAllPosts')
+    },
+    components: {
+        MainTemplate,
+        HeaderText,
+        GoogleAdsense
+    }
 })
 export default class Index extends Vue {
-  get posts() {
-    return this.$store.state.product.posts
-  }
+    get posts() {
+        return this.$store.state.product.posts
+    }
 
-  getDate(date: Date) {
-    return dayjs(date).format('MM月 DD日')
-  }
+    getDate(date: Date) {
+        return dayjs(date).format('MM月 DD日')
+    }
 
   count: number = PAGE;
 }

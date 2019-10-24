@@ -9,17 +9,17 @@ import Vue from 'vue'
 import dayjs from 'dayjs'
 
 export default Vue.extend({
-  computed: {
-    archives() {
-      return this.$store.state.product.archives
-    },
-    getMonth(): string {
-      return dayjs(this.$route.params.month).format('YYYY年 MM月')
-    },
-    isMonthMatched(): boolean {
-      return this.$route.path === `/archives/${dayjs(this.$route.params.month).format('YYYY-MM')}`
+    computed: {
+        archives() {
+            return this.$store.state.product.archives
+        },
+        getMonth(): string {
+            return dayjs(this.$route.params.month).format('YYYY年 MM月')
+        },
+        isMonthMatched(): boolean {
+            return this.$route.path === `/archives/${dayjs(this.$route.params.month).format('YYYY-MM')}`
+        }
     }
-  }
 })
 </script>
 

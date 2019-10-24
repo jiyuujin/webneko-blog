@@ -3,13 +3,13 @@ declare module 'nuxt' {
   import { Route } from 'vue-router';
 
   export class Builder {
-    constructor(nuxt: Nuxt);
-    build(): void;
+      constructor(nuxt: Nuxt);
+      build(): void;
   }
 
   export class Nuxt {
-    constructor(config?: NuxtConfig);
-    render(): void;
+      constructor(config?: NuxtConfig);
+      render(): void;
   }
 
   export interface NuxtApp {

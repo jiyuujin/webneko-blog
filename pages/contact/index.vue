@@ -29,11 +29,11 @@ const New = () => import('~/components/NewContact.vue')
 const PrivacyPolicy = () => import('~/components/PrivacyPolicy.vue')
 
 @Component({
-  components: {
-    MainTemplate,
-    New,
-    PrivacyPolicy
-  }
+    components: {
+        MainTemplate,
+        New,
+        PrivacyPolicy
+    }
 })
 export default class Index extends Vue {}
 </script>
