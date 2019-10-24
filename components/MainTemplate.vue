@@ -1,7 +1,7 @@
 <template>
   <div :class="isForm ? `form` : ``">
     <slot />
-    <footer-text v-if="!isForm"></footer-text>
+    <footer-text v-if="!isForm" />
   </div>
 </template>
 
@@ -10,12 +10,12 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 const FooterText = () => import('~/components/FooterText.vue')
 
 @Component({
-  components: {
-    FooterText
-  }
+    components: {
+        FooterText
+    }
 })
 export default class MainTemplate extends Vue {
-  @Prop() isForm: boolean;
+    @Prop() isForm: boolean;
 }
 </script>
 

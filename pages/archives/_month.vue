@@ -40,26 +40,26 @@ const HeaderText = () => import('~/components/HeaderText.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 
 @Component({
-  async asyncData ({ store, route }) {
-    await store.dispatch('product/fetchPost', {
-      'slug': '',
-      'month': route.params.month
-    })
-  },
-  components: {
-    MainTemplate,
-    HeaderText,
-    GoogleAdsense
-  }
+    async asyncData ({ store, route }) {
+        await store.dispatch('product/fetchPost', {
+            'slug': '',
+            'month': route.params.month
+        })
+    },
+    components: {
+        MainTemplate,
+        HeaderText,
+        GoogleAdsense
+    }
 })
 export default class Month extends Vue {
-  get archives() {
-    return this.$store.state.product.archives
-  }
+    get archives() {
+        return this.$store.state.product.archives
+    }
 
-  getDate(date: Date) {
-    return dayjs(date).format('MM月 DD日')
-  }
+    getDate(date: Date) {
+        return dayjs(date).format('MM月 DD日')
+    }
 }
 </script>
 

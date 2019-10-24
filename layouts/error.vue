@@ -13,7 +13,9 @@
     </div>
     <div>
       <h2 class="sub">
-        <nuxt-link to="/">ホーム</nuxt-link>
+        <nuxt-link to="/">
+          ホーム
+        </nuxt-link>
       </h2>
     </div>
   </section>
@@ -24,7 +26,7 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component({})
 export default class Error extends Vue {
-  @Prop() error: object;
+    @Prop() error: object;
 }
 </script>
 

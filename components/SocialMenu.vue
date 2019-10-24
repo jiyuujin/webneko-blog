@@ -25,37 +25,37 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component({})
 export default class SocialMenu extends Vue {
-  @Prop() slugText: string;
-  @Prop() title: string;
-  @Prop() isVertical: boolean;
+    @Prop() slugText: string;
+    @Prop() title: string;
+    @Prop() isVertical: boolean;
 
-  socialMenu: string[] = [
-    'twitter',
-    'hatena',
-    'note'
-  ];
+    socialMenu: string[] = [
+        'twitter',
+        'hatena',
+        'note'
+    ];
 
-  handleClick(item: string) {
-    let url: string = '';
+    handleClick(item: string) {
+        let url: string = '';
 
-    switch (item) {
-      case 'twitter':
-        url = `http://twitter.com/share?text=${this.title}&url=https://webneko.dev/posts/${this.slugText}`;
-        break;
-      case 'hatena':
-        url = `http://b.hatena.ne.jp/entry/webneko.dev/posts/${this.slugText}`;
-        break;
-      case 'note':
-        url = `https://note.mu/intent/post?url=https://webneko.dev/posts/${this.slugText}`;
-        break;
-      default:
-        break;
+        switch (item) {
+        case 'twitter':
+            url = `http://twitter.com/share?text=${this.title}&url=https://webneko.dev/posts/${this.slugText}`;
+            break;
+        case 'hatena':
+            url = `http://b.hatena.ne.jp/entry/webneko.dev/posts/${this.slugText}`;
+            break;
+        case 'note':
+            url = `https://note.mu/intent/post?url=https://webneko.dev/posts/${this.slugText}`;
+            break;
+        default:
+            break;
+        }
+
+        window.open(encodeURI(decodeURI(url)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1');
+
+        return false;
     }
-
-    window.open(encodeURI(decodeURI(url)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1');
-
-    return false;
-  }
 }
 </script>
 

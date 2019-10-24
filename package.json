@@ -39,6 +39,7 @@
     "vue-no-ssr": "1.1.1"
   },
   "devDependencies": {
+    "@nekohack/eslint-config": "^0.1.1",
     "@nuxt/types": "0.3.2",
     "@nuxt/typescript-build": "0.3.2",
     "@nuxt/typescript-runtime": "0.2.2",

@@ -4,9 +4,9 @@
       <profile-card
         name="Yuma Kitamura"
         nickname="Web猫"
-        :imgName="imgName"
+        :img-name="imgName"
         background-color="#35495e"
-      ></profile-card>
+      />
       <div class="menu">
         <a href="https://nekohack.app/docs">
           プロフィール
@@ -30,16 +30,16 @@ import Vue from 'vue'
 import dayjs from 'dayjs'
 
 export default Vue.extend({
-  data() {
-    return {
-      imgName: require('../static/bakeneko2.png')
+    data() {
+        return {
+            imgName: require('../static/bakeneko2.png')
+        }
+    },
+    computed: {
+        getCurrentMonth(): string {
+            return dayjs().format('YYYY-MM')
+        }
     }
-  },
-  computed: {
-    getCurrentMonth(): string {
-      return dayjs().format('YYYY-MM')
-    }
-  }
 })
 </script>
 

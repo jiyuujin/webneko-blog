@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="fade">
-      <nuxt/>
+      <nuxt />
     </transition>
     <cookie-footer />
   </div>
@@ -12,9 +12,9 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import CookieFooter from '~/components/CookieFooter.vue'
 
 @Component({
-  components: {
-    CookieFooter
-  }
+    components: {
+        CookieFooter
+    }
 })
 export default class Default extends Vue {}
 </script>

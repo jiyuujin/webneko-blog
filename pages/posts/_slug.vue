@@ -21,10 +21,9 @@
     </div>
 
     <div class="article">
-      <div
-        class="post-detail"
-        v-html="$md.render(currentPost.fields.body)"
-      ></div>
+      <loaded-markdown
+        :body="currentPost.fields.body"
+      />
 
       <google-adsense
         slot="5228106955"
@@ -45,7 +44,7 @@
         </p>
         <new-contact
           :blog-title="currentPost.fields.title"
-        ></new-contact>
+        />
       </div>
 
       <div class="late-article">
@@ -79,55 +78,54 @@ const HeaderText = () => import('~/components/HeaderText.vue')
 const SocialMenu = () => import('~/components/SocialMenu.vue')
 const NewContact = () => import('~/components/NewContact.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
+const LoadedMarkdown = () => import('~/components/LoadedMarkdown.vue')
 
 @Component({
-  async asyncData({ store, params }) {
-    await store.dispatch('product/fetchPost', {
-      'slug': params.slug,
-      'month': ''
-    })
-  },
-  components: {
-    MainTemplate,
-    HeaderText,
-    SocialMenu,
-    NewContact,
-    GoogleAdsense
-  },
-  head(this: Slug) {
-    let heroImage = ''
-    if (this.currentPost.fields.heroImage) {
-      heroImage = `https:${this.currentPost.fields.heroImage.fields.file.url}`
+    async asyncData({ store, params }) {
+        await store.dispatch('product/fetchPost', {
+            'slug': params.slug,
+            'month': ''
+        })
+    },
+    components: {
+        MainTemplate,
+        HeaderText,
+        SocialMenu,
+        NewContact,
+        GoogleAdsense,
+        LoadedMarkdown
+    },
+    head(this: Slug) {
+        let heroImage = ''
+        if (this.currentPost.fields.heroImage) {
+            heroImage = `https:${this.currentPost.fields.heroImage.fields.file.url}`
+        }
+        return {
+            title : this.currentPost.fields.title || '',
+            meta: [
+                { hid: 'description', name: 'description', content:this.currentPost.fields.description || '' },
+                { hid: 'og:type', property: 'og:type', content: 'article' },
+                { hid: 'og:title', property: 'og:title', content: this.currentPost.fields.title || '' },
+                { hid: 'og:description', property: 'og:description', content: this.currentPost.fields.description || '' },
+                { hid: 'og:url', property: 'og:url', content: `https://webneko.dev/posts/${this.currentPost.fields.slug}` || '' },
+                { hid: 'og:image', property: 'og:image', content: heroImage || '' }
+            ]
+        }
     }
-    return {
-      title : this.currentPost.fields.title || '',
-      meta: [
-        { hid: 'description', name: 'description', content:this.currentPost.fields.description || '' },
-        { hid: 'og:type', property: 'og:type', content: 'article' },
-        { hid: 'og:title', property: 'og:title', content: this.currentPost.fields.title || '' },
-        { hid: 'og:description', property: 'og:description', content: this.currentPost.fields.description || '' },
-        { hid: 'og:url', property: 'og:url', content: `https://webneko.dev/posts/${this.currentPost.fields.slug}` || '' },
-        { hid: 'og:image', property: 'og:image', content: heroImage || '' }
-      ]
-    }
-  },
-  async mounted() {
-    (this as any).$microlinkjs('.link-preview')
-  }
 })
 export default class Slug extends Vue {
   isVertical: boolean = true
 
   get currentPost() {
-    return this.$store.state.product.currentPost
+      return this.$store.state.product.currentPost
   }
 
   get latestPosts() {
-    return this.$store.state.product.latestPosts
+      return this.$store.state.product.latestPosts
   }
 
   getDate(date: Date) {
-    return dayjs(date).format('MM月 DD日')
+      return dayjs(date).format('MM月 DD日')
   }
 }
 </script>

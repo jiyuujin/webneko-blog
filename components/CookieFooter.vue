@@ -19,11 +19,11 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import VueCookieLaw from 'vue-cookie-law'
 
 @Component({
-  components: {
-    VueCookieLaw
-  }
+    components: {
+        VueCookieLaw
+    }
 })
 export default class CookieFooter extends Vue {
-  message: string = 'あなたがこのサイト上でベストな体験ができるようCookieを使用しています'
+    message: string = 'あなたがこのサイト上でベストな体験ができるようCookieを使用しています'
 }
 </script>

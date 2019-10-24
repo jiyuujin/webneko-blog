@@ -23,11 +23,11 @@
  * @param value 文字列
  */
 export function isValidText (value: string) {
-  if (value === '') {
-    return true
-  } else {
-    return false
-  }
+    if (value === '') {
+        return true
+    } else {
+        return false
+    }
 }
 
 /**
@@ -35,9 +35,9 @@ export function isValidText (value: string) {
  * @param value 数値
  */
 export function isValidNumber (value: number) {
-  if (value === 0) {
-    return true
-  } else {
-    return false
-  }
+    if (value === 0) {
+        return true
+    } else {
+        return false
+    }
 }
