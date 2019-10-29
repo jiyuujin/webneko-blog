@@ -9,62 +9,40 @@
     <div v-if="responseText">
       {{ responseText }}
     </div>
-    <main-template
-      :is-form="isForm"
-      class="form"
-    >
+    <j-form title="タイトル">
       <j-input
-        placeholder="タイトル"
         input-type="text"
-        width="80%"
         @handleInput="applyTitle"
-      />
-    </main-template>
-    <main-template
-      v-if="category === 'manual'"
-      :is-form="isForm"
-      class="form"
-    >
+      ></j-input>
+    </j-form>
+    <j-form v-if="category === 'manual'" title="カテゴリー">
       <j-select
         :options="contactCategories"
         :multiple="Boolean(false)"
         :selected-values="form.contactCategory"
-        width="80%"
         @handleSelect="applyContactCategory"
-      />
-    </main-template>
-    <main-template
-      :is-form="isForm"
-      class="form"
-    >
+      ></j-select>
+    </j-form>
+    <j-form title="メールアドレス">
       <j-input
-        placeholder="メールアドレス (任意)"
         input-type="text"
-        width="80%"
         @handleInput="applyEmail"
-      />
-    </main-template>
-    <main-template
-      :is-form="isForm"
-      class="form"
-    >
+      ></j-input>
+    </j-form>
+    <j-form title="詳細">
       <j-input
-        placeholder="詳細"
         input-type="text"
-        width="80%"
         @handleInput="applyDescription"
-      />
-    </main-template>
-    <main-template
-      :is-form="isForm"
-      class="form"
-    >
-      <j-button
-        text="送信します"
-        width="128px"
-        variant-style="text"
-        @handleClick="submit"
-      />
+      ></j-input>
+    </j-form>
+    <main-template :is-form="isForm">
+      <div class="form">
+        <j-button
+          text="送信します"
+          variant-style="text"
+          @handleClick="submit"
+        ></j-button>
+      </div>
     </main-template>
   </div>
 </template>
@@ -186,11 +164,13 @@ a {
 }
 
 .validate {
-  text-align: left;
+  margin: 8px auto;
+  text-align: center;
   color: #c71582;
 }
 
 .form {
   margin: 8px auto;
+  text-align: center;
 }
 </style>
