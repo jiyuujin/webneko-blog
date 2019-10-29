@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@microlink/vanilla": "3.0.5",
-    "@nekohack/j-stylebook": "0.1.11",
+    "@nekohack/j-stylebook": "0.1.12",
     "@nekohack/profile-component": "0.1.2",
     "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/google-adsense": "1.1.3",
