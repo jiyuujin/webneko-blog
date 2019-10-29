@@ -1,5 +1,15 @@
 {
   "extends": [
     "config:base"
+  ],
+  "automerge": true,
+  "major": {
+    "automerge": false
+  },
+  "schedule": [
+    "after 10pm and before 6am on every weekday"
+  ],
+  "assignees": [
+    "jiyuujin"
   ]
 }

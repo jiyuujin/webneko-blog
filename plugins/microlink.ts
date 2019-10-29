@@ -4,10 +4,12 @@ export class MicrolinkPlugin {
   microlinkjs: string = '';
 
   constructor() {
-    this.microlinkjs = microlink
+      this.microlinkjs = microlink
   }
 }
 
 export default ({ app }, inject) => {
-  inject('microlinkjs', (selector => microlink(selector)))
+    inject('microlinkjs', (selector => microlink(selector, 'a', {
+        apiKey: process.env.MICROLINK_API
+    })))
 };
