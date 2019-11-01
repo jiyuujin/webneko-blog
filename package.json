@@ -34,7 +34,7 @@
     "nuxt": "2.10.2",
     "nuxt-property-decorator": "2.5.0",
     "ts-node": "8.4.1",
-    "vue-cookie-law": "1.10.0",
+    "vue-cookie-law": "1.11.0",
     "vue-infinite-loading": "2.4.4",
     "vue-no-ssr": "1.1.1"
   },
