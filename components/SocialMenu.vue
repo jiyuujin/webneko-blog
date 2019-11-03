@@ -49,25 +49,19 @@ export default Vue.extend({
     },
     methods: {
         handleClick(item: string) {
-            let url = '';
+            let url = ''
 
-            switch (item) {
-            case 'twitter':
-                url = `http://twitter.com/share?text=${this.title}&url=https://webneko.dev/posts/${this.slugText}`;
-                break;
-            case 'hatena':
-                url = `http://b.hatena.ne.jp/entry/webneko.dev/posts/${this.slugText}`;
-                break;
-            case 'note':
-                url = `https://note.mu/intent/post?url=https://webneko.dev/posts/${this.slugText}`;
-                break;
-            default:
-                break;
+            if (item === 'twitter') {
+                url = `http://twitter.com/share?text=${(this as any).title}&url=https://webneko.dev/posts/${(this as any).slugText}`
+            } else if (item === 'hatena') {
+                url = `http://b.hatena.ne.jp/entry/webneko.dev/posts/${(this as any).slugText}`
+            } else {
+                url = `https://note.mu/intent/post?url=https://webneko.dev/posts/${(this as any).slugText}`
             }
 
-            window.open(encodeURI(decodeURI(url)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1');
+            window.open(encodeURI(decodeURI(url)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1')
 
-            return false;
+            return false
         }
     }
 })

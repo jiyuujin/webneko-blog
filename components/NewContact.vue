@@ -113,20 +113,20 @@ export default Vue.extend({
             this.validationText = ''
         },
         async submit() {
-            this.responseText = '';
+            this.responseText = ''
 
             if (isValidText(this.form.title)) {
                 if (isValidText(this.form.description)) {
-                    this.validationText = 'タイトル・詳細は必須です';
-                    return;
+                    this.validationText = 'タイトル・詳細は必須です'
+                    return
                 }
-                this.validationText = 'タイトルは必須です';
-                return;
+                this.validationText = 'タイトルは必須です'
+                return
             }
 
             if (isValidText(this.form.description)) {
-                this.validationText = '詳細は必須です';
-                return;
+                this.validationText = '詳細は必須です'
+                return
             }
 
             await contactsCollection.add({
@@ -135,11 +135,11 @@ export default Vue.extend({
                 'category': this.getCategory(),
                 'email': this.form.email,
                 'description': this.form.description
-            });
+            })
 
-            this.reset();
+            this.reset()
 
-            this.responseText = '送信に成功しました';
+            this.responseText = '送信に成功しました'
         },
         getCategory(): ContactCategory | undefined {
             if (this.category !== 'manual' && this.form.contactCategory === 0) {

@@ -1,8 +1,8 @@
-import Vue from 'vue';
-import { Route } from 'vue-router';
-import { ActionContext as BaseActionContext } from 'vuex';
-import { firestore } from 'firebase';
-import { MetaInfo } from 'vue-meta';
+import Vue from 'vue'
+import { Route } from 'vue-router'
+import { ActionContext as BaseActionContext } from 'vuex'
+import { firestore } from 'firebase'
+import { MetaInfo } from 'vue-meta'
 
 declare module 'vue/types/vue'
 
