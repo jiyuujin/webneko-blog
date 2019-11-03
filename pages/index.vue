@@ -38,6 +38,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import dayjs from 'dayjs'
+import { PAGE } from '~/services/blog'
+
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const HeaderText = () => import('~/components/HeaderText.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
@@ -55,6 +57,11 @@ export default Vue.extend({
     },
     async asyncData ({ store }) {
         await store.dispatch('product/fetchAllPosts')
+    },
+    data() {
+        return {
+            count: PAGE
+        }
     },
     methods: {
         getDate(date: Date) {
