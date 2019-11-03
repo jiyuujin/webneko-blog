@@ -6,17 +6,21 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'nuxt-property-decorator'
+import Vue from 'vue'
+
 const FooterText = () => import('~/components/FooterText.vue')
 
-@Component({
+export default Vue.extend({
     components: {
         FooterText
+    },
+    props: {
+        isForm: {
+            type: Boolean,
+            default: false
+        }
     }
 })
-export default class MainTemplate extends Vue {
-    @Prop() isForm: boolean;
-}
 </script>
 
 <style scoped>

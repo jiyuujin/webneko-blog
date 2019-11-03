@@ -1,7 +1,7 @@
 const microlink = require('@microlink/vanilla/umd/microlink');
 
 export class MicrolinkPlugin {
-  microlinkjs: string = '';
+  microlinkjs = '';
 
   constructor() {
       this.microlinkjs = microlink

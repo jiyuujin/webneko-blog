@@ -12,10 +12,10 @@ declare module 'vue/types/options' {
     // fetch?: (ctx: NuxtContext) => Promise<any>;
     layout?: string;
     middleware?: string | string[];
-    head?: MetaInfo | (() => MetaInfo)
-    key?: string | ((to: Route) => string)
-    scrollToTop?: boolean
-    watchQuery?: boolean | string[]
+    head?: MetaInfo | (() => MetaInfo);
+    key?: string | ((to: Route) => string);
+    scrollToTop?: boolean;
+    watchQuery?: boolean | string[];
   }
 }
 

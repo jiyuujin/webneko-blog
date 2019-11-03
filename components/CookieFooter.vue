@@ -15,15 +15,17 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import Vue from 'vue'
 import VueCookieLaw from 'vue-cookie-law'
 
-@Component({
+export default Vue.extend({
     components: {
         VueCookieLaw
+    },
+    data () {
+        return {
+            message: 'あなたがこのサイト上でベストな体験ができるようCookieを使用しています'
+        }
     }
 })
-export default class CookieFooter extends Vue {
-    message: string = 'あなたがこのサイト上でベストな体験ができるようCookieを使用しています'
-}
 </script>
