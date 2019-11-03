@@ -8,15 +8,15 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
-import CookieFooter from '~/components/CookieFooter.vue'
+import Vue from 'vue'
 
-@Component({
+const CookieFooter = () => import('~/components/CookieFooter.vue')
+
+export default Vue.extend({
     components: {
         CookieFooter
     }
 })
-export default class Default extends Vue {}
 </script>
 
 <style>
