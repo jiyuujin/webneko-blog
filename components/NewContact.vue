@@ -89,7 +89,7 @@ export default Vue.extend({
             } as Category,
             validationText: '' as string,
             responseText: '' as string,
-            contactCategories: [] as ContactCategory[]
+            contactCategories: ContactCategories as ContactCategory[]
         }
     },
     methods: {
