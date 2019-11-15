@@ -32,7 +32,7 @@
     "markdown-it-highlightjs": "3.0.0",
     "markdown-it-toc": "1.1.0",
     "nuxt": "2.10.2",
-    "ts-node": "8.5.0",
+    "ts-node": "8.5.2",
     "vue-cookie-law": "1.11.0",
     "vue-infinite-loading": "2.4.4",
     "vue-no-ssr": "1.1.1"
