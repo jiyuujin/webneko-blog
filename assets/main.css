@@ -20,6 +20,7 @@ a {
   text-align: left;
   border-left: solid 5px #42b883;
   color: #35495e;
+  font-size: 1.6em;
 }
 
 .post-detail h3 {
@@ -27,6 +28,15 @@ a {
   padding: 0.24em 0.48em;
   text-align: left;
   border-left: solid 5px #35495e;
+  font-size: 1.2em;
+}
+
+.post-detail h4 {
+  margin: 8px 0;
+  padding: 0.24em 0.48em;
+  text-align: left;
+  border-left: solid 5px #35495e;
+  font-size: 1em;
 }
 
 .post-detail p {
@@ -35,16 +45,106 @@ a {
   line-height: 2;
 }
 
-.post-detail ul {
-  margin-left: 4%;
-  padding: 0.16em 0.24em;
+.post-detail ol {
+  margin: 1em 0;
+  padding: 0 0 0 2em;
   text-align: left;
 }
 
-.post-detail ol {
-  margin-left: 4%;
-  padding: 0.16em 0.24em;
+.post-detail ul {
+  margin: 1em 0;
+  padding: 0 0 0 2em;
   text-align: left;
+  list-style: disc;
+}
+
+.post-detail dd {
+  margin: 0 0 0 2em;
+}
+
+.post-detail table {
+  margin: 10px 0 15px 0;
+  border-collapse: collapse;
+}
+
+.post-detail td, th {
+  border: 2px solid #ccb8a3;
+  padding: 3px 10px;
+}
+
+.post-detail th {
+  padding: 5px 10px;
+}
+
+.post-detail blockquote {
+  position: relative;
+  display: table;
+  margin: 1rem;
+  padding: 2.3rem 2.3rem;
+  width: calc(100% - 2rem);
+  font-style: oblique;
+  font-size: 1rem;
+  border: dotted 1px #ececec;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+}
+
+.post-detail blockquote:before {
+  position: absolute;
+  left: 4px;
+  top: 1.5rem;
+  font-family: 'Georgia', 'Times', 'Times New Roman', serif;
+  font-size: 56px;
+  color: #d0d0d0;
+  content: '\0201C';
+}
+
+.post-detail blockquote:after {
+  position: absolute;
+  right: 12px;
+  bottom: -1rem;
+  font-family: 'Georgia', 'Times', 'Times New Roman', serif;
+  font-size: 56px;
+  color: #d0d0d0;
+  content: '\0201D';
+}
+
+.post-detail blockquote * {
+  font-style: oblique;
+  font-size: 1rem;
+  color: #555;
+}
+
+.post-detail blockquote .origin {
+  display: table-cell;
+  width: 100%;
+  margin: 1rem 0 0;
+  padding: 6px 4px 0 6px;
+  border-top: dotted 1px #e0e0e0;
+  text-align: right;
+  font-size: 0.857rem;
+  font-style: normal;
+  color: #909090;
+}
+
+.post-detail blockquote .origin:before {
+  margin-right: 10px;
+  letter-spacing: -2px;
+  font-weight: 100;
+  color: #ddd;
+  content: '\02500\02500';
+}
+
+.post-detail blockquote .origin:link,
+.post-detail blockquote .origin:visited {
+  color: #999;
+  text-decoration: none;
+}
+
+.post-detail blockquote .origin:hover,
+.post-detail blockquote .origin:active {
+  color: #07c;
+  text-decoration: none;
 }
 
 .post-detail pre {
