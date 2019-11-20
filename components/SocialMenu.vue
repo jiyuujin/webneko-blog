@@ -21,42 +21,50 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'nuxt-property-decorator'
+import Vue from 'vue'
 
-@Component({})
-export default class SocialMenu extends Vue {
-    @Prop() slugText: string;
-    @Prop() title: string;
-    @Prop() isVertical: boolean;
-
-    socialMenu: string[] = [
-        'twitter',
-        'hatena',
-        'note'
-    ];
-
-    handleClick(item: string) {
-        let url: string = '';
-
-        switch (item) {
-        case 'twitter':
-            url = `http://twitter.com/share?text=${this.title}&url=https://webneko.dev/posts/${this.slugText}`;
-            break;
-        case 'hatena':
-            url = `http://b.hatena.ne.jp/entry/webneko.dev/posts/${this.slugText}`;
-            break;
-        case 'note':
-            url = `https://note.mu/intent/post?url=https://webneko.dev/posts/${this.slugText}`;
-            break;
-        default:
-            break;
+export default Vue.extend({
+    props: {
+        slugText: {
+            type: String,
+            default: ''
+        },
+        title: {
+            type: String,
+            default: ''
+        },
+        isVertical: {
+            type: Boolean,
+            defaut: false
         }
+    },
+    data() {
+        return {
+            socialMenu: [
+                'twitter',
+                'hatena',
+                'note'
+            ] as string[]
+        }
+    },
+    methods: {
+        handleClick(item: string) {
+            let url = ''
 
-        window.open(encodeURI(decodeURI(url)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1');
+            if (item === 'twitter') {
+                url = `http://twitter.com/share?text=${(this as any).title}&url=https://webneko.dev/posts/${(this as any).slugText}`
+            } else if (item === 'hatena') {
+                url = `http://b.hatena.ne.jp/entry/webneko.dev/posts/${(this as any).slugText}`
+            } else {
+                url = `https://note.mu/intent/post?url=https://webneko.dev/posts/${(this as any).slugText}`
+            }
 
-        return false;
+            window.open(encodeURI(decodeURI(url)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1')
+
+            return false
+        }
     }
-}
+})
 </script>
 
 <style scoped>

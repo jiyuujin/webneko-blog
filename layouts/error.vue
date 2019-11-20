@@ -22,12 +22,15 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'nuxt-property-decorator'
+import Vue from 'vue'
 
-@Component({})
-export default class Error extends Vue {
-    @Prop() error: object;
-}
+export default Vue.extend({
+    props: {
+        error: {
+            type: Object
+        }
+    }
+})
 </script>
 
 <style scoped>

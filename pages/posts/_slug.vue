@@ -75,7 +75,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import Vue from 'vue'
 import dayjs from 'dayjs'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
@@ -86,13 +86,7 @@ const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 const LoadedMarkdown = () => import('~/components/LoadedMarkdown.vue')
 const BuyMeACoffee = () => import('~/components/BuyMeACoffee.vue')
 
-@Component({
-    async asyncData({ store, params }) {
-        await store.dispatch('product/fetchPost', {
-            'slug': params.slug,
-            'month': ''
-        })
-    },
+export default Vue.extend({
     components: {
         MainTemplate,
         HeaderText,
@@ -102,39 +96,48 @@ const BuyMeACoffee = () => import('~/components/BuyMeACoffee.vue')
         LoadedMarkdown,
         BuyMeACoffee
     },
-    head(this: Slug) {
+    data() {
+        return {
+            isVertical: true
+        }
+    },
+    computed: {
+        currentPost() {
+            return this.$store.state.product.currentPost
+        },
+        latestPosts() {
+            return this.$store.state.product.latestPosts
+        }
+    },
+    async asyncData({ store, params }) {
+        await store.dispatch('product/fetchPost', {
+            'slug': params.slug,
+            'month': ''
+        })
+    },
+    head() {
         let heroImage = ''
-        if (this.currentPost.fields.heroImage) {
-            heroImage = `https:${this.currentPost.fields.heroImage.fields.file.url}`
+        if ((this as any).currentPost.fields.heroImage) {
+            heroImage = `https:${(this as any).currentPost.fields.heroImage.fields.file.url}`
         }
         return {
-            title : this.currentPost.fields.title || '',
+            title : (this as any).currentPost.fields.title || '',
             meta: [
-                { hid: 'description', name: 'description', content:this.currentPost.fields.description || '' },
+                { hid: 'description', name: 'description', content:(this as any).currentPost.fields.description || '' },
                 { hid: 'og:type', property: 'og:type', content: 'article' },
-                { hid: 'og:title', property: 'og:title', content: this.currentPost.fields.title || '' },
-                { hid: 'og:description', property: 'og:description', content: this.currentPost.fields.description || '' },
-                { hid: 'og:url', property: 'og:url', content: `https://webneko.dev/posts/${this.currentPost.fields.slug}` || '' },
+                { hid: 'og:title', property: 'og:title', content: (this as any).currentPost.fields.title || '' },
+                { hid: 'og:description', property: 'og:description', content: (this as any).currentPost.fields.description || '' },
+                { hid: 'og:url', property: 'og:url', content: `https://webneko.dev/posts/${(this as any).currentPost.fields.slug}` || '' },
                 { hid: 'og:image', property: 'og:image', content: heroImage || '' }
             ]
         }
+    },
+    methods: {
+        getDate(date: Date) {
+            return dayjs(date).format('MM月 DD日')
+        }
     }
 })
-export default class Slug extends Vue {
-  isVertical: boolean = true
-
-  get currentPost() {
-      return this.$store.state.product.currentPost
-  }
-
-  get latestPosts() {
-      return this.$store.state.product.latestPosts
-  }
-
-  getDate(date: Date) {
-      return dayjs(date).format('MM月 DD日')
-  }
-}
 </script>
 
 <style scoped>

@@ -1,13 +1,13 @@
-import { Module, ActionContext, ActionTree, MutationTree } from 'vuex';
+import { Module, ActionContext, ActionTree, MutationTree } from 'vuex'
 import dayjs from 'dayjs'
-import { PAGE, LATEST_PAGE, ORDER } from '~/services/blog';
-import { KeyValue, Post, Param } from '~/types/blog';
-import { RootState } from './types';
-import { createClient } from '~/plugins/contentful';
+import { PAGE, LATEST_PAGE, ORDER } from '~/services/blog'
+import { KeyValue, Post, Param } from '~/types/blog'
+import { RootState } from './types'
+import { createClient } from '~/plugins/contentful'
 
-const client = createClient();
+const client = createClient()
 
-const namespaced = true;
+const namespaced = true
 
 export const state = (): State => ({
     isCookieAccepted: false,
@@ -16,7 +16,7 @@ export const state = (): State => ({
     currentPost: null,
     page: 1,
     archives: {}
-});
+})
 
 export interface State {
   isCookieAccepted: boolean | false;
@@ -47,7 +47,7 @@ export const mutations: MutationTree<State> = {
     setArchives(state, payload) {
         state.archives = payload
     }
-};
+}
 
 export const actions: RootActionTree<State, RootState> = {
     async fetchAllPosts (
@@ -106,7 +106,7 @@ export const actions: RootActionTree<State, RootState> = {
                 }
             })
     }
-};
+}
 
 export interface RootActionTree<State, RootState> extends ActionTree<State, RootState> {
   fetchAllPosts(
@@ -126,7 +126,7 @@ export interface RootActionTree<State, RootState> extends ActionTree<State, Root
 
 export const getters = {
     //
-};
+}
 
 export const product: Module<State, RootState> = {
     namespaced,
@@ -134,4 +134,4 @@ export const product: Module<State, RootState> = {
     mutations,
     actions,
     getters
-};
+}

@@ -138,7 +138,7 @@ export default {
                 order: '-fields.publishDate'
             })
 
-            let urls: string[] = []
+            const urls: string[] = []
             posts.items.forEach((val: any, idx: number) => {
                 urls[idx] = 'posts/' + val.fields.slug
             })

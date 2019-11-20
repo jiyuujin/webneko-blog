@@ -33,34 +33,35 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import Vue from 'vue'
 import dayjs from 'dayjs'
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const HeaderText = () => import('~/components/HeaderText.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 
-@Component({
+export default Vue.extend({
+    components: {
+        MainTemplate,
+        HeaderText,
+        GoogleAdsense
+    },
+    computed: {
+        archives() {
+            return this.$store.state.product.archives
+        }
+    },
     async asyncData ({ store, route }) {
         await store.dispatch('product/fetchPost', {
             'slug': '',
             'month': route.params.month
         })
     },
-    components: {
-        MainTemplate,
-        HeaderText,
-        GoogleAdsense
+    methods: {
+        getDate(date: Date) {
+            return dayjs(date).format('MM月 DD日')
+        }
     }
 })
-export default class Month extends Vue {
-    get archives() {
-        return this.$store.state.product.archives
-    }
-
-    getDate(date: Date) {
-        return dayjs(date).format('MM月 DD日')
-    }
-}
 </script>
 
 <style scoped>

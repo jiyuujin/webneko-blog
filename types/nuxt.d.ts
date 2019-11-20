@@ -1,6 +1,6 @@
 declare module 'nuxt' {
-  import { Store } from 'vuex';
-  import { Route } from 'vue-router';
+  import { Store } from 'vuex'
+  import { Route } from 'vue-router'
 
   export class Builder {
       constructor(nuxt: Nuxt);

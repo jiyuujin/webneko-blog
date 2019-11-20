@@ -54,23 +54,22 @@
       <div class="title">
         お問い合わせ
       </div>
-      <new-contact category="manual"></new-contact>
+      <new-contact category="manual" />
     </div>
   </main-template>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import Vue from 'vue'
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const NewContact = () => import('~/components/NewContact.vue')
 
-@Component({
+export default Vue.extend({
     components: {
         MainTemplate,
         NewContact
     }
 })
-export default class Index extends Vue {}
 </script>
 
 <style scoped>

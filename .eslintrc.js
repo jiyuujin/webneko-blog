@@ -1,8 +1,12 @@
 module.exports = {
-  root: true,
-  env: { node: true },
-  extends: ['@nekohack/eslint-config', 'plugin:vue/recommended'],
-  parserOptions: {
-    parser: '@typescript-eslint/parser'
-  }
+    extends: ['@nekohack/eslint-config', 'plugin:vue/recommended'],
+    plugins: [
+        '@typescript-eslint',
+        'vue'
+    ],
+    root: true,
+    env: { node: true, es6: true },
+    parserOptions: {
+        parser: '@typescript-eslint/parser'
+    }
 }

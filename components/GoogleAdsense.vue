@@ -12,15 +12,28 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'nuxt-property-decorator'
+import Vue from 'vue'
 
-@Component({})
-export default class GoogleAdsense extends Vue {
-    @Prop() adSlot: string;
-    @Prop() adFormat: string;
-    @Prop() adLayout: string;
-    @Prop() adStyle: object;
-}
+export default Vue.extend({
+    props: {
+        adSlot: {
+            type: String,
+            defaut: ''
+        },
+        adFormat: {
+            type: String,
+            default: ''
+        },
+        adLayout: {
+            type: String,
+            default: ''
+        },
+        adStyle: {
+            type: Object,
+            default: null
+        }
+    }
+})
 </script>
 
 <style scoped>

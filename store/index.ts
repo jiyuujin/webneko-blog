@@ -5,7 +5,7 @@ import { RootState } from '~/store/types'
 // Modules
 import { product } from './product'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 const store: StoreOptions<RootState> = {
     modules: {
