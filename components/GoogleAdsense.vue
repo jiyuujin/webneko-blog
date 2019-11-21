@@ -18,7 +18,7 @@ export default Vue.extend({
     props: {
         adSlot: {
             type: String,
-            defaut: ''
+            default: ''
         },
         adFormat: {
             type: String,

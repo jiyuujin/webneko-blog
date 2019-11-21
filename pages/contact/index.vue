@@ -68,7 +68,21 @@ export default Vue.extend({
     components: {
         MainTemplate,
         NewContact
+    },
+    head() {
+        return {
+            title : '問い合わせ',
+            meta: [
+                { hid: 'description', name: 'description', content: '問い合わせするならこちらからお願いします' },
+                { hid: 'og:type', property: 'og:type', content: 'article' },
+                { hid: 'og:title', property: 'og:title', content: '問い合わせ' },
+                { hid: 'og:description', property: 'og:description', content: '問い合わせするならこちらからお願いします' },
+                { hid: 'og:url', property: 'og:url', content: '' },
+                { hid: 'og:image', property: 'og:image', content: '' }
+            ]
+        }
     }
+
 })
 </script>
 
