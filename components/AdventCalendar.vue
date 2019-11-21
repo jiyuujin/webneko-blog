@@ -2,8 +2,8 @@
   <div>
     <div class="calendar-container">
       <div class="calendar-header">
-        <h1>12月</h1>
-        <p>{{ year }}</p>
+        <h1>わたし的アドベントカレンダー</h1>
+        <p>{{ `${year}/12` }}</p>
       </div>
 
       <div class="calendar">
@@ -38,6 +38,9 @@
                   :alt="getPost(day) ? getPost(day).fields.slug : ''"
                   src="/bakeneko2.png"
                 />
+                <!--
+                <span>{{ getPost(day) ? getPost(day).fields.title : '' }}</span>
+                -->
               </a>
             </template>
           </template>
@@ -62,20 +65,17 @@
     <div class="calendar-list">
       <template v-for="day in 25">
         <ul :key="day">
-          <li class="list-item-day">{{ day }}</li>
-          <li class="list-item-content">
-            <template v-if="getPost(day)">
-              <a
-                :href="getPost(day) ? `https://webneko.dev/posts/${getPost(day).fields.slug}` : ''"
-                target="_blank"
-                rel="noopener"
-              >
-                {{ getPost(day) ? getPost(day).fields.title : '' }}
-              </a>
-            </template>
-            <template v-else>
-              あれれ.. 🤔
-            </template>
+          <li v-if="getPost(day)" class="list-item-day">
+            {{ day }}
+          </li>
+          <li v-if="getPost(day)" class="list-item-content">
+            <a
+              :href="getPost(day) ? `https://webneko.dev/posts/${getPost(day).fields.slug}` : ''"
+              target="_blank"
+              rel="noopener"
+            >
+              {{ getPost(day) ? getPost(day).fields.title : '' }}
+            </a>
           </li>
         </ul>
       </template>
@@ -315,30 +315,51 @@ export default Vue.extend({
 }
 
 .list-item-day {
-  width: 30%;
+    width: 30%;
 }
 
 .list-item-content {
-  width: 70%;
+    width: 70%;
 }
 
 @media (max-width: 500px) {
-  .calendar {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-  }
+    .calendar {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+    }
 
-  .weekday {
-    display: none;
-  }
+    .weekday {
+        display: none;
+    }
 
-  .day {
-    width: 100%;
-  }
+    .day {
+        width: 100%;
+    }
 
-  .day--disabled {
-    display: none;
-  }
+    .day--disabled {
+        display: none;
+    }
+
+    .calendar-list ul {
+        margin: 0;
+        padding: 0;
+        display: -webkit-flex;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .calendar-list ul li {
+        text-align: center;
+    }
+
+    .list-item-day {
+        width: 100%;
+    }
+
+    .list-item-content {
+        width: 100%;
+    }
 }
 </style>
