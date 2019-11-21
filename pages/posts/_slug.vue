@@ -120,7 +120,7 @@ export default Vue.extend({
                 { hid: 'og:type', property: 'og:type', content: 'article' },
                 { hid: 'og:title', property: 'og:title', content: (this as any).currentPost.fields.title || '' },
                 { hid: 'og:description', property: 'og:description', content: (this as any).currentPost.fields.description || '' },
-                { hid: 'og:url', property: 'og:url', content: `https://webneko.dev/posts/${(this as any).currentPost.fields.slug}` || '' },
+                { hid: 'og:url', property: 'og:url', content: `./${(this as any).currentPost.fields.slug}` || '' },
                 { hid: 'og:image', property: 'og:image', content: heroImage || '' }
             ]
         }

@@ -45,20 +45,33 @@ export default Vue.extend({
         HeaderText,
         GoogleAdsense
     },
-    computed: {
-        archives() {
-            return this.$store.state.product.archives
-        }
-    },
     async asyncData ({ store, route }) {
         await store.dispatch('product/fetchPost', {
             'slug': '',
             'month': route.params.month
         })
     },
+    computed: {
+        archives() {
+            return this.$store.state.product.archives
+        }
+    },
     methods: {
         getDate(date: Date) {
             return dayjs(date).format('MM月 DD日')
+        }
+    },
+    head() {
+        return {
+            title : `${this.$route.params.month}月 アーカイヴ`,
+            meta: [
+                { hid: 'description', name: 'description', content: `${this.$route.params.month}月の投稿一覧を表示します` },
+                { hid: 'og:type', property: 'og:type', content: 'article' },
+                { hid: 'og:title', property: 'og:title', content: `${this.$route.params.month}月 アーカイヴ` },
+                { hid: 'og:description', property: 'og:description', content: `${this.$route.params.month}月の投稿一覧を表示します` },
+                { hid: 'og:url', property: 'og:url', content: '' },
+                { hid: 'og:image', property: 'og:image', content: '' }
+            ]
         }
     }
 })

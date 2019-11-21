@@ -21,7 +21,7 @@ export default {
             { property: 'og:type', content: 'website' },
             { property: 'og:title', content: 'Web猫ブログ' },
             { property: 'og:description', content: '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。' },
-            { property: 'og:image', content: 'https://webneko.dev/kuroneko1th.png' },
+            { property: 'og:image', content: './kuroneko1th.png' },
             { property: 'twitter:card', content: 'summary' },
             { property: 'twitter:site', content: '@jiyuujinlab' }
         ],
