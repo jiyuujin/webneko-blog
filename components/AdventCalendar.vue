@@ -109,37 +109,39 @@ export default Vue.extend({
     },
     computed: {
         startOfMonth() {
-            if (dayjs(`${this.year}/12/01`).format('dddd') === 'Sunday') {
+            const startDay = dayjs(`${this.year}/12/01`).format('dddd')
+            if (startDay === 'Sunday') {
                 return 0
-            } else if (dayjs(`${this.year}/12/01`).format('dddd') === 'Monday') {
+            } else if (startDay === 'Monday') {
                 return 1
-            } else if (dayjs(`${this.year}/12/01`).format('dddd') === 'Tuesday') {
+            } else if (startDay === 'Tuesday') {
                 return 2
-            } else if (dayjs(`${this.year}/12/01`).format('dddd') === 'Wednesday') {
+            } else if (startDay === 'Wednesday') {
                 return 3
-            } else if (dayjs(`${this.year}/12/01`).format('dddd') === 'Thursday') {
+            } else if (startDay === 'Thursday') {
                 return 4
-            } else if (dayjs(`${this.year}/12/01`).format('dddd') === 'Friday') {
+            } else if (startDay === 'Friday') {
                 return 5
-            } else if (dayjs(`${this.year}/12/01`).format('dddd') === 'Saturday') {
+            } else if (startDay === 'Saturday') {
                 return 6
             }
             return null
         },
         endOfMonth() {
-            if (dayjs(`${this.year}/12/31`).format('dddd') === 'Sunday') {
+            const endDay = dayjs(`${this.year}/12/31`).format('dddd')
+            if (endDay === 'Sunday') {
                 return 6
-            } else if (dayjs(`${this.year}/12/31`).format('dddd') === 'Monday') {
+            } else if (endDay === 'Monday') {
                 return 5
-            } else if (dayjs(`${this.year}/12/31`).format('dddd') === 'Tuesday') {
+            } else if (endDay === 'Tuesday') {
                 return 4
-            } else if (dayjs(`${this.year}/12/31`).format('dddd') === 'Wednesday') {
+            } else if (endDay === 'Wednesday') {
                 return 3
-            } else if (dayjs(`${this.year}/12/31`).format('dddd') === 'Thursday') {
+            } else if (endDay === 'Thursday') {
                 return 2
-            } else if (dayjs(`${this.year}/12/31`).format('dddd') === 'Friday') {
+            } else if (endDay === 'Friday') {
                 return 1
-            } else if (dayjs(`${this.year}/12/31`).format('dddd') === 'Saturday') {
+            } else if (endDay === 'Saturday') {
                 return 7
             }
             return null
