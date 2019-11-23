@@ -39,7 +39,9 @@
                   src="/bakeneko2.png"
                 />
                 <!--
-                <span>{{ getPost(day) ? getPost(day).fields.title : '' }}</span>
+                <span class="tooltip">
+                  {{ getPost(day) ? getPost(day).fields.title : '' }}
+                </span>
                 -->
               </a>
             </template>
@@ -65,10 +67,16 @@
     <div class="calendar-list">
       <template v-for="day in 25">
         <ul :key="day">
-          <li v-if="getPost(day)" class="list-item-day">
+          <li
+            v-if="getPost(day)"
+            class="list-item-day"
+          >
             {{ day }}
           </li>
-          <li v-if="getPost(day)" class="list-item-content">
+          <li
+            v-if="getPost(day)"
+            class="list-item-content"
+          >
             <a
               :href="getPost(day) ? `https://webneko.dev/posts/${getPost(day).fields.slug}` : ''"
               target="_blank"
@@ -304,11 +312,16 @@ export default Vue.extend({
 .calendar-list {
     width: 60%;
     margin: 0 auto;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 .calendar-list ul {
     display: -webkit-flex;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
 }
 
 .calendar-list ul li {
@@ -317,11 +330,11 @@ export default Vue.extend({
 }
 
 .list-item-day {
-    width: 30%;
+    width: 12%;
 }
 
 .list-item-content {
-    width: 70%;
+    width: 88%;
 }
 
 @media (max-width: 500px) {
