@@ -38,6 +38,10 @@
         :is-vertical="!isVertical"
       />
 
+      <div class="buy-me-a-coffee">
+        <buy-me-a-coffee />
+      </div>
+
       <div>
         <p>
           コメントを残す
@@ -73,12 +77,14 @@
 <script lang="ts">
 import Vue from 'vue'
 import dayjs from 'dayjs'
+
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const HeaderText = () => import('~/components/HeaderText.vue')
 const SocialMenu = () => import('~/components/SocialMenu.vue')
 const NewContact = () => import('~/components/NewContact.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 const LoadedMarkdown = () => import('~/components/LoadedMarkdown.vue')
+const BuyMeACoffee = () => import('~/components/BuyMeACoffee.vue')
 
 export default Vue.extend({
     components: {
@@ -87,7 +93,8 @@ export default Vue.extend({
         SocialMenu,
         NewContact,
         GoogleAdsense,
-        LoadedMarkdown
+        LoadedMarkdown,
+        BuyMeACoffee
     },
     async asyncData({ store, params }) {
         await store.dispatch('product/fetchPost', {
@@ -215,6 +222,15 @@ export default Vue.extend({
   font-size: 16px;
   color: #35495e;
   padding-right: 16px;
+}
+
+.buy-me-a-coffee {
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  display: table-cell;
+  vertical-align: middle;
+  height: 120px;
 }
 
 .late-article {
