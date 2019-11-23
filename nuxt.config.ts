@@ -21,7 +21,7 @@ export default {
             { property: 'og:type', content: 'website' },
             { property: 'og:title', content: 'Web猫ブログ' },
             { property: 'og:description', content: '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。' },
-            { property: 'og:image', content: 'https://webneko.dev/kuroneko1th.png' },
+            { property: 'og:image', content: './kuroneko1th.png' },
             { property: 'twitter:card', content: 'summary' },
             { property: 'twitter:site', content: '@jiyuujinlab' }
         ],
@@ -33,7 +33,10 @@ export default {
             }
         ],
         script: [
-            { async: true, src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' }
+            // {
+            //     async: true,
+            //     src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+            // }
         ]
     },
 
@@ -127,7 +130,7 @@ export default {
         hostname: 'https://webneko.dev/',
         cacheTime: 1000 * 60 * 15,
         generate: true,
-        async routes () {
+        async routes() {
             const client: ContentfulClientApi = contentful.createClient({
                 space: process.env.CTF_SPACE_ID,
                 accessToken: process.env.CTF_CDA_ACCESS_TOKEN
@@ -148,8 +151,15 @@ export default {
     },
 
     manifest: {
-        name: 'webneko-blog',
-        lang: 'ja'
+        name: 'Web猫ブログ',
+        short_name: 'Web猫ブログ',
+        title: 'Web猫ブログ',
+        'og:title': 'Web猫ブログ',
+        description: '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。',
+        'og:description': '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。',
+        lang: 'en',
+        theme_color: '#ffbb33',
+        background_color: '#ffbb33'
     },
 
     build: {
@@ -157,7 +167,8 @@ export default {
             if (isClient) {
                 config.devtool = '#source-map'
             }
-        }
+        },
+        hardSource: true
     },
 
     buildModules: [
@@ -171,11 +182,32 @@ export default {
     ],
 
     router: {
-    //
+        //
     },
 
     generate: {
-    //
+        // 404対応
+        fallback: true,
+        // Payload機能
+        // https://ja.nuxtjs.org/api/configuration-generate/#-code-payload-code-%E3%81%AB%E3%82%88%E3%82%8B%E5%8B%95%E7%9A%84%E3%83%AB%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E7%94%9F%E6%88%90%E3%81%AE%E9%AB%98%E9%80%9F%E5%8C%96
+        routes() {
+            const client: ContentfulClientApi = contentful.createClient({
+                space: process.env.CTF_SPACE_ID,
+                accessToken: process.env.CTF_CDA_ACCESS_TOKEN
+            })
+
+            const posts: any = client.getEntries({
+                'content_type': process.env.CTF_BLOG_POST_TYPE_ID,
+                order: '-fields.publishDate'
+            })
+
+            const urls: string[] = []
+            posts.items.forEach((val: any, idx: number) => {
+                urls[idx] = 'posts/' + val.fields.slug
+            })
+
+            return urls
+        }
     },
 
     env: {

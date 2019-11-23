@@ -89,6 +89,12 @@ export default Vue.extend({
         GoogleAdsense,
         LoadedMarkdown
     },
+    async asyncData({ store, params }) {
+        await store.dispatch('product/fetchPost', {
+            'slug': params.slug,
+            'month': ''
+        })
+    },
     data() {
         return {
             isVertical: true
@@ -102,11 +108,10 @@ export default Vue.extend({
             return this.$store.state.product.latestPosts
         }
     },
-    async asyncData({ store, params }) {
-        await store.dispatch('product/fetchPost', {
-            'slug': params.slug,
-            'month': ''
-        })
+    methods: {
+        getDate(date: Date) {
+            return dayjs(date).format('MM月 DD日')
+        }
     },
     head() {
         let heroImage = ''
@@ -120,14 +125,9 @@ export default Vue.extend({
                 { hid: 'og:type', property: 'og:type', content: 'article' },
                 { hid: 'og:title', property: 'og:title', content: (this as any).currentPost.fields.title || '' },
                 { hid: 'og:description', property: 'og:description', content: (this as any).currentPost.fields.description || '' },
-                { hid: 'og:url', property: 'og:url', content: `https://webneko.dev/posts/${(this as any).currentPost.fields.slug}` || '' },
+                { hid: 'og:url', property: 'og:url', content: `./${(this as any).currentPost.fields.slug}` || '' },
                 { hid: 'og:image', property: 'og:image', content: heroImage || '' }
             ]
-        }
-    },
-    methods: {
-        getDate(date: Date) {
-            return dayjs(date).format('MM月 DD日')
         }
     }
 })

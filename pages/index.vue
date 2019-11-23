@@ -15,13 +15,13 @@
               <div class="title">
                 {{ post.fields.title }}
               </div>
-              <div class="date">
-                {{ getDate(post.fields.publishDate) }}
-              </div>
-              <div class="description">
-                {{ post.fields.description }}
-              </div>
             </nuxt-link>
+            <div class="date">
+              {{ getDate(post.fields.publishDate) }}
+            </div>
+            <div class="description">
+              {{ post.fields.description }}
+            </div>
           </template>
         </div>
       </div>
@@ -50,17 +50,17 @@ export default Vue.extend({
         HeaderText,
         GoogleAdsense
     },
-    computed: {
-        posts() {
-            return this.$store.state.product.posts
-        }
-    },
     async asyncData ({ store }) {
         await store.dispatch('product/fetchAllPosts')
     },
     data() {
         return {
             count: PAGE
+        }
+    },
+    computed: {
+        posts() {
+            return this.$store.state.product.posts
         }
     },
     methods: {
@@ -101,7 +101,7 @@ export default Vue.extend({
   line-height: 1.2;
   height: 4.8em;
   text-align: left;
-  color: #ccc;
+  color: #aaa;
   display: flex;
   align-items: center;
 }
