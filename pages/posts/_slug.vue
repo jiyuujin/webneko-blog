@@ -96,6 +96,12 @@ export default Vue.extend({
         LoadedMarkdown,
         BuyMeACoffee
     },
+    async asyncData({ store, params }) {
+        await store.dispatch('product/fetchPost', {
+            'slug': params.slug,
+            'month': ''
+        })
+    },
     data() {
         return {
             isVertical: true
@@ -109,11 +115,10 @@ export default Vue.extend({
             return this.$store.state.product.latestPosts
         }
     },
-    async asyncData({ store, params }) {
-        await store.dispatch('product/fetchPost', {
-            'slug': params.slug,
-            'month': ''
-        })
+    methods: {
+        getDate(date: Date) {
+            return dayjs(date).format('MM月 DD日')
+        }
     },
     head() {
         let heroImage = ''
@@ -130,11 +135,6 @@ export default Vue.extend({
                 { hid: 'og:url', property: 'og:url', content: `./${(this as any).currentPost.fields.slug}` || '' },
                 { hid: 'og:image', property: 'og:image', content: heroImage || '' }
             ]
-        }
-    },
-    methods: {
-        getDate(date: Date) {
-            return dayjs(date).format('MM月 DD日')
         }
     }
 })
