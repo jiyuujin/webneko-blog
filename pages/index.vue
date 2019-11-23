@@ -50,17 +50,17 @@ export default Vue.extend({
         HeaderText,
         GoogleAdsense
     },
-    computed: {
-        posts() {
-            return this.$store.state.product.posts
-        }
-    },
     async asyncData ({ store }) {
         await store.dispatch('product/fetchAllPosts')
     },
     data() {
         return {
             count: PAGE
+        }
+    },
+    computed: {
+        posts() {
+            return this.$store.state.product.posts
         }
     },
     methods: {
