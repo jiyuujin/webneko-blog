@@ -8,7 +8,7 @@
         background-color="#35495e"
       />
       <div class="menu">
-        <a href="https://nekohack.app/docs">
+        <a href="https://nekohack.app/">
           プロフィール
         </a>
         <nuxt-link :to="`/archives/${getCurrentMonth}`">
