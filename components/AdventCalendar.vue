@@ -27,34 +27,35 @@
           <div class="date">
             {{ day }}
           </div>
-          <template v-if="getPost(day)">
+          <div v-if="getPost(day)">
             <template v-if="day < 26">
               <a
-                :href="getPost(day) ? `https://webneko.dev/posts/${getPost(day).fields.slug}` : ''"
+                :href="`https://webneko.dev/posts/${getPost(day).fields.slug}`"
                 target="_blank"
                 rel="noopener"
               >
                 <img
-                  :alt="getPost(day) ? getPost(day).fields.slug : ''"
+                  :alt="getPost(day).fields.slug"
                   src="/bakeneko2.png"
+                  class="day--existed"
                 />
                 <!--
                 <span class="tooltip">
-                  {{ getPost(day) ? getPost(day).fields.title : '' }}
+                  {{ getPost(day).fields.title }}
                 </span>
                 -->
               </a>
             </template>
-          </template>
-          <template v-else>
+          </div>
+          <div v-else>
             <template v-if="day < 26">
               <img
-                :style="'opacity: 0.4;'"
                 :alt="getPost(day) ? getPost(day).fields.slug : ''"
                 src="/bakeneko2.png"
+                class="day--not-existed"
               />
             </template>
-          </template>
+          </div>
         </div>
         <div
           v-for="i in endOfMonth"
@@ -300,6 +301,14 @@ export default Vue.extend({
 .day img {
   width: 40px;
   border-radius: 40px;
+}
+
+.day--existed {
+  opacity: 1;
+}
+
+.day--not-existed {
+  opacity: 0.4;
 }
 
 .day--disabled {
