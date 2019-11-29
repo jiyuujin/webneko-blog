@@ -2,7 +2,7 @@
   <div>
     <div class="calendar-container">
       <div class="calendar-header">
-        <h1>わたし的アドベントカレンダー</h1>
+        <h1>俺だけアドベントカレンダー</h1>
         <p>{{ `${year}/12` }}</p>
       </div>
 
