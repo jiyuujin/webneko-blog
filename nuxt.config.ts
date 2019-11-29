@@ -28,6 +28,19 @@ export default {
             { hid: 'og:image', name: 'og:image', content: './kuroneko.png' }
         ],
         link: [
+            // { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+            {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '32x32',
+                href: '/favicon-32.png'
+            },
+            {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '16x16',
+                href: '/favicon-16.png'
+            },
             {
                 rel: 'icon',
                 type: 'image/x-icon',
