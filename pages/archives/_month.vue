@@ -66,11 +66,15 @@ export default Vue.extend({
             title : `${this.$route.params.month}月 アーカイヴ`,
             meta: [
                 { hid: 'description', name: 'description', content: `${this.$route.params.month}月の投稿一覧を表示します` },
-                { hid: 'og:type', property: 'og:type', content: 'article' },
-                { hid: 'og:title', property: 'og:title', content: `${this.$route.params.month}月 アーカイヴ` },
-                { hid: 'og:description', property: 'og:description', content: `${this.$route.params.month}月の投稿一覧を表示します` },
-                { hid: 'og:url', property: 'og:url', content: '' },
-                { hid: 'og:image', property: 'og:image', content: '' }
+                { hid: 'twitter:title', name: 'twitter:title', content: `${this.$route.params.month}月 アーカイヴ` },
+                { hid: 'twitter:description', name: 'twitter:description', content: `${this.$route.params.month}月の投稿一覧を表示します` },
+                { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
+                { hid: 'twitter:image', name: 'twitter:image', content: '' },
+                { hid: 'og:type', name: 'og:type', content: 'article' },
+                { hid: 'og:title', name: 'og:title', content: `${this.$route.params.month}月 アーカイヴ` },
+                { hid: 'og:description', name: 'og:description', content: `${this.$route.params.month}月の投稿一覧を表示します` },
+                { hid: 'og:url', name: 'og:url', content: `/archives/${this.$route.params.month}` },
+                { hid: 'og:image', name: 'og:image', content: '' }
             ]
         }
     }

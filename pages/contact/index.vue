@@ -73,12 +73,16 @@ export default Vue.extend({
         return {
             title : '問い合わせ',
             meta: [
-                { hid: 'description', name: 'description', content: '問い合わせするならこちらからお願いします' },
-                { hid: 'og:type', property: 'og:type', content: 'article' },
-                { hid: 'og:title', property: 'og:title', content: '問い合わせ' },
-                { hid: 'og:description', property: 'og:description', content: '問い合わせするならこちらからお願いします' },
-                { hid: 'og:url', property: 'og:url', content: '' },
-                { hid: 'og:image', property: 'og:image', content: '' }
+                { hid: 'description', name: 'description', content: '問い合わせするならこちらからお願いします。' },
+                { hid: 'twitter:title', name: 'twitter:title', content: '問い合わせ' },
+                { hid: 'twitter:description', name: 'twitter:description', content: '問い合わせするならこちらからお願いします。' },
+                { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
+                { hid: 'twitter:image', name: 'twitter:image', content: '' },
+                { hid: 'og:type', name: 'og:type', content: 'article' },
+                { hid: 'og:title', name: 'og:title', content: '問い合わせ' },
+                { hid: 'og:description', name: 'og:description', content: '問い合わせするならこちらからお願いします' },
+                { hid: 'og:url', name: 'og:url', content: '/contact' },
+                { hid: 'og:image', name: 'og:image', content: '' }
             ]
         }
     }

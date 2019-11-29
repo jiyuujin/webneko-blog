@@ -16,20 +16,39 @@ export default {
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
             { hid: 'description', name: 'description', content: '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。' },
-            { property: 'og:site_name', content: 'Web猫ブログ' },
-            { property: 'og:url', content: 'https://webneko.dev/' },
-            { property: 'og:type', content: 'website' },
-            { property: 'og:title', content: 'Web猫ブログ' },
-            { property: 'og:description', content: '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。' },
-            { property: 'og:image', content: './kuroneko1th.png' },
-            { property: 'twitter:card', content: 'summary' },
-            { property: 'twitter:site', content: '@jiyuujinlab' }
+            { hid: 'twitter:title', name: 'twitter:title', content: 'Web猫ブログ' },
+            { hid: 'twitter:description', name: 'twitter:description', content: '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。' },
+            { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
+            { hid: 'twitter:site', name: 'twitter:site', content: '@jiyuujinlab' },
+            { hid: 'og:site_name', name: 'og:site_name', content: 'Web猫ブログ' },
+            { hid: 'og:type', name: 'og:type', content: 'website' },
+            { hid: 'og:title', name: 'og:title', content: 'Web猫ブログ' },
+            { hid: 'og:description', name: 'og:description', content: '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。' },
+            { hid: 'og:url', name: 'og:url', content: 'https://webneko.dev/' },
+            { hid: 'og:image', name: 'og:image', content: './kuroneko.png' }
         ],
         link: [
+            // { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+            {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '32x32',
+                href: '/favicon-32.png'
+            },
+            {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '16x16',
+                href: '/favicon-16.png'
+            },
             {
                 rel: 'icon',
                 type: 'image/x-icon',
-                href: 'kuroneko1th.png'
+                href: 'kuroneko.png'
+            },
+            {
+                rel: 'manifest',
+                href: '/site.webmanifest'
             }
         ],
         script: [
@@ -37,7 +56,16 @@ export default {
             //     async: true,
             //     src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
             // }
-        ]
+        ],
+        htmlAttrs: { lang: 'ja' }
+    },
+
+    render: {
+        bundleRenderer: {
+            shouldPreload: (file, type) => {
+                return ['script', 'style'].includes(type)
+            }
+        }
     },
 
     loading: { color: '#fff' },

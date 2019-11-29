@@ -126,14 +126,18 @@ export default Vue.extend({
             heroImage = `https:${(this as any).currentPost.fields.heroImage.fields.file.url}`
         }
         return {
-            title : (this as any).currentPost.fields.title || '',
+            title : (this as any).currentPost.fields.title,
             meta: [
-                { hid: 'description', name: 'description', content:(this as any).currentPost.fields.description || '' },
-                { hid: 'og:type', property: 'og:type', content: 'article' },
-                { hid: 'og:title', property: 'og:title', content: (this as any).currentPost.fields.title || '' },
-                { hid: 'og:description', property: 'og:description', content: (this as any).currentPost.fields.description || '' },
-                { hid: 'og:url', property: 'og:url', content: `./${(this as any).currentPost.fields.slug}` || '' },
-                { hid: 'og:image', property: 'og:image', content: heroImage || '' }
+                { hid: 'description', name: 'description', content: (this as any).currentPost.fields.description },
+                { hid: 'twitter:title', name: 'twitter:title', content: (this as any).currentPost.fields.title },
+                { hid: 'twitter:description', name: 'twitter:description', content: (this as any).currentPost.fields.description },
+                { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
+                { hid: 'twitter:image', name: 'twitter:image', content: heroImage },
+                { hid: 'og:type', name: 'og:type', content: 'article' },
+                { hid: 'og:title', name: 'og:title', content: (this as any).currentPost.fields.title },
+                { hid: 'og:description', name: 'og:description', content: (this as any).currentPost.fields.description },
+                { hid: 'og:url', name: 'og:url', content: `/${(this as any).currentPost.fields.slug}` || '' },
+                { hid: 'og:image', name: 'og:image', content: heroImage }
             ]
         }
     }
