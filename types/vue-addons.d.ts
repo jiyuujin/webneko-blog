@@ -10,8 +10,8 @@ declare module 'vue/types/options' {
   interface ComponentOptions<V extends Vue> {
     // asyncData?: (ctx: NuxtContext) => Promise<any>;
     // fetch?: (ctx: NuxtContext) => Promise<any>;
-    layout?: string;
-    middleware?: string | string[];
+    // layout?: string;
+    // middleware?: string | string[];
     head?: MetaInfo | (() => MetaInfo);
     key?: string | ((to: Route) => string);
     scrollToTop?: boolean;

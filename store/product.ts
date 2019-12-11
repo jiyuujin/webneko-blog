@@ -1,20 +1,23 @@
 import { Module, ActionContext, ActionTree, MutationTree } from 'vuex'
 import dayjs from 'dayjs'
 import { PAGE, LATEST_PAGE, ORDER } from '~/services/blog'
-import { KeyValue, Post, Param } from '~/types/blog'
-import { RootState } from './types'
+import { Post, PostItem, Posts, Param } from '~/types/blog'
+import { KeyValue } from '~/types/utils'
 import { createClient } from '~/plugins/contentful'
 
 const client = createClient()
 
 const namespaced = true
 
+type RootState = {
+  version: string;
+}
+
 export const state = (): State => ({
     isCookieAccepted: false,
     latestPosts: {},
     posts: {},
     currentPost: null,
-    page: 1,
     archives: {}
 })
 
@@ -23,12 +26,7 @@ export interface State {
   latestPosts: KeyValue<Post>;
   posts: KeyValue<Post>;
   currentPost: Post | null;
-  page: number;
   archives: KeyValue<Post>;
-}
-
-export interface RootState extends State {
-  //
 }
 
 export const mutations: MutationTree<State> = {
@@ -66,7 +64,7 @@ export const actions: RootActionTree<State, RootState> = {
                 limit: PAGE
                 // skip: (state.page - 1) * PAGE
             })
-            .then((entries: any) => {
+            .then((entries: Posts) => {
                 commit('setPosts', entries.items)
             })
     },
@@ -78,7 +76,7 @@ export const actions: RootActionTree<State, RootState> = {
                 limit: LATEST_PAGE
                 // skip: (state.page - 1) * PAGE
             })
-            .then((entries: any) => {
+            .then((entries: Posts) => {
                 commit('setLatestPosts', entries.items)
             })
     },
@@ -88,16 +86,16 @@ export const actions: RootActionTree<State, RootState> = {
                 content_type: process.env.CTF_BLOG_POST_TYPE_ID,
                 order: ORDER
             })
-            .then((entries: any) => {
+            .then((entries: Posts) => {
                 if (params.slug) {
-                    const currentPost = entries.items.filter((item: any) => {
+                    const currentPost = entries.items.filter((item: PostItem) => {
                         return item.fields.slug === params.slug
                     })
                     commit('setCurrentPost', currentPost[0])
                 }
 
                 if (params.month) {
-                    const archives = entries.items.filter((item: any) => {
+                    const archives = entries.items.filter((item: PostItem) => {
                         if (!item.fields.title.includes('振り返り')) {
                             return dayjs(item.fields.publishDate).format('YYYY-MM').includes(params.month)
                         }

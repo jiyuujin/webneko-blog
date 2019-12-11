@@ -95,6 +95,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import dayjs from 'dayjs'
+import { PostItem } from '~/types/blog'
 
 const weekdays = ['日', '月', '火', '水', '木', '金', '土']
 
@@ -158,8 +159,8 @@ export default Vue.extend({
     },
     methods: {
         getPost(day: number) {
-            let post = null
-            this.items.map((item: any) => {
+            let post: PostItem | null | undefined
+            (this.items as PostItem[]).map((item: PostItem) => {
                 if (day === Number(dayjs(item.fields.publishDate).format('DD'))) {
                     post = item
                 }
