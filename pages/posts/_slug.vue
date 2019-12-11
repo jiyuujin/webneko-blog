@@ -137,7 +137,7 @@ export default Vue.extend({
                 { hid: 'og:title', name: 'og:title', content: (this as any).currentPost.fields.title },
                 { hid: 'og:description', name: 'og:description', content: (this as any).currentPost.fields.description },
                 { hid: 'og:url', name: 'og:url', content: `/${(this as any).currentPost.fields.slug}` || '' },
-                { hid: 'og:image', name: 'og:image', content: heroImage }
+                { hid: 'og:image', name: 'og:image', content: heroImage ? heroImage : '/kuroneko.png' }
             ]
         }
     }
@@ -157,8 +157,9 @@ export default Vue.extend({
   text-align: center;
   color: #fff;
   font-weight: bold;
-  font-size: 1.8vmax;
+  font-size: 4rem;
   line-height: 48px;
+  margin: 1rem 0;
 }
 
 .cover .date {
@@ -198,8 +199,9 @@ export default Vue.extend({
   text-align: center;
   color: #000;
   font-weight: bold;
-  font-size: 1.8vmax;
+  font-size: 4rem;
   line-height: 48px;
+  margin: 1rem 0;
 }
 
 .space .date {

@@ -1,11 +1,14 @@
 import Vue from 'vue'
 import Vuex, { StoreOptions } from 'vuex'
-import { RootState } from '~/store/types'
 
 // Modules
 import { product } from './product'
 
 Vue.use(Vuex)
+
+type RootState = {
+  version: string;
+}
 
 const store: StoreOptions<RootState> = {
     modules: {
