@@ -1,5 +1,5 @@
 # Nodeイメージを取得する
-FROM node:10.17.0-alpine
+FROM node:10.18.0-alpine
 
 # ワーキングディレクトリを指定する
 WORKDIR /app
