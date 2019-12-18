@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@nekohack/eslint-config": "0.1.4",
-    "@nuxt/types": "0.5.6",
+    "@nuxt/types": "0.5.7",
     "@nuxt/typescript-build": "0.5.1",
     "@nuxt/typescript-runtime": "0.3.2",
     "@types/node": "12.12.20",
