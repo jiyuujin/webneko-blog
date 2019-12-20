@@ -240,6 +240,7 @@ export default {
     },
 
     build: {
+        maxChunkSize: 300000,
         extend (config: Configuration, { isClient }: Context) {
             if (isClient) {
                 config.devtool = '#source-map'

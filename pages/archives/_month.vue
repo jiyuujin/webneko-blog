@@ -35,6 +35,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import dayjs from 'dayjs'
+
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const HeaderText = () => import('~/components/HeaderText.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')

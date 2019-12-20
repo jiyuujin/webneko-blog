@@ -23,15 +23,7 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped>
-.bmc-button img{
-    width: 27px !important;
-    margin-bottom: 1px !important;
-    box-shadow: none !important;
-    border: none !important;
-    vertical-align: middle !important;
-}
-
+<style lang="scss" scoped>
 .bmc-button{
     line-height: 36px !important;
     height: 37px !important;
@@ -55,6 +47,13 @@ export default Vue.extend({
     -moz-transition: 0.3s all linear !important;
     -ms-transition: 0.3s all linear !important;
     transition: 0.3s all linear !important;
+    img{
+        width: 27px !important;
+        margin-bottom: 1px !important;
+        box-shadow: none !important;
+        border: none !important;
+        vertical-align: middle !important;
+    }
 }
 
 .bmc-button:hover,

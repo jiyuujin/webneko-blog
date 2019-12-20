@@ -39,13 +39,11 @@
       />
     </j-form>
     <main-template :is-form="isForm">
-      <div class="form">
-        <j-button
-          text="送信します"
-          variant-style="text"
-          @handleClick="submit"
-        />
-      </div>
+      <j-button
+        text="送信します"
+        variant-style="text"
+        @handleClick="submit"
+      />
     </main-template>
   </div>
 </template>
@@ -154,30 +152,3 @@ export default Vue.extend({
     }
 })
 </script>
-
-<style scoped>
-a {
-  font-size: 14px;
-  font-weight: bold;
-  border: solid 1px;
-  border-radius: 5px;
-  margin: 10px 10px 10px 0;
-  padding: 2px 6px 3px;
-  outline: none;
-  cursor: pointer;
-  transition: all 0.3s ease-out;
-  -webkit-font-smoothing: antialiased;
-  text-decoration: none;
-}
-
-.validate {
-  margin: 8px auto;
-  text-align: center;
-  color: #c71582;
-}
-
-.form {
-  margin: 8px auto;
-  text-align: center;
-}
-</style>

@@ -23,16 +23,16 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .form {
-  width: 80%;
-  margin: 0 auto;
-  padding: 1px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 1px;
 }
 
 @media (max-width: 500px) {
-  .form {
-    width: 100%;
-  }
+    .form {
+        width: 100%;
+    }
 }
 </style>
