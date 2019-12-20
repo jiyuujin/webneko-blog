@@ -81,12 +81,7 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped>
-.main {
-  margin: 24px 10% 8px;
-  padding-top: 36px;
-}
-
+<style lang="scss" scoped>
 .archive {
   width: 52%;
   margin: 2% 24% 2% 24%;
@@ -99,40 +94,27 @@ export default Vue.extend({
   position: relative;
   width: 100%;
   margin: 12px 4%;
-}
-
-.title {
-  font-size: 2.4vmax;
-  line-height: 1.2;
-  text-align: left;
-}
-
-.description {
-  font-size: 1.2vmax;
-  line-height: 1.2;
-  height: 4.8em;
-  text-align: left;
-  color: #ccc;
-  display: flex;
-  align-items: center;
-}
-
-.date {
-  font-size: 1.2vmin;
-  text-align: left;
-}
-
-.hero-image img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+  .title {
+    font-size: 2.4vmax;
+    line-height: 1.2;
+    text-align: left;
+  }
+  .description {
+    font-size: 1.2vmax;
+    line-height: 1.2;
+    height: 4.8em;
+    text-align: left;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+  }
+  .date {
+    font-size: 1.2vmin;
+    text-align: left;
+  }
 }
 
 @media (max-width: 500px) {
-  .main {
-    margin: 0;
-  }
-
   .archive {
     width: 98%;
     margin: 0 auto;

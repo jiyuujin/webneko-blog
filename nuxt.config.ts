@@ -3,6 +3,8 @@ import { Context } from '@nuxt/types'
 import { ContentfulClientApi } from 'contentful'
 
 const contentful = require('contentful')
+const sass = require('sass')
+const fiber = require('fibers')
 
 require('dotenv').config()
 
@@ -13,22 +15,67 @@ export default {
         title: 'トップ',
         titleTemplate: 'Web猫ブログ | %s',
         meta: [
-            { charset: 'utf-8' },
-            { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-            { hid: 'description', name: 'description', content: '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。' },
-            { hid: 'twitter:title', name: 'twitter:title', content: 'Web猫ブログ' },
-            { hid: 'twitter:description', name: 'twitter:description', content: '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。' },
-            { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
-            { hid: 'twitter:site', name: 'twitter:site', content: '@jiyuujinlab' },
-            { hid: 'og:site_name', name: 'og:site_name', content: 'Web猫ブログ' },
-            { hid: 'og:type', name: 'og:type', content: 'website' },
-            { hid: 'og:title', name: 'og:title', content: 'Web猫ブログ' },
-            { hid: 'og:description', name: 'og:description', content: '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。' },
-            { hid: 'og:url', name: 'og:url', content: 'https://webneko.dev/' },
-            { hid: 'og:image', name: 'og:image', content: './kuroneko.png' }
+            {
+                charset: 'utf-8'
+            },
+            {
+                name: 'viewport',
+                content: 'width=device-width, initial-scale=1'
+            },
+            {
+                hid: 'description', name: 'description', content: '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。' },
+            {
+                hid: 'twitter:title',
+                name: 'twitter:title',
+                content: 'Web猫ブログ'
+            },
+            {
+                hid: 'twitter:description',
+                name: 'twitter:description',
+                content: '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。'
+            },
+            {
+                hid: 'twitter:card',
+                name: 'twitter:card',
+                content: 'summary'
+            },
+            {
+                hid: 'twitter:site',
+                name: 'twitter:site',
+                content: '@jiyuujinlab'
+            },
+            {
+                hid: 'og:site_name',
+                name: 'og:site_name',
+                content: 'Web猫ブログ'
+            },
+            {
+                hid: 'og:type',
+                name: 'og:type',
+                content: 'website'
+            },
+            {
+                hid: 'og:title',
+                name: 'og:title',
+                content: 'Web猫ブログ'
+            },
+            {
+                hid: 'og:description',
+                name: 'og:description',
+                content: '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。'
+            },
+            {
+                hid: 'og:url',
+                name: 'og:url',
+                content: 'https://webneko.dev/'
+            },
+            {
+                hid: 'og:image',
+                name: 'og:image',
+                content: './kuroneko.png'
+            }
         ],
         link: [
-            // { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
             {
                 rel: 'icon',
                 type: 'image/png',
@@ -57,7 +104,9 @@ export default {
             //     src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
             // }
         ],
-        htmlAttrs: { lang: 'ja' }
+        htmlAttrs: {
+            lang: 'ja'
+        }
     },
 
     render: {
@@ -72,7 +121,7 @@ export default {
 
     css: [
         {
-            src: '~/assets/main.css',
+            src: '~/assets/main.scss',
             lang: 'css'
         },
         {
@@ -86,10 +135,10 @@ export default {
             src: '~plugins/microlink.ts',
             mode: 'client'
         },
-        {
-            src: '~plugins/infinite-loading.ts',
-            mode: 'client'
-        },
+        // {
+        //     src: '~plugins/infinite-loading.ts',
+        //     mode: 'client'
+        // },
         '~plugins/firebase.ts',
         '~plugins/j-stylebook.ts',
         '~plugins/profile-component.ts'
@@ -194,6 +243,14 @@ export default {
         extend (config: Configuration, { isClient }: Context) {
             if (isClient) {
                 config.devtool = '#source-map'
+            }
+        },
+        loaders: {
+            scss: {
+                implementation: sass,
+                sassOptions: {
+                    fiber: fiber
+                }
             }
         },
         hardSource: true

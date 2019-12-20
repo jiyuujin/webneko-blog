@@ -72,13 +72,7 @@ footer {
 
 .menu a {
   color: #fff;
-  margin-right: 1em;
   padding-right: 16px;
-  background: url(../static/external_link.png) no-repeat right center;
-}
-
-.menu a:last-child {
-  margin-right: 0;
 }
 
 .copyright {

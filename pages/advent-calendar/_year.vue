@@ -5,7 +5,7 @@
   />
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue'
 import AdventCalendar from '@/components/AdventCalendar.vue'
 
