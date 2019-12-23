@@ -1,96 +1,68 @@
 <template>
-  <div>
-    <div class="calendar-container">
-      <div class="calendar-header">
-        <h1>俺だけアドベントカレンダー</h1>
-        <p>{{ `${year}/12` }}</p>
-      </div>
-
-      <div class="calendar">
-        <span
-          v-for="weekday in weekdays"
-          :key="weekday"
-          class="weekday"
-        >
-          {{ weekday }}
-        </span>
-        <div
-          v-for="i in startOfMonth"
-          :key="i"
-          class="day day--disabled"
-        />
-        <div
-          v-for="day in 31"
-          :key="day"
-          class="day"
-        >
-          <div class="date">
-            {{ day }}
-          </div>
-          <div v-if="getPost(day)">
-            <template v-if="day < 26">
-              <a
-                :href="`https://webneko.dev/posts/${getPost(day).fields.slug}`"
-                target="_blank"
-                rel="noopener"
-              >
-                <img
-                  :alt="getPost(day).fields.slug"
-                  src="/bakeneko2.png"
-                  class="day--existed"
-                />
-                <!--
-                <span class="tooltip">
-                  {{ getPost(day).fields.title }}
-                </span>
-                -->
-              </a>
-            </template>
-          </div>
-          <div v-else>
-            <template v-if="day < 26">
-              <img
-                :alt="getPost(day) ? getPost(day).fields.slug : ''"
-                src="/bakeneko2.png"
-                class="day--not-existed"
-              />
-            </template>
-          </div>
-        </div>
-        <div
-          v-for="i in endOfMonth"
-          :key="i"
-          class="day day--disabled"
-        />
-      </div>
+  <div class="main">
+    <div class="calendar-header">
+      <h1>俺だけアドベントカレンダー</h1>
+      <p>{{ `${year}/12` }}</p>
     </div>
 
-    <div class="calendar-list">
-      <template v-for="day in 25">
-        <ul :key="day">
-          <li
-            v-if="getPost(day)"
-            class="list-item-day"
-          >
-            {{ day }}
-          </li>
-          <li
-            v-if="getPost(day)"
-            class="list-item-content"
-          >
+    <div class="calendar">
+      <span
+        v-for="weekday in weekdays"
+        :key="weekday"
+        class="weekday"
+      >
+        {{ weekday }}
+      </span>
+      <div
+        v-for="i in startOfMonth"
+        :key="i"
+        class="day day--disabled"
+      />
+      <div
+        v-for="day in 31"
+        :key="day"
+        class="day"
+      >
+        <div class="date">
+          {{ day }}
+        </div>
+        <div v-if="getPost(day)">
+          <template v-if="day < 26">
             <a
-              :href="getPost(day) ? `https://webneko.dev/posts/${getPost(day).fields.slug}` : ''"
+              :href="`https://webneko.dev/posts/${getPost(day).fields.slug}`"
               target="_blank"
               rel="noopener"
             >
-              {{ getPost(day) ? getPost(day).fields.title : '' }}
+              <img
+                :alt="getPost(day).fields.slug"
+                src="/bakeneko2.png"
+                class="day--existed"
+              />
+              <!--
+              <span class="tooltip">
+                {{ getPost(day).fields.title }}
+              </span>
+              -->
             </a>
-          </li>
-        </ul>
-      </template>
+          </template>
+        </div>
+        <div v-else>
+          <template v-if="day < 26">
+            <img
+              :alt="getPost(day) ? getPost(day).fields.slug : ''"
+              src="/bakeneko2.png"
+              class="day--not-existed"
+            />
+          </template>
+        </div>
+      </div>
+      <div
+        v-for="i in endOfMonth"
+        :key="i"
+        class="day day--disabled"
+      />
     </div>
-  </div>
-</template>
+  </div></template>
 
 <script lang="ts">
 import Vue from 'vue'
@@ -171,17 +143,7 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped>
-.calendar-container {
-    width: 90%;
-    margin: auto;
-    overflow: hidden;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    background: #fff;
-    max-width: 600px;
-}
-
+<style lang="scss" scoped>
 .calendar-header {
     position: relative;
     width: 100%;
@@ -194,19 +156,17 @@ export default Vue.extend({
     align-items: center;
     vertical-align: middle;
     background-color: #56c501;
-}
-
-.calendar-header h1 {
-    margin: 0;
-    font-size: 18px;
-    color: #e2e2e2;
-}
-
-.calendar-header p {
-    margin: 0;
-    font-size: 13px;
-    font-weight: 600;
-    color: #51565d;
+    h1 {
+        margin: 0;
+        font-size: 18px;
+        color: #e2e2e2;
+    }
+    p {
+        margin: 0;
+        font-size: 13px;
+        font-weight: 600;
+        color: #51565d;
+    }
 }
 
 .calendar {
@@ -245,6 +205,13 @@ export default Vue.extend({
     justify-content: center;
     align-items: center;
     vertical-align: middle;
+    .date {
+        width: 100%;
+    }
+    img {
+        width: 40px;
+        border-radius: 40px;
+    }
 }
 
 .day:nth-of-type(7n + 7) {
@@ -299,11 +266,6 @@ export default Vue.extend({
     grid-column: 7/7;
 }
 
-.day img {
-  width: 40px;
-  border-radius: 40px;
-}
-
 .day--existed {
   opacity: 1;
 }
@@ -317,34 +279,6 @@ export default Vue.extend({
     background-color: #ffffff;
     background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f9f9fa' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
     cursor: not-allowed;
-}
-
-.calendar-list {
-    width: 60%;
-    margin: 0 auto;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-.calendar-list ul {
-    display: -webkit-flex;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    vertical-align: middle;
-}
-
-.calendar-list ul li {
-    list-style: none;
-    padding: 1.2em 1.4em;
-}
-
-.list-item-day {
-    width: 12%;
-}
-
-.list-item-content {
-    width: 88%;
 }
 
 @media (max-width: 500px) {
@@ -364,27 +298,6 @@ export default Vue.extend({
 
     .day--disabled {
         display: none;
-    }
-
-    .calendar-list ul {
-        margin: 0;
-        padding: 0;
-        display: -webkit-flex;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-    }
-
-    .calendar-list ul li {
-        text-align: center;
-    }
-
-    .list-item-day {
-        width: 100%;
-    }
-
-    .list-item-content {
-        width: 100%;
     }
 }
 </style>

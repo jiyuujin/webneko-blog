@@ -1,0 +1,151 @@
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.main {
+  margin: 0 10% 8px;
+}
+
+.validate {
+  margin: 8px auto;
+  text-align: center;
+  color: #c71582;
+}
+
+.post-detail {
+  color: #000;
+  text-align: center;
+  word-break : break-word;
+  h2 {
+    margin: 8px 0;
+    padding: 0.24em 0.48em;
+    text-align: left;
+    border-left: solid 5px #42b883;
+    color: #35495e;
+    font-size: 1.6em;
+  }
+  h3 {
+    margin: 8px 0;
+    padding: 0.24em 0.48em;
+    text-align: left;
+    border-left: solid 5px #35495e;
+    font-size: 1.2em;
+  }
+  h4 {
+    margin: 8px 0;
+    padding: 0.24em 0.48em;
+    text-align: left;
+    border-left: solid 5px #ccc;
+    font-size: 1em;
+  }
+  p {
+    padding: 0.16em 0.24em;
+    text-align: left;
+    line-height: 2;
+  }
+  ol {
+    margin: 1em 0;
+    padding: 0 0 0 2em;
+    text-align: left;
+  }
+  ul {
+    margin: 1em 0;
+    padding: 0 0 0 2em;
+    text-align: left;
+    list-style: disc;
+  }
+  dd {
+    margin: 0 0 0 2em;
+  }
+  table {
+    margin: 10px 0 15px 0;
+    border-collapse: collapse;
+  }
+  td, th {
+    border: 2px solid #ccb8a3;
+    padding: 3px 10px;
+  }
+  th {
+    padding: 5px 10px;
+  }
+  blockquote {
+    position: relative;
+    display: table;
+    margin: 1rem;
+    padding: 2.3rem 2.3rem;
+    width: calc(100% - 2rem);
+    font-style: oblique;
+    font-size: 1rem;
+    border: dotted 1px #ececec;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    &:before {
+      position: absolute;
+      left: 4px;
+      top: 1.5rem;
+      font-family: 'Georgia', 'Times', 'Times New Roman', serif;
+      font-size: 56px;
+      color: #d0d0d0;
+      content: '\0201C';
+    }
+    &:after {
+      position: absolute;
+      right: 12px;
+      bottom: -1rem;
+      font-family: 'Georgia', 'Times', 'Times New Roman', serif;
+      font-size: 56px;
+      color: #d0d0d0;
+      content: '\0201D';
+    }
+    .origin {
+      display: table-cell;
+      width: 100%;
+      margin: 1rem 0 0;
+      padding: 6px 4px 0 6px;
+      border-top: dotted 1px #e0e0e0;
+      text-align: right;
+      font-size: 0.857rem;
+      font-style: normal;
+      color: #909090;
+      &:before {
+        margin-right: 10px;
+        letter-spacing: -2px;
+        font-weight: 100;
+        color: #ddd;
+        content: '\02500\02500';
+      }
+      :link,
+      :visited {
+        color: #999;
+        text-decoration: none;
+      }
+      :hover,
+      :active {
+        color: #07c;
+        text-decoration: none;
+      }
+    }
+  }
+  pre {
+    padding: 0.15em 0.25em;
+    text-align: left;
+  }
+  img {
+    width: 80%!important;
+    margin: 0 10%;
+  }
+}
+
+@media (max-width: 500px) {
+  .main {
+    margin: 0;
+  }
+
+  .post-detail {
+    img {
+      width: 84%!important;
+      margin: 0 8%;
+    }
+  }
+}

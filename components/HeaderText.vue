@@ -1,6 +1,7 @@
 <template>
   <div class="header">
-    Web猫ブログ <span v-if="isMonthMatched">{{ getMonth }} - {{ archives.length }} 件</span>
+    <span v-if="!isMonthMatched">Web猫ブログ</span>
+    <span v-if="isMonthMatched">{{ getMonth }} - {{ archives.length }} 件</span>
   </div>
 </template>
 

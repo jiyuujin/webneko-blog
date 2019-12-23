@@ -1,16 +1,21 @@
 <template>
-  <advent-calendar
-    :items="adventCalendars"
-    :year="$route.params.year"
-  />
+  <main-template>
+    <advent-calendar
+      :items="adventCalendars"
+      :year="$route.params.year"
+    />
+  </main-template>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue'
-import AdventCalendar from '@/components/AdventCalendar.vue'
+
+const MainTemplate = () => import('@/components/MainTemplate.vue')
+const AdventCalendar = () => import('@/components/AdventCalendar.vue')
 
 export default Vue.extend({
     components: {
+        MainTemplate,
         AdventCalendar
     },
     async asyncData({ store, route }) {

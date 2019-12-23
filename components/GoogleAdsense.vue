@@ -35,10 +35,3 @@ export default Vue.extend({
     }
 })
 </script>
-
-<style scoped>
-.ad {
-  margin-top: 25px;
-  margin-bottom: 25px;
-}
-</style>

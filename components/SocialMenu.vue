@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      :class="isVertical ? `vertical` : `horizontal`"
+      :class="isVertical ? `social-menu--vertical` : `social-menu--horizontal`"
       class="social-menu"
     >
       <a
@@ -67,45 +67,37 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .social-menu {
   z-index: 100;
   width: 4%;
   height: 0;
+  img {
+    width: 36px;
+    height: 36px;
+    margin: 8px;
+    border-radius: 50%;
+    filter: #aaa;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+    &:hover {
+      background: #fff;
+      opacity: 100%;
+      filter: none;
+      -webkit-filter: grayscale(0);
+      filter: grayscale(0);
+    }
+  }
 }
 
-.vertical {
+.social-menu--vertical {
   position: -webkit-sticky;
   position: sticky;
   left: 2%;
   top: 60px;
 }
 
-.horizontal {
+.social-menu--horizontal {
   display: inline;
-}
-
-.social-menu img {
-  width: 36px;
-  height: 36px;
-  margin: 8px;
-  border-radius: 50%;
-	filter: #aaa;
-  -webkit-filter: grayscale(1);
-	filter: grayscale(1);
-}
-
-.social-menu img:hover {
-  background: #fff;
-  opacity: 100%;
-  filter: none;
-  -webkit-filter: grayscale(0);
-  filter: grayscale(0);
-}
-
-@media (max-width: 500px) {
-  .social-menu {
-    display: none;
-  }
 }
 </style>
