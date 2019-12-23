@@ -223,9 +223,15 @@ export default Vue.extend({
 }
 
 @media (max-width: 500px) {
+  .cover {
+    .title {
+      font-size: 2rem;
+    }
+  }
+
   .article {
-    width: 98%;
-    margin: 2% 1% 2% 1%;
+    width: 88%;
+    margin: 2% 6% 2% 6%;
     text-align: center;
     overflow: hidden;
   }

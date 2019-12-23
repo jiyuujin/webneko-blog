@@ -205,6 +205,9 @@ export default Vue.extend({
     justify-content: center;
     align-items: center;
     vertical-align: middle;
+    .date {
+        width: 100%;
+    }
     img {
         width: 40px;
         border-radius: 40px;
