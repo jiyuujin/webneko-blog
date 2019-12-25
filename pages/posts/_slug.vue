@@ -78,6 +78,8 @@
 import Vue from 'vue'
 import dayjs from 'dayjs'
 
+import { fetchPost, fetchPosts } from '~/repositories/blog'
+
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const HeaderText = () => import('~/components/HeaderText.vue')
 const SocialMenu = () => import('~/components/SocialMenu.vue')
@@ -96,23 +98,19 @@ export default Vue.extend({
         LoadedMarkdown,
         BuyMeACoffee
     },
-    async asyncData({ store, params }) {
-        await store.dispatch('product/fetchPost', {
-            'slug': params.slug,
-            'month': ''
-        })
+    async asyncData({ params }) {
+        const isLatest: boolean = true
+        return {
+            currentPost: await fetchPost({
+                slug: params.slug,
+                month: ''
+            }),
+            latestPosts: await fetchPosts(isLatest)
+        }
     },
     data() {
         return {
             isVertical: true
-        }
-    },
-    computed: {
-        currentPost() {
-            return this.$store.state.product.currentPost
-        },
-        latestPosts() {
-            return this.$store.state.product.latestPosts
         }
     },
     methods: {

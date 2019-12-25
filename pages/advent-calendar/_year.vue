@@ -10,6 +10,8 @@
 <script lang="ts">
 import Vue from 'vue'
 
+import { fetchPost } from '~/repositories/blog'
+
 const MainTemplate = () => import('@/components/MainTemplate.vue')
 const AdventCalendar = () => import('@/components/AdventCalendar.vue')
 
@@ -18,15 +20,12 @@ export default Vue.extend({
         MainTemplate,
         AdventCalendar
     },
-    async asyncData({ store, route }) {
-        await store.dispatch('product/fetchPost', {
-            'slug': '',
-            'month': `${route.params.year}-12`
-        })
-    },
-    computed: {
-        adventCalendars() {
-            return this.$store.state.product.archives
+    async asyncData({ params }) {
+        return {
+            adventCalendars: await fetchPost({
+                slug: '',
+                month: `${params.year}-12`
+            })
         }
     },
     head() {

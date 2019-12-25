@@ -1,7 +1,7 @@
 <template>
   <div class="header">
-    <span v-if="!isMonthMatched">Web猫ブログ</span>
-    <span v-if="isMonthMatched">{{ getMonth }} - {{ archives.length }} 件</span>
+    <span v-if="archivesSize === 0">Web猫ブログ</span>
+    <span v-if="isMonthMatched">{{ getMonth }} - {{ archivesSize }} 件</span>
   </div>
 </template>
 
@@ -10,10 +10,13 @@ import Vue from 'vue'
 import dayjs from 'dayjs'
 
 export default Vue.extend({
+    props: {
+        archivesSize: {
+            type: Number,
+            default: 0
+        }
+    },
     computed: {
-        archives() {
-            return this.$store.state.product.archives
-        },
         getMonth(): string {
             return dayjs(this.$route.params.month).format('YYYY年 MM月')
         },
