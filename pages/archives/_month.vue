@@ -1,6 +1,6 @@
 <template>
   <main-template>
-    <header-text />
+    <header-text :archives-size="archives.length" />
 
     <div class="main">
       <div class="archive">
@@ -36,6 +36,8 @@
 import Vue from 'vue'
 import dayjs from 'dayjs'
 
+import { fetchPost } from '~/repositories/blog'
+
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const HeaderText = () => import('~/components/HeaderText.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
@@ -46,15 +48,12 @@ export default Vue.extend({
         HeaderText,
         GoogleAdsense
     },
-    async asyncData ({ store, route }) {
-        await store.dispatch('product/fetchPost', {
-            'slug': '',
-            'month': route.params.month
-        })
-    },
-    computed: {
-        archives() {
-            return this.$store.state.product.archives
+    async asyncData({ params }) {
+        return {
+            archives: await fetchPost({
+                slug: '',
+                month: params.month
+            })
         }
     },
     methods: {
