@@ -1,14 +1,5 @@
 <template>
   <div>
-    <div
-      v-if="validationText"
-      class="validate"
-    >
-      {{ validationText }}
-    </div>
-    <div v-if="responseText">
-      {{ responseText }}
-    </div>
     <j-form title="タイトル">
       <j-input
         input-type="text"
@@ -38,34 +29,27 @@
         @handleInput="applyDescription"
       />
     </j-form>
-    <main-template :is-form="isForm">
+    <j-form>
       <j-button
         text="送信します"
         variant-style="text"
         @handleClick="submit"
       />
-    </main-template>
+      <span v-if="responseText">
+        {{ responseText }}
+      </span>
+    </j-form>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import dayjs from 'dayjs'
-import Firestore from '~/plugins/firebase.ts'
-import { isValidText } from '~/store/utils.ts'
+
+import { addContact } from '~/repositories/contact'
 import { ContactCategories } from '~/services/contact'
-import { ContactCategory, Category } from '~/types/contact'
-
-const MainTemplate = () => import('~/components/MainTemplate.vue')
-
-const adminFirestore: any = Firestore.firestore()
-
-const contactsCollection: any = adminFirestore.collection('contacts')
+import { Category, ContactCategory } from '~/types/contact'
 
 export default Vue.extend({
-    components: {
-        MainTemplate
-    },
     props: {
         category: {
             type: String,
@@ -85,9 +69,8 @@ export default Vue.extend({
                 email: '',
                 description: ''
             } as Category,
-            validationText: '' as string,
-            responseText: '' as string,
-            contactCategories: ContactCategories as ContactCategory[]
+            contactCategories: ContactCategories as ContactCategory[],
+            responseText: '' as string
         }
     },
     methods: {
@@ -108,46 +91,10 @@ export default Vue.extend({
             this.form.contactCategory = 0
             this.form.email = ''
             this.form.description = ''
-            this.validationText = ''
         },
         async submit() {
-            this.responseText = ''
-
-            if (isValidText(this.form.title)) {
-                if (isValidText(this.form.description)) {
-                    this.validationText = 'タイトル・詳細は必須です'
-                    return
-                }
-                this.validationText = 'タイトルは必須です'
-                return
-            }
-
-            if (isValidText(this.form.description)) {
-                this.validationText = '詳細は必須です'
-                return
-            }
-
-            await contactsCollection.add({
-                'time': dayjs().format(),
-                'title': this.form.title,
-                'category': this.getCategory(),
-                'email': this.form.email,
-                'description': this.form.description
-            })
-
+            this.responseText = await addContact(this.form, this.category)
             this.reset()
-
-            this.responseText = '送信に成功しました'
-        },
-        getCategory(): ContactCategory | undefined {
-            if (this.category !== 'manual' && this.form.contactCategory === 0) {
-                return {
-                    value: 10,
-                    text: this.blogTitle
-                }
-            }
-
-            return ContactCategories.find((cc: ContactCategory) => cc.value === this.form.contactCategory)
         }
     }
 })
