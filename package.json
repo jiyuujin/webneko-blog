@@ -9,7 +9,9 @@
     "build": "nuxt-ts build --no-lock",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate --no-lock",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint": "eslint --ext .ts,.vue --ignore-path .gitignore . && yarn stylelint",
+    "stylelint": "stylelint --config .stylelintrc.yml './assets/**/*.scss'",
+    "stylelint:fix": "stylelint --config .stylelintrc.yml './assets/**/*.scss' --fix",
     "precommit": "npm run lint"
   },
   "dependencies": {
@@ -53,6 +55,11 @@
     "eslint-plugin-vue": "6.1.2",
     "fibers": "4.0.2",
     "sass": "1.24.2",
-    "sass-loader": "8.0.0"
+    "sass-loader": "8.0.0",
+    "stylelint": "^12.0.1",
+    "stylelint-a11y": "^1.2.2",
+    "stylelint-config-recess-order": "^2.0.3",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-scss": "^3.13.0"
   }
 }
