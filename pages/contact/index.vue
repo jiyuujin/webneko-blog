@@ -89,33 +89,3 @@ export default Vue.extend({
 
 })
 </script>
-
-<style lang="scss" scoped>
-.privacy-policy,
-.contact {
-  width: 52%;
-  margin: 2% 24% 2% 24%;
-  font-size: 0.8em;
-  .title {
-    font-size: 1.2em;
-    padding: 4px;
-    text-align: center;
-    color: #000;
-    font-weight: bold;
-    letter-spacing: 0.05em;
-  }
-  p {
-    padding: 15px 20px;
-    margin: 0;
-    text-align: left;
-  }
-}
-
-@media (max-width: 500px) {
-  .privacy-policy,
-  .contact {
-    width: 98%;
-    margin: 2% 1% 2% 1%;
-  }
-}
-</style>
