@@ -2,7 +2,8 @@ module.exports = {
     extends: ['@nekohack/eslint-config', 'plugin:vue/recommended'],
     plugins: [
         '@typescript-eslint',
-        'vue'
+        'vue',
+        'vue-a11y'
     ],
     root: true,
     env: { node: true, es6: true },
