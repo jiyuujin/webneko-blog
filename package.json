@@ -10,8 +10,8 @@
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate --no-lock",
     "lint": "eslint --ext .ts,.vue --ignore-path .gitignore . && yarn stylelint",
-    "stylelint": "stylelint --config .stylelintrc.yml './assets/**/*.scss'",
-    "stylelint:fix": "stylelint --config .stylelintrc.yml './assets/**/*.scss' --fix",
+    "stylelint": "stylelint --config .stylelintrc.yml './assets/**/*.scss' './components/**/*.vue'",
+    "stylelint:fix": "stylelint --config .stylelintrc.yml './assets/**/*.scss' './components/**/*.vue' --fix",
     "precommit": "npm run lint"
   },
   "dependencies": {

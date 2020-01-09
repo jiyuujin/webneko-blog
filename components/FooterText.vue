@@ -45,58 +45,60 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 footer {
-    margin-top: 24px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    min-height: 300px;
-    padding: 30px 0;
-    background-color: #35495e;
-    color: #fff;
-    max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  min-height: 300px;
+  padding: 30px 0;
+  margin-top: 24px;
+  color: #fff;
+  background-color: #35495e;
 }
 
 .footer-text {
-    padding: 24px 0 12px;
-    margin: auto;
+  padding: 24px 0 12px;
+  margin: auto;
 }
 
 .menu {
-    display: flex;
-    vertical-align: center;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 2em;
-    a {
-        color: #fff;
-        padding-right: 16px;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2em;
+  vertical-align: center;
+
+  a {
+    padding-right: 16px;
+    color: #fff;
+  }
 }
 
 .copyright {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8vmin;
 }
 
 @media (max-width: 500px) {
-    footer {
-        margin-top: 0;
-        min-height: 0;
-    }
+  footer {
+    min-height: 0;
+    margin-top: 0;
+  }
 
-    .menu {
-        display: flex;
-        flex-direction: column;
-        a {
-            margin-bottom: 12px;
-        }
-    }
+  .menu {
+    display: flex;
+    flex-direction: column;
 
-    .copyright {
-        font-size: 12px;
+    a {
+      margin-bottom: 12px;
     }
+  }
+
+  .copyright {
+    font-size: 12px;
+  }
 }
 </style>

@@ -1,35 +1,31 @@
 <template>
-  <div>
-    <div class="ad">
-      <adsbygoogle
-        :ad-slot="adSlot"
-        :ad-format="adFormat"
-        :ad-layout="adLayout"
-        :ad-style="adStyle"
-      />
-    </div>
-  </div>
+  <adsbygoogle
+    :ad-slot="adSlot"
+    :ad-format="adFormat"
+    :ad-layout="adLayout"
+    :ad-style="adStyle"
+  />
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { PropType } from 'vue'
 
 export default Vue.extend({
     props: {
         adSlot: {
-            type: String,
+            type: String as PropType<string>,
             default: ''
         },
         adFormat: {
-            type: String,
+            type: String as PropType<string>,
             default: ''
         },
         adLayout: {
-            type: String,
+            type: String as PropType<string>,
             default: ''
         },
         adStyle: {
-            type: Object,
+            type: Object as PropType<object>,
             default: null
         }
     }

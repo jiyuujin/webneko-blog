@@ -6,13 +6,13 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { PropType } from 'vue'
 import dayjs from 'dayjs'
 
 export default Vue.extend({
     props: {
         archivesSize: {
-            type: Number,
+            type: Number as PropType<number>,
             default: 0
         }
     },
@@ -27,15 +27,15 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .header {
   position: fixed;
-  width: 100%;
-  padding: 12px;
   top: 0;
   left: 8%;
-  line-height: 1.2;
+  z-index: 24;
+  width: 100%;
+  padding: 12px;
   font-size: 3vmin;
-  z-index:24;
+  line-height: 1.2;
 }
 </style>
