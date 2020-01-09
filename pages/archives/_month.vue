@@ -3,7 +3,7 @@
     <header-text :archives-size="archives.length" />
 
     <div class="main">
-      <div class="archive">
+      <div class="top">
         <div
           v-for="post in archives"
           :key="post.fields.title"
@@ -80,45 +80,3 @@ export default Vue.extend({
     }
 })
 </script>
-
-<style lang="scss" scoped>
-.archive {
-  width: 52%;
-  margin: 2% 24% 2% 24%;
-  padding-top: 36px;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.card {
-  position: relative;
-  width: 100%;
-  margin: 12px 4%;
-  .title {
-    font-size: 2.4vmax;
-    line-height: 1.2;
-    text-align: left;
-  }
-  .description {
-    font-size: 1.2vmax;
-    line-height: 1.2;
-    height: 4.8em;
-    text-align: left;
-    color: #ccc;
-    display: flex;
-    align-items: center;
-  }
-  .date {
-    font-size: 1.2vmin;
-    text-align: left;
-  }
-}
-
-@media (max-width: 500px) {
-  .archive {
-    width: 98%;
-    margin: 0 auto;
-    padding-top: 16px;
-  }
-}
-</style>

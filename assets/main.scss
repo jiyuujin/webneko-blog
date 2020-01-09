@@ -1,6 +1,6 @@
 a {
-  text-decoration: none;
   color: #000;
+  text-decoration: none;
 }
 
 .main {
@@ -9,87 +9,219 @@ a {
 
 .validate {
   margin: 8px auto;
-  text-align: center;
   color: #c71582;
+  text-align: center;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  width: 52%;
+  padding-top: 36px;
+  margin: 2% 24% 2% 24%;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+
+  .title {
+    font-size: 2.4vmax;
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  .description {
+    display: flex;
+    align-items: center;
+    height: 4.8em;
+    font-size: 1.2vmax;
+    line-height: 1.2;
+    color: #aaa;
+    text-align: left;
+  }
+
+  .date {
+    font-size: 1.2vmin;
+    text-align: left;
+  }
+}
+
+.cover {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  vertical-align: middle;
+
+  .title {
+    position: absolute;
+    top: calc(50% - 25px);
+    left: 0;
+    width: 100%;
+    margin: 1rem 0;
+    font-size: 4rem;
+    font-weight: bold;
+    line-height: 48px;
+    color: #000;
+    text-align: center;
+  }
+
+  .date {
+    position: absolute;
+    top: calc(75% + 25px);
+    left: 0;
+    width: 100%;
+    font-size: 1.2vmax;
+    font-weight: bold;
+    line-height: 24px;
+    color: #000;
+    text-align: center;
+  }
+
+  img {
+    width: 100%;
+    height: 50vh;
+    vertical-align: middle;
+    filter: brightness(60%);
+    background-position: center;
+    background-size: cover;
+    object-fit: cover;
+  }
+}
+
+.article {
+  width: 52%;
+  margin: 2% 24% 2% 24%;
+  overflow: hidden;
+  text-align: center;
+
+  p {
+    padding-right: 16px;
+    font-size: 16px;
+    color: #35495e;
+    text-align: left;
+  }
+}
+
+.buy-me-a-coffee {
+  display: table-cell;
+  width: 800px;
+  height: 120px;
+  margin-right: auto;
+  margin-left: auto;
+  vertical-align: middle;
+}
+
+.late-article {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: left;
+
+  .title {
+    font-size: 1.2vmax;
+  }
+
+  .item {
+    height: 40px;
+    overflow: hidden;
+  }
+
+  .item-title {
+    font-size: 1.8vmax;
+  }
 }
 
 .post-detail {
   color: #000;
   text-align: center;
-  word-break : break-word;
+  word-break: break-word;
+
   h2 {
-    margin: 8px 0;
     padding: 0.24em 0.48em;
+    margin: 8px 0;
+    font-size: 1.6em;
+    color: #35495e;
     text-align: left;
     border-left: solid 5px #42b883;
-    color: #35495e;
-    font-size: 1.6em;
   }
+
   h3 {
-    margin: 8px 0;
     padding: 0.24em 0.48em;
+    margin: 8px 0;
+    font-size: 1.2em;
     text-align: left;
     border-left: solid 5px #35495e;
-    font-size: 1.2em;
   }
+
   h4 {
-    margin: 8px 0;
     padding: 0.24em 0.48em;
+    margin: 8px 0;
+    font-size: 1em;
     text-align: left;
     border-left: solid 5px #ccc;
-    font-size: 1em;
   }
+
   p {
     padding: 0.16em 0.24em;
-    text-align: left;
     line-height: 2;
-  }
-  ol {
-    margin: 1em 0;
-    padding: 0 0 0 2em;
     text-align: left;
   }
-  ul {
-    margin: 1em 0;
+
+  ol {
     padding: 0 0 0 2em;
+    margin: 1em 0;
+    text-align: left;
+  }
+
+  ul {
+    padding: 0 0 0 2em;
+    margin: 1em 0;
     text-align: left;
     list-style: disc;
   }
+
   dd {
     margin: 0 0 0 2em;
   }
+
   table {
     margin: 10px 0 15px 0;
     border-collapse: collapse;
   }
-  td, th {
-    border: 2px solid #ccb8a3;
+
+  td,
+  th {
     padding: 3px 10px;
+    border: 2px solid #ccb8a3;
   }
+
   th {
     padding: 5px 10px;
   }
+
   blockquote {
     position: relative;
     display: table;
-    margin: 1rem;
-    padding: 2.3rem 2.3rem;
     width: calc(100% - 2rem);
-    font-style: oblique;
+    padding: 2.3rem 2.3rem;
+    margin: 1rem;
     font-size: 1rem;
+    font-style: oblique;
+    background-color: #f0f0f0;
     border: dotted 1px #ececec;
     border-radius: 4px;
-    background-color: #f0f0f0;
-    &:before {
+
+    &::before {
       position: absolute;
-      left: 4px;
       top: 1.5rem;
+      left: 4px;
       font-family: 'Georgia', 'Times', 'Times New Roman', serif;
       font-size: 56px;
       color: #d0d0d0;
       content: '\0201C';
     }
-    &:after {
+
+    &::after {
       position: absolute;
       right: 12px;
       bottom: -1rem;
@@ -98,42 +230,70 @@ a {
       color: #d0d0d0;
       content: '\0201D';
     }
+
     .origin {
       display: table-cell;
       width: 100%;
-      margin: 1rem 0 0;
       padding: 6px 4px 0 6px;
-      border-top: dotted 1px #e0e0e0;
-      text-align: right;
+      margin: 1rem 0 0;
       font-size: 0.857rem;
       font-style: normal;
       color: #909090;
-      &:before {
+      text-align: right;
+      border-top: dotted 1px #e0e0e0;
+
+      &::before {
         margin-right: 10px;
-        letter-spacing: -2px;
         font-weight: 100;
         color: #ddd;
+        letter-spacing: -2px;
         content: '\02500\02500';
       }
+
       :link,
       :visited {
         color: #999;
         text-decoration: none;
       }
+
       :hover,
-      :active {
+      :active,
+      :focus {
         color: #07c;
-        text-decoration: none;
       }
     }
   }
+
   pre {
     padding: 0.15em 0.25em;
     text-align: left;
   }
+
   img {
-    width: 80%!important;
+    width: 80% !important;
     margin: 0 10%;
+  }
+}
+
+.privacy-policy,
+.contact {
+  width: 52%;
+  margin: 2% 24% 2% 24%;
+  font-size: 0.8em;
+
+  .title {
+    padding: 4px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    letter-spacing: 0.05em;
+  }
+
+  p {
+    padding: 15px 20px;
+    margin: 0;
+    text-align: left;
   }
 }
 
@@ -142,10 +302,35 @@ a {
     margin: 0;
   }
 
+  .top {
+    width: 98%;
+    padding-top: 16px;
+    margin: 0 auto;
+  }
+
+  .cover {
+    .title {
+      font-size: 2rem;
+    }
+  }
+
+  .article {
+    width: 88%;
+    margin: 2% 6% 2% 6%;
+    overflow: hidden;
+    text-align: center;
+  }
+
   .post-detail {
     img {
-      width: 84%!important;
+      width: 84% !important;
       margin: 0 8%;
     }
+  }
+
+  .privacy-policy,
+  .contact {
+    width: 98%;
+    margin: 2% 1% 2% 1%;
   }
 }

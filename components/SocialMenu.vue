@@ -1,41 +1,39 @@
 <template>
-  <div>
-    <div
-      :class="isVertical ? `social-menu--vertical` : `social-menu--horizontal`"
-      class="social-menu"
+  <div
+    :class="isVertical ? `social-menu--vertical` : `social-menu--horizontal`"
+    class="social-menu"
+  >
+    <a
+      v-for="item in socialMenu"
+      :key="item"
+      href="#"
+      @click="handleClick(item)"
     >
-      <a
-        v-for="item in socialMenu"
-        :key="item"
-        href="#"
-        @click="handleClick(item)"
+      <img
+        :src="`/${item}.png`"
+        :alt="item"
+        decoding="async"
       >
-        <img
-          :src="`/${item}.png`"
-          :alt="item"
-          decoding="async"
-        >
-      </a>
-    </div>
+    </a>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { PropType } from 'vue'
 
 export default Vue.extend({
     props: {
         slugText: {
-            type: String,
+            type: String as PropType<string>,
             default: ''
         },
         title: {
-            type: String,
+            type: String as PropType<string>,
             default: ''
         },
         isVertical: {
-            type: Boolean,
-            defaut: false
+            type: Boolean as PropType<boolean>,
+            default: false
         }
     },
     data() {
@@ -72,20 +70,23 @@ export default Vue.extend({
   z-index: 100;
   width: 4%;
   height: 0;
+
   img {
     width: 36px;
     height: 36px;
     margin: 8px;
-    border-radius: 50%;
-    filter: #aaa;
     -webkit-filter: grayscale(1);
+    filter: #aaa;
     filter: grayscale(1);
-    &:hover {
+    border-radius: 50%;
+
+    &:hover,
+    &:focus {
       background: #fff;
-      opacity: 100%;
-      filter: none;
       -webkit-filter: grayscale(0);
+      filter: none;
       filter: grayscale(0);
+      opacity: 100%;
     }
   }
 }
@@ -93,8 +94,8 @@ export default Vue.extend({
 .social-menu--vertical {
   position: -webkit-sticky;
   position: sticky;
-  left: 2%;
   top: 60px;
+  left: 2%;
 }
 
 .social-menu--horizontal {

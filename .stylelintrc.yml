@@ -1,0 +1,19 @@
+# https://stylelint.io
+
+plugins:
+  - stylelint-scss
+  - stylelint-a11y
+
+syntax:
+  - scss
+
+extends:
+  # standard > recommended
+  - stylelint-config-standard
+  # Order by properties
+  - stylelint-config-recess-order
+
+rules:
+  a11y/media-prefers-reduced-motion: true
+  a11y/no-outline-none: true
+  a11y/selector-pseudo-class-focus: true

@@ -43,7 +43,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { PropType } from 'vue'
 
 import { addContact } from '~/repositories/contact'
 import { ContactCategories } from '~/services/contact'
@@ -52,11 +52,11 @@ import { Category, ContactCategory } from '~/types/contact'
 export default Vue.extend({
     props: {
         category: {
-            type: String,
+            type: String as PropType<string>,
             default: ''
         },
         blogTitle: {
-            type: String,
+            type: String as PropType<string>,
             default: ''
         }
     },
