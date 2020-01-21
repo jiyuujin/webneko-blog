@@ -16,81 +16,68 @@
 </template>
 
 <style lang="scss" scoped>
-@media screen and (prefers-reduced-motion: reduce) {
-  .bmc-button {
-    -webkit-box-sizing: border-box !important;
-    box-sizing: border-box !important;
-    display: inline-flex !important;
-    height: 37px !important;
-    padding: 0 9px !important;
-    margin: 0 auto !important;
-    font-family: 'Lato', sans-serif !important;
-    font-size: 17px !important;
-    line-height: 36px !important;
-    color: #fff !important;
-    text-decoration: none !important;
-    letter-spacing: -0.08px !important;
-    background-color: #bb5794 !important;
-    border: 1px solid transparent !important;
-    border-radius: 3px !important;
-    -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
-    box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
-    -o-transition: 0.3s all linear !important;
-    -webkit-transition: 0.3s all linear !important;
-    -moz-transition: 0.3s all linear !important;
-    -ms-transition: 0.3s all linear !important;
-    transition: none !important;
+  @media screen and (prefers-reduced-motion: reduce) {
+    .bmc-button {
+      background-color: #bb5794;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5);
+      box-sizing: border-box;
+      color: #fff;
+      display: inline-flex;
+      font-family: "Lato", sans-serif;
+      font-size: 17px;
+      height: 37px;
+      letter-spacing: -0.08px;
+      line-height: 36px;
+      margin: 0 auto;
+      padding: 0 9px;
+      text-decoration: none;
+      transition: none;
 
-    img {
-      width: 27px !important;
-      margin-bottom: 1px !important;
-      vertical-align: middle !important;
-      border: none !important;
-      box-shadow: none !important;
+      img {
+        border: none;
+        box-shadow: none;
+        margin-bottom: 1px;
+        vertical-align: middle;
+        width: 27px;
+      }
     }
   }
-}
 
-.bmc-button {
-  -webkit-box-sizing: border-box !important;
-  box-sizing: border-box !important;
-  display: inline-flex !important;
-  height: 37px !important;
-  padding: 0 9px !important;
-  margin: 0 auto !important;
-  font-family: 'Lato', sans-serif !important;
-  font-size: 17px !important;
-  line-height: 36px !important;
-  color: #fff !important;
-  text-decoration: none !important;
-  letter-spacing: -0.08px !important;
-  background-color: #bb5794 !important;
-  border: 1px solid transparent !important;
-  border-radius: 3px !important;
-  -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
-  box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
-  -o-transition: 0.3s all linear !important;
-  -webkit-transition: 0.3s all linear !important;
-  -moz-transition: 0.3s all linear !important;
-  -ms-transition: 0.3s all linear !important;
-  transition: 0.3s all linear !important;
+  .bmc-button {
+    background-color: #bb5794;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5);
+    box-sizing: border-box;
+    color: #fff;
+    display: inline-flex;
+    font-family: "Lato", sans-serif;
+    font-size: 17px;
+    height: 37px;
+    letter-spacing: -0.08px;
+    line-height: 36px;
+    margin: 0 auto;
+    padding: 0 9px;
+    text-decoration: none;
+    transition: 0.3s all linear;
 
-  img {
-    width: 27px !important;
-    margin-bottom: 1px !important;
-    vertical-align: middle !important;
-    border: none !important;
-    box-shadow: none !important;
+    img {
+      border: none;
+      box-shadow: none;
+      margin-bottom: 1px;
+      vertical-align: middle;
+      width: 27px;
+    }
   }
-}
 
-.bmc-button:hover,
-.bmc-button:active,
-.bmc-button:focus {
-  color: #fff !important;
-  text-decoration: none !important;
-  -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
-  box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
-  opacity: 0.85 !important;
-}
+  .bmc-button:hover,
+  .bmc-button:active,
+  .bmc-button:focus {
+    box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5);
+    color: #fff;
+    opacity: 0.85;
+    text-decoration: none;
+  }
 </style>
