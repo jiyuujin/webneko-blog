@@ -18,6 +18,7 @@ jobs:
         - |
           npm install eslint \
           eslint-plugin-vue \
+          eslint-plugin-vue-a11y \
           @nekohack/eslint-config \
           typescript \
           @typescript-eslint/eslint-plugin \
