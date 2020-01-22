@@ -29,13 +29,13 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
   .header {
-    font-size: 3vmin;
-    left: 8%;
-    line-height: 1.2;
-    padding: 12px;
     position: fixed;
     top: 0;
-    width: 100%;
+    left: 8%;
     z-index: 24;
+    width: 100%;
+    padding: 12px;
+    font-size: 3vmin;
+    line-height: 1.2;
   }
 </style>

@@ -145,76 +145,76 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
   .calendar-header {
-    align-items: center;
-    background-color: #56c501;
+    position: relative;
     display: -webkit-flex;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 120px;
+    align-items: center;
     justify-content: center;
-    position: relative;
-    vertical-align: middle;
     width: 100%;
+    height: 120px;
+    vertical-align: middle;
+    background-color: #56c501;
 
     h1 {
-      color: #e2e2e2;
-      font-size: 18px;
       margin: 0;
+      font-size: 18px;
+      color: #e2e2e2;
     }
 
     p {
-      color: #51565d;
+      margin: 0;
       font-size: 13px;
       font-weight: 600;
-      margin: 0;
+      color: #51565d;
     }
   }
 
   .calendar {
     display: grid;
-    grid-auto-rows: 120px;
-    grid-template-columns: repeat(7, minmax(20px, 1fr));
     grid-template-rows: 50px;
-    overflow: auto;
+    grid-template-columns: repeat(7, minmax(20px, 1fr));
+    grid-auto-rows: 120px;
     width: 100%;
+    overflow: auto;
   }
 
   .weekday {
-    border-bottom: 1px solid rgba(166, 168, 179, 0.12);
-    color: #99a1a7;
     font-size: 12px;
     font-weight: 500;
     line-height: 50px;
+    color: #99a1a7;
     text-align: center;
     text-transform: uppercase;
+    border-bottom: 1px solid rgba(166, 168, 179, 0.12);
   }
 
   .day {
-    align-items: center;
-    border-bottom: 1px solid rgba(166, 168, 179, 0.12);
-    border-right: 1px solid rgba(166, 168, 179, 0.12);
+    position: relative;
+    z-index: 1;
     box-sizing: border-box;
-    color: #98a0a6;
     display: -webkit-flex;
     display: flex;
     flex-wrap: wrap;
-    font-size: 14px;
+    align-items: center;
     justify-content: center;
-    letter-spacing: 1px;
     padding: 14px 20px;
-    position: relative;
+    font-size: 14px;
+    color: #98a0a6;
     text-align: center;
+    letter-spacing: 1px;
     vertical-align: middle;
-    z-index: 1;
+    border-right: 1px solid rgba(166, 168, 179, 0.12);
+    border-bottom: 1px solid rgba(166, 168, 179, 0.12);
 
     .date {
       width: 100%;
     }
 
     img {
-      border-radius: 40px;
       width: 40px;
+      border-radius: 40px;
     }
   }
 
@@ -227,10 +227,10 @@ export default Vue.extend({
   }
 
   .day--disabled {
-    background-color: #fff;
-    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f9f9fa' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
     color: rgba(152, 160, 166, 0.6);
     cursor: not-allowed;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f9f9fa' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
   }
 
   @media (max-width: 500px) {

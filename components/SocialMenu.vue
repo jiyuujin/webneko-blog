@@ -67,17 +67,17 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
   .social-menu {
-    height: 0;
-    width: 4%;
     z-index: 100;
+    width: 4%;
+    height: 0;
 
     img {
-      border-radius: 50%;
-      filter: #aaa;
-      filter: grayscale(1);
+      width: 36px;
       height: 36px;
       margin: 8px;
-      width: 36px;
+      filter: #aaa;
+      filter: grayscale(1);
+      border-radius: 50%;
 
       &:hover,
       &:focus {
@@ -90,10 +90,10 @@ export default Vue.extend({
   }
 
   .social-menu--vertical {
-    left: 2%;
     position: -webkit-sticky;
     position: sticky;
     top: 60px;
+    left: 2%;
   }
 
   .social-menu--horizontal {

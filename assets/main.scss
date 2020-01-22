@@ -8,17 +8,17 @@ a {
 }
 
 .validate {
-  color: #c71582;
   margin: 8px auto;
+  color: #c71582;
   text-align: center;
 }
 
 .top {
   display: flex;
   flex-wrap: wrap;
-  margin: 2% 24% 2% 24%;
-  padding-top: 36px;
   width: 52%;
+  padding-top: 36px;
+  margin: 2% 24% 2% 24%;
 }
 
 .card {
@@ -32,12 +32,12 @@ a {
   }
 
   .description {
-    align-items: center;
-    color: #aaa;
     display: flex;
-    font-size: 1.2vmax;
+    align-items: center;
     height: 4.8em;
+    font-size: 1.2vmax;
     line-height: 1.2;
+    color: #aaa;
     text-align: left;
   }
 
@@ -48,73 +48,73 @@ a {
 }
 
 .cover {
-  height: 50vh;
   position: relative;
-  vertical-align: middle;
   width: 100%;
+  height: 50vh;
+  vertical-align: middle;
 
   .title {
-    color: #000;
+    position: absolute;
+    top: calc(50% - 25px);
+    left: 0;
+    width: 100%;
+    margin: 1rem 0;
     font-size: 4rem;
     font-weight: bold;
-    left: 0;
     line-height: 48px;
-    margin: 1rem 0;
-    position: absolute;
+    color: #000;
     text-align: center;
-    top: calc(50% - 25px);
-    width: 100%;
   }
 
   .date {
-    color: #000;
+    position: absolute;
+    top: calc(75% + 25px);
+    left: 0;
+    width: 100%;
     font-size: 1.2vmax;
     font-weight: bold;
-    left: 0;
     line-height: 24px;
-    position: absolute;
+    color: #000;
     text-align: center;
-    top: calc(75% + 25px);
-    width: 100%;
   }
 
   img {
+    width: 100%;
+    height: 50vh;
+    vertical-align: middle;
+    filter: brightness(60%);
     background-position: center;
     background-size: cover;
-    filter: brightness(60%);
-    height: 50vh;
     object-fit: cover;
-    vertical-align: middle;
-    width: 100%;
   }
 }
 
 .article {
+  width: 52%;
   margin: 2% 24% 2% 24%;
   overflow: hidden;
   text-align: center;
-  width: 52%;
 
   p {
-    color: #35495e;
-    font-size: 16px;
     padding-right: 16px;
+    font-size: 16px;
+    color: #35495e;
     text-align: left;
   }
 }
 
 .buy-me-a-coffee {
   display: table-cell;
-  height: 120px;
-  margin-left: auto;
-  margin-right: auto;
-  vertical-align: middle;
   width: 800px;
+  height: 120px;
+  margin-right: auto;
+  margin-left: auto;
+  vertical-align: middle;
 }
 
 .late-article {
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
   text-align: left;
 
   .title {
@@ -137,47 +137,47 @@ a {
   word-break: break-word;
 
   h2 {
-    border-left: solid 5px #42b883;
-    color: #35495e;
-    font-size: 1.6em;
-    margin: 8px 0;
     padding: 0.24em 0.48em;
+    margin: 8px 0;
+    font-size: 1.6em;
+    color: #35495e;
     text-align: left;
+    border-left: solid 5px #42b883;
   }
 
   h3 {
-    border-left: solid 5px #35495e;
-    font-size: 1.2em;
-    margin: 8px 0;
     padding: 0.24em 0.48em;
+    margin: 8px 0;
+    font-size: 1.2em;
     text-align: left;
+    border-left: solid 5px #35495e;
   }
 
   h4 {
-    border-left: solid 5px #ccc;
-    font-size: 1em;
-    margin: 8px 0;
     padding: 0.24em 0.48em;
+    margin: 8px 0;
+    font-size: 1em;
     text-align: left;
+    border-left: solid 5px #ccc;
   }
 
   p {
-    line-height: 2;
     padding: 0.16em 0.24em;
+    line-height: 2;
     text-align: left;
   }
 
   ol {
-    margin: 1em 0;
     padding: 0 0 0 2em;
+    margin: 1em 0;
     text-align: left;
   }
 
   ul {
-    list-style: disc;
-    margin: 1em 0;
     padding: 0 0 0 2em;
+    margin: 1em 0;
     text-align: left;
+    list-style: disc;
   }
 
   dd {
@@ -185,14 +185,14 @@ a {
   }
 
   table {
-    border-collapse: collapse;
     margin: 10px 0 15px 0;
+    border-collapse: collapse;
   }
 
   td,
   th {
-    border: 2px solid #ccb8a3;
     padding: 3px 10px;
+    border: 2px solid #ccb8a3;
   }
 
   th {
@@ -200,54 +200,54 @@ a {
   }
 
   blockquote {
+    position: relative;
+    display: table;
+    width: calc(100% - 2rem);
+    padding: 2.3rem 2.3rem;
+    margin: 1rem;
+    font-size: 1rem;
+    font-style: oblique;
     background-color: #f0f0f0;
     border: dotted 1px #ececec;
     border-radius: 4px;
-    display: table;
-    font-size: 1rem;
-    font-style: oblique;
-    margin: 1rem;
-    padding: 2.3rem 2.3rem;
-    position: relative;
-    width: calc(100% - 2rem);
 
     &::before {
-      color: #d0d0d0;
-      content: "\0201C";
-      font-family: "Georgia", "Times", "Times New Roman", serif;
-      font-size: 56px;
-      left: 4px;
       position: absolute;
       top: 1.5rem;
+      left: 4px;
+      font-family: "Georgia", "Times", "Times New Roman", serif;
+      font-size: 56px;
+      color: #d0d0d0;
+      content: "\0201C";
     }
 
     &::after {
-      bottom: -1rem;
-      color: #d0d0d0;
-      content: "\0201D";
-      font-family: "Georgia", "Times", "Times New Roman", serif;
-      font-size: 56px;
       position: absolute;
       right: 12px;
+      bottom: -1rem;
+      font-family: "Georgia", "Times", "Times New Roman", serif;
+      font-size: 56px;
+      color: #d0d0d0;
+      content: "\0201D";
     }
 
     .origin {
-      border-top: dotted 1px #e0e0e0;
-      color: #909090;
       display: table-cell;
+      width: 100%;
+      padding: 6px 4px 0 6px;
+      margin: 1rem 0 0;
       font-size: 0.857rem;
       font-style: normal;
-      margin: 1rem 0 0;
-      padding: 6px 4px 0 6px;
+      color: #909090;
       text-align: right;
-      width: 100%;
+      border-top: dotted 1px #e0e0e0;
 
       &::before {
-        color: #ddd;
-        content: "\02500\02500";
-        font-weight: 100;
-        letter-spacing: -2px;
         margin-right: 10px;
+        font-weight: 100;
+        color: #ddd;
+        letter-spacing: -2px;
+        content: "\02500\02500";
       }
 
       :link,
@@ -270,29 +270,29 @@ a {
   }
 
   img {
-    margin: 0 10%;
     width: 80%;
+    margin: 0 10%;
   }
 }
 
 .privacy-policy,
 .contact {
-  font-size: 0.8em;
-  margin: 2% 24% 2% 24%;
   width: 52%;
+  margin: 2% 24% 2% 24%;
+  font-size: 0.8em;
 
   .title {
-    color: #000;
+    padding: 4px;
     font-size: 1.2em;
     font-weight: bold;
-    letter-spacing: 0.05em;
-    padding: 4px;
+    color: #000;
     text-align: center;
+    letter-spacing: 0.05em;
   }
 
   p {
-    margin: 0;
     padding: 15px 20px;
+    margin: 0;
     text-align: left;
   }
 }
@@ -303,9 +303,9 @@ a {
   }
 
   .top {
-    margin: 0 auto;
-    padding-top: 16px;
     width: 98%;
+    padding-top: 16px;
+    margin: 0 auto;
   }
 
   .cover {
@@ -315,22 +315,22 @@ a {
   }
 
   .article {
+    width: 88%;
     margin: 2% 6% 2% 6%;
     overflow: hidden;
     text-align: center;
-    width: 88%;
   }
 
   .post-detail {
     img {
-      margin: 0 8%;
       width: 84%;
+      margin: 0 8%;
     }
   }
 
   .privacy-policy,
   .contact {
-    margin: 2% 1% 2% 1%;
     width: 98%;
+    margin: 2% 1% 2% 1%;
   }
 }

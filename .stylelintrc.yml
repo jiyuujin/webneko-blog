@@ -2,7 +2,6 @@
 
 plugins:
   - stylelint-scss
-  - stylelint-order
   - stylelint-a11y
 
 syntax:
@@ -17,7 +16,6 @@ extends:
 rules:
   at-rule-no-unknown: true
   scss/at-rule-no-unknown: true
-  order/properties-alphabetical-order: true
   no-empty-source: null
   a11y/media-prefers-reduced-motion: true
   a11y/no-outline-none: true

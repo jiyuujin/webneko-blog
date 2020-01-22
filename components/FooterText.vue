@@ -45,47 +45,47 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
   footer {
-    align-items: center;
-    background-color: #35495e;
-    color: #fff;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    margin-top: 24px;
     max-width: 100%;
     min-height: 300px;
     padding: 30px 0;
+    margin-top: 24px;
+    color: #fff;
+    background-color: #35495e;
   }
 
   .footer-text {
-    margin: auto;
     padding: 24px 0 12px;
+    margin: auto;
   }
 
   .menu {
-    align-items: center;
     display: flex;
+    align-items: center;
     justify-content: center;
     margin-bottom: 2em;
     vertical-align: center;
 
     a {
-      color: #fff;
       padding-right: 16px;
+      color: #fff;
     }
   }
 
   .copyright {
-    align-items: center;
     display: flex;
-    font-size: 1.8vmin;
+    align-items: center;
     justify-content: center;
+    font-size: 1.8vmin;
   }
 
   @media (max-width: 500px) {
     footer {
-      margin-top: 0;
       min-height: 0;
+      margin-top: 0;
     }
 
     .menu {
