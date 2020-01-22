@@ -20,6 +20,7 @@ jobs:
           eslint-plugin-vue \
           @nekohack/eslint-config \
           typescript \
+          @typescript-eslint/eslint-plugin \
           @typescript-eslint/parser \
           @typescript-eslint/typescript-estree
       script:
