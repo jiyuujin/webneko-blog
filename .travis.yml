@@ -11,15 +11,20 @@ cache: npm
 
 jobs:
   include:
-    # ESLint
+    # ESLint + StyleLint
     - stage: "lint"
-      name: "ESLint"
+      name: "ESLint + StyleLint"
       install:
         - |
           npm install eslint \
           eslint-plugin-vue \
           eslint-plugin-vue-a11y \
           @nekohack/eslint-config \
+          stylelint \
+          stylelint-a11y \
+          stylelint-config-recess-order \
+          stylelint-config-standard \
+          stylelint-scss \
           typescript \
           @typescript-eslint/eslint-plugin \
           @typescript-eslint/parser \
