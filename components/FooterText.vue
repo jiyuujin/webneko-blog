@@ -32,7 +32,7 @@ import dayjs from 'dayjs'
 export default Vue.extend({
     data() {
         return {
-            imgName: require('../static/bakeneko2.png')
+            imgName: require('../static/icon/bakeneko2.png')
         }
     },
     computed: {
