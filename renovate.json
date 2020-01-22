@@ -11,5 +11,11 @@
   ],
   "assignees": [
     "jiyuujin"
+  ],
+  "packageRules": [
+    {
+      "packagePatterns": ["^@microlink/"],
+      "enabled": false
+    }
   ]
 }
