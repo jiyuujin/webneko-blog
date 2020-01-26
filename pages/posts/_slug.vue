@@ -135,7 +135,7 @@ export default Vue.extend({
                 { hid: 'og:title', name: 'og:title', content: (this as any).currentPost.fields.title },
                 { hid: 'og:description', name: 'og:description', content: (this as any).currentPost.fields.description },
                 { hid: 'og:url', name: 'og:url', content: `/${(this as any).currentPost.fields.slug}` || '' },
-                { hid: 'og:image', name: 'og:image', content: heroImage ? heroImage : '/kuroneko.png' }
+                { hid: 'og:image', name: 'og:image', content: heroImage ? heroImage : '/icon/webneko-blog-white.png' }
             ]
         }
     }
