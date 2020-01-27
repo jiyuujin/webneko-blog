@@ -61,6 +61,6 @@
     "stylelint-a11y": "1.2.2",
     "stylelint-config-recess-order": "2.0.3",
     "stylelint-config-standard": "19.0.0",
-    "stylelint-scss": "3.13.0"
+    "stylelint-scss": "3.14.0"
   }
 }
