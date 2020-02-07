@@ -29,7 +29,7 @@
     "dayjs": "1.8.20",
     "firebase": "7.8.1",
     "markdown-it": "10.0.0",
-    "markdown-it-attrs": "3.0.1",
+    "markdown-it-attrs": "3.0.2",
     "markdown-it-container": "2.0.0",
     "markdown-it-highlightjs": "3.0.0",
     "markdown-it-toc": "1.1.0",
