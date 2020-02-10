@@ -57,7 +57,7 @@
     "fibers": "4.0.2",
     "sass": "1.25.0",
     "sass-loader": "8.0.2",
-    "stylelint": "13.0.0",
+    "stylelint": "13.1.0",
     "stylelint-a11y": "1.2.2",
     "stylelint-config-recess-order": "2.0.3",
     "stylelint-config-standard": "19.0.0",
