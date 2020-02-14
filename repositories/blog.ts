@@ -39,11 +39,10 @@ export const fetchPost = async (params: Param) => {
                 result = currentPost[0]
             }
 
-            if (params.month) {
+            if (params.ym) {
                 result = entries.items.filter((item: PostItem) => {
-                    if (!item.fields.title.includes('振り返り')) {
-                        return dayjs(item.fields.publishDate).format('YYYY-MM').includes(params.month)
-                    }
+                    return dayjs(item.fields.publishDate).format('YYYY-MM')
+                        .includes(params.ym)
                 })
             }
         })

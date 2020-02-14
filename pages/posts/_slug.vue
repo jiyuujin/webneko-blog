@@ -103,7 +103,7 @@ export default Vue.extend({
         return {
             currentPost: await fetchPost({
                 slug: params.slug,
-                month: ''
+                ym: ''
             }),
             latestPosts: await fetchPosts(isLatest)
         }

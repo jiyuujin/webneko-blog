@@ -1,8 +1,8 @@
 <template>
   <div class="main">
     <div class="calendar-header">
-      <h1>俺だけアドベントカレンダー</h1>
-      <p>{{ `${year}/12` }}</p>
+      <h1>ARCHIVES</h1>
+      <p>{{ ym }}</p>
     </div>
 
     <div class="calendar">
@@ -19,7 +19,7 @@
         class="day day--disabled"
       />
       <div
-        v-for="day in 31"
+        v-for="day in Number(days)"
         :key="day"
         class="day"
       >
@@ -27,33 +27,29 @@
           {{ day }}
         </div>
         <div v-if="getPost(day)">
-          <template v-if="day < 26">
-            <a
-              :href="`https://webneko.dev/posts/${getPost(day).fields.slug}`"
-              target="_blank"
-              rel="noopener"
-            >
-              <img
-                :alt="getPost(day).fields.slug"
-                src="/bakeneko2.png"
-                class="day--existed"
-              />
-              <!--
-              <span class="tooltip">
-                {{ getPost(day).fields.title }}
-              </span>
-              -->
-            </a>
-          </template>
+          <a
+            :href="`https://webneko.dev/posts/${getPost(day).fields.slug}`"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              :alt="getPost(day).fields.slug"
+              src="/icon/bakeneko2.png"
+              class="day--existed"
+            />
+            <!--
+            <span class="tooltip">
+              {{ getPost(day).fields.title }}
+            </span>
+            -->
+          </a>
         </div>
         <div v-else>
-          <template v-if="day < 26">
-            <img
-              :alt="getPost(day) ? getPost(day).fields.slug : ''"
-              src="/bakeneko2.png"
-              class="day--not-existed"
-            />
-          </template>
+          <img
+            :alt="getPost(day) ? getPost(day).fields.slug : ''"
+            src="/icon/bakeneko2.png"
+            class="day--not-existed"
+          />
         </div>
       </div>
       <div
@@ -79,9 +75,9 @@ export default Vue.extend({
                 return []
             }
         },
-        year: {
+        ym: {
             type: String as PropType<string>,
-            default: '2019'
+            required: true
         }
     },
     data() {
@@ -91,7 +87,8 @@ export default Vue.extend({
     },
     computed: {
         startOfMonth() {
-            const startDay = dayjs(`${this.year}/12/01`).format('dddd')
+            const startDay = dayjs(`${this.ym}/01`).startOf('month')
+                .format('dddd')
             if (startDay === 'Sunday') {
                 return 0
             } else if (startDay === 'Monday') {
@@ -110,7 +107,9 @@ export default Vue.extend({
             return null
         },
         endOfMonth() {
-            const endDay = dayjs(`${this.year}/12/31`).format('dddd')
+            const d = new Date(this.ym)
+            const day = dayjs(new Date(d.getFullYear(), d.getMonth() + 1, 0))
+            const endDay = dayjs(day).format('dddd')
             if (endDay === 'Sunday') {
                 return 6
             } else if (endDay === 'Monday') {
@@ -127,6 +126,11 @@ export default Vue.extend({
                 return 7
             }
             return null
+        },
+        days() {
+            const d = new Date(this.ym)
+            const day = dayjs(new Date(d.getFullYear(), d.getMonth() + 1, 0))
+            return dayjs(day).format('DD')
         }
     },
     methods: {
