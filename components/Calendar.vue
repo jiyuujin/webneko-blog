@@ -20,9 +20,14 @@
       />
       <div
         v-for="day in Number(days)"
-        :key="day"
+        :key="day + days / 7"
         class="day"
       >
+        <span class="tooltip">
+          <template v-if="getPost(day)">
+            {{ getPost(day).fields.title }}
+          </template>
+        </span>
         <div class="date">
           {{ day }}
         </div>
@@ -235,6 +240,44 @@ export default Vue.extend({
     cursor: not-allowed;
     background-color: #fff;
     background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f9f9fa' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .tooltip {
+    visibility: hidden;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 500ms;
+    width: 120px;
+    bottom: -18%;
+    left: 50%;
+    margin-left: -60px;
+  }
+
+  .tooltip > .text {
+    background-color: black;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    display: inline-block;
+  }
+
+  .tooltip > .text::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }
+
+  .day:hover > .tooltip {
+    visibility: visible;
+    opacity: 1;
   }
 
   @media (max-width: 500px) {
