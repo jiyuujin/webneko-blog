@@ -19,6 +19,7 @@ import Vue from 'vue'
 import dayjs from 'dayjs'
 
 import { fetchPost } from '~/repositories/blog'
+import { isInvalidDate } from '~/services/date'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
@@ -36,6 +37,11 @@ export default Vue.extend({
                 slug: '',
                 ym: params.ym
             })
+        }
+    },
+    mounted() {
+        if (isInvalidDate(this.$route.params.ym)) {
+            this.$router.push('*')
         }
     },
     head() {
