@@ -37,7 +37,7 @@
                 :alt="getPost(day).fields.slug"
                 src="/bakeneko2.png"
                 class="day--existed"
-              />
+              >
               <!--
               <span class="tooltip">
                 {{ getPost(day).fields.title }}
@@ -52,7 +52,7 @@
               :alt="getPost(day) ? getPost(day).fields.slug : ''"
               src="/bakeneko2.png"
               class="day--not-existed"
-            />
+            >
           </template>
         </div>
       </div>
@@ -62,7 +62,8 @@
         class="day day--disabled"
       />
     </div>
-  </div></template>
+  </div>
+</template>
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
