@@ -243,40 +243,56 @@ export default Vue.extend({
     background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f9f9fa' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
   }
 
+  @media screen and (prefers-reduced-motion: reduce) {
+    .tooltip {
+      position: absolute;
+      bottom: -18%;
+      left: 50%;
+      z-index: 1;
+      width: 120px;
+      margin-left: -60px;
+      text-align: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: none;
+    }
+  }
+
   .tooltip {
-    visibility: hidden;
-    text-align: center;
     position: absolute;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 500ms;
-    width: 120px;
     bottom: -18%;
     left: 50%;
+    z-index: 1;
+    width: 120px;
     margin-left: -60px;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 500ms;
   }
 
   .tooltip > .text {
-    background-color: black;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 6px;
-    font-size: 12px;
     display: inline-block;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #fff;
+    background-color: black;
+    border-radius: 6px;
   }
 
   .tooltip > .text::after {
-    content: " ";
     position: absolute;
     top: 100%;
     left: 50%;
     margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
+    content: " ";
     border-color: black transparent transparent transparent;
+    border-style: solid;
+    border-width: 5px;
   }
 
-  .day:hover > .tooltip {
+  .day:hover > .tooltip,
+  .day:focus > .tooltip {
     visibility: visible;
     opacity: 1;
   }
