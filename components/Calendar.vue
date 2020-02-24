@@ -63,7 +63,8 @@
         class="day day--disabled"
       />
     </div>
-  </div></template>
+  </div>
+</template>
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
