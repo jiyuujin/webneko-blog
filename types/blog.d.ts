@@ -67,5 +67,5 @@ export interface Posts {
 
 export interface Param {
   slug: string;
-  month: string;
+  ym: string;
 }

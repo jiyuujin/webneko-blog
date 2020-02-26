@@ -1,8 +1,8 @@
 <template>
   <div class="main">
     <div class="calendar-header">
-      <h1>俺だけアドベントカレンダー</h1>
-      <p>{{ `${year}/12` }}</p>
+      <h1>ARCHIVES</h1>
+      <p>{{ ym }}</p>
     </div>
 
     <div class="calendar">
@@ -19,41 +19,42 @@
         class="day day--disabled"
       />
       <div
-        v-for="day in 31"
-        :key="day"
+        v-for="day in Number(days)"
+        :key="day + days / 7"
         class="day"
       >
+        <span class="tooltip">
+          <template v-if="getPost(day)">
+            {{ getPost(day).fields.title }}
+          </template>
+        </span>
         <div class="date">
           {{ day }}
         </div>
         <div v-if="getPost(day)">
-          <template v-if="day < 26">
-            <a
-              :href="`https://webneko.dev/posts/${getPost(day).fields.slug}`"
-              target="_blank"
-              rel="noopener"
-            >
-              <img
-                :alt="getPost(day).fields.slug"
-                src="/bakeneko2.png"
-                class="day--existed"
-              >
-              <!--
-              <span class="tooltip">
-                {{ getPost(day).fields.title }}
-              </span>
-              -->
-            </a>
-          </template>
+          <a
+            :href="`https://webneko.dev/posts/${getPost(day).fields.slug}`"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              :alt="getPost(day).fields.slug"
+              src="/icon/bakeneko2.png"
+              class="day--existed"
+            />
+            <!--
+            <span class="tooltip">
+              {{ getPost(day).fields.title }}
+            </span>
+            -->
+          </a>
         </div>
         <div v-else>
-          <template v-if="day < 26">
-            <img
-              :alt="getPost(day) ? getPost(day).fields.slug : ''"
-              src="/bakeneko2.png"
-              class="day--not-existed"
-            >
-          </template>
+          <img
+            :alt="getPost(day) ? getPost(day).fields.slug : ''"
+            src="/icon/bakeneko2.png"
+            class="day--not-existed"
+          />
         </div>
       </div>
       <div
@@ -80,9 +81,9 @@ export default Vue.extend({
                 return []
             }
         },
-        year: {
+        ym: {
             type: String as PropType<string>,
-            default: '2019'
+            required: true
         }
     },
     data() {
@@ -92,7 +93,8 @@ export default Vue.extend({
     },
     computed: {
         startOfMonth() {
-            const startDay = dayjs(`${this.year}/12/01`).format('dddd')
+            const startDay = dayjs(`${this.ym}/01`).startOf('month')
+                .format('dddd')
             if (startDay === 'Sunday') {
                 return 0
             } else if (startDay === 'Monday') {
@@ -111,7 +113,9 @@ export default Vue.extend({
             return null
         },
         endOfMonth() {
-            const endDay = dayjs(`${this.year}/12/31`).format('dddd')
+            const d = new Date(this.ym)
+            const day = dayjs(new Date(d.getFullYear(), d.getMonth() + 1, 0))
+            const endDay = dayjs(day).format('dddd')
             if (endDay === 'Sunday') {
                 return 6
             } else if (endDay === 'Monday') {
@@ -128,6 +132,11 @@ export default Vue.extend({
                 return 7
             }
             return null
+        },
+        days() {
+            const d = new Date(this.ym)
+            const day = dayjs(new Date(d.getFullYear(), d.getMonth() + 1, 0))
+            return dayjs(day).format('DD')
         }
     },
     methods: {
@@ -232,6 +241,60 @@ export default Vue.extend({
     cursor: not-allowed;
     background-color: #fff;
     background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f9f9fa' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .tooltip {
+      position: absolute;
+      bottom: -18%;
+      left: 50%;
+      z-index: 1;
+      width: 120px;
+      margin-left: -60px;
+      text-align: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: none;
+    }
+  }
+
+  .tooltip {
+    position: absolute;
+    bottom: -18%;
+    left: 50%;
+    z-index: 1;
+    width: 120px;
+    margin-left: -60px;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+
+  .tooltip > .text {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #fff;
+    background-color: black;
+    border-radius: 6px;
+  }
+
+  .tooltip > .text::after {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    content: " ";
+    border-color: black transparent transparent transparent;
+    border-style: solid;
+    border-width: 5px;
+  }
+
+  .day:hover > .tooltip,
+  .day:focus > .tooltip {
+    visibility: visible;
+    opacity: 1;
   }
 
   @media (max-width: 500px) {
