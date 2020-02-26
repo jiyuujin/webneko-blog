@@ -24,6 +24,6 @@ jobs:
       before_install:
         - if [[ $TRAVIS_NODE_VERSION == 8 ]]; then npm i -g npm@latest; fi
       install:
-        - rm -rf node_modules && npm install
+        - rm -rf node_modules && rm -rf yarn.lock && npm install
       script:
         - npm run build
