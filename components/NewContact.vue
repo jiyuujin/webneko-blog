@@ -2,7 +2,8 @@
   <div>
     <j-form title="タイトル">
       <j-input
-        input-type="text"
+        :input-text="form.title"
+        width="100%"
         @handleInput="applyTitle"
       />
     </j-form>
@@ -19,13 +20,15 @@
     </j-form>
     <j-form title="メールアドレス">
       <j-input
-        input-type="text"
+        :input-text="form.email"
+        width="100%"
         @handleInput="applyEmail"
       />
     </j-form>
     <j-form title="詳細">
       <j-input
-        input-type="text"
+        :input-text="form.description"
+        width="100%"
         @handleInput="applyDescription"
       />
     </j-form>
