@@ -19,13 +19,14 @@ import Vue from 'vue'
 import VueCookieLaw from 'vue-cookie-law'
 
 export default Vue.extend({
-    components: {
-        VueCookieLaw
-    },
-    data () {
-        return {
-            message: 'あなたがこのサイト上でベストな体験ができるようCookieを使用しています'
-        }
+  components: {
+    VueCookieLaw
+  },
+  data() {
+    return {
+      message:
+        'あなたがこのサイト上でベストな体験ができるようCookieを使用しています'
     }
+  }
 })
 </script>

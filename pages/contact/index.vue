@@ -5,14 +5,18 @@
         プライバシーポリシー
       </div>
       <p>
-        Yuma Kitamura (以下「当本人」といいます) は、当ブログ上で提供するサービス (以下「当ブログ」といいます) におけるプライバシー情報の取扱いについて、以下のとおりプライバシーポリシー (以下「本ポリシー」といいます) を定めます。
+        Yuma Kitamura (以下「当本人」といいます)
+        は、当ブログ上で提供するサービス (以下「当ブログ」といいます)
+        におけるプライバシー情報の取扱いについて、以下のとおりプライバシーポリシー
+        (以下「本ポリシー」といいます) を定めます。
       </p>
       <h2>
         第1条 個人情報の利用目的
       </h2>
       <ul>
         <li>
-          当ブログではお問い合わせの際に名前 (ハンドルネーム)、メールアドレス等の個人情報をご登録いただく場合がございます。これらの個人情報は質問に対する回答や必要な情報を電子メールなどをでご連絡する場合に利用させていただくものであり、個人情報をご提供いただく際の目的以外では利用いたしません。
+          当ブログではお問い合わせの際に名前
+          (ハンドルネーム)、メールアドレス等の個人情報をご登録いただく場合がございます。これらの個人情報は質問に対する回答や必要な情報を電子メールなどをでご連絡する場合に利用させていただくものであり、個人情報をご提供いただく際の目的以外では利用いたしません。
         </li>
       </ul>
       <h2>
@@ -65,27 +69,38 @@ const MainTemplate = () => import('~/components/MainTemplate.vue')
 const NewContact = () => import('~/components/NewContact.vue')
 
 export default Vue.extend({
-    components: {
-        MainTemplate,
-        NewContact
-    },
-    head() {
-        return {
-            title : '問い合わせ',
-            meta: [
-                { hid: 'description', name: 'description', content: '問い合わせするならこちらからお願いします。' },
-                { hid: 'twitter:title', name: 'twitter:title', content: '問い合わせ' },
-                { hid: 'twitter:description', name: 'twitter:description', content: '問い合わせするならこちらからお願いします。' },
-                { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
-                { hid: 'twitter:image', name: 'twitter:image', content: '' },
-                { hid: 'og:type', name: 'og:type', content: 'article' },
-                { hid: 'og:title', name: 'og:title', content: '問い合わせ' },
-                { hid: 'og:description', name: 'og:description', content: '問い合わせするならこちらからお願いします' },
-                { hid: 'og:url', name: 'og:url', content: '/contact' },
-                { hid: 'og:image', name: 'og:image', content: '' }
-            ]
-        }
+  components: {
+    MainTemplate,
+    NewContact
+  },
+  head() {
+    return {
+      title: '問い合わせ',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: '問い合わせするならこちらからお願いします。'
+        },
+        { hid: 'twitter:title', name: 'twitter:title', content: '問い合わせ' },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: '問い合わせするならこちらからお願いします。'
+        },
+        { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
+        { hid: 'twitter:image', name: 'twitter:image', content: '' },
+        { hid: 'og:type', name: 'og:type', content: 'article' },
+        { hid: 'og:title', name: 'og:title', content: '問い合わせ' },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: '問い合わせするならこちらからお願いします'
+        },
+        { hid: 'og:url', name: 'og:url', content: '/contact' },
+        { hid: 'og:image', name: 'og:image', content: '' }
+      ]
     }
-
+  }
 })
 </script>

@@ -6,23 +6,11 @@
     </div>
 
     <div class="calendar">
-      <span
-        v-for="weekday in weekdays"
-        :key="weekday"
-        class="weekday"
-      >
+      <span v-for="weekday in weekdays" :key="weekday" class="weekday">
         {{ weekday }}
       </span>
-      <div
-        v-for="i in startOfMonth"
-        :key="i"
-        class="day day--disabled"
-      />
-      <div
-        v-for="day in Number(days)"
-        :key="day + days / 7"
-        class="day"
-      >
+      <div v-for="i in startOfMonth" :key="i" class="day day--disabled" />
+      <div v-for="day in Number(days)" :key="day + days / 7" class="day">
         <span class="tooltip">
           <template v-if="getPost(day)">
             {{ getPost(day).fields.title }}
@@ -57,11 +45,7 @@
           />
         </div>
       </div>
-      <div
-        v-for="i in endOfMonth"
-        :key="i"
-        class="day day--disabled"
-      />
+      <div v-for="i in endOfMonth" :key="i" class="day day--disabled" />
     </div>
   </div>
 </template>
@@ -74,190 +58,177 @@ import { PostItem } from '~/types/blog'
 const weekdays = ['日', '月', '火', '水', '木', '金', '土']
 
 export default Vue.extend({
-    props: {
-        items: {
-            type: Array as PropType<PostItem[]>,
-            default: function() {
-                return []
-            }
-        },
-        ym: {
-            type: String as PropType<string>,
-            required: true
-        }
+  props: {
+    items: {
+      type: Array as PropType<PostItem[]>,
+      default: function() {
+        return []
+      }
     },
-    data() {
-        return {
-            weekdays: weekdays
-        }
-    },
-    computed: {
-        startOfMonth() {
-            const startDay = dayjs(`${this.ym}/01`).startOf('month')
-                .format('dddd')
-            if (startDay === 'Sunday') {
-                return 0
-            } else if (startDay === 'Monday') {
-                return 1
-            } else if (startDay === 'Tuesday') {
-                return 2
-            } else if (startDay === 'Wednesday') {
-                return 3
-            } else if (startDay === 'Thursday') {
-                return 4
-            } else if (startDay === 'Friday') {
-                return 5
-            } else if (startDay === 'Saturday') {
-                return 6
-            }
-            return null
-        },
-        endOfMonth() {
-            const d = new Date(this.ym)
-            const day = dayjs(new Date(d.getFullYear(), d.getMonth() + 1, 0))
-            const endDay = dayjs(day).format('dddd')
-            if (endDay === 'Sunday') {
-                return 6
-            } else if (endDay === 'Monday') {
-                return 5
-            } else if (endDay === 'Tuesday') {
-                return 4
-            } else if (endDay === 'Wednesday') {
-                return 3
-            } else if (endDay === 'Thursday') {
-                return 2
-            } else if (endDay === 'Friday') {
-                return 1
-            } else if (endDay === 'Saturday') {
-                return 7
-            }
-            return null
-        },
-        days() {
-            const d = new Date(this.ym)
-            const day = dayjs(new Date(d.getFullYear(), d.getMonth() + 1, 0))
-            return dayjs(day).format('DD')
-        }
-    },
-    methods: {
-        getPost(day: number) {
-            let post: PostItem | null | undefined
-            (this.items as PostItem[]).map((item: PostItem) => {
-                if (day === Number(dayjs(item.fields.publishDate).format('DD'))) {
-                    post = item
-                }
-            })
-            return post
-        }
+    ym: {
+      type: String as PropType<string>,
+      required: true
     }
+  },
+  data() {
+    return {
+      weekdays: weekdays
+    }
+  },
+  computed: {
+    startOfMonth() {
+      const startDay = dayjs(`${this.ym}/01`)
+        .startOf('month')
+        .format('dddd')
+      if (startDay === 'Sunday') {
+        return 0
+      } else if (startDay === 'Monday') {
+        return 1
+      } else if (startDay === 'Tuesday') {
+        return 2
+      } else if (startDay === 'Wednesday') {
+        return 3
+      } else if (startDay === 'Thursday') {
+        return 4
+      } else if (startDay === 'Friday') {
+        return 5
+      } else if (startDay === 'Saturday') {
+        return 6
+      }
+      return null
+    },
+    endOfMonth() {
+      const d = new Date(this.ym)
+      const day = dayjs(new Date(d.getFullYear(), d.getMonth() + 1, 0))
+      const endDay = dayjs(day).format('dddd')
+      if (endDay === 'Sunday') {
+        return 6
+      } else if (endDay === 'Monday') {
+        return 5
+      } else if (endDay === 'Tuesday') {
+        return 4
+      } else if (endDay === 'Wednesday') {
+        return 3
+      } else if (endDay === 'Thursday') {
+        return 2
+      } else if (endDay === 'Friday') {
+        return 1
+      } else if (endDay === 'Saturday') {
+        return 7
+      }
+      return null
+    },
+    days() {
+      const d = new Date(this.ym)
+      const day = dayjs(new Date(d.getFullYear(), d.getMonth() + 1, 0))
+      return dayjs(day).format('DD')
+    }
+  },
+  methods: {
+    getPost(day: number) {
+      let post: PostItem | null | undefined
+      ;(this.items as PostItem[]).map((item: PostItem) => {
+        if (day === Number(dayjs(item.fields.publishDate).format('DD'))) {
+          post = item
+        }
+      })
+      return post
+    }
+  }
 })
 </script>
 
 <style lang="scss" scoped>
-  .calendar-header {
-    position: relative;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+.calendar-header {
+  position: relative;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 120px;
+  vertical-align: middle;
+  background-color: #56c501;
+
+  h1 {
+    margin: 0;
+    font-size: 18px;
+    color: #e2e2e2;
+  }
+
+  p {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #51565d;
+  }
+}
+
+.calendar {
+  display: grid;
+  grid-template-rows: 50px;
+  grid-template-columns: repeat(7, minmax(20px, 1fr));
+  grid-auto-rows: 120px;
+  width: 100%;
+  overflow: auto;
+}
+
+.weekday {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 50px;
+  color: #99a1a7;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(166, 168, 179, 0.12);
+}
+
+.day {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 20px;
+  font-size: 14px;
+  color: #98a0a6;
+  text-align: center;
+  letter-spacing: 1px;
+  vertical-align: middle;
+  border-right: 1px solid rgba(166, 168, 179, 0.12);
+  border-bottom: 1px solid rgba(166, 168, 179, 0.12);
+
+  .date {
     width: 100%;
-    height: 120px;
-    vertical-align: middle;
-    background-color: #56c501;
-
-    h1 {
-      margin: 0;
-      font-size: 18px;
-      color: #e2e2e2;
-    }
-
-    p {
-      margin: 0;
-      font-size: 13px;
-      font-weight: 600;
-      color: #51565d;
-    }
   }
 
-  .calendar {
-    display: grid;
-    grid-template-rows: 50px;
-    grid-template-columns: repeat(7, minmax(20px, 1fr));
-    grid-auto-rows: 120px;
-    width: 100%;
-    overflow: auto;
+  img {
+    width: 40px;
+    border-radius: 40px;
   }
+}
 
-  .weekday {
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 50px;
-    color: #99a1a7;
-    text-align: center;
-    text-transform: uppercase;
-    border-bottom: 1px solid rgba(166, 168, 179, 0.12);
-  }
+.day--existed {
+  opacity: 1;
+}
 
-  .day {
-    position: relative;
-    z-index: 1;
-    box-sizing: border-box;
-    display: -webkit-flex;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 20px;
-    font-size: 14px;
-    color: #98a0a6;
-    text-align: center;
-    letter-spacing: 1px;
-    vertical-align: middle;
-    border-right: 1px solid rgba(166, 168, 179, 0.12);
-    border-bottom: 1px solid rgba(166, 168, 179, 0.12);
+.day--not-existed {
+  opacity: 0.4;
+}
 
-    .date {
-      width: 100%;
-    }
+.day--disabled {
+  color: rgba(152, 160, 166, 0.6);
+  cursor: not-allowed;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f9f9fa' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+}
 
-    img {
-      width: 40px;
-      border-radius: 40px;
-    }
-  }
-
-  .day--existed {
-    opacity: 1;
-  }
-
-  .day--not-existed {
-    opacity: 0.4;
-  }
-
-  .day--disabled {
-    color: rgba(152, 160, 166, 0.6);
-    cursor: not-allowed;
-    background-color: #fff;
-    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f9f9fa' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .tooltip {
-      position: absolute;
-      bottom: -18%;
-      left: 50%;
-      z-index: 1;
-      width: 120px;
-      margin-left: -60px;
-      text-align: center;
-      visibility: hidden;
-      opacity: 0;
-      transition: none;
-    }
-  }
-
+@media screen and (prefers-reduced-motion: reduce) {
   .tooltip {
     position: absolute;
     bottom: -18%;
@@ -268,52 +239,66 @@ export default Vue.extend({
     text-align: center;
     visibility: hidden;
     opacity: 0;
-    transition: opacity 500ms;
+    transition: none;
+  }
+}
+
+.tooltip {
+  position: absolute;
+  bottom: -18%;
+  left: 50%;
+  z-index: 1;
+  width: 120px;
+  margin-left: -60px;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+.tooltip > .text {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 12px;
+  color: #fff;
+  background-color: black;
+  border-radius: 6px;
+}
+
+.tooltip > .text::after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  content: ' ';
+  border-color: black transparent transparent transparent;
+  border-style: solid;
+  border-width: 5px;
+}
+
+.day:hover > .tooltip,
+.day:focus > .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 500px) {
+  .calendar {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
   }
 
-  .tooltip > .text {
-    display: inline-block;
-    padding: 5px 10px;
-    font-size: 12px;
-    color: #fff;
-    background-color: black;
-    border-radius: 6px;
+  .weekday {
+    display: none;
   }
 
-  .tooltip > .text::after {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    content: " ";
-    border-color: black transparent transparent transparent;
-    border-style: solid;
-    border-width: 5px;
+  .day {
+    width: 100%;
   }
 
-  .day:hover > .tooltip,
-  .day:focus > .tooltip {
-    visibility: visible;
-    opacity: 1;
+  .day--disabled {
+    display: none;
   }
-
-  @media (max-width: 500px) {
-    .calendar {
-      display: flex;
-      flex-wrap: wrap;
-      width: 100%;
-    }
-
-    .weekday {
-      display: none;
-    }
-
-    .day {
-      width: 100%;
-    }
-
-    .day--disabled {
-      display: none;
-    }
-  }
+}
 </style>
