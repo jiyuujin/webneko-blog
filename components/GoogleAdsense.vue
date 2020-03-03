@@ -11,23 +11,23 @@
 import Vue, { PropType } from 'vue'
 
 export default Vue.extend({
-    props: {
-        adSlot: {
-            type: String as PropType<string>,
-            default: ''
-        },
-        adFormat: {
-            type: String as PropType<string>,
-            default: ''
-        },
-        adLayout: {
-            type: String as PropType<string>,
-            default: ''
-        },
-        adStyle: {
-            type: Object as PropType<object>,
-            default: null
-        }
+  props: {
+    adSlot: {
+      type: String as PropType<string>,
+      default: ''
+    },
+    adFormat: {
+      type: String as PropType<string>,
+      default: ''
+    },
+    adLayout: {
+      type: String as PropType<string>,
+      default: ''
+    },
+    adStyle: {
+      type: Object as PropType<object>,
+      default: null
     }
+  }
 })
 </script>

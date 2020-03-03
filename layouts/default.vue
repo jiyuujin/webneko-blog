@@ -13,9 +13,9 @@ import Vue from 'vue'
 const CookieFooter = () => import('~/components/CookieFooter.vue')
 
 export default Vue.extend({
-    components: {
-        CookieFooter
-    }
+  components: {
+    CookieFooter
+  }
 })
 </script>
 
@@ -39,11 +39,13 @@ html {
   margin: 0;
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
 
-.fade-enter, .fade-leave-to {
-  opacity: 0
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

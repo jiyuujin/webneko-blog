@@ -11,7 +11,9 @@
           class="card"
         >
           <template v-if="index < count">
-            <nuxt-link :to="{ name: 'posts-slug', params: { slug: post.fields.slug }}">
+            <nuxt-link
+              :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
+            >
               <div class="title">
                 {{ post.fields.title }}
               </div>
@@ -47,25 +49,25 @@ const HeaderText = () => import('~/components/HeaderText.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 
 export default Vue.extend({
-    components: {
-        MainTemplate,
-        HeaderText,
-        GoogleAdsense
-    },
-    async asyncData() {
-        return {
-            posts: await fetchPosts()
-        }
-    },
-    data() {
-        return {
-            count: PAGE
-        }
-    },
-    methods: {
-        getDate(date: Date) {
-            return dayjs(date).format('MM月 DD日')
-        }
+  components: {
+    MainTemplate,
+    HeaderText,
+    GoogleAdsense
+  },
+  async asyncData() {
+    return {
+      posts: await fetchPosts()
     }
+  },
+  data() {
+    return {
+      count: PAGE
+    }
+  },
+  methods: {
+    getDate(date: Date) {
+      return dayjs(date).format('MM月 DD日')
+    }
+  }
 })
 </script>

@@ -3,39 +3,40 @@ import { Module, ActionTree, MutationTree } from 'vuex'
 const namespaced = true
 
 type RootState = {
-  version: string;
+  version: string
 }
 
 export const state = (): State => ({
-    isCookieAccepted: false
+  isCookieAccepted: false
 })
 
 export interface State {
-  isCookieAccepted: boolean | false;
+  isCookieAccepted: boolean | false
 }
 
 export const mutations: MutationTree<State> = {
-    acceptCookie (state) {
-        state.isCookieAccepted = true
-    }
+  acceptCookie(state) {
+    state.isCookieAccepted = true
+  }
 }
 
 export const actions: RootActionTree<State, RootState> = {
-    //
+  //
 }
 
-export interface RootActionTree<State, RootState> extends ActionTree<State, RootState> {
-    //
+export interface RootActionTree<State, RootState>
+  extends ActionTree<State, RootState> {
+  //
 }
 
 export const getters = {
-    //
+  //
 }
 
 export const product: Module<State, RootState> = {
-    namespaced,
-    state,
-    mutations,
-    actions,
-    getters
+  namespaced,
+  state,
+  mutations,
+  actions,
+  getters
 }

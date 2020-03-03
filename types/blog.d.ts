@@ -1,64 +1,64 @@
 interface Person {
-  name: string;
-  title: string;
-  company: string;
-  shortBio: string;
-  email: string;
-  phone: string;
-  facebook: string;
-  twitter: string;
-  github: string;
-  image: string;
+  name: string
+  title: string
+  company: string
+  shortBio: string
+  email: string
+  phone: string
+  facebook: string
+  twitter: string
+  github: string
+  image: string
 }
 
 interface Sys {
   contentType: {
     sys: {
-      id: string;
-      linkType: string;
-      type: string;
+      id: string
+      linkType: string
+      type: string
     }
-  };
-  createdAt: string;
+  }
+  createdAt: string
   environment: {
     sys: {
-      id: string;
-      linkType: string;
-      type: string;
+      id: string
+      linkType: string
+      type: string
     }
-  };
-  id: string;
-  locale: string;
-  revision: number;
+  }
+  id: string
+  locale: string
+  revision: number
   space: {
     sys: {
-      id: string;
-      linkType: string;
-      type: string;
+      id: string
+      linkType: string
+      type: string
     }
-  };
-  type: string;
-  updatedAt: string;
+  }
+  type: string
+  updatedAt: string
 }
 
 export interface Post {
-  title: string;
-  slug: string;
-  heroImage: string;
-  description: string;
-  body: string;
+  title: string
+  slug: string
+  heroImage: string
+  description: string
+  body: string
   author: {
-    fields: Person,
+    fields: Person
     sys: Sys
-  };
-  publishDate: string;
-  tags: string[];
-  category: string;
+  }
+  publishDate: string
+  tags: string[]
+  category: string
 }
 
 export interface PostItem {
-  fields: Post;
-  sys: Sys;
+  fields: Post
+  sys: Sys
 }
 
 export interface Posts {
@@ -66,6 +66,6 @@ export interface Posts {
 }
 
 export interface Param {
-  slug: string;
-  ym: string;
+  slug: string
+  ym: string
 }

@@ -12,10 +12,10 @@ declare module 'vue/types/options' {
     // fetch?: (ctx: NuxtContext) => Promise<any>;
     // layout?: string;
     // middleware?: string | string[];
-    head?: MetaInfo | (() => MetaInfo);
-    key?: string | ((to: Route) => string);
-    scrollToTop?: boolean;
-    watchQuery?: boolean | string[];
+    head?: MetaInfo | (() => MetaInfo)
+    key?: string | ((to: Route) => string)
+    scrollToTop?: boolean
+    watchQuery?: boolean | string[]
   }
 }
 
@@ -23,22 +23,16 @@ declare module 'vue-router/types/router'
 
 declare module 'vuex-type-helper' {
   interface BindOptions {
-    maxRefDepth?: number;
+    maxRefDepth?: number
   }
 
-  export interface ActionContext<
-    State,
-    Getters,
-    Actions,
-    Mutations
-    > extends BaseActionContext<State, any> {
+  export interface ActionContext<State, Getters, Actions, Mutations>
+    extends BaseActionContext<State, any> {
     bindFirebaseRef: (
       key: string,
       ref: firestore.Query,
       options?: BindOptions
-    ) => Promise<void>;
-    unbindFirebaseRef: (
-      key: string
-    ) => void;
+    ) => Promise<void>
+    unbindFirebaseRef: (key: string) => void
   }
 }
