@@ -1,6 +1,6 @@
 {
   "name": "webneko-blog",
-  "version": "3.5.1",
+  "version": "3.5.2",
   "description": "Nuxt.js project",
   "author": "yuukit <yuma.kitamura@ponos.co.jp>",
   "private": true,
@@ -41,7 +41,6 @@
   },
   "devDependencies": {
     "@nekohack/eslint-config-vue": "0.2.2",
-    "@nuxt/types": "0.6.3",
     "@nuxt/types": "0.6.4",
     "@nuxt/typescript-build": "0.6.0",
     "@nuxt/typescript-runtime": "0.4.0",
