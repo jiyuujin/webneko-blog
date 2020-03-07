@@ -39,8 +39,8 @@ footer {
   min-height: 240px;
   padding: 20px 0;
   margin-top: 24px;
-  background-color: #fff;
   color: #000;
+  background-color: #fff;
 }
 
 .footer-text {
@@ -55,30 +55,78 @@ footer {
   margin-bottom: 2em;
   vertical-align: center;
 
+  @media screen and (prefers-reduced-motion: reduce) {
+    a {
+      margin-right: 16px;
+      overflow: hidden;
+      color: #000;
+      background-color: #fff;
+      -webkit-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: none;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        content: '';
+        background-color: #ecf0f1;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover,
+      &:focus {
+        color: #42b883;
+      }
+    }
+  }
+
   a {
     margin-right: 16px;
     overflow: hidden;
+    color: #000;
+    background-color: #fff;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    background-color: #fff;
-    color: #000;
 
-    &:before {
-      content: '';
-      z-index: -1;
+    @media screen and (prefers-reduced-motion: reduce) {
+      &::before {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        content: '';
+        background-color: #ecf0f1;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: none;
+      }
+    }
+
+    &::before {
       position: absolute;
-      width: 100%;
-      height: 100%;
       top: 0;
       left: -100%;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      content: '';
       background-color: #ecf0f1;
       -webkit-transition: all 0.3s ease-in-out;
       -o-transition: all 0.3s ease-in-out;
       transition: all 0.3s ease-in-out;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: #42b883;
     }
   }
@@ -113,14 +161,14 @@ footer {
 
 @media (prefers-color-scheme: dark) {
   footer {
-    background-color: #303030;
     color: #fff;
+    background-color: #303030;
   }
 
   .menu {
     a {
-      background-color: #303030;
       color: #fff;
+      background-color: #303030;
     }
   }
 }

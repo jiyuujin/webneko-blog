@@ -1,6 +1,6 @@
 body {
-  background-color: #fff;
   color: #000;
+  background-color: #fff;
 }
 
 a {
@@ -15,8 +15,8 @@ a {
 }
 
 .main {
-  margin: 0 auto;
   width: 80%;
+  margin: 0 auto;
 }
 
 .top {
@@ -362,8 +362,8 @@ a {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #303030;
     color: #fff;
+    background-color: #303030;
   }
 
   a {
@@ -413,7 +413,11 @@ a {
   .post-detail {
     color: #fff;
 
-    h2, h3, h4, ol, ul {
+    h2,
+    h3,
+    h4,
+    ol,
+    ul {
       color: #b1d4e3;
     }
   }

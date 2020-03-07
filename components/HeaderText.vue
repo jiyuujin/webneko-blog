@@ -21,8 +21,8 @@
     min-width: 60px;
     max-width: 120px;
     height: 120px;
-    border-radius: 500rem;
     margin: 12px;
+    border-radius: 500rem;
   }
 
   .author {
@@ -30,13 +30,13 @@
 
     h1 {
       display: block;
+      margin: 0 0 10px 0;
       font-size: 2em;
+      font-weight: bold;
       margin-block-start: 0.67em;
       margin-block-end: 0.67em;
       margin-inline-start: 0;
       margin-inline-end: 0;
-      font-weight: bold;
-      margin: 0 0 10px 0;
     }
   }
 }
