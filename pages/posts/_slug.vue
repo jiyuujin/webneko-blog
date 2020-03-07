@@ -1,7 +1,5 @@
 <template>
   <main-template v-if="currentPost">
-    <header-text />
-
     <div class="cover">
       <template v-if="currentPost.fields.heroImage">
         <img
@@ -73,7 +71,6 @@ import dayjs from 'dayjs'
 import { fetchPost, fetchPosts } from '~/repositories/blog'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
-const HeaderText = () => import('~/components/HeaderText.vue')
 const SocialMenu = () => import('~/components/SocialMenu.vue')
 const NewContact = () => import('~/components/NewContact.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
@@ -83,7 +80,6 @@ const BuyMeACoffee = () => import('~/components/BuyMeACoffee.vue')
 export default Vue.extend({
   components: {
     MainTemplate,
-    HeaderText,
     SocialMenu,
     NewContact,
     GoogleAdsense,

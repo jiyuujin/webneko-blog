@@ -1,18 +1,60 @@
 <template>
   <div class="header">
-    Web猫ブログ
+    <img src="/icon/bakeneko2.png" alt="icon" />
+    <div class="author">
+      <h1>Web猫</h1>
+      Web developer, HR adviser, etc..
+      <a href="https://yuukit.me/">
+        profile
+      </a>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .header {
-  position: fixed;
-  top: 0;
-  left: 8%;
-  z-index: 24;
-  width: 100%;
-  padding: 12px;
-  font-size: 3vmin;
-  line-height: 1.2;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 20%;
+    min-width: 60px;
+    max-width: 120px;
+    height: 120px;
+    border-radius: 500rem;
+    margin: 12px;
+  }
+
+  .author {
+    margin-left: 12px;
+
+    h1 {
+      display: block;
+      font-size: 2em;
+      margin-block-start: 0.67em;
+      margin-block-end: 0.67em;
+      margin-inline-start: 0;
+      margin-inline-end: 0;
+      font-weight: bold;
+      margin: 0 0 10px 0;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    img {
+      width: 12%;
+      min-width: 60px;
+      max-width: 60px;
+      height: 60px;
+    }
+
+    .author {
+      h1 {
+        font-size: 1rem;
+      }
+    }
+  }
 }
 </style>

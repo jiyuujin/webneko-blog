@@ -1,10 +1,11 @@
-a {
+body {
+  background-color: #fff;
   color: #000;
-  text-decoration: none;
 }
 
-.main {
-  margin: 0 10% 8px;
+a {
+  color: #c71582;
+  text-decoration: none;
 }
 
 .validate {
@@ -13,12 +14,18 @@ a {
   text-align: center;
 }
 
+.main {
+  margin: 0 auto;
+  width: 80%;
+}
+
 .top {
   display: flex;
   flex-wrap: wrap;
-  width: 52%;
-  padding-top: 36px;
-  margin: 2% 24% 2% 24%;
+  //width: 52%;
+  //padding-top: 36px;
+  padding: 0 16px;
+  //margin: 2% 24% 2% 24%;
 }
 
 .card {
@@ -28,6 +35,7 @@ a {
   .title {
     font-size: 2.4vmax;
     line-height: 1.2;
+    color: #000;
     text-align: left;
   }
 
@@ -43,6 +51,7 @@ a {
 
   .date {
     font-size: 1.2vmin;
+    color: #aaa;
     text-align: left;
   }
 }
@@ -93,6 +102,7 @@ a {
   width: 52%;
   margin: 2% 24% 2% 24%;
   overflow: hidden;
+  color: #000;
   text-align: center;
 
   p {
@@ -119,6 +129,7 @@ a {
 
   .title {
     font-size: 1.2vmax;
+    color: #000;
   }
 
   .item {
@@ -128,6 +139,7 @@ a {
 
   .item-title {
     font-size: 1.8vmax;
+    color: #000;
   }
 }
 
@@ -149,6 +161,7 @@ a {
     padding: 0.24em 0.48em;
     margin: 8px 0;
     font-size: 1.2em;
+    color: #35495e;
     text-align: left;
     border-left: solid 5px #35495e;
   }
@@ -157,6 +170,7 @@ a {
     padding: 0.24em 0.48em;
     margin: 8px 0;
     font-size: 1em;
+    color: #35495e;
     text-align: left;
     border-left: solid 5px #ccc;
   }
@@ -170,12 +184,14 @@ a {
   ol {
     padding: 0 0 0 2em;
     margin: 1em 0;
+    color: #35495e;
     text-align: left;
   }
 
   ul {
     padding: 0 0 0 2em;
     margin: 1em 0;
+    color: #35495e;
     text-align: left;
     list-style: disc;
   }
@@ -297,15 +313,14 @@ a {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .main {
-    margin: 0;
+    width: 100%;
+    padding: 0 24px;
   }
 
   .top {
-    width: 98%;
     padding-top: 16px;
-    margin: 0 auto;
   }
 
   .card {
@@ -336,5 +351,77 @@ a {
   .contact {
     width: 98%;
     margin: 2% 1% 2% 1%;
+  }
+}
+
+@media (max-width: 960px) {
+  .main {
+    max-width: 960px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #303030;
+    color: #fff;
+  }
+
+  a {
+    color: #42b883;
+  }
+
+  .validate {
+    color: #42b883;
+  }
+
+  .card {
+    .title {
+      color: #fff;
+    }
+
+    .description {
+      color: #eee;
+    }
+  }
+
+  .cover {
+    .title {
+      color: #fff;
+    }
+
+    .date {
+      color: #fff;
+    }
+  }
+
+  .article {
+    p {
+      color: #b1d4e3;
+    }
+  }
+
+  .late-article {
+    .title {
+      color: #fff;
+    }
+
+    .item-title {
+      color: #fff;
+    }
+  }
+
+  .post-detail {
+    color: #fff;
+
+    h2, h3, h4, ol, ul {
+      color: #b1d4e3;
+    }
+  }
+
+  .privacy-policy,
+  .contact {
+    .title {
+      color: #fff;
+    }
   }
 }

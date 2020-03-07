@@ -173,6 +173,7 @@ export default Vue.extend({
   grid-auto-rows: 120px;
   width: 100%;
   overflow: auto;
+  border-left: 1px solid rgba(166, 168, 179, 0.12);
 }
 
 .weekday {
@@ -182,6 +183,7 @@ export default Vue.extend({
   color: #99a1a7;
   text-align: center;
   text-transform: uppercase;
+  border-right: 1px solid rgba(166, 168, 179, 0.12);
   border-bottom: 1px solid rgba(166, 168, 179, 0.12);
 }
 
@@ -222,10 +224,8 @@ export default Vue.extend({
 }
 
 .day--disabled {
-  color: rgba(152, 160, 166, 0.6);
   cursor: not-allowed;
   background-color: #fff;
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f9f9fa' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
@@ -299,6 +299,12 @@ export default Vue.extend({
 
   .day--disabled {
     display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .day--disabled {
+    background-color: #303030;
   }
 }
 </style>
