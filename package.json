@@ -59,7 +59,7 @@
     "sass-loader": "8.0.2",
     "stylelint": "13.2.1",
     "stylelint-a11y": "1.2.3",
-    "stylelint-config-recess-order": "2.0.3",
+    "stylelint-config-recess-order": "2.0.4",
     "stylelint-config-standard": "20.0.0",
     "stylelint-scss": "3.15.0"
   }
