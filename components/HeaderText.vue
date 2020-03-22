@@ -15,6 +15,7 @@
 .header {
   display: flex;
   align-items: center;
+  margin-bottom: 24px;
 
   img {
     width: 20%;

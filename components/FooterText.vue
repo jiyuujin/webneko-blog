@@ -127,7 +127,13 @@ footer {
 
     &:hover,
     &:focus {
-      color: #42b883;
+      padding: 8px;
+      height: 100%;
+      background: #42b883;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1), 0 5px 11px rgba(0, 0, 0, 0.25);
+      margin-left: -8px;
+      margin-bottom: -8px;
+      border-radius: 3px;
     }
   }
 }

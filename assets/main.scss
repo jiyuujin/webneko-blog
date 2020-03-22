@@ -15,12 +15,13 @@ a {
 }
 
 .main {
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
 }
 
 .message {
   position: relative;
+  color: #000;
   background-color: #f7fafc;
   border-style: solid;
   border-width: 0;
@@ -447,6 +448,11 @@ a {
 
   .validate {
     color: #42b883;
+  }
+
+  .message {
+    color: #f7fafc;
+    background-color: #0b0d2e;
   }
 
   .card {
