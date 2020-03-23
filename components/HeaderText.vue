@@ -2,8 +2,10 @@
   <div class="header">
     <img src="/icon/bakeneko2.png" alt="icon" />
     <div class="author">
-      <h1>Web猫</h1>
-      Web developer, HR adviser, etc..
+      <h1>
+        Web猫ブログ <span>v{{ blogVersion }}</span>
+      </h1>
+      Kyoto, Osaka / Web developer, HR adviser, etc..
       <a href="https://yuukit.me/">
         profile
       </a>
@@ -11,18 +13,30 @@
   </div>
 </template>
 
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  computed: {
+    blogVersion() {
+      return require('../package.json').version
+    }
+  }
+})
+</script>
+
 <style lang="scss" scoped>
 .header {
   display: flex;
   align-items: center;
-  margin-bottom: 24px;
+  margin: 18px 0 24px 0;
 
   img {
-    width: 20%;
-    min-width: 60px;
-    max-width: 120px;
-    height: 120px;
-    margin: 12px;
+    width: 16%;
+    min-width: 40px;
+    max-width: 80px;
+    height: 80px;
+    margin: 0 12px;
     border-radius: 500rem;
   }
 
@@ -32,12 +46,17 @@
     h1 {
       display: block;
       margin: 0 0 10px 0;
-      font-size: 2em;
+      font-size: 1.2em;
       font-weight: bold;
       margin-block-start: 0.67em;
       margin-block-end: 0.67em;
       margin-inline-start: 0;
       margin-inline-end: 0;
+
+      span {
+        color: #98a0a6;
+        font-size: 0.8em;
+      }
     }
   }
 }

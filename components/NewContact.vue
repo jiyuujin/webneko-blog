@@ -6,7 +6,7 @@
     <j-form v-if="category === 'manual'" title="カテゴリー">
       <j-select
         :options="contactCategories"
-        :selected-values="form.contactCategory"
+        :values="form.contactCategory"
         @handleSelect="applyContactCategory"
       />
     </j-form>

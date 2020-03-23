@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div>
     <div class="calendar-header">
       <h1>ARCHIVES</h1>
       <p>{{ ym }}</p>
