@@ -1,36 +1,27 @@
 <template>
   <div>
     <j-form title="タイトル">
-      <j-input
-        :input-text="form.title"
-        width="100%"
-        @handleInput="applyTitle"
-      />
+      <j-input :text="form.title" width="100%" @handleInput="applyTitle" />
     </j-form>
     <j-form v-if="category === 'manual'" title="カテゴリー">
       <j-select
         :options="contactCategories"
-        :multiple="Boolean(false)"
         :selected-values="form.contactCategory"
         @handleSelect="applyContactCategory"
       />
     </j-form>
     <j-form title="メールアドレス">
-      <j-input
-        :input-text="form.email"
-        width="100%"
-        @handleInput="applyEmail"
-      />
+      <j-input :text="form.email" width="100%" @handleInput="applyEmail" />
     </j-form>
     <j-form title="詳細">
       <j-input
-        :input-text="form.description"
+        :text="form.description"
         width="100%"
         @handleInput="applyDescription"
       />
     </j-form>
     <j-form>
-      <j-button text="送信します" variant-style="text" @handleClick="submit" />
+      <j-button text="送信します" fill="text" @handleClick="submit" />
       <span v-if="responseText">
         {{ responseText }}
       </span>
