@@ -2,6 +2,9 @@
   <footer>
     <div class="footer-text">
       <div class="menu">
+        <nuxt-link v-if="$route.path !== '/'" to="/">
+          トップ
+        </nuxt-link>
         <nuxt-link :to="`/archives/${getCurrentMonth}`">
           アーカイヴ
         </nuxt-link>
