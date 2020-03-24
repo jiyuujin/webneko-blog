@@ -7,7 +7,6 @@ const sass = require('sass')
 const fiber = require('fibers')
 
 const md = require('markdown-it')
-const hl = require('highlight.js')
 
 require('dotenv').config()
 
@@ -214,6 +213,7 @@ export default {
       'markdown-it-mark'
     ],
     highlight: (str, lang) => {
+      const hl = require('highlight.js')
       if (lang && hl.getLanguage(lang)) {
         try {
           return (
