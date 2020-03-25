@@ -44,7 +44,7 @@
     "@nuxt/types": "0.6.4",
     "@nuxt/typescript-build": "0.6.0",
     "@nuxt/typescript-runtime": "0.4.0",
-    "@types/node": "12.12.30",
+    "@types/node": "12.12.31",
     "@types/webpack": "4.41.8",
     "@types/webpack-env": "1.15.1",
     "@typescript-eslint/eslint-plugin": "2.25.0",
