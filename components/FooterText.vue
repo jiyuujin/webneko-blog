@@ -68,6 +68,22 @@ footer {
       -o-transition: all 0.3s ease-in-out;
       transition: none;
 
+      @media screen and (prefers-reduced-motion: reduce) {
+        &::before {
+          position: absolute;
+          top: 0;
+          left: -100%;
+          z-index: -1;
+          width: 100%;
+          height: 100%;
+          content: '';
+          background-color: #ecf0f1;
+          -webkit-transition: all 0.3s ease-in-out;
+          -o-transition: all 0.3s ease-in-out;
+          transition: none;
+        }
+      }
+
       &::before {
         position: absolute;
         top: 0;
@@ -130,13 +146,13 @@ footer {
 
     &:hover,
     &:focus {
-      padding: 8px;
       height: 100%;
-      background: #42b883;
-      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1), 0 5px 11px rgba(0, 0, 0, 0.25);
-      margin-left: -8px;
+      padding: 8px;
       margin-bottom: -8px;
+      margin-left: -8px;
+      background: #42b883;
       border-radius: 3px;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1), 0 5px 11px rgba(0, 0, 0, 0.25);
     }
   }
 }

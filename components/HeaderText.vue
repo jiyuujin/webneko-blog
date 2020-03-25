@@ -54,8 +54,8 @@ export default Vue.extend({
       margin-inline-end: 0;
 
       span {
-        color: #98a0a6;
         font-size: 0.8em;
+        color: #98a0a6;
       }
     }
   }
