@@ -27,7 +27,7 @@
     "@nuxtjs/sitemap": "2.2.0",
     "contentful": "7.14.2",
     "dayjs": "1.8.23",
-    "firebase": "7.13.2",
+    "firebase": "7.14.0",
     "markdown-it": "10.0.0",
     "markdown-it-attrs": "3.0.2",
     "markdown-it-container": "2.0.0",
