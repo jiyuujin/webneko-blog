@@ -1,27 +1,14 @@
 <template>
-  <footer>
-    <client-only>
-      <vue-cookie-law
-        theme="dark-lime"
-        button-text="受け入れる"
-        @click.accept="$store.commit('acceptCookie')"
-      >
-        <div slot="message">
-          {{ message }}
-        </div>
-      </vue-cookie-law>
-    </client-only>
-  </footer>
+  <j-cookie-footer
+    :title="message"
+    @accept="$store.dispatch('product/accept', true)"
+  />
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import VueCookieLaw from 'vue-cookie-law'
 
 export default Vue.extend({
-  components: {
-    VueCookieLaw
-  },
   data() {
     return {
       message:
