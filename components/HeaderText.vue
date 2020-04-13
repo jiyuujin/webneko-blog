@@ -3,7 +3,7 @@
     <img src="/icon/bakeneko2.png" alt="icon" />
     <div class="author">
       <h1>
-        Web猫ブログ <span>v{{ blogVersion }}</span>
+        Web猫ブログ <span>{{ blogVersionText }}</span>
       </h1>
       Kyoto, Osaka / Web developer, HR adviser, etc..
       <a href="https://yuukit.me/">
@@ -15,11 +15,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { blogVersion } from '~/services/release'
 
 export default Vue.extend({
-  computed: {
-    blogVersion() {
-      return require('../package.json').version
+  data() {
+    return {
+      blogVersionText: `v${blogVersion}`
     }
   }
 })
