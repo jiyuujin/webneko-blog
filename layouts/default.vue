@@ -3,7 +3,7 @@
     <transition name="fade">
       <nuxt />
     </transition>
-    <cookie-footer />
+    <cookie-footer v-if="!$store.state.product.isCookieAccepted" />
   </div>
 </template>
 
