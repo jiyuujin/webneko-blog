@@ -21,7 +21,9 @@ export const mutations: MutationTree<State> = {
 }
 
 export const actions: RootActionTree<State, RootState> = {
-  //
+  accept(flag) {
+    this.commit('product/acceptCookie', flag)
+  }
 }
 
 export interface RootActionTree<State, RootState>
