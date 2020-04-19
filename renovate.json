@@ -14,6 +14,12 @@
   ],
   "packageRules": [
     {
+      "packageNames": [
+        "node"
+      ],
+      "enabled": false
+    },
+    {
       "packagePatterns": ["^@microlink/"],
       "enabled": false
     }
