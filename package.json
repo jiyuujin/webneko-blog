@@ -26,7 +26,7 @@
     "@nuxtjs/pwa": "3.0.0-beta.20",
     "@nuxtjs/sitemap": "2.2.1",
     "contentful": "7.14.4",
-    "dayjs": "1.8.25",
+    "dayjs": "1.8.26",
     "firebase": "7.14.2",
     "markdown-it": "10.0.0",
     "markdown-it-attrs": "3.0.2",
