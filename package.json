@@ -53,7 +53,7 @@
     "eslint-plugin-vue": "6.2.2",
     "eslint-plugin-vue-a11y": "0.0.31",
     "fibers": "4.0.3",
-    "sass": "1.26.3",
+    "sass": "1.26.5",
     "sass-loader": "8.0.2",
     "stylelint": "13.3.3",
     "stylelint-a11y": "1.2.3",
