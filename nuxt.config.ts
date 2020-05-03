@@ -6,6 +6,8 @@ const contentful = require('contentful')
 const sass = require('sass')
 const fiber = require('fibers')
 
+const md = require('markdown-it')
+
 require('dotenv').config()
 
 export default {
@@ -146,8 +148,7 @@ export default {
     //     mode: 'client'
     // },
     '~plugins/firebase.ts',
-    '~plugins/j-stylebook.ts',
-    '~plugins/profile-component.ts'
+    '~plugins/j-stylebook.ts'
   ],
 
   modules: [
@@ -178,23 +179,53 @@ export default {
     linkify: true,
     typography: true,
     use: [
+      [
+        'markdown-it-container',
+        'warning',
+        {
+          validate: function(params) {
+            return params.trim().match(/^message\s+(.*)$/)
+          },
+          render: function(tokens, idx) {
+            const m = tokens[idx].info.trim().match(/^message\s+(.*)$/)
+            if (tokens[idx].nesting === 1) {
+              return '<div class="message ' + md.utils.escapeHtml(m[1]) + '">'
+            } else {
+              return '</div>\n'
+            }
+          }
+        }
+      ],
+      'markdown-it-toc',
+      [
+        'markdown-it-link-attributes',
+        {
+          pattern: /https?:/,
+          attrs: {
+            target: '_blank',
+            rel: 'nofollow noopener noreferrer'
+          }
+        }
+      ],
       'markdown-it-attrs',
-      ['markdown-it-container', 'warning'],
-      'markdown-it-toc'
+      'markdown-it-video',
+      'markdown-it-mark'
     ],
-    highlight: (str: string, lang: string) => {
-      const hljs = require('highlight.js')
-      if (lang && hljs.getLanguage(lang)) {
-        return (
-          '<pre class="hljs"><code>' +
-          hljs.highlight(lang, str, true).value +
-          '</code></pre>'
-        )
+    highlight: (str, lang) => {
+      const hl = require('highlight.js')
+      if (lang && hl.getLanguage(lang)) {
+        try {
+          return (
+            '<pre class="hljs"><code>' +
+            hl.highlight(lang, str, true).value +
+            '</code></pre>'
+          )
+        } catch (__) {}
       }
-      // 言語設定が無い場合、プレーンテキストとして表示
+      // 言語設定がない場合、プレーンテキストとして表示する
       return (
         '<pre class="hljs"><code>' +
-        hljs.highlight('plaintext', str, true).value +
+        hl.highlight('plaintext', str, true).value +
         '</code></pre>'
       )
     }

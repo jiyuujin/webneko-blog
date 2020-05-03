@@ -1,8 +1,8 @@
 <template>
   <main-template>
-    <header-text />
-
     <div class="main">
+      <header-text />
+
       <div class="top">
         <div
           v-for="(post, index) in posts"

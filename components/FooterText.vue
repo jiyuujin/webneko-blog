@@ -1,16 +1,10 @@
 <template>
   <footer>
     <div class="footer-text">
-      <profile-card
-        name="Yuma Kitamura"
-        nickname="Web猫"
-        :img-name="imgName"
-        background-color="#35495e"
-      />
       <div class="menu">
-        <a href="https://yuukit.me/">
-          プロフィール
-        </a>
+        <nuxt-link v-if="$route.path !== '/'" to="/">
+          トップ
+        </nuxt-link>
         <nuxt-link :to="`/archives/${getCurrentMonth}`">
           アーカイヴ
         </nuxt-link>
@@ -19,7 +13,7 @@
         </nuxt-link>
       </div>
       <div class="copyright">
-        Created © 2019 jiyuujin LAB. All Rights Reserved.
+        Created © 2018-2020 jiyuujin LAB. All Rights Reserved.
       </div>
     </div>
   </footer>
@@ -30,11 +24,6 @@ import Vue from 'vue'
 import dayjs from 'dayjs'
 
 export default Vue.extend({
-  data() {
-    return {
-      imgName: require('../static/icon/bakeneko2.png')
-    }
-  },
   computed: {
     getCurrentMonth(): string {
       return dayjs().format('YYYY-MM')
@@ -50,15 +39,15 @@ footer {
   align-items: center;
   justify-content: center;
   max-width: 100%;
-  min-height: 300px;
-  padding: 30px 0;
+  min-height: 240px;
+  padding: 20px 0;
   margin-top: 24px;
-  color: #fff;
-  background-color: #35495e;
+  color: #000;
+  background-color: #fff;
 }
 
 .footer-text {
-  padding: 24px 0 12px;
+  padding: 16px 0 8px;
   margin: auto;
 }
 
@@ -69,9 +58,102 @@ footer {
   margin-bottom: 2em;
   vertical-align: center;
 
+  @media screen and (prefers-reduced-motion: reduce) {
+    a {
+      margin-right: 16px;
+      overflow: hidden;
+      color: #000;
+      background-color: #fff;
+      -webkit-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: none;
+
+      @media screen and (prefers-reduced-motion: reduce) {
+        &::before {
+          position: absolute;
+          top: 0;
+          left: -100%;
+          z-index: -1;
+          width: 100%;
+          height: 100%;
+          content: '';
+          background-color: #ecf0f1;
+          -webkit-transition: all 0.3s ease-in-out;
+          -o-transition: all 0.3s ease-in-out;
+          transition: none;
+        }
+      }
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        content: '';
+        background-color: #ecf0f1;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover,
+      &:focus {
+        color: #42b883;
+      }
+    }
+  }
+
   a {
-    padding-right: 16px;
-    color: #fff;
+    margin-right: 16px;
+    overflow: hidden;
+    color: #000;
+    background-color: #fff;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      &::before {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        content: '';
+        background-color: #ecf0f1;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: none;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      content: '';
+      background-color: #ecf0f1;
+      -webkit-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+      height: 100%;
+      padding: 8px;
+      margin-bottom: -8px;
+      margin-left: -8px;
+      background: #42b883;
+      border-radius: 3px;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1), 0 5px 11px rgba(0, 0, 0, 0.25);
+    }
   }
 }
 
@@ -99,6 +181,20 @@ footer {
 
   .copyright {
     font-size: 12px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  footer {
+    color: #fff;
+    background-color: #303030;
+  }
+
+  .menu {
+    a {
+      color: #fff;
+      background-color: #303030;
+    }
   }
 }
 </style>
