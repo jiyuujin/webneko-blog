@@ -40,7 +40,7 @@
     "vue-infinite-loading": "2.4.5"
   },
   "devDependencies": {
-    "@nekohack/eslint-config-vue": "0.2.2",
+    "@nekohack/eslint-config-vue": "0.3.0",
     "@nuxt/types": "0.7.5",
     "@nuxt/typescript-build": "0.6.6",
     "@nuxt/typescript-runtime": "0.4.6",
