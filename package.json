@@ -36,7 +36,7 @@
     "markdown-it-toc": "1.1.0",
     "markdown-it-video": "0.6.3",
     "nuxt": "2.12.2",
-    "ts-node": "8.9.1",
+    "ts-node": "8.10.1",
     "vue-infinite-loading": "2.4.5"
   },
   "devDependencies": {
