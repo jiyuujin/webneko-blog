@@ -183,10 +183,10 @@ export default {
         'markdown-it-container',
         'warning',
         {
-          validate: function(params) {
+          validate: function (params) {
             return params.trim().match(/^message\s+(.*)$/)
           },
-          render: function(tokens, idx) {
+          render: function (tokens, idx) {
             const m = tokens[idx].info.trim().match(/^message\s+(.*)$/)
             if (tokens[idx].nesting === 1) {
               return '<div class="message ' + md.utils.escapeHtml(m[1]) + '">'
