@@ -61,7 +61,7 @@ export default Vue.extend({
   props: {
     items: {
       type: Array as PropType<PostItem[]>,
-      default: function() {
+      default: function () {
         return []
       }
     },
@@ -77,9 +77,7 @@ export default Vue.extend({
   },
   computed: {
     startOfMonth() {
-      const startDay = dayjs(`${this.ym}/01`)
-        .startOf('month')
-        .format('dddd')
+      const startDay = dayjs(`${this.ym}/01`).startOf('month').format('dddd')
       if (startDay === 'Sunday') {
         return 0
       } else if (startDay === 'Monday') {

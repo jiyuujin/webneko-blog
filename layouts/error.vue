@@ -20,7 +20,7 @@ export default Vue.extend({
   props: {
     error: {
       type: Object,
-      default: function() {
+      default: function () {
         return {}
       }
     }
