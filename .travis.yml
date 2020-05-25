@@ -1,0 +1,29 @@
+language: node_js
+
+stages:
+  - lint
+  - compile
+
+node_js:
+  - "12"
+
+cache: npm
+
+jobs:
+  include:
+    # ESLint + StyleLint
+    - stage: "lint"
+      name: "ESLint + StyleLint"
+      install:
+        - npm install
+      script:
+        - npm run lint
+    # Build Compile
+    - stage: "compile"
+      name: "Build Compile"
+      before_install:
+        - if [[ $TRAVIS_NODE_VERSION == 8 ]]; then npm i -g npm@latest; fi
+      install:
+        - rm -rf node_modules && rm -rf yarn.lock && npm install
+      script:
+        - npm run build
