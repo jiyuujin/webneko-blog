@@ -148,7 +148,8 @@ export default {
     //     mode: 'client'
     // },
     '~plugins/firebase.ts',
-    '~plugins/j-stylebook.ts'
+    '~plugins/j-stylebook.ts',
+    '~plugins/sanitize.ts'
   ],
 
   modules: [
