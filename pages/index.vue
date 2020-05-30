@@ -8,7 +8,7 @@
           v-for="(post, index) in posts"
           :key="post.fields.title"
           :style="index < count ? 'margin: 12px 4%;' : ''"
-          class="card"
+          class="blog-card"
         >
           <template v-if="index < count">
             <nuxt-link

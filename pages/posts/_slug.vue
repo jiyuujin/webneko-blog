@@ -18,47 +18,38 @@
       </div>
     </div>
 
-    <div class="article">
-      <loaded-markdown :body="currentPost.fields.body" />
+    <loaded-markdown :body="currentPost.fields.body" />
 
-      <google-adsense
-        slot="5228106955"
-        ad-format="fluid"
-        ad-layout="in-article"
-        :ad-style="{ display: 'block', 'text-align': 'center' }"
-      />
+    <google-adsense
+      slot="5228106955"
+      ad-format="fluid"
+      ad-layout="in-article"
+      :ad-style="{ display: 'block', 'text-align': 'center' }"
+    />
 
-      <social-menu
-        :slug-text="currentPost.fields.slug"
-        :title="currentPost.fields.title"
-        :is-vertical="!isVertical"
-      />
+    <social-menu
+      :slug-text="currentPost.fields.slug"
+      :title="currentPost.fields.title"
+      :is-vertical="!isVertical"
+    />
 
-      <div class="buy-me-a-coffee">
-        <buy-me-a-coffee />
-      </div>
+    <buy-me-a-coffee />
 
-      <div>
-        <p>
-          コメントを残す
-        </p>
-        <new-contact :blog-title="currentPost.fields.title" />
-      </div>
+    <new-contact :blog-title="currentPost.fields.title" />
 
-      <div class="late-article">
-        <h2 class="title">
-          あわせてよみたい..
-        </h2>
-        -----
-        <div v-for="post in latestPosts" :key="post.fields.title" class="item">
-          <nuxt-link
-            :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
-          >
-            <div class="item-title">
-              {{ post.fields.title }}
-            </div>
-          </nuxt-link>
-        </div>
+    <div class="latest-article">
+      <h2 class="title">
+        あわせてよみたい..
+      </h2>
+      -----
+      <div v-for="post in latestPosts" :key="post.fields.title" class="item">
+        <nuxt-link
+          :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
+        >
+          <div class="item-title">
+            {{ post.fields.title }}
+          </div>
+        </nuxt-link>
       </div>
     </div>
   </main-template>

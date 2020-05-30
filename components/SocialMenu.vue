@@ -1,16 +1,17 @@
 <template>
-  <div
-    :class="isVertical ? `social-menu--vertical` : `social-menu--horizontal`"
-    class="social-menu"
-  >
-    <a
-      v-for="item in socialMenu"
-      :key="item"
-      href="#"
-      @click="handleClick(item)"
+  <div class="social-menu">
+    <div
+      :class="isVertical ? `social-menu--vertical` : `social-menu--horizontal`"
     >
-      <img :src="`/${item}.png`" :alt="item" decoding="async" />
-    </a>
+      <a
+        v-for="item in socialMenu"
+        :key="item"
+        href="#"
+        @click="handleClick(item)"
+      >
+        <img :src="`/icon/${item}.png`" :alt="item" decoding="async" />
+      </a>
+    </div>
   </div>
 </template>
 
@@ -66,39 +67,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style lang="scss" scoped>
-.social-menu {
-  z-index: 100;
-  width: 4%;
-  height: 0;
-
-  img {
-    width: 36px;
-    height: 36px;
-    margin: 8px;
-    filter: #aaa;
-    filter: grayscale(1);
-    border-radius: 50%;
-
-    &:hover,
-    &:focus {
-      background: #fff;
-      filter: none;
-      filter: grayscale(0);
-      opacity: 100%;
-    }
-  }
-}
-
-.social-menu--vertical {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 60px;
-  left: 2%;
-}
-
-.social-menu--horizontal {
-  display: inline;
-}
-</style>
