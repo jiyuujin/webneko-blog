@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="contact">
     <j-form title="タイトル">
       <j-input :text="form.title" width="100%" @handleInput="applyTitle" />
     </j-form>

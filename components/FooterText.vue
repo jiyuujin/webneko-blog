@@ -33,19 +33,6 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-footer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  max-width: 100%;
-  min-height: 240px;
-  padding: 20px 0;
-  margin-top: 24px;
-  color: #000;
-  background-color: #fff;
-}
-
 .footer-text {
   padding: 16px 0 8px;
   margin: auto;
@@ -165,11 +152,6 @@ footer {
 }
 
 @media (max-width: 500px) {
-  footer {
-    min-height: 0;
-    margin-top: 0;
-  }
-
   .menu {
     display: flex;
     flex-direction: column;
@@ -185,11 +167,6 @@ footer {
 }
 
 @media (prefers-color-scheme: dark) {
-  footer {
-    color: #fff;
-    background-color: #303030;
-  }
-
   .menu {
     a {
       color: #fff;

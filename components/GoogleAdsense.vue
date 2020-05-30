@@ -1,10 +1,12 @@
 <template>
-  <adsbygoogle
-    :ad-slot="adSlot"
-    :ad-format="adFormat"
-    :ad-layout="adLayout"
-    :ad-style="adStyle"
-  />
+  <div class="ad">
+    <adsbygoogle
+      :ad-slot="adSlot"
+      :ad-format="adFormat"
+      :ad-layout="adLayout"
+      :ad-style="adStyle"
+    />
+  </div>
 </template>
 
 <script lang="ts">

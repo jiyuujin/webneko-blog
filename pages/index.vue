@@ -8,20 +8,20 @@
           v-for="(post, index) in posts"
           :key="post.fields.title"
           :style="index < count ? 'margin: 12px 4%;' : ''"
-          class="card"
+          class="blog-card"
         >
           <template v-if="index < count">
             <nuxt-link
               :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
             >
-              <div class="title">
+              <div class="blog-card-title">
                 {{ post.fields.title }}
               </div>
             </nuxt-link>
-            <div class="date">
+            <div class="blog-card-date">
               {{ getDate(post.fields.publishDate) }}
             </div>
-            <div class="description">
+            <div class="blog-card-description">
               {{ post.fields.description }}
             </div>
           </template>

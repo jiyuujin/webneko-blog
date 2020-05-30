@@ -1,18 +1,20 @@
 <template>
-  <a
-    class="bmc-button"
-    target="_blank"
-    href="https://www.buymeacoffee.com/VqwL7dpxl"
-  >
-    <img
-      src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg"
-      alt="Buy me a coffee"
-      decoding="async"
-    />
-    <span style="margin-left: 5px;">
-      Buy me a coffee
-    </span>
-  </a>
+  <div class="buy-me-a-coffee">
+    <a
+      class="bmc-button"
+      target="_blank"
+      href="https://www.buymeacoffee.com/VqwL7dpxl"
+    >
+      <img
+        src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg"
+        alt="Buy me a coffee"
+        decoding="async"
+      />
+      <span style="margin-left: 5px;">
+        Buy me a coffee
+      </span>
+    </a>
+  </div>
 </template>
 
 <style lang="scss" scoped>
