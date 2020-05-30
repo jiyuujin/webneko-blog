@@ -15,7 +15,8 @@ export default Vue.extend({
     }
   },
   async mounted() {
-    this.$microlinkjs('.link-preview')
+    /* eslint-disable */
+    (this as any).$microlinkjs('.link-preview')
   }
 })
 </script>
