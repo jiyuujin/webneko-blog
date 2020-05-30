@@ -1,7 +1,7 @@
 <template>
   <main-template>
     <div class="privacy-policy">
-      <div class="title">
+      <div class="privacy-policy-title">
         プライバシーポリシー
       </div>
       <p>
@@ -55,7 +55,7 @@
     </div>
 
     <div class="contact">
-      <div class="title">
+      <div class="contact-title">
         お問い合わせ
       </div>
       <new-contact category="manual" />

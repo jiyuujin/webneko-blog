@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+
 body {
   color: #000;
   background-color: #fff;
@@ -104,14 +106,14 @@ a {
     position: relative;
     width: 100%;
 
-    .title {
+    &-title {
       font-size: 1.44rem;
       line-height: 1.2;
       color: #000;
       text-align: left;
     }
 
-    .description {
+    &-description {
       display: flex;
       align-items: center;
       height: 4.8em;
@@ -121,7 +123,7 @@ a {
       text-align: left;
     }
 
-    .date {
+    &-date {
       font-size: 0.72rem;
       color: #aaa;
       text-align: left;
@@ -135,7 +137,7 @@ a {
   height: 50vh;
   vertical-align: middle;
 
-  .title {
+  &-title {
     position: absolute;
     top: calc(50% - 25px);
     left: 0;
@@ -148,7 +150,7 @@ a {
     text-align: center;
   }
 
-  .date {
+  &-date {
     position: absolute;
     top: calc(75% + 25px);
     left: 0;
@@ -365,14 +367,14 @@ a {
     }
   }
 
-  &--vertical {
+  &-vertical {
     position: -webkit-sticky;
     position: sticky;
     top: 60px;
     left: 2%;
   }
 
-  &--horizontal {
+  &-horizontal {
     display: inline;
   }
 }
@@ -397,19 +399,19 @@ a {
   color: #000;
   text-align: left;
 
-  .title {
+  &-title {
     font-size: 1.08rem;
     color: #000;
   }
 
-  .item {
+  .items {
     height: 40px;
     overflow: hidden;
-  }
 
-  .item-title {
-    font-size: 0.96rem;
-    color: #000;
+    .items-title {
+      font-size: 0.96rem;
+      color: #000;
+    }
   }
 }
 
@@ -419,7 +421,7 @@ a {
   margin: 2% 24% 2% 24%;
   font-size: 0.8rem;
 
-  .title {
+  &-title {
     padding: 4px;
     font-size: 1.2rem;
     font-weight: bold;
@@ -433,6 +435,19 @@ a {
     margin: 0;
     text-align: left;
   }
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  min-height: 240px;
+  padding: 20px 0;
+  margin-top: 24px;
+  color: #000;
+  background-color: #fff;
 }
 
 @media (max-width: 600px) {
@@ -450,7 +465,7 @@ a {
   }
 
   .cover {
-    .title {
+    &-title {
       font-size: 2rem;
     }
   }
@@ -473,6 +488,11 @@ a {
   .contact {
     width: 98%;
     margin: 2% 1% 2% 1%;
+  }
+
+  footer {
+    min-height: 0;
+    margin-top: 0;
   }
 }
 
@@ -503,22 +523,22 @@ a {
 
   .top {
     .blog-card {
-      .title {
+      &-title {
         color: #fff;
       }
 
-      .description {
+      &-description {
         color: #eee;
       }
     }
   }
 
   .cover {
-    .title {
+    &-title {
       color: #fff;
     }
 
-    .date {
+    &-date {
       color: #fff;
     }
   }
@@ -544,19 +564,26 @@ a {
   .latest-article {
     color: #fff;
 
-    .title {
+    &-title {
       color: #fff;
     }
 
-    .item-title {
-      color: #fff;
+    .items {
+      .items-title {
+        color: #fff;
+      }
     }
   }
 
   .privacy-policy,
   .contact {
-    .title {
+    &-title {
       color: #fff;
     }
+  }
+
+  footer {
+    color: #fff;
+    background-color: #303030;
   }
 }

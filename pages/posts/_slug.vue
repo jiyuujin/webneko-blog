@@ -9,11 +9,11 @@
         />
       </template>
 
-      <div class="title">
+      <div class="cover-title">
         {{ currentPost.fields.title }}
       </div>
 
-      <div class="date">
+      <div class="cover-date">
         {{ getDate(currentPost.fields.publishDate) }}
       </div>
     </div>
@@ -38,15 +38,15 @@
     <new-contact :blog-title="currentPost.fields.title" />
 
     <div class="latest-article">
-      <h2 class="title">
+      <h2 class="latest-article-title">
         あわせてよみたい..
       </h2>
       -----
-      <div v-for="post in latestPosts" :key="post.fields.title" class="item">
+      <div v-for="post in latestPosts" :key="post.fields.title" class="items">
         <nuxt-link
           :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
         >
-          <div class="item-title">
+          <div class="items-title">
             {{ post.fields.title }}
           </div>
         </nuxt-link>

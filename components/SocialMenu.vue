@@ -1,7 +1,7 @@
 <template>
   <div class="social-menu">
     <div
-      :class="isVertical ? `social-menu--vertical` : `social-menu--horizontal`"
+      :class="isVertical ? 'social-menu-vertical' : 'social-menu-horizontal'"
     >
       <a
         v-for="item in socialMenu"
