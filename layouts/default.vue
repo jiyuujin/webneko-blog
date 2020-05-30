@@ -3,18 +3,24 @@
     <transition name="fade">
       <nuxt />
     </transition>
-    <cookie-footer v-if="!$store.state.product.isCookieAccepted" />
+    <cookie-footer v-if="!isExistedCookie" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { getCookie } from '~/services/cookie'
 
 const CookieFooter = () => import('~/components/CookieFooter.vue')
 
 export default Vue.extend({
   components: {
     CookieFooter
+  },
+  methods: {
+    isExistedCookie() {
+      getCookie()
+    }
   }
 })
 </script>

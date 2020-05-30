@@ -1,6 +1,6 @@
 <template>
   <div class="article">
-    <div class="post-detail" v-html="$md.render(body)" />
+    <div class="post-detail" v-html="$md.render($sanitize(body))" />
   </div>
 </template>
 
@@ -15,7 +15,8 @@ export default Vue.extend({
     }
   },
   async mounted() {
-    ;(this as any).$microlinkjs('.link-preview')
+    /* eslint-disable */
+    (this as any).$microlinkjs('.link-preview')
   }
 })
 </script>

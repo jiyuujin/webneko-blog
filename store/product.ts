@@ -1,4 +1,5 @@
 import { Module, ActionTree, MutationTree } from 'vuex'
+import { setCookie } from '~/services/cookie'
 
 const namespaced = true
 
@@ -17,6 +18,7 @@ export interface State {
 export const mutations: MutationTree<State> = {
   acceptCookie(state) {
     state.isCookieAccepted = true
+    setCookie(state.isCookieAccepted)
   }
 }
 
