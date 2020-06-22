@@ -53,7 +53,7 @@
     "core-js": "2.6.11",
     "eslint": "7.3.0",
     "fibers": "5.0.0",
-    "sass": "1.26.8",
+    "sass": "1.26.9",
     "sass-loader": "8.0.2",
     "stylelint": "13.6.1",
     "stylelint-a11y": "1.2.3",
