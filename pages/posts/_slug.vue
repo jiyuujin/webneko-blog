@@ -44,11 +44,10 @@
       -----
       <div v-for="post in latestPosts" :key="post.fields.title" class="items">
         <nuxt-link
+          :key="post.fields.title"
           :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
         >
-          <div class="items-title">
-            {{ post.fields.title }}
-          </div>
+          <post-item :post="post" summary />
         </nuxt-link>
       </div>
     </div>
@@ -62,6 +61,7 @@ import dayjs from 'dayjs'
 import { fetchPost, fetchPosts } from '~/repositories/blog'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
+const PostItem = () => import('~/components/PostItem.vue')
 const SocialMenu = () => import('~/components/SocialMenu.vue')
 const NewContact = () => import('~/components/NewContact.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
@@ -71,6 +71,7 @@ const BuyMeACoffee = () => import('~/components/BuyMeACoffee.vue')
 export default Vue.extend({
   components: {
     MainTemplate,
+    PostItem,
     SocialMenu,
     NewContact,
     GoogleAdsense,
