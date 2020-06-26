@@ -35,14 +35,14 @@
     "markdown-it-mark": "3.0.0",
     "markdown-it-toc": "1.1.0",
     "markdown-it-video": "0.6.3",
-    "nuxt": "2.13.1",
+    "nuxt": "2.13.2",
     "sanitize-html": "1.27.0",
     "ts-node": "8.10.2",
     "vue-infinite-loading": "2.4.5"
   },
   "devDependencies": {
     "@nekohack/eslint-config-vue": "0.4.0",
-    "@nuxt/types": "2.13.1",
+    "@nuxt/types": "2.13.2",
     "@nuxt/typescript-build": "1.0.3",
     "@nuxt/typescript-runtime": "0.4.10",
     "@types/node": "12.12.47",
