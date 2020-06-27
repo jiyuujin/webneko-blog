@@ -1,31 +1,17 @@
 <template>
-  <main-template>
+  <main-template :tags="tags">
     <div class="main">
       <header-text />
 
       <div class="top">
-        <div
-          v-for="(post, index) in posts"
-          :key="post.fields.title"
-          :style="index < count ? 'margin: 12px 4%;' : ''"
-          class="blog-card"
-        >
-          <template v-if="index < count">
-            <nuxt-link
-              :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
-            >
-              <div class="blog-card-title">
-                {{ post.fields.title }}
-              </div>
-            </nuxt-link>
-            <div class="blog-card-date">
-              {{ getDate(post.fields.publishDate) }}
-            </div>
-            <div class="blog-card-description">
-              {{ post.fields.description }}
-            </div>
-          </template>
-        </div>
+        <template v-for="post in posts">
+          <nuxt-link
+            :key="post.fields.title"
+            :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
+          >
+            <post-item :post="post" />
+          </nuxt-link>
+        </template>
       </div>
 
       <google-adsense
@@ -41,22 +27,25 @@
 import Vue from 'vue'
 import dayjs from 'dayjs'
 
-import { fetchPosts } from '~/repositories/blog'
+import { fetchPosts, fetchTags } from '~/repositories/blog'
 import { PAGE } from '~/services/blog'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
+const PostItem = () => import('~/components/PostItem.vue')
 const HeaderText = () => import('~/components/HeaderText.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 
 export default Vue.extend({
   components: {
     MainTemplate,
+    PostItem,
     HeaderText,
     GoogleAdsense
   },
   async asyncData() {
     return {
-      posts: await fetchPosts()
+      posts: await fetchPosts(),
+      tags: await fetchTags()
     }
   },
   data() {
