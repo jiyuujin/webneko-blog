@@ -102,6 +102,10 @@ a {
   flex-wrap: wrap;
   padding: 0 16px;
 
+  a {
+    margin: 12px 0;
+  }
+
   .blog-card {
     position: relative;
     width: 100%;
@@ -474,7 +478,7 @@ footer {
 @media (max-width: 600px) {
   .main {
     width: 100%;
-    padding: 0 24px;
+    padding: 0 4px;
   }
 
   .top {
