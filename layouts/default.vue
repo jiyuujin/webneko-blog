@@ -1,5 +1,13 @@
 <template>
   <div>
+    <a
+      class="github-fork-ribbon"
+      href="https://github.com/jiyuujin/webneko-blog"
+      data-ribbon="Star on GitHub"
+      title="Star on GitHub"
+    >
+      Fork me on GitHub
+    </a>
     <transition name="fade">
       <nuxt />
     </transition>
@@ -25,7 +33,9 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style lang="scss">
+@import '@/assets/ribbon';
+
 html {
   font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
   font-size: 16px;
