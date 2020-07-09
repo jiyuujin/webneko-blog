@@ -17,6 +17,14 @@
   </div>
 </template>
 
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  //
+})
+</script>
+
 <style lang="scss" scoped>
 @media screen and (prefers-reduced-motion: reduce) {
   .bmc-button {
