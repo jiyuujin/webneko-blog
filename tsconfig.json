@@ -16,6 +16,7 @@
     "emitDecoratorMetadata": true,
     "noUnusedLocals": true,
     "pretty": true,
+    "skipLibCheck": true,
     "sourceMap": true,
     "types": [
       "@types/node",
