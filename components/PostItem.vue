@@ -4,35 +4,35 @@
       {{ post.fields.title }}
     </div>
     <div class="blog-card-date">
-      {{ getDate(post.fields.publishDate) }}
+      {{ getCurrentDate(post.fields.publishDate) }}
     </div>
-    <div v-if="!summary" class="blog-card-description">
+    <div class="blog-card-description">
       {{ post.fields.description }}
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import dayjs from 'dayjs'
+import { defineComponent, SetupContext } from '@vue/composition-api'
 
-export default Vue.extend({
+import DateComposable from '~/composables/date'
+
+type PostItemProps = {
+  post: object
+}
+
+export default defineComponent({
   props: {
     post: {
       type: Object,
-      default: function() {
+      default: function () {
         return {}
       }
-    },
-    summary: {
-      type: Boolean,
-      default: false
     }
   },
-  methods: {
-    getDate(date: Date) {
-      return dayjs(date).format('MM月 DD日')
-    }
+  setup(props: PostItemProps, ctx: SetupContext) {
+    const dateModule = DateComposable(props, ctx)
+    return { ...dateModule }
   }
 })
 </script>

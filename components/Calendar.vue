@@ -51,87 +51,29 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue'
-import dayjs from 'dayjs'
-import { PostItem } from '~/types/blog'
+import { defineComponent, SetupContext } from '@vue/composition-api'
 
-const weekdays = ['日', '月', '火', '水', '木', '金', '土']
+import CalendarComposable from '@/composables/calendar'
 
-export default Vue.extend({
+const WEEKDAY_LIST = ['日', '月', '火', '水', '木', '金', '土']
+
+export default defineComponent({
   props: {
     items: {
-      type: Array as PropType<PostItem[]>,
+      type: Array,
       default: function () {
         return []
       }
     },
     ym: {
-      type: String as PropType<string>,
+      type: String,
       required: true
     }
   },
-  data() {
-    return {
-      weekdays: weekdays
-    }
-  },
-  computed: {
-    startOfMonth() {
-      const startDay = dayjs(`${this.ym}/01`).startOf('month').format('dddd')
-      if (startDay === 'Sunday') {
-        return 0
-      } else if (startDay === 'Monday') {
-        return 1
-      } else if (startDay === 'Tuesday') {
-        return 2
-      } else if (startDay === 'Wednesday') {
-        return 3
-      } else if (startDay === 'Thursday') {
-        return 4
-      } else if (startDay === 'Friday') {
-        return 5
-      } else if (startDay === 'Saturday') {
-        return 6
-      }
-      return null
-    },
-    endOfMonth() {
-      const d = new Date(this.ym)
-      const day = dayjs(new Date(d.getFullYear(), d.getMonth() + 1, 0))
-      const endDay = dayjs(day).format('dddd')
-      if (endDay === 'Sunday') {
-        return 6
-      } else if (endDay === 'Monday') {
-        return 5
-      } else if (endDay === 'Tuesday') {
-        return 4
-      } else if (endDay === 'Wednesday') {
-        return 3
-      } else if (endDay === 'Thursday') {
-        return 2
-      } else if (endDay === 'Friday') {
-        return 1
-      } else if (endDay === 'Saturday') {
-        return 7
-      }
-      return null
-    },
-    days() {
-      const d = new Date(this.ym)
-      const day = dayjs(new Date(d.getFullYear(), d.getMonth() + 1, 0))
-      return dayjs(day).format('DD')
-    }
-  },
-  methods: {
-    getPost(day: number) {
-      let post: PostItem | null | undefined
-      ;(this.items as PostItem[]).map((item: PostItem) => {
-        if (day === Number(dayjs(item.fields.publishDate).format('DD'))) {
-          post = item
-        }
-      })
-      return post
-    }
+  setup(props, ctx: SetupContext) {
+    const weekdays = WEEKDAY_LIST
+    const calendarModule = CalendarComposable(props, ctx)
+    return { weekdays, ...calendarModule }
   }
 })
 </script>
@@ -300,9 +242,9 @@ export default Vue.extend({
   }
 }
 
-@media (prefers-color-scheme: dark) {
+/*@media (prefers-color-scheme: dark) {
   .day--disabled {
     background-color: #303030;
   }
-}
+}*/
 </style>

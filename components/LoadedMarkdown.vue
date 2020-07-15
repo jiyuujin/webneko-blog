@@ -5,19 +5,23 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue'
+import { defineComponent, SetupContext, onMounted } from '@vue/composition-api'
 
-export default Vue.extend({
+type LoadedMarkdownProps = {
+  //
+}
+
+export default defineComponent({
   props: {
     body: {
-      type: String as PropType<string>,
+      type: String,
       default: ''
     }
   },
-  async mounted() {
-    /* eslint-dsiable */
-    // @ts-ignore
-    this.$microlinkjs('.link-preview')
+  setup(props: LoadedMarkdownProps, ctx: SetupContext) {
+    onMounted(() => {
+      // ctx.root.$microlinkjs('.link-preview')
+    })
   }
 })
 </script>

@@ -4,105 +4,72 @@
       お問い合わせ
     </div>
 
-    <j-form title="タイトル">
-      <div style="text-align: left;">
-        <j-input :text="form.title" width="100%" @handleInput="applyTitle" />
-      </div>
-    </j-form>
-    <j-form v-if="category === 'manual'" title="カテゴリー">
-      <div style="text-align: left;">
+    <div style="padding: 8px 0;">
+      <j-input
+        :text="state.form.title"
+        placeholder="タイトル"
+        width="100%"
+        @handleInput="applyTitle"
+      />
+    </div>
+    <template v-if="category === 'manual'">
+      <div style="padding: 8px 0;">
         <j-select
-          :options="contactCategories"
-          :values="form.contactCategory"
+          :options="state.contactCategories"
+          :values="state.form.contactCategory"
           @handleSelect="applyContactCategory"
         />
       </div>
-    </j-form>
-    <j-form title="メールアドレス">
-      <div style="text-align: left;">
-        <j-input :text="form.email" width="100%" @handleInput="applyEmail" />
-      </div>
-    </j-form>
-    <j-form title="詳細">
-      <div style="text-align: left;">
-        <j-input
-          :text="form.description"
-          width="100%"
-          @handleInput="applyDescription"
-        />
-      </div>
-    </j-form>
-    <j-form>
-      <div style="text-align: left;">
-        <j-button text="送信します" fill="text" @handleClick="submit" />
-        <span>
-          <a
-            href="https://nekohack-privacy-policy.netlify.app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            プライバシーポリシーはこちらで
-          </a>
-        </span>
-      </div>
-    </j-form>
+    </template>
+    <div style="padding: 8px 0;">
+      <j-input
+        :text="state.form.email"
+        placeholder="メールアドレス"
+        width="100%"
+        @handleInput="applyEmail"
+      />
+    </div>
+    <div style="padding: 8px 0;">
+      <j-input
+        :text="state.form.description"
+        placeholder="詳細"
+        width="100%"
+        @handleInput="applyDescription"
+      />
+    </div>
+    <div style="padding: 8px 0;">
+      <j-button text="送信します" @handleClick="submit" />
+      <span>
+        <a
+          href="https://nekohack-privacy-policy.netlify.app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          プライバシーポリシーはこちらで
+        </a>
+      </span>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue'
+import { defineComponent, SetupContext } from '@vue/composition-api'
+import ContactComposable from '~/composables/contact'
 
-import { addContact } from '~/repositories/contact'
-import { ContactCategories } from '~/services/contact'
-import { Category, ContactCategory } from '~/types/contact'
-
-export default Vue.extend({
+export default defineComponent({
   props: {
     category: {
-      type: String as PropType<string>,
+      type: String,
       default: ''
     },
     blogTitle: {
-      type: String as PropType<string>,
+      type: String,
       default: ''
     }
   },
-  data() {
-    return {
-      isForm: true as boolean,
-      form: {
-        title: '',
-        contactCategory: 0,
-        email: '',
-        description: ''
-      } as Category,
-      contactCategories: ContactCategories as ContactCategory[],
-      responseText: '' as string
-    }
-  },
-  methods: {
-    applyTitle(value: string) {
-      this.form.title = value
-    },
-    applyContactCategory(value: number) {
-      this.form.contactCategory = value
-    },
-    applyEmail(value: string) {
-      this.form.email = value
-    },
-    applyDescription(value: string) {
-      this.form.description = value
-    },
-    reset() {
-      this.form.title = ''
-      this.form.contactCategory = 0
-      this.form.email = ''
-      this.form.description = ''
-    },
-    async submit() {
-      this.responseText = await addContact(this.form, this.category)
-      this.reset()
-    }
+  setup(props, ctx: SetupContext) {
+    const contactModule = ContactComposable(props, ctx)
+    return { ...contactModule }
   }
 })
 </script>

@@ -22,14 +22,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from '@vue/composition-api'
 
 import { fetchPostsByTag } from '~/repositories/blog'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const PostItem = () => import('~/components/PostItem.vue')
 
-export default Vue.extend({
+export default defineComponent({
   components: {
     MainTemplate,
     PostItem

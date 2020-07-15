@@ -7,15 +7,18 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent, SetupContext } from '@vue/composition-api'
 
-export default Vue.extend({
-  data() {
-    return {
-      message:
-        'あなたがこのサイト上でベストな体験ができるようCookieを使用しています',
-      url: 'https://nekohack-privacy-policy.netlify.app/'
-    }
+import UtilComposable from '~/composables/util'
+
+type CookieFooterProps = {
+  //
+}
+
+export default defineComponent({
+  setup(props: CookieFooterProps, ctx: SetupContext) {
+    const utilModule = UtilComposable(props, ctx)
+    return { ...utilModule }
   }
 })
 </script>

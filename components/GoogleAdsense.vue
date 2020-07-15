@@ -10,24 +10,24 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue'
+import { defineComponent } from '@vue/composition-api'
 
-export default Vue.extend({
+export default defineComponent({
   props: {
     adSlot: {
-      type: String as PropType<string>,
+      type: String,
       default: ''
     },
     adFormat: {
-      type: String as PropType<string>,
+      type: String,
       default: ''
     },
     adLayout: {
-      type: String as PropType<string>,
+      type: String,
       default: ''
     },
     adStyle: {
-      type: Object as PropType<object>,
+      type: Object,
       default: null
     }
   }

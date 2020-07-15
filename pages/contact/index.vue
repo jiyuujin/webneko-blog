@@ -5,11 +5,12 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from '@vue/composition-api'
+
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const NewContact = () => import('~/components/NewContact.vue')
 
-export default Vue.extend({
+export default defineComponent({
   components: {
     MainTemplate,
     NewContact
