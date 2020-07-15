@@ -10,7 +10,7 @@
         {{ weekday }}
       </span>
       <div v-for="i in startOfMonth" :key="i" class="day day--disabled" />
-      <div v-for="day in Number(days)" :key="day + days / 7" class="day">
+      <div v-for="day in Number(days)" :key="day" class="day">
         <span class="tooltip">
           <template v-if="getPost(day)">
             {{ getPost(day).fields.title }}
@@ -165,7 +165,6 @@ export default defineComponent({
 
 .day--disabled {
   cursor: not-allowed;
-  background-color: #fff;
 }
 
 @media screen and (prefers-reduced-motion: reduce) {

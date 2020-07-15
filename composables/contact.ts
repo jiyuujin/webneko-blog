@@ -1,5 +1,7 @@
 import { SetupContext, reactive } from '@vue/composition-api'
-import { addContact } from '../repositories/contact'
+
+import { addContact } from '~/repositories/contact'
+import { ContactCategories } from '~/services/contact'
 
 type ContactProps = {
   category: string
@@ -15,7 +17,7 @@ export default (props: ContactProps, ctx: SetupContext) => {
       description: ''
     },
     isForm: true,
-    contactCategories: [],
+    contactCategories: ContactCategories,
     responseText: ''
   })
 
