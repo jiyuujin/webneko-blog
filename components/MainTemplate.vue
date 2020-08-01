@@ -15,11 +15,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from '@vue/composition-api'
 
 const FooterText = () => import('~/components/FooterText.vue')
 
-export default Vue.extend({
+export default defineComponent({
   components: {
     FooterText
   },

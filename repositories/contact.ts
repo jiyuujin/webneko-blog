@@ -6,7 +6,7 @@ import { Category, ContactCategory } from '~/types/contact'
 
 export const addContact = async (
   form: Category,
-  category: string = 'manual'
+  categoryText: string = 'manual'
 ): Promise<string> => {
   const adminFirestore = Firestore.firestore()
   const contactsCollection = adminFirestore.collection('contacts')
@@ -29,7 +29,7 @@ export const addContact = async (
   await contactsCollection.add({
     time: dayjs().format(),
     title: form.title,
-    category: getCategory(form.contactCategory, form.title, category),
+    category: getCategory(form.category, form.title, categoryText),
     email: form.email,
     description: form.description
   })
@@ -39,20 +39,18 @@ export const addContact = async (
 }
 
 const getCategory = (
-  contactCategory: number,
+  category: number,
   title: string,
-  category: string
+  categoryText: string
 ): ContactCategory | undefined => {
-  if (category !== 'manual' && contactCategory === 0) {
+  if (categoryText !== 'manual' && category === 0) {
     return {
       value: 10,
       text: title
     }
   }
 
-  return ContactCategories.find(
-    (cc: ContactCategory) => cc.value === contactCategory
-  )
+  return ContactCategories.find((cc: ContactCategory) => cc.value === category)
 }
 
 const isValidText = (value: string) => {

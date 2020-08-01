@@ -147,6 +147,7 @@ export default {
     //     src: '~plugins/infinite-loading.ts',
     //     mode: 'client'
     // },
+    '~plugins/composition-api.ts',
     '~plugins/firebase.ts',
     '~plugins/j-stylebook.ts',
     '~plugins/sanitize.ts'

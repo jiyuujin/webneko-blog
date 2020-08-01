@@ -20,14 +20,13 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import dayjs from 'dayjs'
+import { defineComponent, SetupContext } from '@vue/composition-api'
+import DateComposable from '@/composables/date'
 
-export default Vue.extend({
-  computed: {
-    getCurrentMonth(): string {
-      return dayjs().format('YYYY-MM')
-    }
+export default defineComponent({
+  setup(props: {}, ctx: SetupContext) {
+    const dateModule = DateComposable({}, ctx)
+    return { ...dateModule }
   }
 })
 </script>
@@ -166,12 +165,12 @@ export default Vue.extend({
   }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   .menu {
     a {
       color: #fff;
       background-color: #303030;
     }
   }
-}
+} */
 </style>

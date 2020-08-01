@@ -1,26 +1,30 @@
 <template>
   <div>
-    <transition name="fade">
-      <nuxt />
-    </transition>
+    <transition-group name="fade">
+      <mode-change key="top-mode-change" />
+      <nuxt key="top-nuxt" />
+    </transition-group>
     <cookie-footer v-if="!isExistedCookie" />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { getCookie } from '~/services/cookie'
+import { defineComponent, SetupContext } from '@vue/composition-api'
+import { provideLayout } from '~/composables/layout'
+import UtilModule from '~/composables/util'
 
+const ModeChange = () => import('~/components/ModeChange.vue')
 const CookieFooter = () => import('~/components/CookieFooter.vue')
 
-export default Vue.extend({
+export default defineComponent({
   components: {
+    ModeChange,
     CookieFooter
   },
-  methods: {
-    isExistedCookie() {
-      getCookie()
-    }
+  setup(props: {}, ctx: SetupContext) {
+    provideLayout()
+    const utilModule = UtilModule(props, ctx)
+    return { ...utilModule }
   }
 })
 </script>

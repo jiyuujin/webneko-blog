@@ -14,14 +14,13 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { blogVersion } from '~/services/release'
+import { defineComponent, SetupContext } from '@vue/composition-api'
+import UtilComposable from '~/composables/util'
 
-export default Vue.extend({
-  data() {
-    return {
-      blogVersionText: `v${blogVersion}`
-    }
+export default defineComponent({
+  setup(props: {}, ctx: SetupContext) {
+    const utilModule = UtilComposable({}, ctx)
+    return { ...utilModule }
   }
 })
 </script>

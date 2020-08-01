@@ -24,18 +24,16 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import dayjs from 'dayjs'
+import { defineComponent } from '@vue/composition-api'
 
 import { fetchPosts, fetchTags } from '~/repositories/blog'
-import { PAGE } from '~/services/blog'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const PostItem = () => import('~/components/PostItem.vue')
 const HeaderText = () => import('~/components/HeaderText.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 
-export default Vue.extend({
+export default defineComponent({
   components: {
     MainTemplate,
     PostItem,
@@ -46,16 +44,6 @@ export default Vue.extend({
     return {
       posts: await fetchPosts(),
       tags: await fetchTags()
-    }
-  },
-  data() {
-    return {
-      count: PAGE
-    }
-  },
-  methods: {
-    getDate(date: Date) {
-      return dayjs(date).format('MM月 DD日')
     }
   }
 })

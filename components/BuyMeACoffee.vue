@@ -18,9 +18,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from '@vue/composition-api'
 
-export default Vue.extend({
+export default defineComponent({
   //
 })
 </script>

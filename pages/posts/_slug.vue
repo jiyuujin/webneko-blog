@@ -14,7 +14,7 @@
       </div>
 
       <div class="cover-date">
-        {{ getDate(currentPost.fields.publishDate) }}
+        {{ getCurrentDate(currentPost.fields.publishDate) }}
       </div>
     </div>
 
@@ -47,7 +47,7 @@
           :key="post.fields.title"
           :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
         >
-          <post-item :post="post" summary />
+          <post-item :post="post" />
         </nuxt-link>
       </div>
     </div>
@@ -55,8 +55,8 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import dayjs from 'dayjs'
+import { defineComponent, SetupContext } from '@vue/composition-api'
+import DateComposable from '~/composables/date'
 
 import { fetchPost, fetchPosts } from '~/repositories/blog'
 
@@ -68,7 +68,7 @@ const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 const LoadedMarkdown = () => import('~/components/LoadedMarkdown.vue')
 const BuyMeACoffee = () => import('~/components/BuyMeACoffee.vue')
 
-export default Vue.extend({
+export default defineComponent({
   components: {
     MainTemplate,
     PostItem,
@@ -88,15 +88,10 @@ export default Vue.extend({
       latestPosts: await fetchPosts(isLatest)
     }
   },
-  data() {
-    return {
-      isVertical: true
-    }
-  },
-  methods: {
-    getDate(date: Date) {
-      return dayjs(date).format('MM月 DD日')
-    }
+  setup(props: {}, ctx: SetupContext) {
+    const isVertical = true
+    const dateModule = DateComposable(props, ctx)
+    return { isVertical, ...dateModule }
   },
   head() {
     let heroImage = ''
