@@ -1,7 +1,6 @@
 import { SetupContext, reactive } from '@vue/composition-api'
 
 import { addContact } from '~/repositories/contact'
-import { ContactCategories } from '~/services/contact'
 
 type ContactProps = {
   category: string
@@ -9,49 +8,51 @@ type ContactProps = {
 }
 
 export default (props: ContactProps, ctx: SetupContext) => {
-  const state = reactive({
-    form: {
-      title: '',
-      contactCategory: 0,
-      email: '',
-      description: ''
-    },
-    isForm: true,
-    contactCategories: ContactCategories,
-    responseText: ''
+  const form = reactive<{
+    title: string
+    category: number
+    email: string
+    description: string
+  }>({
+    title: '',
+    category: 0,
+    email: '',
+    description: ''
   })
 
   const applyTitle = (value: string) => {
-    state.form.title = value
+    form.title = value
   }
 
-  const applyContactCategory = (value: number) => {
-    state.form.contactCategory = value
+  const applyCategory = (value: number) => {
+    form.category = value
   }
 
   const applyEmail = (value: string) => {
-    state.form.email = value
+    form.email = value
   }
 
   const applyDescription = (value: string) => {
-    state.form.description = value
+    form.description = value
   }
   const reset = () => {
-    state.form.title = ''
-    state.form.contactCategory = 0
-    state.form.email = ''
-    state.form.description = ''
+    form.title = ''
+    form.category = 0
+    form.email = ''
+    form.description = ''
   }
 
   const submit = async () => {
-    state.responseText = await addContact(state.form, props.category)
+    const responseText = await addContact(form, props.category)
+    /* eslint-disable */
+    console.log(responseText)
     reset()
   }
 
   return {
-    state,
+    form,
     applyTitle,
-    applyContactCategory,
+    applyCategory,
     applyEmail,
     applyDescription,
     reset,

@@ -31,7 +31,7 @@ export default defineComponent({
     }
   },
   setup(props: PostItemProps, ctx: SetupContext) {
-    const dateModule = DateComposable(props, ctx)
+    const dateModule = DateComposable({}, ctx)
     return { ...dateModule }
   }
 })

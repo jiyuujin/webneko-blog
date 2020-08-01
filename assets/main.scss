@@ -132,18 +132,18 @@ a {
 }
 
 .tag-text {
-  padding: 4px 12px 8px;
   width: 100%;
+  padding: 4px 12px 8px;
 
   .tag {
     display: inline-block;
     padding: 0.5rem 0.75rem;
     margin: 0.25rem;
-    background-color: #718096;
     color: #fff;
-    border-radius: 9999px;
-    border-width: 1px;
+    background-color: #718096;
     border-color: #2e3439;
+    border-width: 1px;
+    border-radius: 9999px;
 
     a {
       color: #fff;
@@ -532,13 +532,13 @@ footer {
 }
 
 .light-theme {
-  background: #fff;
   color: #000;
+  background: #fff;
 }
 
 .dark-theme {
-  background: #303030;
   color: #fff;
+  background: #303030;
 
   a {
     color: #42b883;
@@ -569,8 +569,8 @@ footer {
 
   .tag-text {
     .tag {
-      background-color: #fff;
       color: #718096;
+      background-color: #fff;
       border-color: #a0aec0;
 
       a {
@@ -653,7 +653,7 @@ footer {
   }
 }
 
-/*@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   body {
     color: #fff;
     background-color: #303030;
@@ -759,4 +759,4 @@ footer {
     color: #fff;
     background-color: #303030;
   }
-}*/
+} */

@@ -11,13 +11,9 @@ import { defineComponent, SetupContext } from '@vue/composition-api'
 
 import UtilComposable from '~/composables/util'
 
-type CookieFooterProps = {
-  //
-}
-
 export default defineComponent({
-  setup(props: CookieFooterProps, ctx: SetupContext) {
-    const utilModule = UtilComposable(props, ctx)
+  setup(props: {}, ctx: SetupContext) {
+    const utilModule = UtilComposable({}, ctx)
     return { ...utilModule }
   }
 })

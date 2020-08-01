@@ -7,10 +7,6 @@
 <script lang="ts">
 import { defineComponent, SetupContext, onMounted } from '@vue/composition-api'
 
-type LoadedMarkdownProps = {
-  //
-}
-
 export default defineComponent({
   props: {
     body: {
@@ -18,7 +14,7 @@ export default defineComponent({
       default: ''
     }
   },
-  setup(props: LoadedMarkdownProps, ctx: SetupContext) {
+  setup(props: {}, ctx: SetupContext) {
     onMounted(() => {
       // ctx.root.$microlinkjs('.link-preview')
     })

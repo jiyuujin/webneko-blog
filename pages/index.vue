@@ -24,8 +24,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext } from '@vue/composition-api'
-import UtilComposable from '~/composables/util'
+import { defineComponent } from '@vue/composition-api'
 
 import { fetchPosts, fetchTags } from '~/repositories/blog'
 
@@ -46,10 +45,6 @@ export default defineComponent({
       posts: await fetchPosts(),
       tags: await fetchTags()
     }
-  },
-  setup(props: {}, ctx: SetupContext) {
-    const utilModule = UtilComposable(props, ctx)
-    return { ...utilModule }
   }
 })
 </script>

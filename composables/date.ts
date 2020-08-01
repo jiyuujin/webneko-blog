@@ -1,11 +1,7 @@
 import { computed, SetupContext } from '@vue/composition-api'
 import dayjs from 'dayjs'
 
-type FooterTextProps = {
-  //
-}
-
-export default (props: FooterTextProps, ctx: SetupContext) => {
+export default (props: {}, ctx: SetupContext) => {
   const getCurrentMonth = computed(() => {
     return dayjs().format('YYYY-MM')
   })

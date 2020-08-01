@@ -241,9 +241,9 @@ export default defineComponent({
   }
 }
 
-/*@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   .day--disabled {
     background-color: #303030;
   }
-}*/
+} */
 </style>

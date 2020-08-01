@@ -5,7 +5,7 @@ export interface ContactCategory {
 
 export interface Category {
   title: string
-  contactCategory: number
+  category: number
   email: string
   description: string
 }

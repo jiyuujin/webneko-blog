@@ -19,7 +19,7 @@ import UtilComposable from '~/composables/util'
 
 export default defineComponent({
   setup(props: {}, ctx: SetupContext) {
-    const utilModule = UtilComposable(props, ctx)
+    const utilModule = UtilComposable({}, ctx)
     return { ...utilModule }
   }
 })

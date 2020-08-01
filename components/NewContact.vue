@@ -6,7 +6,7 @@
 
     <div style="padding: 8px 0;">
       <j-input
-        :text="state.form.title"
+        :text="form.title"
         placeholder="タイトル"
         width="100%"
         @handleInput="applyTitle"
@@ -15,15 +15,15 @@
     <template v-if="category === 'manual'">
       <div style="padding: 8px 0;">
         <j-select
-          :options="state.contactCategories"
-          :values="state.form.contactCategory"
-          @handleSelect="applyContactCategory"
+          :options="contactCategories"
+          :values="form.category"
+          @handleSelect="applyCategory"
         />
       </div>
     </template>
     <div style="padding: 8px 0;">
       <j-input
-        :text="state.form.email"
+        :text="form.email"
         placeholder="メールアドレス"
         width="100%"
         @handleInput="applyEmail"
@@ -31,7 +31,7 @@
     </div>
     <div style="padding: 8px 0;">
       <j-input
-        :text="state.form.description"
+        :text="form.description"
         placeholder="詳細"
         width="100%"
         @handleInput="applyDescription"
@@ -56,6 +56,8 @@
 import { defineComponent, SetupContext } from '@vue/composition-api'
 import ContactComposable from '~/composables/contact'
 
+import { ContactCategories } from '~/services/contact'
+
 export default defineComponent({
   props: {
     category: {
@@ -69,7 +71,8 @@ export default defineComponent({
   },
   setup(props, ctx: SetupContext) {
     const contactModule = ContactComposable(props, ctx)
-    return { ...contactModule }
+    const contactCategories = ContactCategories
+    return { ...contactModule, contactCategories }
   }
 })
 </script>

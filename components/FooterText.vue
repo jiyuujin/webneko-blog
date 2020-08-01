@@ -25,7 +25,7 @@ import DateComposable from '@/composables/date'
 
 export default defineComponent({
   setup(props: {}, ctx: SetupContext) {
-    const dateModule = DateComposable(props, ctx)
+    const dateModule = DateComposable({}, ctx)
     return { ...dateModule }
   }
 })
@@ -165,12 +165,12 @@ export default defineComponent({
   }
 }
 
-/*@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   .menu {
     a {
       color: #fff;
       background-color: #303030;
     }
   }
-}*/
+} */
 </style>
