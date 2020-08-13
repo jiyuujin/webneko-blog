@@ -1,31 +1,22 @@
-version: 2.1
-
-executors:
-  default:
-    docker:
-      - image: circleci/node:12.4.0-buster
-
-commands:
-  install_dependencies:
-    steps:
-      - run:
-        name: Install dependencies
-        command: yarn install
-  transpile:
-    steps:
-      - run:
-        name: Transpile
-        command: yarn build
+version: 2
 
 jobs:
   build:
-    executor: default
+    docker:
+      - image: circleci/node:12.4
+    working_directory: ~/workspace
+
     steps:
       - checkout
-      - install_dependencies
-      - transpile
 
-workflows:
-  build:
-    jobs:
-      - build:
+      - restore_cache:
+        keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+
+      - run: yarn install
+
+      - save_cache:
+        paths:
+          - node_modules
+        key: v1-dependencies-{{ checksum "package.json" }}
