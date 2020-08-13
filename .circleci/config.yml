@@ -1,8 +1,13 @@
-version: 2
-jobs:
-  build:
+version: 2.1
+
+executors:
+  default:
     docker:
       - image: circleci/node:12.4
+
+jobs:
+  build:
+    executor: default
     working_directory: ~/workspace
     steps:
       - checkout
