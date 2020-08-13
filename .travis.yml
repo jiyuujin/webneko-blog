@@ -1,7 +1,7 @@
 language: node_js
 
 stages:
-  - compile
+  - transpile
 
 node_js:
   - "12"
@@ -10,10 +10,10 @@ cache: npm
 
 jobs:
   include:
-    - stage: "compile"
-      name: "Build Compile"
+    - stage: "transpile"
+      name: "Build Transpile"
       before_install:
-        - if [[ $TRAVIS_NODE_VERSION == 8 ]]; then npm i -g npm@latest; fi
+        - if [[ $TRAVIS_NODE_VERSION == 12 ]]; then npm i -g npm@latest; fi
       install:
         - rm -rf node_modules && rm -rf yarn.lock && npm install
       script:
