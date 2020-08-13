@@ -28,8 +28,8 @@ commands:
   transpile:
     steps:
       - run:
-          name: Transpile
-          command: yarn build
+        name: Transpile
+        command: yarn build
 
 jobs:
   build:
@@ -45,8 +45,3 @@ workflows:
   build:
     jobs:
       - build:
-        filters:
-          branches:
-            only:
-              - master
-              - release
