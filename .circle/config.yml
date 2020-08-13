@@ -1,0 +1,23 @@
+version: 2.1
+
+jobs:
+  build:
+    working_directory: ~/workspace
+    docker:
+      - image: node:12.4.0
+
+    steps:
+      - checkout
+      - restore_cache:
+        key: projectname-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+        name: System information
+        command: |
+          echo "Node $(node -v)"
+          echo "Yarn v$(yarn --version)"
+      - run:
+        name: Install dependencies
+        command: yarn install
+      - run:
+        name: Transpile
+        command: yarn build
