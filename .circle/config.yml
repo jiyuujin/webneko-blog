@@ -42,18 +42,12 @@ jobs:
       - restore_dependencies_cache
       - install_dependencies
       - save_dependencies_cache
-  transpile:
-    steps:
-      - checkout
-      - restore_node_dependencies
-      - wait_for_db_start_up
       - transpile
 
 workflows:
-  build_and_transpile:
+  build:
     jobs:
       - build
-      - transpile
         filters:
           branches:
             only:
