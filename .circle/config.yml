@@ -3,32 +3,57 @@ version: 2.1
 orbs:
   webneko: circleci/hello-build@0.0.5
 
-jobs:
-  transpile:
+executors:
+  default:
     docker:
-      - image: node:12.4.0
-    working_directory: ~/repo
+      - image: circleci/node:12.4.0-buster
+
+commands:
+  restore_dependencies_cache:
     steps:
-      - checkout
       - restore_cache:
-        key: projectname-{{ .Branch }}-{{ checksum "yarn.lock" }}
-      - run:
-        name: System information
-        command: |
-          echo "Node $(node -v)"
-          echo "Yarn v$(yarn --version)"
+        name: Restore dependencies cache
+        keys:
+          - v1-node-dependencies-{{ checksum "yarn.lock" }}
+          - v1-node-dependencies
+  install_dependencies:
+    steps:
       - run:
         name: Install dependencies
-        command: yarn install
+        command: yarn install --frozen-lockfile
+  save_dependencies_cache:
+    steps:
+      - save_cache:
+        name: Save dependencies cache
+        key: v1-node-dependencies-{{ checksum "yarn.lock" }}
+        paths:
+          - node_modules
+  transpile:
+    steps:
       - run:
-        name: Transpile
-        command: yarn build
+          name: Transpile
+          command: yarn build
+
+jobs:
+  build:
+    executor: default
+    steps:
+      - checkout
+      - restore_dependencies_cache
+      - install_dependencies
+      - save_dependencies_cache
+  transpile:
+    steps:
+      - checkout
+      - restore_node_dependencies
+      - wait_for_db_start_up
+      - transpile
 
 workflows:
-  version: 2.1
-  build-transpile:
+  build_and_transpile:
     jobs:
-      - webneko/hello-build:
+      - build
+      - transpile
         filters:
           branches:
             only:
