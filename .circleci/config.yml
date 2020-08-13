@@ -1,0 +1,47 @@
+version: 2.1
+
+executors:
+  default:
+    docker:
+      - image: circleci/node:12.4.0-buster
+
+commands:
+  restore_dependencies_cache:
+    steps:
+      - restore_cache:
+        name: Restore dependencies cache
+        keys:
+          - v1-node-dependencies-{{ checksum "yarn.lock" }}
+          - v1-node-dependencies
+  install_dependencies:
+    steps:
+      - run:
+        name: Install dependencies
+        command: yarn install --frozen-lockfile
+  save_dependencies_cache:
+    steps:
+      - save_cache:
+        name: Save dependencies cache
+        key: v1-node-dependencies-{{ checksum "yarn.lock" }}
+        paths:
+          - node_modules
+  transpile:
+    steps:
+      - run:
+        name: Transpile
+        command: yarn build
+
+jobs:
+  build:
+    executor: default
+    steps:
+      - checkout
+      - restore_dependencies_cache
+      - install_dependencies
+      - save_dependencies_cache
+      - transpile
+
+workflows:
+  build:
+    jobs:
+      - build:
