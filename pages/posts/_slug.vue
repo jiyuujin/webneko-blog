@@ -41,13 +41,12 @@
       <h2 class="latest-article-title">
         あわせてよみたい..
       </h2>
-      -----
       <div v-for="post in latestPosts" :key="post.fields.title" class="items">
         <nuxt-link
           :key="post.fields.title"
           :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
         >
-          <post-item :post="post" />
+          <post-card :post="post" />
         </nuxt-link>
       </div>
     </div>
@@ -61,7 +60,7 @@ import DateComposable from '~/composables/date'
 import { fetchPost, fetchPosts } from '~/repositories/blog'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
-const PostItem = () => import('~/components/PostItem.vue')
+const PostCard = () => import('~/components/PostCard.vue')
 const SocialMenu = () => import('~/components/SocialMenu.vue')
 const NewContact = () => import('~/components/NewContact.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
@@ -71,7 +70,7 @@ const BuyMeACoffee = () => import('~/components/BuyMeACoffee.vue')
 export default defineComponent({
   components: {
     MainTemplate,
-    PostItem,
+    PostCard,
     SocialMenu,
     NewContact,
     GoogleAdsense,
