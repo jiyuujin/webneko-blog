@@ -1,13 +1,10 @@
 <template>
-  <div class="blog-item">
-    <div class="blog-item-title">
+  <div class="blog-card">
+    <div class="blog-card-title">
       {{ post.fields.title }}
     </div>
-    <div class="blog-item-date">
+    <div class="blog-card-date">
       {{ getCurrentDate(post.fields.publishDate) }}
-    </div>
-    <div class="blog-item-description">
-      {{ post.fields.description }}
     </div>
   </div>
 </template>

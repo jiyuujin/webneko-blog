@@ -101,7 +101,7 @@ a {
     margin: 12px 0;
   }
 
-  .blog-card {
+  .blog-item {
     position: relative;
     width: 100%;
     color: #000;
@@ -418,10 +418,15 @@ a {
   overflow: hidden;
   color: #000;
   text-align: left;
+  width: 52%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 
   &-title {
     font-size: 1.08rem;
     color: #000;
+    width: 100%;
   }
 
   &-description {
@@ -434,12 +439,41 @@ a {
   }
 
   .items {
-    height: 120px;
     overflow: hidden;
+    padding: 4px;
+    margin: 0 2%;
+    width: 46%;
+
+    a {
+      margin: 0;
+    }
 
     .items-title {
       font-size: 0.96rem;
       color: #000;
+    }
+  }
+
+  .blog-card {
+    position: relative;
+    padding: 8px;
+    margin: 4px 0;
+    min-height: 80px;
+    color: #000;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #ccc;
+
+    &-title {
+      font-size: 1.08rem;
+      line-height: 1.2;
+      color: #000;
+      text-align: left;
+    }
+
+    &-date {
+      font-size: 0.72rem;
+      color: #aaa;
+      text-align: left;
     }
   }
 }
@@ -513,6 +547,15 @@ footer {
     }
   }
 
+  .latest-article {
+    width: 88%;
+    margin: 2% 6% 2% 6%;
+
+    .items {
+      width: 96%;
+    }
+  }
+
   .privacy-policy,
   .contact {
     width: 98%;
@@ -554,7 +597,7 @@ footer {
   }
 
   .top {
-    .blog-card {
+    .blog-item {
       color: #fff;
 
       &-title {
@@ -624,6 +667,14 @@ footer {
 
     .items {
       .items-title {
+        color: #fff;
+      }
+    }
+
+    .blog-card {
+      color: #fff;
+
+      &-title {
         color: #fff;
       }
     }
