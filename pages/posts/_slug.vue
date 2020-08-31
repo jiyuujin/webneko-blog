@@ -54,8 +54,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext } from '@vue/composition-api'
-import DateComposable from '~/composables/date'
+import { defineComponent } from '@vue/composition-api'
+import useDate from '~/composables/date'
 
 import { fetchPost, fetchPosts } from '~/repositories/blog'
 
@@ -87,10 +87,9 @@ export default defineComponent({
       latestPosts: await fetchPosts(isLatest)
     }
   },
-  setup(props: {}, ctx: SetupContext) {
+  setup() {
     const isVertical = true
-    const dateModule = DateComposable(props, ctx)
-    return { isVertical, ...dateModule }
+    return { isVertical, ...useDate() }
   },
   head() {
     let heroImage = ''

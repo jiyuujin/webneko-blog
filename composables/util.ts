@@ -1,10 +1,8 @@
-import { SetupContext } from '@vue/composition-api'
-
 import { blogVersion } from '~/services/release'
 import { getCookie } from '~/services/cookie'
 import { PAGE } from '~/services/blog'
 
-export default (props: {}, ctx: SetupContext) => {
+export default () => {
   const blogVersionText = `v${blogVersion}`
 
   const blogMessage =

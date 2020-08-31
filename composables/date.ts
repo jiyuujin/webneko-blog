@@ -1,7 +1,7 @@
-import { computed, SetupContext } from '@vue/composition-api'
+import { computed } from '@vue/composition-api'
 import dayjs from 'dayjs'
 
-export default (props: {}, ctx: SetupContext) => {
+export default () => {
   const getCurrentMonth = computed(() => {
     return dayjs().format('YYYY-MM')
   })

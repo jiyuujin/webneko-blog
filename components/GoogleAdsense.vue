@@ -10,9 +10,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import Vue from 'vue'
 
-export default defineComponent({
+export default Vue.extend({
   props: {
     adSlot: {
       type: String,

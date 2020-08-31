@@ -9,9 +9,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext } from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 import { provideLayout } from '~/composables/layout'
-import UtilModule from '~/composables/util'
+import useUtil from '~/composables/util'
 
 const ModeChange = () => import('~/components/ModeChange.vue')
 const CookieFooter = () => import('~/components/CookieFooter.vue')
@@ -21,10 +21,9 @@ export default defineComponent({
     ModeChange,
     CookieFooter
   },
-  setup(props: {}, ctx: SetupContext) {
+  setup() {
     provideLayout()
-    const utilModule = UtilModule(props, ctx)
-    return { ...utilModule }
+    return { ...useUtil() }
   }
 })
 </script>

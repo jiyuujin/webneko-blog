@@ -7,14 +7,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext } from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 
-import UtilComposable from '~/composables/util'
+import useUtil from '~/composables/util'
 
 export default defineComponent({
-  setup(props: {}, ctx: SetupContext) {
-    const utilModule = UtilComposable({}, ctx)
-    return { ...utilModule }
+  setup() {
+    return { ...useUtil() }
   }
 })
 </script>
