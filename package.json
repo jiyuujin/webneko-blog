@@ -52,7 +52,7 @@
     "@typescript-eslint/eslint-plugin": "3.10.1",
     "@typescript-eslint/parser": "3.10.1",
     "core-js": "3.6.5",
-    "eslint": "7.8.0",
+    "eslint": "7.8.1",
     "fibers": "5.0.0",
     "sass": "1.26.10",
     "sass-loader": "10.0.1",
