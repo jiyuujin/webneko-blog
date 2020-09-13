@@ -54,7 +54,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import Vue from 'vue'
 import useDate from '~/composables/date'
 
 import { fetchPost, fetchPosts } from '~/repositories/blog'
@@ -67,7 +67,7 @@ const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 const LoadedMarkdown = () => import('~/components/LoadedMarkdown.vue')
 const BuyMeACoffee = () => import('~/components/BuyMeACoffee.vue')
 
-export default defineComponent({
+export default Vue.extend({
   components: {
     MainTemplate,
     PostCard,
@@ -87,34 +87,34 @@ export default defineComponent({
       latestPosts: await fetchPosts(isLatest)
     }
   },
-  setup() {
-    const isVertical = true
-    return { isVertical, ...useDate() }
+  data() {
+    return {
+      isVertical: true,
+      ...useDate()
+    }
   },
   head() {
     let heroImage = ''
-    if ((this as any).currentPost.fields.heroImage) {
-      heroImage = `https:${
-        (this as any).currentPost.fields.heroImage.fields.file.url
-      }`
+    if (this.currentPost.fields.heroImage) {
+      heroImage = `https:${this.currentPost.fields.heroImage.fields.file.url}`
     }
     return {
-      title: (this as any).currentPost.fields.title,
+      title: this.currentPost.fields.title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: (this as any).currentPost.fields.description
+          content: this.currentPost.fields.description
         },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: (this as any).currentPost.fields.title
+          content: this.currentPost.fields.title
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: (this as any).currentPost.fields.description
+          content: this.currentPost.fields.description
         },
         { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
         { hid: 'twitter:image', name: 'twitter:image', content: heroImage },
@@ -122,17 +122,17 @@ export default defineComponent({
         {
           hid: 'og:title',
           name: 'og:title',
-          content: (this as any).currentPost.fields.title
+          content: this.currentPost.fields.title
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: (this as any).currentPost.fields.description
+          content: this.currentPost.fields.description
         },
         {
           hid: 'og:url',
           name: 'og:url',
-          content: `/${(this as any).currentPost.fields.slug}` || ''
+          content: `/${this.currentPost.fields.slug}` || ''
         },
         {
           hid: 'og:image',
