@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import Vue from 'vue'
 
 import { fetchPosts, fetchTags } from '~/repositories/blog'
 
@@ -33,7 +33,7 @@ const PostItem = () => import('~/components/PostItem.vue')
 const HeaderText = () => import('~/components/HeaderText.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 
-export default defineComponent({
+export default Vue.extend({
   components: {
     MainTemplate,
     PostItem,

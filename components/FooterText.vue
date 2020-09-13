@@ -20,13 +20,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext } from '@vue/composition-api'
-import DateComposable from '@/composables/date'
+import { defineComponent } from '@vue/composition-api'
+import useDate from '@/composables/date'
 
 export default defineComponent({
-  setup(props: {}, ctx: SetupContext) {
-    const dateModule = DateComposable({}, ctx)
-    return { ...dateModule }
+  setup() {
+    return { ...useDate() }
   }
 })
 </script>

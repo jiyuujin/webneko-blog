@@ -53,8 +53,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext } from '@vue/composition-api'
-import ContactComposable from '~/composables/contact'
+import { defineComponent } from '@vue/composition-api'
+import useContact from '~/composables/contact'
 
 import { ContactCategories } from '~/services/contact'
 
@@ -69,10 +69,9 @@ export default defineComponent({
       default: ''
     }
   },
-  setup(props, ctx: SetupContext) {
-    const contactModule = ContactComposable(props, ctx)
+  setup(props) {
     const contactCategories = ContactCategories
-    return { ...contactModule, contactCategories }
+    return { contactCategories, ...useContact(props) }
   }
 })
 </script>

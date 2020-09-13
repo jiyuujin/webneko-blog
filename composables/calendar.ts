@@ -1,4 +1,4 @@
-import { SetupContext, computed } from '@vue/composition-api'
+import { computed } from '@vue/composition-api'
 import dayjs from 'dayjs'
 import { PostItem } from '../types/blog'
 
@@ -7,7 +7,7 @@ type CalendarProps = {
   ym: string
 }
 
-export default (props: CalendarProps, ctx: SetupContext) => {
+export default (props: CalendarProps) => {
   const startOfMonth = computed(() => {
     const startDay = dayjs(`${props.ym}/01`).startOf('month').format('dddd')
     if (startDay === 'Sunday') {

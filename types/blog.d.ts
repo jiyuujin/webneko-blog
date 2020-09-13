@@ -44,7 +44,13 @@ interface Sys {
 export interface Post {
   title: string
   slug: string
-  heroImage: string
+  heroImage: {
+    fields: {
+      file: {
+        url: string
+      }
+    }
+  }
   description: string
   body: string
   author: {
@@ -68,4 +74,11 @@ export interface Posts {
 export interface Param {
   slug: string
   ym: string
+}
+
+declare module 'vue/types/vue' {
+  interface Vue {
+    posts: Posts
+    currentPost: PostItem
+  }
 }

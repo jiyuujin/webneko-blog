@@ -19,12 +19,13 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "types": [
+      "@types/jest",
       "@types/node",
       "@types/webpack",
       "@types/webpack-env",
       "@nuxt/types"
     ],
-    "target": "esnext",
+    "target": "es2018",
     "module": "esnext",
     "lib": [
       "esnext",
@@ -43,16 +44,10 @@
     }
   },
   "include": [
-    "components/**/*",
-    "layouts/**/*",
-    "middleware/**/*",
-    "pages/**/*",
-    "plugins/**/*",
-    "store/**/*",
-    "utils/**/*"
+    "tests/**/*",
+    "node_modules/@nekohack/j-stylebook/dist/j-stylebook.css"
   ],
   "exclude": [
-    "node_modules",
-    "tests"
+    "node_modules"
   ]
 }

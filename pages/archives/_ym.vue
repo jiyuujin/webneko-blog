@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext, onMounted } from '@vue/composition-api'
+import Vue from 'vue'
 
 import { fetchPost } from '~/repositories/blog'
 import { isInvalidDate } from '~/services/date'
@@ -21,7 +21,7 @@ const MainTemplate = () => import('~/components/MainTemplate.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 const Calendar = () => import('~/components/Calendar.vue')
 
-export default defineComponent({
+export default Vue.extend({
   components: {
     MainTemplate,
     GoogleAdsense,
@@ -35,12 +35,10 @@ export default defineComponent({
       })
     }
   },
-  setup(props, ctx: SetupContext) {
-    onMounted(() => {
-      if (isInvalidDate(ctx.root.$route.params.ym)) {
-        ctx.root.$router.push('*')
-      }
-    })
+  mounted() {
+    if (isInvalidDate(this.$route.params.ym)) {
+      this.$router.push('*')
+    }
   }
 })
 </script>

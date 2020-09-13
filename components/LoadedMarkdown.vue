@@ -5,19 +5,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext, onMounted } from '@vue/composition-api'
+import Vue from 'vue'
 
-export default defineComponent({
+export default Vue.extend({
   props: {
     body: {
       type: String,
       default: ''
     }
   },
-  setup(props: {}, ctx: SetupContext) {
-    onMounted(() => {
-      // ctx.root.$microlinkjs('.link-preview')
-    })
+  mounted() {
+    // ctx.root.$microlinkjs('.link-preview')
   }
 })
 </script>

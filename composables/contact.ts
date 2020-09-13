@@ -1,4 +1,4 @@
-import { SetupContext, reactive } from '@vue/composition-api'
+import { reactive } from '@vue/composition-api'
 
 import { addContact } from '~/repositories/contact'
 
@@ -7,7 +7,7 @@ type ContactProps = {
   blogTitle: string
 }
 
-export default (props: ContactProps, ctx: SetupContext) => {
+export default (props: ContactProps) => {
   const form = reactive<{
     title: string
     category: number

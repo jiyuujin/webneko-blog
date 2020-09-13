@@ -51,9 +51,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext } from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 
-import CalendarComposable from '@/composables/calendar'
+import useCalendar from '@/composables/calendar'
 
 const WEEKDAY_LIST = ['日', '月', '火', '水', '木', '金', '土']
 
@@ -70,10 +70,9 @@ export default defineComponent({
       required: true
     }
   },
-  setup(props, ctx: SetupContext) {
+  setup(props) {
     const weekdays = WEEKDAY_LIST
-    const calendarModule = CalendarComposable(props, ctx)
-    return { weekdays, ...calendarModule }
+    return { weekdays, ...useCalendar(props) }
   }
 })
 </script>

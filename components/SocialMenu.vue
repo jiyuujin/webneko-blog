@@ -16,8 +16,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext } from '@vue/composition-api'
-import SocialCompoable from '~/composables/social'
+import { defineComponent } from '@vue/composition-api'
+import useSocial from '~/composables/social'
 
 type SocialMenuProps = {
   slugText: string
@@ -40,9 +40,8 @@ export default defineComponent({
       default: false
     }
   },
-  setup(props: SocialMenuProps, ctx: SetupContext) {
-    const socialModule = SocialCompoable(props, ctx)
-    return { ...socialModule }
+  setup(props: SocialMenuProps) {
+    return { ...useSocial(props) }
   }
 })
 </script>

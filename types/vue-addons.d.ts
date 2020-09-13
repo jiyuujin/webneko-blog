@@ -4,7 +4,9 @@ import { ActionContext as BaseActionContext } from 'vuex'
 import { firestore } from 'firebase'
 import { MetaInfo } from 'vue-meta'
 
-declare module 'vue/types/vue'
+declare module 'vue/types/vue' {
+  //
+}
 
 declare module 'vue/types/options' {
   interface ComponentOptions<V extends Vue> {
@@ -19,7 +21,9 @@ declare module 'vue/types/options' {
   }
 }
 
-declare module 'vue-router/types/router'
+declare module 'vue-router/types/router' {
+  //
+}
 
 declare module 'vuex-type-helper' {
   interface BindOptions {

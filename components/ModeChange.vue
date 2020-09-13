@@ -8,11 +8,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext } from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 import { useLayout } from '~/composables/layout'
 
 export default defineComponent({
-  setup(props: {}, ctx: SetupContext) {
+  setup() {
     const { change } = useLayout()
     return { change }
   }

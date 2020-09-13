@@ -1,12 +1,10 @@
-import { SetupContext } from '@vue/composition-api'
-
 type SocialMenuProps = {
   slugText: string
   title: string
   isVertical: boolean
 }
 
-export default (props: SocialMenuProps, ctx: SetupContext) => {
+export default (props: SocialMenuProps) => {
   const socialMenu = ['twitter', 'hatena', 'note']
 
   const handleClick = (item: string) => {

@@ -13,9 +13,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext } from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 
-import DateComposable from '~/composables/date'
+import useDate from '~/composables/date'
 
 type PostItemProps = {
   post: object
@@ -30,9 +30,8 @@ export default defineComponent({
       }
     }
   },
-  setup(props: PostItemProps, ctx: SetupContext) {
-    const dateModule = DateComposable({}, ctx)
-    return { ...dateModule }
+  setup(props: PostItemProps) {
+    return { ...useDate() }
   }
 })
 </script>
