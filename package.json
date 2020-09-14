@@ -46,23 +46,23 @@
     "vue-infinite-loading": "2.4.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.4",
+    "@babel/core": "7.11.6",
     "@nekohack/eslint-config-vue": "0.4.0",
     "@nuxt/types": "2.14.5",
     "@nuxt/typescript-build": "2.0.3",
     "@nuxt/typescript-runtime": "2.0.0",
-    "@types/jest": "^26.0.10",
+    "@types/jest": "26.0.13",
     "@types/node": "12.12.58",
     "@types/webpack": "4.41.22",
     "@types/webpack-env": "1.15.2",
     "@typescript-eslint/eslint-plugin": "4.1.0",
     "@typescript-eslint/parser": "4.1.0",
-    "@vue/test-utils": "^1.0.5",
+    "@vue/test-utils": "1.1.0",
     "babel-core": "7.0.0-bridge.0",
     "core-js": "3.6.5",
     "eslint": "7.8.1",
     "fibers": "5.0.0",
-    "jest": "^26.4.2",
+    "jest": "26.4.2",
     "sass": "1.26.10",
     "sass-loader": "10.0.2",
     "stylelint": "13.7.1",
@@ -70,8 +70,8 @@
     "stylelint-config-recess-order": "2.1.0",
     "stylelint-config-standard": "20.0.0",
     "stylelint-scss": "3.18.0",
-    "ts-jest": "^26.3.0",
-    "vue-jest": "^3.0.6"
+    "ts-jest": "26.3.0",
+    "vue-jest": "3.0.6"
   },
   "jest": {
     "globals": {
