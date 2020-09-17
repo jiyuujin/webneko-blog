@@ -54,7 +54,7 @@
     "@types/jest": "26.0.14",
     "@types/node": "12.12.61",
     "@types/webpack": "4.41.22",
-    "@types/webpack-env": "1.15.2",
+    "@types/webpack-env": "1.15.3",
     "@typescript-eslint/eslint-plugin": "4.1.1",
     "@typescript-eslint/parser": "4.1.1",
     "@vue/test-utils": "1.1.0",
