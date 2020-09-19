@@ -102,9 +102,9 @@
       "src/components/**/*.{vue}"
     ],
     "testPathIgnorePatterns": [
-      ".nuxt",
-      "node_modules",
-      "dist"
+      "<rootDir>/.nuxt",
+      "<rootDir>/node_modules",
+      "<rootDir>/dist"
     ],
     "transformIgnorePatterns": [
       "node_modules"
