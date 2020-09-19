@@ -4,7 +4,7 @@
       <mode-change key="top-mode-change" />
       <nuxt key="top-nuxt" />
     </transition-group>
-    <cookie-footer v-if="!isExistedCookie" />
+    <cookie-footer-wrapper />
   </div>
 </template>
 
@@ -12,22 +12,16 @@
 import { defineComponent } from '@vue/composition-api'
 import { provideLayout } from '~/composables/layout'
 
-import { getCookie } from '~/services/cookie'
-
 const ModeChange = () => import('~/components/ModeChange.vue')
-const CookieFooter = () => import('~/components/CookieFooter.vue')
+const CookieFooterWrapper = () => import('~/components/CookieFooterWrapper.vue')
 
 export default defineComponent({
   components: {
     ModeChange,
-    CookieFooter
+    CookieFooterWrapper
   },
   setup() {
     provideLayout()
-    const isExistedCookie = () => {
-      getCookie()
-    }
-    return { isExistedCookie }
   }
 })
 </script>
