@@ -7,13 +7,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import Vue from 'vue'
 
-import useUtil from '~/composables/util'
-
-export default defineComponent({
-  setup() {
-    return { ...useUtil() }
-  }
+export default Vue.extend({
+  //
 })
 </script>
