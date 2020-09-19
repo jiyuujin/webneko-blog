@@ -13,15 +13,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import Vue from 'vue'
+import dayjs from 'dayjs'
 
-import useDate from '~/composables/date'
-
-type PostItemProps = {
-  post: object
-}
-
-export default defineComponent({
+export default Vue.extend({
   props: {
     post: {
       type: Object,
@@ -30,8 +25,10 @@ export default defineComponent({
       }
     }
   },
-  setup(props: PostItemProps) {
-    return { ...useDate() }
+  methods: {
+    getCurrentDate(date: Date) {
+      return dayjs(date).format('MM月 DD日')
+    }
   }
 })
 </script>
