@@ -11,7 +11,8 @@
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
 import { provideLayout } from '~/composables/layout'
-import useUtil from '~/composables/util'
+
+import { getCookie } from '~/services/cookie'
 
 const ModeChange = () => import('~/components/ModeChange.vue')
 const CookieFooter = () => import('~/components/CookieFooter.vue')
@@ -23,7 +24,10 @@ export default defineComponent({
   },
   setup() {
     provideLayout()
-    return { ...useUtil() }
+    const isExistedCookie = () => {
+      getCookie()
+    }
+    return { isExistedCookie }
   }
 })
 </script>
