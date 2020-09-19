@@ -4,9 +4,9 @@
     <div v-if="tags" class="tag-text">
       <template v-for="tag in tags">
         <div :key="tag.key" class="tag">
-          <nuxt-link :to="`/tag/${tag.key}`">
+          <a :href="`/tag/${tag.key}`">
             {{ `${tag.key} (${tag.value})` }}
-          </nuxt-link>
+          </a>
         </div>
       </template>
     </div>

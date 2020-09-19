@@ -3,7 +3,7 @@
     <img src="/icon/bakeneko2.png" alt="icon" />
     <div class="author">
       <h1>
-        Web猫ブログ <span>{{ blogVersionText }}</span>
+        Web猫ブログ <span>{{ blogVersion }}</span>
       </h1>
       Kyoto, Osaka / Web developer, HR adviser, etc..
       <a href="https://yuukit.me/">
@@ -14,66 +14,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
-import useUtil from '~/composables/util'
+import Vue from 'vue'
 
-export default defineComponent({
-  setup() {
-    return { ...useUtil() }
+import { blogVersion } from '~/services/release'
+
+export default Vue.extend({
+  data() {
+    return { blogVersion }
   }
 })
 </script>
 
 <style lang="scss" scoped>
-.header {
-  display: flex;
-  align-items: center;
-  margin: 18px 0 24px 0;
-
-  img {
-    width: 16%;
-    min-width: 40px;
-    max-width: 80px;
-    height: 80px;
-    margin: 0 12px;
-    border-radius: 500rem;
-  }
-
-  .author {
-    margin-left: 12px;
-
-    h1 {
-      display: block;
-      margin: 0 0 10px 0;
-      font-size: 1.2em;
-      font-weight: bold;
-      margin-block-start: 0.67em;
-      margin-block-end: 0.67em;
-      margin-inline-start: 0;
-      margin-inline-end: 0;
-
-      span {
-        font-size: 0.8em;
-        color: #98a0a6;
-      }
-    }
-  }
-}
-
-@media (max-width: 600px) {
-  .header {
-    img {
-      width: 12%;
-      min-width: 60px;
-      max-width: 60px;
-      height: 60px;
-    }
-
-    .author {
-      h1 {
-        font-size: 1rem;
-      }
-    }
-  }
-}
+@import '@/assets/header';
 </style>

@@ -1,13 +1,13 @@
 import { mount } from '@vue/test-utils'
 
-import HeaderText from '~/components/HeaderText.vue'
+import MainTemplate from '~/components/MainTemplate.vue'
 
-describe('Header', () => {
+describe('MainTemplate', () => {
   test('correctly render', () => {
     const props = {
-      //
+      tags: []
     }
-    const wrapper = mount(HeaderText, {
+    const wrapper = mount(MainTemplate, {
       propsData: props
     })
     expect(wrapper.exists()).toBe(true)

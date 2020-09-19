@@ -13,9 +13,6 @@ export default Vue.extend({
       type: String,
       default: ''
     }
-  },
-  mounted() {
-    // ctx.root.$microlinkjs('.link-preview')
   }
 })
 </script>

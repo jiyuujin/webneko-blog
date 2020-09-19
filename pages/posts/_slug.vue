@@ -55,6 +55,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
 import useDate from '~/composables/date'
 
 import { fetchPost, fetchPosts } from '~/repositories/blog'
