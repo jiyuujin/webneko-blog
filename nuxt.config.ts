@@ -11,7 +11,7 @@ const md = require('markdown-it')
 require('dotenv').config()
 
 export default {
-  mode: 'universal',
+  ssr: true,
 
   head: {
     title: 'トップ',
