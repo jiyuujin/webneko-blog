@@ -1,18 +1,10 @@
-# webneko-blog
+<p align="center">
+  <img src='https://github.com/jiyuujin/webneko-blog/blob/master/webneko-blog.svg?sanitize=true' alt="webneko blog" title="webneko blog" width="256px" height='256px'/>
+</p>
 
-https://webneko.dev/
-
-```bash
-# nuxt
-yarn dev
-```
-
-### Clear Cache
-
-```bash
-# hard-source-webpack-plugin
-rm -rf node_modules/.cache/hard-source/
-```
+<div align="center">
+  <h2>Web猫ブログ</h2>
+</div>
 
 ## Skills
 
