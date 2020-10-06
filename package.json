@@ -53,7 +53,7 @@
     "@nuxt/typescript-build": "2.0.3",
     "@nuxt/typescript-runtime": "2.0.0",
     "@types/jest": "26.0.14",
-    "@types/node": "12.12.62",
+    "@types/node": "12.12.63",
     "@types/webpack": "4.41.22",
     "@types/webpack-env": "1.15.3",
     "@typescript-eslint/eslint-plugin": "4.3.0",
