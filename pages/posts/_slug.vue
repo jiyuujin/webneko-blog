@@ -21,7 +21,7 @@
     <loaded-markdown :body="currentPost.fields.body" />
 
     <google-adsense
-      slot="5228106955"
+      ad-slot="5228106955"
       ad-format="fluid"
       ad-layout="in-article"
       :ad-style="{ display: 'block', 'text-align': 'center' }"
