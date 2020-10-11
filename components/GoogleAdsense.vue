@@ -1,7 +1,7 @@
 <template>
   <div class="ad">
     <adsbygoogle
-      :ad-slot="adSlot"
+      :slot="adSlot"
       :ad-format="adFormat"
       :ad-layout="adLayout"
       :ad-style="adStyle"

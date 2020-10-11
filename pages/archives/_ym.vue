@@ -3,7 +3,7 @@
     <div class="main">
       <calendar :items="archives" :ym="$route.params.ym" />
       <google-adsense
-        slot="5919567639"
+        ad-slot="5919567639"
         ad-format="auto"
         :ad-style="{ display: 'block' }"
       />
