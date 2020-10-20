@@ -52,7 +52,7 @@
     "@nuxt/types": "2.14.7",
     "@nuxt/typescript-build": "2.0.3",
     "@nuxt/typescript-runtime": "2.0.0",
-    "@types/jest": "26.0.14",
+    "@types/jest": "26.0.15",
     "@types/node": "12.12.68",
     "@types/webpack": "4.41.22",
     "@types/webpack-env": "1.15.3",
