@@ -17,6 +17,3 @@ rules:
   at-rule-no-unknown: true
   scss/at-rule-no-unknown: true
   no-empty-source: null
-  a11y/media-prefers-reduced-motion: true
-  a11y/no-outline-none: true
-  a11y/selector-pseudo-class-focus: true
