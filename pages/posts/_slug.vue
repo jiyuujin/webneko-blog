@@ -38,9 +38,7 @@
     <new-contact :blog-title="currentPost.fields.title" />
 
     <div class="latest-article">
-      <h2 class="latest-article-title">
-        あわせてよみたい..
-      </h2>
+      <h2 class="latest-article-title">あわせてよみたい..</h2>
       <div v-for="post in latestPosts" :key="post.fields.title" class="items">
         <nuxt-link
           :key="post.fields.title"
