@@ -1,24 +1,12 @@
 {
   "extends": [
-    "config:base"
+    "github>jiyuujin/renovate-config"
   ],
   "automerge": true,
   "major": {
     "automerge": false
   },
-  "schedule": [
-    "after 10pm and before 6am on every weekday"
-  ],
-  "assignees": [
-    "jiyuujin"
-  ],
   "packageRules": [
-    {
-      "packageNames": [
-        "node"
-      ],
-      "enabled": false
-    },
     {
       "packagePatterns": ["^@microlink/"],
       "enabled": false
