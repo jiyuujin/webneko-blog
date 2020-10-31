@@ -26,10 +26,9 @@ export default Vue.extend({
 
 <style scoped>
 .error {
-  min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   text-align: center;
 }
 </style>
