@@ -6,9 +6,7 @@
         Web猫ブログ <span>{{ blogVersion }}</span>
       </h1>
       Kyoto, Osaka / Web developer, HR adviser, etc..
-      <a href="https://yuukit.me/">
-        profile
-      </a>
+      <a href="https://yuukit.me/">プロフィール</a>
     </div>
   </div>
 </template>

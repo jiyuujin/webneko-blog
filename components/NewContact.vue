@@ -1,10 +1,8 @@
 <template>
   <div class="contact">
-    <div class="contact-title">
-      お問い合わせ
-    </div>
+    <div class="contact-title">お問い合わせ</div>
 
-    <div style="padding: 8px 0;">
+    <div class="form">
       <j-input
         :text="form.title"
         placeholder="タイトル"
@@ -13,7 +11,7 @@
       />
     </div>
     <template v-if="category === 'manual'">
-      <div style="padding: 8px 0;">
+      <div class="form">
         <j-select
           :options="contactCategories"
           :values="form.category"
@@ -21,7 +19,7 @@
         />
       </div>
     </template>
-    <div style="padding: 8px 0;">
+    <div class="form">
       <j-input
         :text="form.email"
         placeholder="メールアドレス"
@@ -29,7 +27,7 @@
         @handleInput="applyEmail"
       />
     </div>
-    <div style="padding: 8px 0;">
+    <div class="form">
       <j-input
         :text="form.description"
         placeholder="詳細"
@@ -37,7 +35,7 @@
         @handleInput="applyDescription"
       />
     </div>
-    <div style="padding: 8px 0;">
+    <div class="form">
       <j-button text="送信します" @handleClick="submit" />
       <span>
         <a
@@ -75,3 +73,9 @@ export default defineComponent({
   }
 })
 </script>
+
+<style scoped>
+.form {
+  padding: 8px 0;
+}
+</style>

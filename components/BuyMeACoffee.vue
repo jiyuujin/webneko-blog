@@ -10,9 +10,7 @@
         alt="Buy me a coffee"
         decoding="async"
       />
-      <span style="margin-left: 5px;">
-        Buy me a coffee
-      </span>
+      <span>Buy me a coffee</span>
     </a>
   </div>
 </template>

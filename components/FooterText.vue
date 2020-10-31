@@ -2,15 +2,9 @@
   <footer>
     <div class="footer-text">
       <div class="menu">
-        <a href="/">
-          トップ
-        </a>
-        <a :href="`/archives/${getCurrentMonth}`">
-          アーカイヴ
-        </a>
-        <a href="/contact">
-          お問い合わせ
-        </a>
+        <a href="/">トップ</a>
+        <a :href="`/archives/${getCurrentMonth}`">アーカイヴ</a>
+        <a href="/contact">お問い合わせ</a>
       </div>
       <div class="copyright">
         Created © 2018-2020 jiyuujin LAB. All Rights Reserved.

@@ -1,14 +1,10 @@
 <template>
   <div class="error">
     <template v-if="error.statusCode === 404">
-      <nuxt-link to="/">
-        That's \ 404 /
-      </nuxt-link>
+      <nuxt-link to="/">That's \ 404 /</nuxt-link>
     </template>
     <template v-else>
-      <nuxt-link to="/">
-        Please go home.. mm
-      </nuxt-link>
+      <nuxt-link to="/">Please go home.. mm</nuxt-link>
     </template>
   </div>
 </template>
