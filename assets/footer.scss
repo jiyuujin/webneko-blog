@@ -71,11 +71,16 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
+.dark-theme {
   .menu {
     a {
       color: #fff;
       background-color: #303030;
+
+      &:hover,
+      &:focus {
+        color: #42b883;
+      }
     }
   }
 }
