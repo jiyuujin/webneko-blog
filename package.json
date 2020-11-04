@@ -42,7 +42,7 @@
     "markdown-it-toc": "1.1.0",
     "markdown-it-video": "0.6.3",
     "nuxt": "2.14.7",
-    "sanitize-html": "2.1.1",
+    "sanitize-html": "2.1.2",
     "ts-node": "9.0.0",
     "vue-infinite-loading": "2.4.5"
   },
