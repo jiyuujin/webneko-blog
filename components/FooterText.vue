@@ -39,7 +39,14 @@
         </a>
       </div>
       <div class="copyright">
-        Created © 2018-2020 jiyuujin LAB. All Rights Reserved.
+        <a
+          href="https://github.com/nekohack"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ©︎ jiyuujin LAB. by {{ ' ' }}
+          <img src="/icon/nekohack.png" alt="nekohack logo" class="logo" />
+        </a>
       </div>
     </div>
   </footer>
