@@ -12,6 +12,22 @@
   word-spacing: 5px;
 }
 
+.copyright {
+  font-size: 1.8vmin;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    text-decoration: none;
+  }
+
+  img {
+    margin-left: 0.5rem;
+  }
+}
+
 .menu {
   display: flex;
   align-items: center;
@@ -49,11 +65,8 @@
   }
 }
 
-.copyright {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8vmin;
+.logo {
+  height: 4em;
 }
 
 @media (max-width: 500px) {
@@ -64,10 +77,6 @@
     a {
       margin-bottom: 12px;
     }
-  }
-
-  .copyright {
-    font-size: 12px;
   }
 }
 
