@@ -1,5 +1,6 @@
 <p align="center">
-  <img src='https://github.com/jiyuujin/webneko-blog/blob/master/webneko-blog.svg?sanitize=true' alt="webneko blog" title="webneko blog" width="256px" height='256px'/>
+  <img src='https://github.com/jiyuujin/webneko-blog/blob/master/webneko-blog-white.svg?sanitize=true' alt="webneko blog" title="webneko blog" width="256px" height='256px'/>
+  <img src='https://github.com/jiyuujin/webneko-blog/blob/master/webneko-blog-black.svg?sanitize=true' alt="webneko blog" title="webneko blog" width="256px" height='256px'/>
 </p>
 
 <div align="center">
