@@ -1,29 +1,46 @@
 <template>
   <div class="buy-me-a-coffee">
     <a
-      class="bmc-button"
-      target="_blank"
       href="https://www.buymeacoffee.com/VqwL7dpxl"
+      target="_blank"
+      rel="noopener noreferrer"
     >
       <img
-        src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg"
+        v-if="mode === 'light'"
+        src="/icon/buy_me_a_coffee-black.svg"
         alt="Buy me a coffee"
         decoding="async"
       />
-      <span>Buy me a coffee</span>
+      <img
+        v-if="mode === 'dark'"
+        src="/icon/buy_me_a_coffee-white.svg"
+        alt="Buy me a coffee"
+        decoding="async"
+      />
     </a>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { useLayout } from '~/composables/layout'
 
-export default Vue.extend({
-  //
-})
+export default {
+  setup() {
+    const { mode } = useLayout()
+    return { mode }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
+img {
+  height: 48px;
+  margin-bottom: 1px;
+  vertical-align: middle;
+  border: none;
+  box-shadow: none;
+}
+
 @media screen and (prefers-reduced-motion: reduce) {
   .bmc-button {
     box-sizing: border-box;

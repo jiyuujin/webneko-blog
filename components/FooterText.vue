@@ -45,7 +45,7 @@
           rel="noopener noreferrer"
         >
           ©︎ jiyuujin LAB. by {{ ' ' }}
-          <img src="/icon/nekohack.png" alt="nekohack logo" class="logo" />
+          <img src="/icon/nekohack.svg" alt="nekohack logo" class="logo" />
         </a>
       </div>
     </div>

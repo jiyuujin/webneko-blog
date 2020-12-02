@@ -9,16 +9,27 @@
         href="#"
         @click="handleClick(item)"
       >
-        <img :src="`/icon/${item}.png`" :alt="item" decoding="async" />
+        <img
+          v-if="mode === 'light'"
+          :src="`/icon/${item}-black.svg`"
+          :alt="item"
+          decoding="async"
+        />
+        <img
+          v-if="mode === 'dark'"
+          :src="`/icon/${item}-white.svg`"
+          :alt="item"
+          decoding="async"
+        />
       </a>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { useLayout } from '~/composables/layout'
 
-export default Vue.extend({
+export default {
   props: {
     slugText: {
       type: String,
@@ -33,21 +44,20 @@ export default Vue.extend({
       default: false
     }
   },
-  data() {
-    return {
-      socialMenu: ['twitter', 'hatena', 'note']
-    }
-  },
-  methods: {
-    handleClick(item: string) {
+  setup(props, ctx) {
+    const { mode } = useLayout()
+
+    const socialMenu = ['twitter', 'hatena', 'note']
+
+    const handleClick = (item: string) => {
       let url = ''
 
       if (item === 'twitter') {
-        url = `http://twitter.com/share?text=${this.title}&url=https://webneko.dev/posts/${this.slugText}`
+        url = `http://twitter.com/share?text=${props.title}&url=https://webneko.dev/posts/${props.slugText}`
       } else if (item === 'hatena') {
-        url = `http://b.hatena.ne.jp/entry/webneko.dev/posts/${this.slugText}`
+        url = `http://b.hatena.ne.jp/entry/webneko.dev/posts/${props.slugText}`
       } else {
-        url = `https://note.mu/intent/post?url=https://webneko.dev/posts/${this.slugText}`
+        url = `https://note.mu/intent/post?url=https://webneko.dev/posts/${props.slugText}`
       }
 
       window.open(
@@ -58,6 +68,8 @@ export default Vue.extend({
 
       return false
     }
+
+    return { mode, socialMenu, handleClick }
   }
-})
+}
 </script>
