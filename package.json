@@ -30,7 +30,7 @@
     "@nuxtjs/pwa": "3.3.2",
     "@nuxtjs/sitemap": "2.4.0",
     "@vue/composition-api": "0.6.7",
-    "contentful": "7.15.1",
+    "contentful": "7.15.2",
     "dayjs": "1.9.6",
     "firebase": "7.24.0",
     "markdown-it": "12.0.2",
