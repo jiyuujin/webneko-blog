@@ -8,15 +8,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
 import { useLayout } from '~/composables/layout'
 
-export default defineComponent({
+export default {
   setup() {
     const { change } = useLayout()
     return { change }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>

@@ -1,26 +1,15 @@
 <template>
   <div class="header">
-    <img src="/icon/bakeneko2.png" alt="icon" />
     <div class="author">
-      <h1>
-        Web猫ブログ <span>{{ blogVersion }}</span>
-      </h1>
-      Kyoto, Osaka / Web developer, HR adviser, etc..
-      <a href="https://yuukit.me/">プロフィール</a>
+      <h1>Web猫ブログ</h1>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-
-import { blogVersion } from '~/services/release'
-
-export default Vue.extend({
-  data() {
-    return { blogVersion }
-  }
-})
+export default {
+  //
+}
 </script>
 
 <style lang="scss" scoped>
