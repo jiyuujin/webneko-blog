@@ -153,6 +153,8 @@ export default {
     '~plugins/sanitize.ts'
   ],
 
+  components: true,
+
   modules: [
     '@nuxtjs/dotenv',
     [
