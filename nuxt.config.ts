@@ -341,8 +341,7 @@ export default {
           fiber: fiber
         }
       }
-    },
-    hardSource: true
+    }
   },
 
   buildModules: [
