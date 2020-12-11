@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "dev": "nuxt-ts",
-    "build": "nuxt-ts build --no-lock",
+    "build:front": "nuxt-ts build --no-lock",
+    "build:feeds": "ts-node --project tsconfig.builder.json api/feeds.ts",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate --no-lock",
     "eslint": "eslint --ext .ts,.vue --ignore-path .gitignore -c .eslintrc.js .",
@@ -62,7 +63,9 @@
     "babel-core": "7.0.0-bridge.0",
     "core-js": "3.8.1",
     "eslint": "7.15.0",
+    "feed": "^4.2.1",
     "fibers": "5.0.0",
+    "fs-extra": "^9.0.1",
     "jest": "26.6.3",
     "sass": "1.30.0",
     "sass-loader": "10.1.0",
@@ -72,6 +75,7 @@
     "stylelint-config-standard": "20.0.0",
     "stylelint-scss": "3.18.0",
     "ts-jest": "26.4.4",
+    "util": "^0.12.3",
     "vue-jest": "3.0.7"
   },
   "jest": {

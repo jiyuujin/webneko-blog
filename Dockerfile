@@ -14,7 +14,7 @@ RUN yarn install --quiet
 COPY . .
 
 # ビルドする
-RUN yarn run build
+RUN yarn run build:front
 
 # なくても良いけど
 ENV HOST 0.0.0.0
