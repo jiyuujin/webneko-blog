@@ -16,6 +16,7 @@
     "test": "jest",
     "test-cover": "jest --coverage",
     "test:w": "npm run test-cover -- --watch",
+    "lhci": "lhci autorun",
     "precommit": "npm run lint"
   },
   "dependencies": {
@@ -48,6 +49,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.12.10",
+    "@lhci/cli": "^0.6.1",
     "@nekohack/eslint-config-vue": "1.0.0-beta.1",
     "@nuxt/types": "2.14.10",
     "@nuxt/typescript-build": "2.0.3",

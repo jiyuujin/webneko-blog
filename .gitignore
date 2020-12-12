@@ -93,3 +93,5 @@ yarn.lock
 .github.json
 
 static/sw.js
+
+.lighthouseci
