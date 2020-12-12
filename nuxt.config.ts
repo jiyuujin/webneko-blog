@@ -1,6 +1,6 @@
 import { Configuration } from 'webpack'
 import { Context } from '@nuxt/types'
-import { ContentfulClientApi } from 'contentful'
+import { ContentfulClientApi, Entry } from 'contentful'
 
 const contentful = require('contentful')
 const sass = require('sass')
@@ -259,8 +259,8 @@ export default {
       })
 
       const urls: string[] = []
-      posts.items.forEach((val: any, idx: number) => {
-        urls[idx] = 'posts/' + val.fields.slug
+      posts.items.forEach((post: Entry<any>, index: number) => {
+        urls[index] = 'posts/' + post.fields.slug
       })
 
       return urls
