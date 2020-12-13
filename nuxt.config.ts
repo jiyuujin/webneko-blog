@@ -394,6 +394,7 @@ export default {
     PROJECT_ID: process.env.PROJECT_ID,
     GRAPH_API: process.env.GRAPH_API,
     APOLLO_KEY: process.env.APOLLO_KEY,
-    MICROLINK_API: process.env.MICROLINK_API
+    MICROLINK_API: process.env.MICROLINK_API,
+    LHCI_GITHUB_APP_TOKEN: process.env.LHCI_GITHUB_APP_TOKEN
   }
 }

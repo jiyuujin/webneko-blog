@@ -48,4 +48,6 @@ jobs:
           npm install
           npm run build --if-present
           npm install -g @lhci/cli@0.4.x
-          lhci autorun
+          lhci autorun --config=.lighthouserc.json
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
