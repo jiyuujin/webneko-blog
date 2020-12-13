@@ -40,7 +40,6 @@ jobs:
     - name: Transpile
       run: |
         npm install
-        npm run build --if-present
+        npm run build:front --if-present
       env:
         CI: true
-  
