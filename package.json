@@ -54,7 +54,7 @@
     "@nuxt/types": "2.14.11",
     "@nuxt/typescript-build": "2.0.3",
     "@nuxt/typescript-runtime": "2.0.0",
-    "@types/jest": "26.0.18",
+    "@types/jest": "26.0.19",
     "@types/node": "12.19.9",
     "@types/webpack": "4.41.25",
     "@types/webpack-env": "1.16.0",
