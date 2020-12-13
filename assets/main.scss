@@ -358,6 +358,7 @@ a {
 
 .ad {
   width: 52%;
+  height: 120px;
   margin: 2% 24% 2% 24%;
   overflow: hidden;
   color: #000;
@@ -370,24 +371,13 @@ a {
   color: #000;
   text-align: center;
 
-  a {
+  img {
+    width: 36px;
+    height: 36px;
+    margin: 8px;
     cursor: pointer;
-
-    img {
-      width: 36px;
-      height: 36px;
-      margin: 8px;
-      filter: #aaa;
-      filter: grayscale(1);
-    }
-
-    &:hover,
-    &:focus {
-      background: #fff;
-      filter: none;
-      filter: grayscale(0);
-      opacity: 100%;
-    }
+    filter: #aaa;
+    filter: grayscale(1);
   }
 
   &-vertical {

@@ -1,27 +1,24 @@
 <template>
   <div class="social-menu">
     <div
+      v-for="item in socialMenu"
+      :key="item"
       :class="isVertical ? 'social-menu-vertical' : 'social-menu-horizontal'"
     >
-      <a
-        v-for="item in socialMenu"
-        :key="item"
-        href="#"
+      <img
+        v-if="mode === 'light'"
+        :src="`/icon/${item}-black.svg`"
+        :alt="item"
+        decoding="async"
         @click="handleClick(item)"
-      >
-        <img
-          v-if="mode === 'light'"
-          :src="`/icon/${item}-black.svg`"
-          :alt="item"
-          decoding="async"
-        />
-        <img
-          v-if="mode === 'dark'"
-          :src="`/icon/${item}-white.svg`"
-          :alt="item"
-          decoding="async"
-        />
-      </a>
+      />
+      <img
+        v-if="mode === 'dark'"
+        :src="`/icon/${item}-white.svg`"
+        :alt="item"
+        decoding="async"
+        @click="handleClick(item)"
+      />
     </div>
   </div>
 </template>
