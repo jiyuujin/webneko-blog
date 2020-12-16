@@ -121,6 +121,16 @@ a {
       line-height: 1.2;
       color: #303030;
       text-align: left;
+
+      span {
+        display: inline-block;
+        padding: 0 0.75rem;
+        margin: 0.25rem;
+        color: #fff;
+        background-color: #718096;
+        border-color: #2e3439;
+        border-width: 1px;
+      }
     }
 
     &-date {
@@ -353,6 +363,50 @@ a {
       width: 80%;
       margin: 0 10%;
     }
+
+    .scrap-item {
+      display: flex;
+      flex-wrap: wrap;
+
+      &_left {
+        flex-direction: row;
+      }
+
+      .time {
+        position: relative;
+        margin: 0 20px 20px;
+        font-size: 8px;
+      }
+
+      .balloon {
+        position: relative;
+        display: inline-block;
+        max-width: 400px;
+        padding: 8px 15px;
+        margin: 10px 20px 20px;
+        text-align: left;
+        background: #f0f0f0;
+        border-radius: 15px;
+
+        ::after {
+          position: absolute;
+          top: 0;
+          left: -10px;
+          content: '';
+          border: 14px solid transparent;
+          border-top-color: #f0f0f0;
+        }
+      }
+
+      .icon-box {
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+        background: #f0f0f0;
+        border: 2px solid #ddd;
+        border-radius: 50%;
+      }
+    }
   }
 }
 
@@ -399,7 +453,8 @@ a {
   text-align: center;
 }
 
-.contact {
+.contact,
+.scrap {
   margin: 2% 24% 2% 24%;
   overflow: hidden;
   color: #000;
@@ -472,7 +527,8 @@ a {
 }
 
 .privacy-policy,
-.contact {
+.contact,
+.scrap {
   width: 52%;
   margin: 2% 24% 2% 24%;
   font-size: 0.8rem;
@@ -550,7 +606,8 @@ footer {
   }
 
   .privacy-policy,
-  .contact {
+  .contact,
+  .scrap {
     width: 98%;
     margin: 2% 1% 2% 1%;
   }
@@ -599,6 +656,12 @@ footer {
 
       &-description {
         color: #fefefe;
+
+        span {
+          color: #718096;
+          background-color: #fff;
+          border-color: #718096;
+        }
       }
     }
   }
@@ -641,6 +704,21 @@ footer {
         color: #fff;
       }
     }
+
+    .scrap-item {
+      .balloon {
+        color: #fefefe;
+        background-color: #51565d;
+
+        ::after {
+          border-top-color: #51565d;
+        }
+      }
+
+      .icon-box {
+        background-color: #51565d;
+      }
+    }
   }
 
   .latest-article {
@@ -674,7 +752,8 @@ footer {
   }
 
   .privacy-policy,
-  .contact {
+  .contact,
+  .scrap {
     &-title {
       color: #fff;
     }
@@ -793,7 +872,8 @@ footer {
   }
 
   .privacy-policy,
-  .contact {
+  .contact,
+  .scrap {
     &-title {
       color: #fff;
     }

@@ -43,9 +43,7 @@ export default (props: ContactProps) => {
   }
 
   const submit = async () => {
-    const responseText = await addContact(form, props.category)
-    /* eslint-disable */
-    console.log(responseText)
+    await addContact(form, props.category)
     reset()
   }
 
