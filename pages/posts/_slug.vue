@@ -20,6 +20,31 @@
 
     <loaded-markdown :body="currentPost.fields.body" />
 
+    <div v-if="scraps" class="article">
+      <div v-for="(scrap, index) in scraps" :key="index" class="post-detail">
+        <div v-for="item in scrap" :key="item.id" class="scrap-item">
+          <div class="scrap-item scrap-item_left">
+            <div class="icon-box">
+              <img
+                :alt="item.data.name"
+                :src="`/icon/bakeneko.svg`"
+                width="40"
+                height="40"
+                class="icon"
+              />
+            </div>
+            <div
+              class="balloon"
+              v-html="$md.render($sanitize(item.data.message))"
+            />
+            <div class="time">{{ dateTimeFormat(item.data.time) }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <new-scrap v-if="currentPost.fields.category === 'Scrap'" :slug="slug" />
+
     <google-adsense
       ad-slot="5228106955"
       ad-format="fluid"
@@ -35,7 +60,10 @@
 
     <buy-me-a-coffee />
 
-    <new-contact :blog-title="currentPost.fields.title" />
+    <new-contact
+      v-if="currentPost.fields.category !== 'Scrap'"
+      :blog-title="currentPost.fields.title"
+    />
 
     <div class="latest-article">
       <h2 class="latest-article-title">あわせてよみたい..</h2>
@@ -53,15 +81,18 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import dayjs from 'dayjs'
 
 import useDate from '~/composables/date'
 
 import { fetchPost, fetchPosts } from '~/repositories/blog'
+import { fetchScraps } from '~/repositories/scrap'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const PostCard = () => import('~/components/PostCard.vue')
 const SocialMenu = () => import('~/components/SocialMenu.vue')
 const NewContact = () => import('~/components/NewContact.vue')
+const NewScrap = () => import('~/components/NewScrap.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 const LoadedMarkdown = () => import('~/components/LoadedMarkdown.vue')
 const BuyMeACoffee = () => import('~/components/BuyMeACoffee.vue')
@@ -72,6 +103,7 @@ export default Vue.extend({
     PostCard,
     SocialMenu,
     NewContact,
+    NewScrap,
     GoogleAdsense,
     LoadedMarkdown,
     BuyMeACoffee
@@ -79,10 +111,12 @@ export default Vue.extend({
   async asyncData({ params }) {
     const isLatest: boolean = true
     return {
+      slug: params.slug,
       currentPost: await fetchPost({
         slug: params.slug,
         ym: ''
       }),
+      scraps: await fetchScraps(params.slug),
       latestPosts: await fetchPosts(isLatest)
     }
   },
@@ -90,6 +124,11 @@ export default Vue.extend({
     return {
       isVertical: true,
       ...useDate()
+    }
+  },
+  methods: {
+    dateTimeFormat(dt: string) {
+      return dayjs(dt).format('YYYY/MM/DD HH:mm')
     }
   },
   head() {

@@ -2,7 +2,18 @@ import Firestore from '~/plugins/firebase'
 import dayjs from 'dayjs'
 
 import { ContactCategories } from '~/services/contact'
-import { Category, ContactCategory } from '~/types/contact'
+
+type ContactCategory = {
+  value: number
+  text: string
+}
+
+type Category = {
+  title: string
+  category: number
+  email: string
+  description: string
+}
 
 export const addContact = async (
   form: Category,

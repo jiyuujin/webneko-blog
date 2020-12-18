@@ -7,6 +7,7 @@
       {{ getCurrentDate(post.fields.publishDate) }}
     </div>
     <div class="blog-item-description">
+      <span v-if="post.fields.category === 'Scrap'">SCRAP</span>
       {{ post.fields.description }}
     </div>
   </div>

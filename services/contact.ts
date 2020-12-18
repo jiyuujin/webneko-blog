@@ -1,6 +1,7 @@
-import { ContactCategory } from '~/types/contact'
-
-export const ContactCategories: ContactCategory[] = [
+export const ContactCategories: Array<{
+  value: number
+  text: string
+}> = [
   {
     value: 1,
     text: '仕事のご依頼'
