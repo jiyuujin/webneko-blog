@@ -1,11 +1,9 @@
 <template>
   <div class="error">
-    <template v-if="error.statusCode === 404">
-      <nuxt-link to="/">That's \ 404 /</nuxt-link>
-    </template>
-    <template v-else>
-      <nuxt-link to="/">Please go home.. mm</nuxt-link>
-    </template>
+    <img alt="bakeneko" :src="`/icon/bakeneko.svg`" />
+    <nuxt-link to="/" class="icon">
+      Oooops, something is wrong \ {{ error.statusCode }} / error
+    </nuxt-link>
   </div>
 </template>
 
@@ -27,8 +25,12 @@ export default Vue.extend({
 <style scoped>
 .error {
   display: flex;
+  flex-direction: column;
+}
+
+.icon {
+  display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 </style>
