@@ -104,6 +104,12 @@ export default {
       {
         rel: 'manifest',
         href: '/site.webmanifest'
+      },
+      {
+        rel: 'alternate',
+        type: 'application/rss+xml',
+        title: 'RSS for blog posts',
+        href: 'https://webneko.dev/feeds.xml'
       }
     ],
     script: [

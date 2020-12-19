@@ -39,7 +39,7 @@ client
         publishDate: post.fields.publishDate
       })
     }
-    await promisify(fs.writeFile)('./.nuxt/feeds.xml', feed.rss2())
+    await promisify(fs.writeFile)('./static/feeds.xml', feed.rss2())
   })
   .catch((err) => {
     console.log(err)
