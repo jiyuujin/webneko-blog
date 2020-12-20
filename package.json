@@ -39,7 +39,7 @@
     "markdown-it-container": "3.0.0",
     "markdown-it-highlightjs": "3.4.0",
     "markdown-it-link-attributes": "3.0.0",
-    "markdown-it-mark": "3.0.0",
+    "markdown-it-mark": "3.0.1",
     "markdown-it-toc": "1.1.0",
     "markdown-it-video": "0.6.3",
     "nuxt": "2.14.12",
