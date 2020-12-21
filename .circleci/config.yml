@@ -24,4 +24,27 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
+      - run: yarn build:feeds
+
       - run: yarn build:front
+
+      - deploy:
+        name: Build image
+        command: |
+          if [ "${CIRCLE_BRANCH}" == "enhance/ecr-circle-ci" ]; then
+
+            ECR_REPOSITORY: webneko-blog
+            IMAGE_TAG: latest
+
+            # Login to Amazon ECR
+            aws configure set region ap-northeast-1
+            $(aws ecr get-login)
+
+            # Build image
+            docker build -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG .
+            docker tag app $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/$ECR_REGISTRY:$IMAGE_TAG
+            docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/$ECR_REGISTRY:$IMAGE_TAG
+
+            return 0
+          fi
+
