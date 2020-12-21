@@ -41,9 +41,8 @@ jobs:
         name: Build image
         command: |
           if [ "${CIRCLE_BRANCH}" == "enhance/ecr-circle-ci" ]; then
-
-            ECR_REPOSITORY: webneko-blog
-            IMAGE_TAG: latest
+            ECR_REPOSITORY = 'webneko-blog'
+            IMAGE_TAG = 'latest'
 
             # Login to Amazon ECR
             aws configure set region ap-northeast-1
