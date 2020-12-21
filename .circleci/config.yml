@@ -37,7 +37,7 @@ jobs:
     executor: infra
     working_directory: ~/workspace
     steps:
-      - deploy:
+      - run:
         name: Build image
         command: |
           if [ "${CIRCLE_BRANCH}" == "enhance/ecr-circle-ci" ]; then
