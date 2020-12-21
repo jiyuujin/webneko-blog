@@ -4,13 +4,14 @@ executors:
   default:
     docker:
       - image: circleci/node:12.20
+  infra:
+    docker:
+      - image: docker:17.05.0-ce-git
 
 jobs:
   build:
     executor: default
     working_directory: ~/workspace
-    docker:
-      - image: docker:17.05.0-ce-git
     steps:
       - checkout
 
@@ -32,6 +33,10 @@ jobs:
 
       - run: yarn build:front
 
+  deploy:
+    executor: infra
+    working_directory: ~/workspace
+    steps:
       - deploy:
         name: Build image
         command: |
