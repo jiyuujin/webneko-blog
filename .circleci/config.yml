@@ -25,6 +25,13 @@ jobs:
             echo 'export ECR_REPOSITORY="webneko-blog"' >> $BASH_ENV
             echo 'export FULL_IMAGE_NAME="${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com/${ECR_REPOSITORY}:${IMAGE_TAG}"' >> $BASH_ENV
 
+      - run:
+          name: Setup AWS CLI
+          command: |
+            curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+            unzip awscli-bundle.zip
+            sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
