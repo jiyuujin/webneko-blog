@@ -7,7 +7,7 @@ WORKDIR /app
 # パッケージをコピーする
 COPY package*.json ./
 
-RUN npm cache clean
+RUN npm cache clean --force
 
 # npm モジュールをインストールする
 RUN yarn install --quiet
