@@ -25,13 +25,6 @@ jobs:
             echo 'export ECR_REPOSITORY="webneko-blog"' >> $BASH_ENV
             echo 'export FULL_IMAGE_NAME="${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com/${ECR_REPOSITORY}:${IMAGE_TAG}"' >> $BASH_ENV
 
-      - run:
-          name: Setup AWS CLI
-          command: |
-            curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
-            unzip awscli-bundle.zip
-            sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
-
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
@@ -46,9 +39,3 @@ jobs:
           name: Build image
           command: |
             docker build -t $FULL_IMAGE_NAME .
-
-      - run:
-          name: Push image
-          command: |
-            eval $(aws ecr get-login --region ap-northeast-1 --no-include-email)
-            docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
