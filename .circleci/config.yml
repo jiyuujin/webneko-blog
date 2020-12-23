@@ -35,4 +35,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: yarn build:front
+      - run:
+          name: Build image
+          command: |
+            docker build -t $FULL_IMAGE_NAME .
