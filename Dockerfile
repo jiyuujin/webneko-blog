@@ -10,7 +10,7 @@ COPY package*.json ./
 RUN npm cache clean --force
 
 # npm モジュールをインストールする
-RUN yarn install --quiet
+RUN yarn install
 
 # その他のファイルをコピーする
 COPY . .
