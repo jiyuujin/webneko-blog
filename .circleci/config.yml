@@ -1,9 +1,13 @@
 version: 2.1
 
+orbs:
+  aws-ecr: circleci/aws-ecr@6.1.0
+  aws-ecs: circleci/aws-ecs@0.0.8
+
 executors:
   default:
     docker:
-      - image: circleci/node:12.20
+      - image: circleci/node:14
 
 jobs:
   build:
@@ -12,12 +16,19 @@ jobs:
     steps:
       - checkout
 
+      - setup_remote_docker:
+          version: 19.03.13
+
+      - run:
+          name: Setup common environment variables
+          command: |
+            echo 'export ECR_REPOSITORY="webneko-blog"' >> $BASH_ENV
+            echo 'export FULL_IMAGE_NAME="${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com/${ECR_REPOSITORY}:${IMAGE_TAG}"' >> $BASH_ENV
+
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-
-      - run: yarn install
 
       - save_cache:
           paths:
