@@ -22,7 +22,7 @@
 
     <div v-if="scraps" class="article">
       <div v-for="(scrap, index) in scraps" :key="index" class="post-detail">
-        <div v-for="item in scrap" :key="item.id" class="scrap-item">
+        <div v-for="item in scrap" :key="item.id">
           <div class="scrap-item scrap-item_left">
             <div class="icon-box">
               <img
