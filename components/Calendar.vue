@@ -11,11 +11,15 @@
       </span>
       <div v-for="i in startOfMonth" :key="i" class="day day--disabled" />
       <div v-for="day in Number(days)" :key="day" class="day">
-        <span class="tooltip">
-          <template v-if="getPost(day)">
+        <div v-if="getPost(day)" class="tooltip">
+          <a
+            :href="`https://webneko.dev/posts/${getPost(day).fields.slug}`"
+            target="_blank"
+            rel="noopener"
+          >
             {{ getPost(day).fields.title }}
-          </template>
-        </span>
+          </a>
+        </div>
         <div class="date">
           {{ day }}
         </div>
