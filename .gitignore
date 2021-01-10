@@ -95,3 +95,5 @@ yarn.lock
 static/sw.js
 
 static/feeds.xml
+
+.lighthouseci
