@@ -53,3 +53,7 @@ jobs:
         run: lhci autorun --config=./lighthouserc.json
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          CTF_PERSON_ID: ${{ secrets.CTF_PERSON_ID }}
+          CTF_BLOG_POST_TYPE_ID: ${{ secrets.CTF_BLOG_POST_TYPE_ID }}
+          CTF_SPACE_ID: ${{ secrets.CTF_SPACE_ID }}
+          CTF_CDA_ACCESS_TOKEN: ${{ secrets.CTF_CDA_ACCESS_TOKEN }}
