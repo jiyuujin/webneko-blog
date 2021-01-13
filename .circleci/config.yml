@@ -36,6 +36,10 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
+          name: Login to ECR
+          command: eval $(aws ecr get-login --region ap-northeast-1 --no-include-email)
+
+      - run:
           name: Build image
           command: |
             docker build -t $FULL_IMAGE_NAME .
