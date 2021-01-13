@@ -39,3 +39,5 @@ jobs:
           name: Build image
           command: |
             docker build -t $FULL_IMAGE_NAME .
+            docker push $FULL_IMAGE_NAME
+            echo "::set-output name=image::$FULL_IMAGE_NAME"
