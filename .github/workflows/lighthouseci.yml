@@ -1,0 +1,59 @@
+name: Lighthouse CI
+
+on:
+  push:
+    branches:
+      - master
+      - feature/lighthouse-ci-for-ssr
+  pull_request:
+    branches:
+      - master
+      - feature/lighthouse-ci-for-ssr
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{github.event.pull_request.head.sha}}
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        env:
+          cache-name: _cache_npm_node12
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install dependencies
+        run: |
+          npm install
+          npm install -g @lhci/cli
+
+      - name: Transpile
+        run: npm run build:front
+
+      - name: Run CI
+        run: lhci autorun --config=./lighthouserc.json --collect.settings.chromeFlags='--no-sandbox' || echo 'LHCI failed!'
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          CTF_PERSON_ID: ${{ secrets.CTF_PERSON_ID }}
+          CTF_BLOG_POST_TYPE_ID: ${{ secrets.CTF_BLOG_POST_TYPE_ID }}
+          CTF_SPACE_ID: ${{ secrets.CTF_SPACE_ID }}
+          CTF_CDA_ACCESS_TOKEN: ${{ secrets.CTF_CDA_ACCESS_TOKEN }}
