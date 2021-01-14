@@ -39,3 +39,16 @@ jobs:
           name: Build image
           command: |
             docker build -t $FULL_IMAGE_NAME .
+
+      - run:
+          name: Setup AWS credentials
+          command: |
+            mkdir -p ~/.aws
+            printf "[default]\nregion = ap-northeast-1\naws_access_key_id = ${AWS_ACCESS_KEY_ID}\naws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" > ~/.aws/config
+            printf "[default]\naws_access_key_id = ${AWS_ACCESS_KEY_ID}\naws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" > ~/.aws/credentials
+            chmod 600 ~/.aws/*
+
+      - run:
+          name: Push image
+          command: |
+            docker push $FULL_IMAGE_NAME
