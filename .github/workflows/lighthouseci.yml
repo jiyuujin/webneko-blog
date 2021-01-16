@@ -4,11 +4,9 @@ on:
   push:
     branches:
       - master
-      - feature/lighthouse-ci-for-ssr
   pull_request:
     branches:
       - master
-      - feature/lighthouse-ci-for-ssr
 
 jobs:
   build:
