@@ -1,8 +1,9 @@
 <template>
   <div>
     <div class="calendar-header">
-      <h1>ARCHIVES</h1>
-      <p>{{ ym }}</p>
+      <nuxt-link v-for="m in 5" :key="m" :to="`/archives/${ymFormat(m)}`">
+        {{ mFormat(m) }}
+      </nuxt-link>
     </div>
 
     <div class="calendar">
@@ -55,13 +56,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import dayjs from 'dayjs'
 
 import useCalendar from '@/composables/calendar'
 
 const WEEKDAY_LIST = ['日', '月', '火', '水', '木', '金', '土']
 
-export default defineComponent({
+export default {
   props: {
     items: {
       type: Array,
@@ -76,9 +77,19 @@ export default defineComponent({
   },
   setup(props) {
     const weekdays = WEEKDAY_LIST
-    return { weekdays, ...useCalendar(props) }
+    const ymFormat = (m: number) => {
+      return dayjs(props.ym)
+        .subtract(5 - m, 'month')
+        .format('YYYY-MM')
+    }
+    const mFormat = (m: number) => {
+      return dayjs(props.ym)
+        .subtract(5 - m, 'month')
+        .format('MM')
+    }
+    return { weekdays, ymFormat, mFormat, ...useCalendar(props) }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>
