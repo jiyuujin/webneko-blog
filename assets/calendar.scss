@@ -2,26 +2,31 @@
   position: relative;
   display: -webkit-flex;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 120px;
+  padding: 4px 12px;
   vertical-align: middle;
-  background-color: #56c501;
+  background-color: #fff;
 
-  h1 {
-    margin: 0;
-    font-size: 18px;
-    color: #e2e2e2;
-  }
+  a {
+    padding: 12px 16px;
+    margin: 0 12px;
+    font-size: 16px;
+    color: #fff;
+    background: #c71582;
+    border-radius: 24px;
 
-  p {
-    margin: 0;
-    font-size: 13px;
-    font-weight: 600;
-    color: #51565d;
+    &:hover {
+      -webkit-transform: scale(1.1, 1.2);
+      -moz-transform: scale(1.15, 1.25);
+      -o-transform: scale(1.15, 1.25);
+      -ms-transform: scale(1.15, 1.25);
+      transform: scale(1.15, 1.25);
+    }
   }
 }
 
