@@ -16,7 +16,8 @@ jobs:
     executor: default
     working_directory: ~/workspace
     branches:
-      only: release
+      only:
+        - release
     steps:
       - checkout
 
