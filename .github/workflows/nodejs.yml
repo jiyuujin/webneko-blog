@@ -1,12 +1,14 @@
 name: Node CI
 
+# Test
+
 on:
   push:
     branches:
-    - master
+      - master
   pull_request:
     branches:
-    - master
+      - master
 
 jobs:
   build:

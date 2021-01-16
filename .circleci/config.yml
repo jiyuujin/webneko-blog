@@ -1,5 +1,7 @@
 version: 2.1
 
+# Webhook
+
 orbs:
   aws-ecr: circleci/aws-ecr@6.15.2
   aws-ecs: circleci/aws-ecs@0.0.8
@@ -8,6 +10,9 @@ executors:
   default:
     docker:
       - image: circleci/node:14
+    branches:
+      only:
+        - release
 
 jobs:
   build:

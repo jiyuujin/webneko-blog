@@ -1,14 +1,16 @@
 name: Lighthouse CI
 
+# Test
+
 on:
   push:
     branches:
       - master
-      - feature/lighthouse-ci-for-ssr
+      - release
   pull_request:
     branches:
       - master
-      - feature/lighthouse-ci-for-ssr
+      - release
 
 jobs:
   build:
