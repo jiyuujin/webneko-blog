@@ -11,6 +11,9 @@ executors:
 
 jobs:
   build:
+    filters:
+      branches:
+        only: release
     executor: default
     working_directory: ~/workspace
     steps:
