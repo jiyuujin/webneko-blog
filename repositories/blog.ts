@@ -12,7 +12,8 @@ export const fetchPosts = async (isLatest: boolean = false) => {
     .getEntries({
       content_type: process.env.CTF_BLOG_POST_TYPE_ID,
       order: ORDER,
-      limit: isLatest ? LATEST_PAGE : PAGE
+      limit: isLatest ? LATEST_PAGE : PAGE,
+      skip: 0
       // skip: (state.page - 1) * PAGE
     })
     .then((entries: Posts) => {
