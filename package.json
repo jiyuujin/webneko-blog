@@ -22,7 +22,7 @@
   "dependencies": {
     "@microlink/vanilla": "3.0.5",
     "@nekohack/j-stylebook": "1.0.0-beta.9",
-    "@nekohack/tiny-components": "1.0.2",
+    "@nekohack/footer-ui": "1.0.0",
     "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/google-adsense": "1.3.0",
     "@nuxtjs/google-analytics": "2.4.0",
