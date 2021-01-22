@@ -11,7 +11,7 @@ import Vue from 'vue'
 import {
   applyPolyfills,
   defineCustomElements
-} from '@nekohack/tiny-components/loader'
+} from '@nekohack/footer-ui/loader'
 
 Vue.config.ignoredElements = ['cookie-footer']
 
