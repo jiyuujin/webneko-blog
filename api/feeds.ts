@@ -32,11 +32,17 @@ client
     for (let index = 0; index < entries.items.length; index++) {
       const post = entries.items[index]
       feed.items.push({
-        link: `https://webneko.dev/posts/${post.fields.slug}`,
         title: post.fields.title,
+        id: `https://webneko.dev/posts/${post.fields.slug}`,
+        link: `https://webneko.dev/posts/${post.fields.slug}`,
+        author: [
+          {
+            name: 'jiyuujin'
+          }
+        ],
         description: post.fields.description,
         body: post.fields.body,
-        pubDate: post.fields.publishDate
+        date: new Date(post.fields.publishDate)
       })
     }
     await promisify(fs.writeFile)('./static/feeds.xml', feed.rss2())
