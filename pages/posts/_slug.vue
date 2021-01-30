@@ -120,7 +120,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      isVertical: true,
+      isVertical: true
     }
   },
   methods: {
