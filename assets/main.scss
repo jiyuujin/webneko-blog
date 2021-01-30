@@ -12,7 +12,6 @@ a {
 }
 
 .main {
-  width: 60%;
   margin: 0 auto;
 }
 
@@ -92,51 +91,44 @@ a {
   }
 }
 
-.top {
+.latest-article {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  padding: 0 16px;
+  width: 52%;
+  margin: 2% 24% 2% 24%;
+  overflow: hidden;
+  color: #000;
+  text-align: left;
 
-  a {
-    margin: 12px 0;
+  &-title {
+    width: 100%;
+    font-size: 1.08rem;
+    color: #000;
   }
 
-  .blog-item {
-    position: relative;
-    width: 100%;
+  &-description {
+    font-size: 0.92rem;
+    color: #303030;
+  }
+
+  a {
     color: #000;
+  }
 
-    &-title {
-      font-size: 1.44rem;
-      line-height: 1.2;
-      color: #000;
-      text-align: left;
+  .items {
+    width: 46%;
+    padding: 4px;
+    margin: 0 2%;
+    overflow: hidden;
+
+    a {
+      margin: 0;
     }
 
-    &-description {
-      display: flex;
-      align-items: center;
-      height: 4.8em;
+    .items-title {
       font-size: 0.96rem;
-      line-height: 1.2;
-      color: #303030;
-      text-align: left;
-
-      span {
-        display: inline-block;
-        padding: 0 0.75rem;
-        margin: 0.25rem;
-        color: #fff;
-        background-color: #718096;
-        border-color: #2e3439;
-        border-width: 1px;
-      }
-    }
-
-    &-date {
-      font-size: 0.72rem;
-      color: #aaa;
-      text-align: left;
+      color: #000;
     }
   }
 }
@@ -461,12 +453,14 @@ a {
   text-align: center;
 }
 
+.top,
 .latest-article {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 52%;
-  margin: 2% 24% 2% 24%;
+  justify-content: center;
+  width: 100%;
+  margin: 2% 0 2% 0;
   overflow: hidden;
   color: #000;
   text-align: left;
@@ -502,26 +496,80 @@ a {
     }
   }
 
-  .blog-card {
-    position: relative;
-    min-height: 80px;
-    padding: 8px;
-    margin: 4px 0;
-    color: #000;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px #ccc;
+  .read-more {
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
 
+      &::before {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        content: '';
+        background-color: #ecf0f1;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover,
+      &:focus {
+        color: #42b883;
+      }
+    }
+  }
+}
+
+.blog-card {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: flex-start;
+  padding: 15px 0;
+
+  .reaction-img,
+  img {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    width: 84px;
+    height: 84px;
+    margin: 8px;
+    font-size: 42px;
+    border: 1px #e2e2e2 solid;
+    border-radius: 12px;
+  }
+
+  &__item {
     &-title {
-      font-size: 1.08rem;
-      line-height: 1.2;
-      color: #000;
-      text-align: left;
+      display: -webkit-box !important;
+      max-height: 4.55em;
+      overflow: hidden;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.5;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
     }
 
     &-date {
-      font-size: 0.72rem;
-      color: #aaa;
-      text-align: left;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      max-width: 100%;
+      margin-top: 0.5rem;
+      font-size: 0.9em;
     }
   }
 }
@@ -568,10 +616,6 @@ footer {
     padding: 0 4px;
   }
 
-  .top {
-    padding-top: 16px;
-  }
-
   .card {
     margin: 20px 0;
   }
@@ -596,8 +640,10 @@ footer {
     }
   }
 
+  .top,
   .latest-article {
     width: 88%;
+    padding-top: 16px;
     margin: 2% 6% 2% 6%;
 
     .items {
@@ -644,26 +690,6 @@ footer {
   .message {
     color: #f7fafc;
     background-color: #0b0d2e;
-  }
-
-  .top {
-    .blog-item {
-      color: #fff;
-
-      &-title {
-        color: #fff;
-      }
-
-      &-description {
-        color: #fefefe;
-
-        span {
-          color: #718096;
-          background-color: #fff;
-          border-color: #718096;
-        }
-      }
-    }
   }
 
   .tag-text {
@@ -721,6 +747,7 @@ footer {
     }
   }
 
+  .top,
   .latest-article {
     color: #fff;
 
@@ -745,8 +772,14 @@ footer {
     .blog-card {
       color: #fff;
 
-      &-title {
-        color: #fff;
+      img {
+        border: 1px #2e3439 solid;
+      }
+
+      &__item {
+        &-title {
+          color: #fff;
+        }
       }
     }
   }

@@ -1,27 +1,11 @@
 <template>
   <footer>
     <div class="footer-text">
-      <div class="menu">
-        <a :href="`/archives/${getCurrentMonth}`">
+      <div class="contact-more">
+        <nuxt-link to="/contact">
           <img
             v-if="mode === 'light'"
-            src="/icon/archive-black.svg"
-            alt="archive"
-            decoding="async"
-            :style="{ width: '40px' }"
-          />
-          <img
-            v-if="mode === 'dark'"
-            src="/icon/archive-white.svg"
-            alt="archive"
-            decoding="async"
-            :style="{ width: '40px' }"
-          />
-        </a>
-        <a href="/contact">
-          <img
-            v-if="mode === 'light'"
-            src="/icon/contact-black.svg"
+            src="/icon/contact-white.svg"
             alt="archive"
             decoding="async"
             :style="{ width: '40px' }"
@@ -33,9 +17,10 @@
             decoding="async"
             :style="{ width: '40px' }"
           />
-        </a>
+          <span>問い合わせはこちら</span>
+        </nuxt-link>
       </div>
-      <div class="menu">
+      <div class="contact-more">
         <a
           href="https://github.com/jiyuujin/webneko-blog"
           target="_blank"
@@ -59,18 +44,12 @@
 </template>
 
 <script lang="ts">
-import { computed } from '@vue/composition-api'
-import dayjs from 'dayjs'
-
 import { useLayout } from '~/composables/layout'
 
 export default {
   setup(props, ctx) {
     const { mode } = useLayout()
-    const getCurrentMonth = computed(() => {
-      return dayjs().format('YYYY-MM')
-    })
-    return { mode, getCurrentMonth }
+    return { mode }
   }
 }
 </script>

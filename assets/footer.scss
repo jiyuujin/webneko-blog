@@ -19,7 +19,7 @@
   }
 }
 
-.menu {
+.contact-more {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,9 +27,13 @@
   vertical-align: center;
 
   a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 16px;
     overflow: hidden;
     color: #000;
+    vertical-align: middle;
     background-color: #fff;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
@@ -61,7 +65,7 @@
 }
 
 @media (max-width: 500px) {
-  .menu {
+  .contact-more {
     display: flex;
     flex-direction: column;
 
@@ -72,7 +76,7 @@
 }
 
 .dark-theme {
-  .menu {
+  .contact-more {
     a {
       color: #fff;
       background-color: #303030;

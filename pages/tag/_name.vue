@@ -8,14 +8,13 @@
       </div>
 
       <div class="top">
-        <template v-for="post in posts">
+        <div v-for="post in posts" :key="post.fields.title" class="items">
           <nuxt-link
-            :key="post.fields.title"
             :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
           >
-            <post-item :post="post" />
+            <post-card :post="post" />
           </nuxt-link>
-        </template>
+        </div>
       </div>
     </div>
   </main-template>
@@ -27,12 +26,12 @@ import Vue from 'vue'
 import { fetchPostsByTag } from '~/repositories/blog'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
-const PostItem = () => import('~/components/PostItem.vue')
+const PostCard = () => import('~/components/PostCard.vue')
 
 export default Vue.extend({
   components: {
     MainTemplate,
-    PostItem
+    PostCard
   },
   async asyncData({ route }) {
     return {
