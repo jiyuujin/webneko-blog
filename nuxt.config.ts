@@ -154,7 +154,6 @@ export default {
   components: true,
 
   modules: [
-    '@nuxtjs/dotenv',
     [
       '@nuxtjs/google-adsense',
       {
@@ -343,6 +342,7 @@ export default {
   },
 
   buildModules: [
+    '@nuxtjs/dotenv',
     '@nuxtjs/pwa',
     [
       '@nuxt/typescript-build',
