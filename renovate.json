@@ -6,10 +6,10 @@
   "major": {
     "automerge": false
   },
-  "packageRules": [
-    {
-      "packagePatterns": ["^@microlink/"],
-      "enabled": false
-    }
-  ]
+  "docker": {
+    "enabled": false
+  },
+  "docker-compose": {
+    "enabled": false
+  }
 }

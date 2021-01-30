@@ -1,3 +1,5 @@
+# docker-compose logs -f --tail 10 webneko_blog_front
+
 # Nodeイメージを取得する
 FROM node:12.20.1-alpine
 
@@ -12,6 +14,9 @@ RUN yarn install --quiet
 
 # その他のファイルをコピーする
 COPY . .
+
+# ビルドする
+RUN yarn run build:feeds
 
 # ビルドする
 RUN yarn run build:front
