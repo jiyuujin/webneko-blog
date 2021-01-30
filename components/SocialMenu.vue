@@ -17,6 +17,7 @@
         :src="`/icon/${item}-white.svg`"
         :alt="item"
         decoding="async"
+        :style="{ backgroundColor: '#fff' }"
         @click="handleClick(item)"
       />
     </div>

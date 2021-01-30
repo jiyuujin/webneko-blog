@@ -14,7 +14,7 @@
       </div>
 
       <div class="cover-date">
-        {{ getCurrentDate(currentPost.fields.publishDate) }}
+        {{ dateTimeFormat(currentPost.fields.publishDate) }}
       </div>
     </div>
 
@@ -83,8 +83,6 @@
 import Vue from 'vue'
 import dayjs from 'dayjs'
 
-import useDate from '~/composables/date'
-
 import { fetchPost, fetchPosts } from '~/repositories/blog'
 import { fetchScraps } from '~/repositories/scrap'
 
@@ -122,8 +120,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      isVertical: true,
-      ...useDate()
+      isVertical: true
     }
   },
   methods: {

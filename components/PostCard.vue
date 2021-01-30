@@ -1,19 +1,42 @@
 <template>
   <div class="blog-card">
-    <div class="blog-card-title">
-      {{ post.fields.title }}
-    </div>
-    <div class="blog-card-date">
-      {{ getCurrentDate(post.fields.publishDate) }}
+    <template v-if="post.fields.reaction">
+      <span class="reaction-img">
+        {{ post.fields.reaction }}
+      </span>
+    </template>
+    <template v-else>
+      <img
+        v-if="mode === 'light'"
+        src="/icon/mikaeri-white.svg"
+        alt="archive"
+        decoding="async"
+      />
+      <img
+        v-if="mode === 'dark'"
+        src="/icon/mikaeri-black.svg"
+        alt="archive"
+        decoding="async"
+        :style="{ backgroundColor: '#fff' }"
+      />
+    </template>
+    <div class="blog-card__item">
+      <div class="blog-card__item-title">
+        {{ post.fields.title }}
+      </div>
+      <div class="blog-card__item-date">
+        {{ getCurrentDate(post.fields.publishDate) }}
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
 import dayjs from 'dayjs'
 
-export default Vue.extend({
+import { useLayout } from '~/composables/layout'
+
+export default {
   props: {
     post: {
       type: Object,
@@ -22,10 +45,12 @@ export default Vue.extend({
       }
     }
   },
-  methods: {
-    getCurrentDate(date: Date) {
-      return dayjs(date).format('MM月 DD日')
+  setup(props, ctx) {
+    const { mode } = useLayout()
+    const getCurrentDate = (date: Date) => {
+      return dayjs(date).format('YYYY/MM/DD HH:mm')
     }
+    return { mode, getCurrentDate }
   }
-})
+}
 </script>

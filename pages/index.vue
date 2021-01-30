@@ -4,14 +4,32 @@
       <header-text />
 
       <div class="top">
-        <template v-for="post in posts">
+        <div v-for="post in posts" :key="post.fields.title" class="items">
           <nuxt-link
-            :key="post.fields.title"
             :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
           >
-            <post-item :post="post" />
+            <post-card :post="post" />
           </nuxt-link>
-        </template>
+        </div>
+        <div class="read-more">
+          <nuxt-link :to="`/archives/${getCurrentMonth}`">
+            <img
+              v-if="mode === 'light'"
+              src="/icon/archive-black.svg"
+              alt="archive"
+              decoding="async"
+              :style="{ width: '40px' }"
+            />
+            <img
+              v-if="mode === 'dark'"
+              src="/icon/archive-white.svg"
+              alt="archive"
+              decoding="async"
+              :style="{ width: '40px' }"
+            />
+            <span>これまでの記事</span>
+          </nuxt-link>
+        </div>
       </div>
 
       <google-adsense
@@ -24,21 +42,31 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { computed } from '@vue/composition-api'
+import dayjs from 'dayjs'
+
+import { useLayout } from '~/composables/layout'
 
 import { fetchPosts, fetchTags } from '~/repositories/blog'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
-const PostItem = () => import('~/components/PostItem.vue')
+const PostCard = () => import('~/components/PostCard.vue')
 const HeaderText = () => import('~/components/HeaderText.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 
-export default Vue.extend({
+export default {
   components: {
     MainTemplate,
-    PostItem,
+    PostCard,
     HeaderText,
     GoogleAdsense
+  },
+  setup(props, ctx) {
+    const { mode } = useLayout()
+    const getCurrentMonth = computed(() => {
+      return dayjs().format('YYYY-MM')
+    })
+    return { mode, getCurrentMonth }
   },
   async asyncData() {
     return {
@@ -46,5 +74,5 @@ export default Vue.extend({
       tags: await fetchTags()
     }
   }
-})
+}
 </script>

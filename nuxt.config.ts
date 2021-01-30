@@ -145,14 +145,6 @@ export default {
   ],
 
   plugins: [
-    {
-      src: '~plugins/microlink.ts',
-      mode: 'client'
-    },
-    // {
-    //     src: '~plugins/infinite-loading.ts',
-    //     mode: 'client'
-    // },
     '~plugins/composition-api.ts',
     '~plugins/firebase.ts',
     '~plugins/j-stylebook.ts',
