@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt-ts",
+    "build": "npm run build:feeds && npm run build:front",
     "build:front": "nuxt-ts build --no-lock",
     "build:feeds": "ts-node --project tsconfig.builder.json api/feeds.ts",
     "start": "nuxt-ts start",
