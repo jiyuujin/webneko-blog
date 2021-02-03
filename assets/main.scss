@@ -651,6 +651,14 @@ footer {
     }
   }
 
+  .blog-card {
+    &__item {
+      &-title {
+        width: 200px;
+      }
+    }
+  }
+
   .privacy-policy,
   .contact,
   .scrap {
