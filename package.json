@@ -8,7 +8,7 @@
     "dev": "nuxt-ts",
     "build": "npm run build:feeds && npm run build:front",
     "build:front": "nuxt-ts build --no-lock",
-    "build:feeds": "ts-node --project tsconfig.builder.json api/feeds.ts",
+    "build:feeds": "tsc api/feeds.ts && node --require dotenv/config api/feeds.js",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate --no-lock",
     "eslint": "eslint --ext .ts,.vue --ignore-path .gitignore -c .eslintrc.js .",

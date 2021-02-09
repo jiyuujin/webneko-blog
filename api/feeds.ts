@@ -6,8 +6,6 @@ const fs = require('fs-extra')
 const { Feed } = require('feed')
 const { promisify } = require('util')
 
-require('dotenv').config()
-
 let feed = new Feed({
   title: 'Web猫ブログ',
   description:

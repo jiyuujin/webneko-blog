@@ -96,4 +96,6 @@ static/sw.js
 
 static/feeds.xml
 
+api/feeds.js
+
 .lighthouseci
