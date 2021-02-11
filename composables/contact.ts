@@ -1,6 +1,6 @@
 import { reactive } from '@vue/composition-api'
 
-import { addContact } from '~/repositories/contact'
+import { addContact } from '~/api/contact'
 
 type ContactProps = {
   category: string

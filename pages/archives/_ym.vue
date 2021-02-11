@@ -14,7 +14,7 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import { fetchPost } from '~/repositories/blog'
+import { fetchPost } from '~/api/blog'
 import { isInvalidDate } from '~/services/date'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')

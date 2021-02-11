@@ -83,8 +83,8 @@
 import Vue from 'vue'
 import dayjs from 'dayjs'
 
-import { fetchPost, fetchPosts } from '~/repositories/blog'
-import { fetchScraps } from '~/repositories/scrap'
+import { fetchPost, fetchPosts } from '~/api/blog'
+import { fetchScraps } from '~/api/scrap'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const PostCard = () => import('~/components/PostCard.vue')

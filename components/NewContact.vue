@@ -54,7 +54,7 @@
 import { defineComponent } from '@vue/composition-api'
 import useContact from '~/composables/contact'
 
-import { ContactCategories } from '~/services/contact'
+import { ContactCategories } from '~/api/contact'
 
 export default defineComponent({
   props: {
