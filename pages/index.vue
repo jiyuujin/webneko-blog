@@ -47,7 +47,7 @@ import dayjs from 'dayjs'
 
 import { useLayout } from '~/composables/layout'
 
-import { fetchPosts, fetchTags } from '~/repositories/blog'
+import { fetchPosts, fetchTags } from '~/api/blog'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const PostCard = () => import('~/components/PostCard.vue')

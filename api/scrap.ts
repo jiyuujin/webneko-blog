@@ -1,4 +1,4 @@
-import Firestore from '~/plugins/firebase'
+import Firestore from '../plugins/firebase'
 import dayjs from 'dayjs'
 
 type Scrap = {

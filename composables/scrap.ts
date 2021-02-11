@@ -1,6 +1,6 @@
 import { ref, reactive, onMounted } from '@vue/composition-api'
 
-import { addScrap, fetchScraps } from '~/repositories/scrap'
+import { addScrap, fetchScraps } from '~/api/scrap'
 
 type ScrapProps = {
   slug: string

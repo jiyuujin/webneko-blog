@@ -23,7 +23,7 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import { fetchPostsByTag } from '~/repositories/blog'
+import { fetchPostsByTag } from '~/api/blog'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const PostCard = () => import('~/components/PostCard.vue')

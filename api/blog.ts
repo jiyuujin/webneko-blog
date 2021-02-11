@@ -1,8 +1,13 @@
 import { createClient } from '~/plugins/contentful'
 import dayjs from 'dayjs'
 
-import { PAGE, LATEST_PAGE, ORDER } from '~/services/blog'
 import { PostItem, Posts, Param } from '~/types/blog'
+
+export const PAGE = 10
+
+export const LATEST_PAGE = 6
+
+export const ORDER = '-fields.publishDate'
 
 export const fetchPosts = async (isLatest: boolean = false) => {
   const client = createClient()
