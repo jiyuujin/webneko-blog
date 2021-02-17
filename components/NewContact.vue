@@ -4,6 +4,10 @@
 
     <div class="form">
       <j-input
+        id="Title"
+        role="textbox"
+        label="タイトル"
+        labelledby="Title input"
         :text="form.title"
         placeholder="タイトル"
         width="100%"
@@ -13,6 +17,9 @@
     <template v-if="category === 'manual'">
       <div class="form">
         <j-select
+          id="Category"
+          label="カテゴリー"
+          labelledby="Category select"
           :options="contactCategories"
           :values="form.category"
           @handleSelect="applyCategory"
@@ -21,6 +28,10 @@
     </template>
     <div class="form">
       <j-input
+        id="Email"
+        role="textbox"
+        label="メールアドレス"
+        labelledby="Email input"
         :text="form.email"
         placeholder="メールアドレス"
         width="100%"
@@ -29,6 +40,10 @@
     </div>
     <div class="form">
       <j-input
+        id="Description"
+        role="textbox"
+        label="詳細"
+        labelledby="Description input"
         :text="form.description"
         placeholder="詳細"
         width="100%"
@@ -40,6 +55,8 @@
       <span>
         <a
           href="https://nekohack-privacy-policy.netlify.app"
+          role="button"
+          aria-pressed="true"
           target="_blank"
           rel="noopener noreferrer"
         >
