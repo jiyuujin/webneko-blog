@@ -1,7 +1,6 @@
 <template>
   <div>
     <transition-group name="fade">
-      <mode-change key="top-mode-change" />
       <nuxt key="top-nuxt" />
     </transition-group>
     <cookie-footer-wrapper />
@@ -9,21 +8,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
 import { provideLayout } from '~/composables/layout'
 
-const ModeChange = () => import('~/components/ModeChange.vue')
 const CookieFooterWrapper = () => import('~/components/CookieFooterWrapper.vue')
 
-export default defineComponent({
+export default {
   components: {
-    ModeChange,
     CookieFooterWrapper
   },
   setup() {
     provideLayout()
   }
-})
+}
 </script>
 
 <style>
