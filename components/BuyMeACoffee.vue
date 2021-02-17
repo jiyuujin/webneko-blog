@@ -2,6 +2,8 @@
   <div class="buy-me-a-coffee">
     <a
       href="https://www.buymeacoffee.com/VqwL7dpxl"
+      role="button"
+      aria-pressed="true"
       target="_blank"
       rel="noopener noreferrer"
     >

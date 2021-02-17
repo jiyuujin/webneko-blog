@@ -5,12 +5,18 @@
     <div class="form">
       <textarea
         v-model="form.message"
+        role="textbox"
         :rows="5"
+        aria-multiline="true"
         :style="{ width: 'calc(100% - 1.2rem)' }"
       />
     </div>
     <div class="form">
       <j-input
+        id="Name"
+        role="textbox"
+        label="名前"
+        labelledby="Name input"
         :text="form.name"
         placeholder="名前"
         width="100%"
@@ -22,6 +28,8 @@
       <span>
         <a
           href="https://nekohack-privacy-policy.netlify.app"
+          role="button"
+          aria-pressed="true"
           target="_blank"
           rel="noopener noreferrer"
         >

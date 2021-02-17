@@ -2,7 +2,7 @@
   <footer>
     <div class="footer-text">
       <div class="contact-more">
-        <nuxt-link to="/contact">
+        <nuxt-link to="/contact" role="button" aria-pressed="true">
           <img
             v-if="mode === 'light'"
             src="/icon/contact-white.svg"
@@ -23,6 +23,8 @@
       <div class="contact-more">
         <a
           href="https://github.com/jiyuujin/webneko-blog"
+          role="button"
+          aria-pressed="true"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -32,6 +34,8 @@
       <div class="copyright">
         <a
           href="https://github.com/nekohack"
+          role="button"
+          aria-pressed="true"
           target="_blank"
           rel="noopener noreferrer"
         >

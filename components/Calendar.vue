@@ -1,7 +1,13 @@
 <template>
   <div>
     <div class="calendar-header">
-      <nuxt-link v-for="m in 5" :key="m" :to="`/archives/${ymFormat(m)}`">
+      <nuxt-link
+        v-for="m in 5"
+        :key="m"
+        :to="`/archives/${ymFormat(m)}`"
+        role="button"
+        aria-pressed="true"
+      >
         {{ mFormat(m) }}
       </nuxt-link>
     </div>
@@ -15,8 +21,10 @@
         <div v-if="getPost(day)" class="tooltip">
           <a
             :href="`https://webneko.dev/posts/${getPost(day).fields.slug}`"
+            role="button"
+            aria-pressed="true"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             {{ getPost(day).fields.title }}
           </a>
@@ -27,8 +35,10 @@
         <div v-if="getPost(day)">
           <a
             :href="`https://webneko.dev/posts/${getPost(day).fields.slug}`"
+            role="button"
+            aria-pressed="true"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             <img
               :alt="getPost(day).fields.slug"
