@@ -2,23 +2,15 @@
   <footer>
     <div class="footer-text">
       <div class="contact-more">
-        <nuxt-link to="/contact" role="button" aria-pressed="true">
-          <img
-            v-if="mode === 'light'"
-            src="/icon/contact-white.svg"
-            alt="archive"
-            decoding="async"
-            :style="{ width: '40px' }"
-          />
-          <img
-            v-if="mode === 'dark'"
-            src="/icon/contact-white.svg"
-            alt="archive"
-            decoding="async"
-            :style="{ width: '40px' }"
-          />
+        <a
+          :href="contactUrl"
+          role="button"
+          aria-pressed="true"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <span>問い合わせはこちら</span>
-        </nuxt-link>
+        </a>
       </div>
       <div class="contact-more">
         <a
@@ -50,10 +42,12 @@
 <script lang="ts">
 import { useLayout } from '~/composables/layout'
 
+import { CONTACT_URL } from '~/utils/constant'
+
 export default {
   setup(props, ctx) {
     const { mode } = useLayout()
-    return { mode }
+    return { mode, contactUrl: CONTACT_URL }
   }
 }
 </script>

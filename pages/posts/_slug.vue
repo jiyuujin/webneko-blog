@@ -60,11 +60,6 @@
 
     <buy-me-a-coffee />
 
-    <new-contact
-      v-if="currentPost.fields.category !== 'Scrap'"
-      :blog-title="currentPost.fields.title"
-    />
-
     <div class="latest-article">
       <h2 class="latest-article-title">あわせてよみたい..</h2>
       <div v-for="post in latestPosts" :key="post.fields.title" class="items">
@@ -89,7 +84,6 @@ import { fetchScraps } from '~/api/scrap'
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const PostCard = () => import('~/components/PostCard.vue')
 const SocialMenu = () => import('~/components/SocialMenu.vue')
-const NewContact = () => import('~/components/NewContact.vue')
 const NewScrap = () => import('~/components/NewScrap.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 const LoadedMarkdown = () => import('~/components/LoadedMarkdown.vue')
@@ -100,7 +94,6 @@ export default Vue.extend({
     MainTemplate,
     PostCard,
     SocialMenu,
-    NewContact,
     NewScrap,
     GoogleAdsense,
     LoadedMarkdown,
