@@ -15,7 +15,6 @@
 import Vue from 'vue'
 
 import { fetchPost } from '~/api/blog'
-import { isInvalidDate } from '~/services/date'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
@@ -36,8 +35,13 @@ export default Vue.extend({
     }
   },
   mounted() {
-    if (isInvalidDate(this.$route.params.ym)) {
+    if (this.isInvalidDate(this.$route.params.ym)) {
       this.$router.push('*')
+    }
+  },
+  methods: {
+    isInvalidDate(value: string) {
+      return value.toString() === 'Invalid Date'
     }
   }
 })
