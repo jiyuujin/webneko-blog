@@ -389,9 +389,6 @@ export default {
     CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
     API_KEY: process.env.API_KEY,
     AUTH_DOMAIN: process.env.AUTH_DOMAIN,
-    PROJECT_ID: process.env.PROJECT_ID,
-    GRAPH_API: process.env.GRAPH_API,
-    APOLLO_KEY: process.env.APOLLO_KEY,
-    MICROLINK_API: process.env.MICROLINK_API
+    PROJECT_ID: process.env.PROJECT_ID
   }
 }
