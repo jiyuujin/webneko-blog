@@ -42,7 +42,7 @@
     "markdown-it-mark": "3.0.1",
     "markdown-it-toc": "1.1.0",
     "markdown-it-video": "0.6.3",
-    "nuxt": "2.15.1",
+    "nuxt": "2.15.2",
     "sanitize-html": "2.3.2",
     "ts-node": "9.1.1"
   },
@@ -50,7 +50,7 @@
     "@babel/core": "7.12.17",
     "@babel/preset-env": "7.12.17",
     "@nekohack/eslint-config-vue": "1.0.0-beta.1",
-    "@nuxt/types": "2.15.1",
+    "@nuxt/types": "2.15.2",
     "@nuxt/typescript-build": "2.0.5",
     "@nuxt/typescript-runtime": "2.0.1",
     "@types/jest": "26.0.20",
