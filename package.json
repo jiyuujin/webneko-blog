@@ -47,8 +47,8 @@
     "ts-node": "9.1.1"
   },
   "devDependencies": {
-    "@babel/core": "7.12.17",
-    "@babel/preset-env": "7.12.17",
+    "@babel/core": "7.13.1",
+    "@babel/preset-env": "7.13.5",
     "@nekohack/eslint-config-vue": "1.0.0-beta.1",
     "@nuxt/types": "2.15.2",
     "@nuxt/typescript-build": "2.0.5",
