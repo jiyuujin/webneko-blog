@@ -52,7 +52,7 @@
     "@nekohack/eslint-config-vue": "1.0.0-beta.1",
     "@nuxt/types": "2.15.2",
     "@nuxt/typescript-build": "2.0.6",
-    "@nuxt/typescript-runtime": "2.0.1",
+    "@nuxt/typescript-runtime": "2.0.2",
     "@types/jest": "26.0.20",
     "@types/node": "12.20.4",
     "@types/webpack": "4.41.26",
