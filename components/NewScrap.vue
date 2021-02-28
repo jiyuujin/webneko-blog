@@ -57,7 +57,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .form {
   padding: 8px 0;
 }
