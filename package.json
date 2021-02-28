@@ -83,7 +83,7 @@
     "globals": {
       "ts-jest": {
         "diagnostics": false,
-        "tsConfig": "tsconfig.test.json"
+        "tsconfig": "tsconfig.test.json"
       }
     },
     "testURL": "http://localhost:8080",

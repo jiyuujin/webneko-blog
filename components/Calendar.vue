@@ -1,14 +1,8 @@
 <template>
   <div>
     <div class="calendar-header">
-      <nuxt-link
-        v-for="m in 5"
-        :key="m"
-        :to="`/archives/${ymFormat(m)}`"
-        role="button"
-        aria-pressed="true"
-      >
-        {{ mFormat(m) }}
+      <nuxt-link :to="`/archives/${prevYm}`" role="button" aria-pressed="true">
+        {{ prevM }}
       </nuxt-link>
     </div>
 
@@ -17,7 +11,7 @@
         {{ weekday }}
       </span>
       <div v-for="i in startOfMonth" :key="i" class="day day--disabled" />
-      <div v-for="day in Number(days)" :key="day" class="day">
+      <div v-for="day in Number(currentDay)" :key="day" class="day">
         <div v-if="getPost(day)" class="tooltip">
           <a
             :href="`https://webneko.dev/posts/${getPost(day).fields.slug}`"
@@ -66,8 +60,6 @@
 </template>
 
 <script lang="ts">
-import dayjs from 'dayjs'
-
 import useCalendar from '@/composables/calendar'
 
 const WEEKDAY_LIST = ['日', '月', '火', '水', '木', '金', '土']
@@ -87,17 +79,7 @@ export default {
   },
   setup(props) {
     const weekdays = WEEKDAY_LIST
-    const ymFormat = (m: number) => {
-      return dayjs(props.ym)
-        .subtract(5 - m, 'month')
-        .format('YYYY-MM')
-    }
-    const mFormat = (m: number) => {
-      return dayjs(props.ym)
-        .subtract(5 - m, 'month')
-        .format('MM')
-    }
-    return { weekdays, ymFormat, mFormat, ...useCalendar(props) }
+    return { weekdays, ...useCalendar(props) }
   }
 }
 </script>
