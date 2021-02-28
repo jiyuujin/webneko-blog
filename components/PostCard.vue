@@ -25,15 +25,13 @@
         {{ post.fields.title }}
       </div>
       <div class="blog-card__item-date">
-        {{ getCurrentDate(post.fields.publishDate) }}
+        {{ new Date(post.fields.publishDate).toLocaleDateString() }}
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import dayjs from 'dayjs'
-
 import { useLayout } from '~/composables/layout'
 
 export default {
@@ -47,10 +45,7 @@ export default {
   },
   setup(props, ctx) {
     const { mode } = useLayout()
-    const getCurrentDate = (date: Date) => {
-      return dayjs(date).format('YYYY/MM/DD HH:mm')
-    }
-    return { mode, getCurrentDate }
+    return { mode }
   }
 }
 </script>

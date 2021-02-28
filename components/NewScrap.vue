@@ -41,10 +41,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
 import useScrap from '~/composables/scrap'
 
-export default defineComponent({
+export default {
   props: {
     slug: {
       type: String,
@@ -54,7 +53,7 @@ export default defineComponent({
   setup(props) {
     return { ...useScrap(props) }
   }
-})
+}
 </script>
 
 <style scoped>

@@ -15,11 +15,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-
 const FooterText = () => import('~/components/FooterText.vue')
 
-export default Vue.extend({
+export default {
   components: {
     FooterText
   },
@@ -31,5 +29,5 @@ export default Vue.extend({
       }
     }
   }
-})
+}
 </script>

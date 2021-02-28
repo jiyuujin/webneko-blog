@@ -5,7 +5,7 @@ import MainTemplate from '~/components/MainTemplate.vue'
 describe('MainTemplate', () => {
   test('correctly render', () => {
     const props = {
-      tags: []
+      tags: ['Vue']
     }
     const wrapper = mount(MainTemplate, {
       propsData: props

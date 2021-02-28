@@ -14,7 +14,7 @@
       </div>
 
       <div class="cover-date">
-        {{ dateTimeFormat(currentPost.fields.publishDate) }}
+        {{ new Date(currentPost.fields.publishDate).toLocaleDateString() }}
       </div>
     </div>
 
@@ -76,7 +76,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import dayjs from 'dayjs'
 
 import { fetchPost, fetchPosts } from '~/api/blog'
 import { fetchScraps } from '~/api/scrap'
@@ -114,11 +113,6 @@ export default Vue.extend({
   data() {
     return {
       isVertical: true
-    }
-  },
-  methods: {
-    dateTimeFormat(dt: string) {
-      return dayjs(dt).format('YYYY/MM/DD HH:mm')
     }
   },
   head() {

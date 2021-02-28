@@ -1,6 +1,6 @@
 import { computed } from '@vue/composition-api'
 import dayjs from 'dayjs'
-import { PostItem } from '../types/blog'
+import { PostItem } from '~/types/blog'
 
 type CalendarProps = {
   items: Array<PostItem>
@@ -50,10 +50,22 @@ export default (props: CalendarProps) => {
     return null
   })
 
-  const days = computed(() => {
+  const currentDay = computed(() => {
     const d = new Date(props.ym)
     const day = dayjs(new Date(d.getFullYear(), d.getMonth() + 1, 0))
     return dayjs(day).format('DD')
+  })
+
+  const prevYm = computed(() => {
+    const d = new Date(props.ym)
+    const day = dayjs(new Date(d.getFullYear(), d.getMonth() - 1, 0))
+    return dayjs(day).format('YYYY-MM')
+  })
+
+  const prevM = computed(() => {
+    const d = new Date(props.ym)
+    const day = dayjs(new Date(d.getFullYear(), d.getMonth() - 1, 0))
+    return dayjs(day).format('MM')
   })
 
   const getPost = (day: number) => {
@@ -66,5 +78,5 @@ export default (props: CalendarProps) => {
     return post
   }
 
-  return { startOfMonth, endOfMonth, days, getPost }
+  return { startOfMonth, endOfMonth, currentDay, prevYm, prevM, getPost }
 }
