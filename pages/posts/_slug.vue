@@ -37,7 +37,6 @@
               class="balloon"
               v-html="$md.render($sanitize(item.data.message))"
             />
-            <div class="time">{{ dateTimeFormat(item.data.time) }}</div>
           </div>
         </div>
       </div>
