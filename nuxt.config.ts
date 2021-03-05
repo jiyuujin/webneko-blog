@@ -148,7 +148,8 @@ export default {
     '~plugins/composition-api.ts',
     '~plugins/firebase.ts',
     '~plugins/j-stylebook.ts',
-    '~plugins/sanitize.ts'
+    '~plugins/sanitize.ts',
+    '~plugins/markdown-it.ts'
   ],
 
   components: true,
@@ -170,66 +171,6 @@ export default {
     '@nuxtjs/sitemap',
     '@nuxtjs/markdownit'
   ],
-
-  markdownit: {
-    preset: 'default',
-    injected: true,
-    breaks: true,
-    html: true,
-    linkify: true,
-    typography: true,
-    use: [
-      [
-        'markdown-it-container',
-        'warning',
-        {
-          validate: function (params) {
-            return params.trim().match(/^message\s+(.*)$/)
-          },
-          render: function (tokens, idx) {
-            const m = tokens[idx].info.trim().match(/^message\s+(.*)$/)
-            if (tokens[idx].nesting === 1) {
-              return '<div class="message ' + md.utils.escapeHtml(m[1]) + '">'
-            } else {
-              return '</div>\n'
-            }
-          }
-        }
-      ],
-      'markdown-it-toc',
-      [
-        'markdown-it-link-attributes',
-        {
-          pattern: /https?:/,
-          attrs: {
-            target: '_blank',
-            rel: 'nofollow noopener noreferrer'
-          }
-        }
-      ],
-      'markdown-it-attrs',
-      'markdown-it-video',
-      'markdown-it-mark'
-    ],
-    highlight: (str, lang) => {
-      const hl = require('highlight.js')
-      if (lang && hl.getLanguage(lang)) {
-        try {
-          return (
-            '<pre class="hljs"><code>' +
-            hl.highlight(lang, str, true).value +
-            '</code></pre>'
-          )
-        } catch (__) {}
-      }
-      // 言語設定がない場合、プレーンテキストとして表示する
-      return (
-        '<pre class="hljs"><code>' +
-        hl.highlight('plaintext', str, true).value +
-        '</code></pre>'
-      )
-    }
-  },
 
   module: {
     rules: [
