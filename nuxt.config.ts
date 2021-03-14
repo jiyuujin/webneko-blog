@@ -256,7 +256,20 @@ export default {
   },
 
   build: {
-    maxChunkSize: 300000,
+    optimization: {
+      minimize: true,
+      splitChunks: {
+        chunks: 'all',
+        automaticNameDelimiter: '.',
+        name: undefined,
+        cacheGroups: {
+          chunks: 'all', // 非同期で読み込む
+          enforce: false
+        }
+      }
+    },
+    minChunkSize: 300000,
+    maxChunkSize: 1000000,
     extend(config: Configuration, { isClient }: Context) {
       if (isClient) {
         config.devtool = '#source-map'
