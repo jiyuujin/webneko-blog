@@ -6,8 +6,6 @@ const contentful = require('contentful')
 const sass = require('sass')
 const fiber = require('fibers')
 
-const md = require('markdown-it')
-
 require('dotenv').config()
 
 export default {
