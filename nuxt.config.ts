@@ -123,14 +123,6 @@ export default {
     }
   },
 
-  render: {
-    bundleRenderer: {
-      shouldPreload: (file, type) => {
-        return ['script', 'style'].includes(type)
-      }
-    }
-  },
-
   loading: { color: '#fff' },
 
   css: [
