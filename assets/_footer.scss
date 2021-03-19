@@ -1,3 +1,16 @@
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  min-height: 240px;
+  padding: 20px 0;
+  margin-top: 24px;
+  color: #000;
+  background-color: #fff;
+}
+
 .footer-text {
   padding: 16px 0 8px;
   margin: auto;
@@ -64,18 +77,12 @@
   height: 4em;
 }
 
-@media (max-width: 500px) {
-  .contact-more {
-    display: flex;
-    flex-direction: column;
-
-    a {
-      margin-bottom: 12px;
-    }
-  }
-}
-
 .dark-theme {
+  footer {
+    color: #fff;
+    background-color: #303030;
+  }
+
   .contact-more {
     a {
       color: #fff;
@@ -85,6 +92,22 @@
       &:focus {
         color: #42b883;
       }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  footer {
+    min-height: 0;
+    margin-top: 0;
+  }
+
+  .contact-more {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      margin-bottom: 12px;
     }
   }
 }

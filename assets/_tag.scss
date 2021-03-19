@@ -1,0 +1,33 @@
+.tag-text {
+  width: 100%;
+  padding: 4px 12px 8px;
+
+  .tag {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    margin: 0.25rem;
+    color: #fff;
+    background-color: #718096;
+    border-color: #2e3439;
+    border-width: 1px;
+    border-radius: 9999px;
+
+    a {
+      color: #fff;
+    }
+  }
+}
+
+.dark-theme {
+  .tag-text {
+    .tag {
+      color: #718096;
+      background-color: #fff;
+      border-color: #a0aec0;
+
+      a {
+        color: #718096;
+      }
+    }
+  }
+}
