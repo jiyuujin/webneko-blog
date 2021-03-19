@@ -20,30 +20,6 @@
 
     <loaded-markdown :body="currentPost.fields.body" />
 
-    <div v-if="scraps" class="article">
-      <div v-for="(scrap, index) in scraps" :key="index" class="post-detail">
-        <div v-for="item in scrap" :key="item.id">
-          <div class="scrap-item scrap-item_left">
-            <div class="icon-box">
-              <img
-                :alt="item.data.name"
-                :src="`/icon/bakeneko.svg`"
-                width="40"
-                height="40"
-                class="icon"
-              />
-            </div>
-            <div
-              class="balloon"
-              v-html="$md.render($sanitize(item.data.message))"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <new-scrap v-if="currentPost.fields.category === 'Scrap'" :slug="slug" />
-
     <google-adsense
       ad-slot="5228106955"
       ad-format="fluid"
@@ -77,12 +53,10 @@
 import Vue from 'vue'
 
 import { fetchPost, fetchPosts } from '~/api/blog'
-import { fetchScraps } from '~/api/scrap'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const PostCard = () => import('~/components/PostCard.vue')
 const SocialMenu = () => import('~/components/SocialMenu.vue')
-const NewScrap = () => import('~/components/NewScrap.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 const LoadedMarkdown = () => import('~/components/LoadedMarkdown.vue')
 const BuyMeACoffee = () => import('~/components/BuyMeACoffee.vue')
@@ -92,7 +66,6 @@ export default Vue.extend({
     MainTemplate,
     PostCard,
     SocialMenu,
-    NewScrap,
     GoogleAdsense,
     LoadedMarkdown,
     BuyMeACoffee
@@ -105,7 +78,6 @@ export default Vue.extend({
         slug: params.slug,
         ym: ''
       }),
-      scraps: await fetchScraps(params.slug),
       latestPosts: await fetchPosts(isLatest)
     }
   },
