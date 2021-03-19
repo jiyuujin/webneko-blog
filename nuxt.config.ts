@@ -136,8 +136,6 @@ export default {
 
   plugins: [
     '~plugins/composition-api.ts',
-    '~plugins/firebase.ts',
-    '~plugins/j-stylebook.ts',
     '~plugins/sanitize.ts',
     '~plugins/markdown-it.ts'
   ],
