@@ -1,0 +1,33 @@
+.social-menu {
+  margin: 2% 24% 2% 24%;
+  overflow: hidden;
+  color: #000;
+  text-align: center;
+
+  img {
+    width: 36px;
+    height: 36px;
+    margin: 8px;
+    cursor: pointer;
+  }
+
+  &-vertical {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 60px;
+    left: 2%;
+  }
+
+  &-horizontal {
+    display: inline;
+  }
+}
+
+.dark-theme {
+  .menu {
+    a {
+      color: #fff;
+      background-color: #303030;
+    }
+  }
+}
