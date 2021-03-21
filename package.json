@@ -39,7 +39,7 @@
     "markdown-it-link-attributes": "3.0.0",
     "markdown-it-video": "0.6.3",
     "nuxt": "2.15.3",
-    "sanitize-html": "2.3.2",
+    "sanitize-html": "2.3.3",
     "ts-node": "9.1.1"
   },
   "devDependencies": {
