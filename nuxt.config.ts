@@ -108,13 +108,29 @@ export default {
         type: 'application/rss+xml',
         title: 'RSS for blog posts',
         href: 'https://webneko.dev/feeds.xml'
+      },
+      {
+        rel: 'dns-prefetch',
+        href: '//pagead2.googlesyndication.com'
+      },
+      {
+        rel: 'dns-prefetch',
+        href: '//googleads.g.doubleclick.net'
+      },
+      {
+        rel: 'dns-prefetch',
+        href: '//tpc.googlesyndication.com'
+      },
+      {
+        rel: 'dns-prefetch',
+        href: '//www.gstatic.com'
       }
     ],
     script: [
-      // {
-      //     async: true,
-      //     src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
-      // }
+      {
+        async: true,
+        src: 'js/adsense.js'
+      }
     ],
     htmlAttrs: {
       lang: 'ja'
@@ -259,15 +275,19 @@ export default {
       splitChunks: {
         chunks: 'all',
         automaticNameDelimiter: '.',
-        name: undefined,
+        name: 'test',
+        maxSize: 128000,
         cacheGroups: {
           chunks: 'all', // 非同期で読み込む
           enforce: false
         }
       }
     },
-    minChunkSize: 300000,
-    maxChunkSize: 1000000,
+    splitChunks: {
+      layouts: true,
+      pages: true,
+      commons: true
+    },
     extend(config: Configuration, { isClient }: Context) {
       if (isClient) {
         config.devtool = '#source-map'
