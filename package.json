@@ -57,7 +57,7 @@
     "@typescript-eslint/parser": "4.22.0",
     "@vue/test-utils": "1.1.4",
     "babel-core": "7.0.0-bridge.0",
-    "core-js": "3.10.1",
+    "core-js": "3.10.2",
     "dotenv": "8.2.0",
     "eslint": "7.24.0",
     "feed": "4.2.2",
