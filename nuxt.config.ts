@@ -293,6 +293,16 @@ export default {
         config.devtool = '#source-map'
       }
     },
+    babel: {
+      plugins: [
+        [
+          '@babel/plugin-proposal-private-methods',
+          {
+            loose: true
+          }
+        ]
+      ]
+    },
     loaders: {
       scss: {
         implementation: sass,
