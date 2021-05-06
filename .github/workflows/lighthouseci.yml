@@ -46,6 +46,14 @@ jobs:
 
       - name: Transpile
         run: npm run build:front
+        env:
+          NODE_ENV: production
+          SENTRY_ENV: production
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+          GIT_SHA: ${{ github.sha }}
 
       - name: Run CI
         run: lhci autorun --config=./lighthouserc.json --collect.settings.chromeFlags='--no-sandbox' || echo 'LHCI failed!'
