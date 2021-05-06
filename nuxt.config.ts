@@ -172,6 +172,7 @@ export default {
         id: 'UA-141123200-1'
       }
     ],
+    '@nuxtjs/sentry',
     '@nuxtjs/sitemap',
     '@nuxtjs/markdownit'
   ],
@@ -183,6 +184,17 @@ export default {
         loader: 'markdownit-loader'
       }
     ]
+  },
+
+  sentry: {
+    dsn: process.env.SENTRY_DSN,
+    disabled: process.env.NODE_ENV !== 'production',
+    publishRelease: true,
+    sourceMapStyle: 'hidden-source-map',
+    config: {
+      release: process.env.GIT_SHA,
+      environment: process.env.SENTRY_ENV || 'production'
+    }
   },
 
   sitemap: {
@@ -355,6 +367,12 @@ export default {
   },
 
   env: {
+    SENTRY_ENV: process.env.SENTRY_ENV,
+    SENTRY_DSN: process.env.SENTRY_DSN,
+    SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
+    SENTRY_ORG: process.env.SENTRY_ORG,
+    SENTRY_PROJECT: process.env.SENTRY_PROJECT,
+    LHCI_GITHUB_APP_TOKEN: process.env.LHCI_GITHUB_APP_TOKEN,
     CTF_PERSON_ID: process.env.CTF_PERSON_ID,
     CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID,
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
