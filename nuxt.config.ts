@@ -3,7 +3,7 @@ import { Context } from '@nuxt/types'
 import { ContentfulClientApi, Entry } from 'contentful'
 
 const contentful = require('contentful')
-const sass = require('sass')
+// const sass = require('sass')
 const fiber = require('fibers')
 
 require('dotenv').config()
@@ -317,7 +317,7 @@ export default {
     },
     loaders: {
       scss: {
-        implementation: sass,
+        // implementation: sass,
         sassOptions: {
           fiber: fiber
         }
