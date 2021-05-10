@@ -68,10 +68,14 @@ export default {
     })
     return { mode, getCurrentMonth }
   },
-  async asyncData() {
-    return {
-      posts: await fetchPosts(),
-      tags: await fetchTags()
+  async asyncData({ $sentry }) {
+    try {
+      return {
+        posts: await fetchPosts(),
+        tags: await fetchTags()
+      }
+    } catch (error) {
+      $sentry.captureException(error)
     }
   }
 }

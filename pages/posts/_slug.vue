@@ -70,15 +70,19 @@ export default Vue.extend({
     LoadedMarkdown,
     BuyMeACoffee
   },
-  async asyncData({ params }) {
+  async asyncData({ params, $sentry }) {
     const isLatest: boolean = true
-    return {
-      slug: params.slug,
-      currentPost: await fetchPost({
+    try {
+      return {
         slug: params.slug,
-        ym: ''
-      }),
-      latestPosts: await fetchPosts(isLatest)
+        currentPost: await fetchPost({
+          slug: params.slug,
+          ym: ''
+        }),
+        latestPosts: await fetchPosts(isLatest)
+      }
+    } catch (error) {
+      $sentry.captureException(error)
     }
   },
   data() {
