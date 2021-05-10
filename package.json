@@ -59,7 +59,7 @@
     "babel-core": "7.0.0-bridge.0",
     "core-js": "3.12.1",
     "dotenv": "8.6.0",
-    "eslint": "7.25.0",
+    "eslint": "7.26.0",
     "feed": "4.2.2",
     "fibers": "5.0.0",
     "fs-extra": "9.1.0",
