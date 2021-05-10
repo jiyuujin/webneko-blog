@@ -22,7 +22,8 @@
       "@types/node",
       "@types/webpack",
       "@types/webpack-env",
-      "@nuxt/types"
+      "@nuxt/types",
+      "@nuxtjs/sentry"
     ],
     "target": "esnext",
     "module": "esnext",

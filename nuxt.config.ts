@@ -172,6 +172,7 @@ export default {
         id: 'UA-141123200-1'
       }
     ],
+    '@nuxtjs/sentry',
     '@nuxtjs/sitemap',
     '@nuxtjs/markdownit'
   ],
@@ -183,6 +184,10 @@ export default {
         loader: 'markdownit-loader'
       }
     ]
+  },
+
+  sentry: {
+    dsn: process.env.SENTRY_DSN
   },
 
   sitemap: {
@@ -355,6 +360,8 @@ export default {
   },
 
   env: {
+    SENTRY_DSN: process.env.SENTRY_DSN,
+    LHCI_GITHUB_APP_TOKEN: process.env.LHCI_GITHUB_APP_TOKEN,
     CTF_PERSON_ID: process.env.CTF_PERSON_ID,
     CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID,
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
