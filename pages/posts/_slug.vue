@@ -1,5 +1,5 @@
 <template>
-  <main-template v-if="currentPost">
+  <div v-if="currentPost">
     <div class="cover">
       <template v-if="currentPost.fields.heroImage">
         <img
@@ -46,7 +46,7 @@
         </nuxt-link>
       </div>
     </div>
-  </main-template>
+  </div>
 </template>
 
 <script lang="ts">
@@ -54,7 +54,6 @@ import Vue from 'vue'
 
 import { fetchPost, fetchPosts } from '~/api/blog'
 
-const MainTemplate = () => import('~/components/MainTemplate.vue')
 const PostCard = () => import('~/components/PostCard.vue')
 const SocialMenu = () => import('~/components/SocialMenu.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
@@ -63,7 +62,6 @@ const BuyMeACoffee = () => import('~/components/BuyMeACoffee.vue')
 
 export default Vue.extend({
   components: {
-    MainTemplate,
     PostCard,
     SocialMenu,
     GoogleAdsense,
