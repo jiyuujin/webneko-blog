@@ -3,6 +3,7 @@
     <transition-group name="fade">
       <nuxt key="top-nuxt" />
     </transition-group>
+    <footer-text />
     <cookie-footer-wrapper />
   </div>
 </template>
@@ -10,10 +11,12 @@
 <script lang="ts">
 import { provideLayout } from '~/composables/layout'
 
+const FooterText = () => import('~/components/FooterText.vue')
 const CookieFooterWrapper = () => import('~/components/CookieFooterWrapper.vue')
 
 export default {
   components: {
+    FooterText,
     CookieFooterWrapper
   },
   setup() {
