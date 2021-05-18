@@ -20,7 +20,7 @@
   }
 }
 
-.dark-theme {
+@media (prefers-color-scheme: dark) {
   .contact,
   .scrap {
     &-title {

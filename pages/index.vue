@@ -1,34 +1,29 @@
 <template>
-  <div class="main">
+  <div class="section">
     <header-text />
 
-    <div class="top">
-      <div v-for="post in posts" :key="post.fields.title" class="items">
-        <nuxt-link
-          :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
-        >
-          <post-card :post="post" />
-        </nuxt-link>
-      </div>
-      <div class="read-more">
-        <nuxt-link :to="`/archives/${getCurrentMonth}`">
-          <img
-            v-if="mode === 'light'"
-            src="/icon/archive-black.svg"
-            alt="archive"
-            decoding="async"
-            :style="{ width: '40px' }"
-          />
-          <img
-            v-if="mode === 'dark'"
-            src="/icon/archive-white.svg"
-            alt="archive"
-            decoding="async"
-            :style="{ width: '40px' }"
-          />
-          <span>これまでの記事</span>
-        </nuxt-link>
-      </div>
+    <div class="feeds">
+      <post-card v-for="post in posts" :key="post.fields.title" :post="post" />
+    </div>
+
+    <div class="read-more">
+      <nuxt-link :to="`/archives/${getCurrentMonth}`">
+        <img
+          v-if="mode === 'light'"
+          src="/icon/archive-black.svg"
+          alt="archive"
+          decoding="async"
+          :style="{ width: '40px' }"
+        />
+        <img
+          v-if="mode === 'dark'"
+          src="/icon/archive-white.svg"
+          alt="archive"
+          decoding="async"
+          :style="{ width: '40px' }"
+        />
+        <span>これまでの記事</span>
+      </nuxt-link>
     </div>
 
     <google-adsense

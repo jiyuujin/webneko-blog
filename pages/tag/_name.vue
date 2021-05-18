@@ -1,19 +1,13 @@
 <template>
-  <div class="main">
+  <div class="section">
     <div class="tag-text">
       <div class="tag">
         {{ $route.params.name }}
       </div>
     </div>
 
-    <div class="top">
-      <div v-for="post in posts" :key="post.fields.title" class="items">
-        <nuxt-link
-          :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
-        >
-          <post-card :post="post" />
-        </nuxt-link>
-      </div>
+    <div class="feeds">
+      <post-card v-for="post in posts" :key="post.fields.title" :post="post" />
     </div>
   </div>
 </template>

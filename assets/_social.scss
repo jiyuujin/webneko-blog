@@ -23,7 +23,7 @@
   }
 }
 
-.dark-theme {
+@media (prefers-color-scheme: dark) {
   .menu {
     a {
       color: #fff;

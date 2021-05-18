@@ -1,5 +1,5 @@
 <template>
-  <div v-if="currentPost">
+  <div v-if="currentPost" class="section">
     <div class="cover">
       <template v-if="currentPost.fields.heroImage">
         <img
@@ -37,13 +37,12 @@
 
     <div class="latest-article">
       <h2 class="latest-article-title">あわせてよみたい..</h2>
-      <div v-for="post in latestPosts" :key="post.fields.title" class="items">
-        <nuxt-link
+      <div class="feeds">
+        <post-card
+          v-for="post in latestPosts"
           :key="post.fields.title"
-          :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
-        >
-          <post-card :post="post" />
-        </nuxt-link>
+          :post="post"
+        />
       </div>
     </div>
   </div>
@@ -89,10 +88,6 @@ export default Vue.extend({
     }
   },
   head() {
-    let heroImage = ''
-    if (this.currentPost.fields.heroImage) {
-      heroImage = `https:${this.currentPost.fields.heroImage.fields.file.url}`
-    }
     return {
       title: this.currentPost.fields.title,
       meta: [
@@ -112,7 +107,11 @@ export default Vue.extend({
           content: this.currentPost.fields.description
         },
         { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
-        { hid: 'twitter:image', name: 'twitter:image', content: heroImage },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: '/bakeneko-ogp.jpg'
+        },
         { hid: 'og:type', name: 'og:type', content: 'article' },
         {
           hid: 'og:title',
@@ -132,7 +131,7 @@ export default Vue.extend({
         {
           hid: 'og:image',
           name: 'og:image',
-          content: heroImage ? heroImage : '/icon/webneko-blog-white.png'
+          content: '/bakeneko-ogp.jpg'
         }
       ]
     }

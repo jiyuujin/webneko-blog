@@ -1,10 +1,4 @@
-.blog-card {
-  display: -webkit-flex;
-  display: flex;
-  justify-content: flex-start;
-  padding: 15px 0;
-
-  .reaction-img,
+.feed-card {
   img {
     display: -webkit-flex;
     display: flex;
@@ -47,11 +41,21 @@
   }
 }
 
-@media (max-width: 600px) {
-  .blog-card {
+@media (max-width: 340px) {
+  .feed-card {
     &__item {
       &-title {
-        width: 200px;
+        max-width: 180px;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .feed-card {
+    &__item {
+      &-title {
+        max-width: 250px;
       }
     }
   }
