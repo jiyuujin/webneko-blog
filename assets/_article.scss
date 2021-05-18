@@ -314,7 +314,7 @@
   }
 }
 
-.dark-theme {
+@media (prefers-color-scheme: dark) {
   .message {
     color: #f7fafc;
     background-color: #0b0d2e;

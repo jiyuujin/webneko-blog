@@ -7,8 +7,6 @@ footer {
   min-height: 240px;
   padding: 20px 0;
   margin-top: 24px;
-  color: #000;
-  background-color: #fff;
 }
 
 .footer-text {
@@ -45,9 +43,7 @@ footer {
     justify-content: center;
     margin-right: 16px;
     overflow: hidden;
-    color: #000;
     vertical-align: middle;
-    background-color: #fff;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: none;
@@ -60,7 +56,6 @@ footer {
       width: 100%;
       height: 100%;
       content: '';
-      background-color: #ecf0f1;
       -webkit-transition: all 0.3s ease-in-out;
       -o-transition: all 0.3s ease-in-out;
       transition: all 0.3s ease-in-out;
@@ -77,17 +72,15 @@ footer {
   height: 4em;
 }
 
-.dark-theme {
-  footer {
-    color: #fff;
-    background-color: #303030;
+@media (prefers-color-scheme: dark) {
+  .copyright {
+    a {
+      color: #fff;
+    }
   }
 
   .contact-more {
     a {
-      color: #fff;
-      background-color: #303030;
-
       &:hover,
       &:focus {
         color: #42b883;

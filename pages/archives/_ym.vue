@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="section">
     <calendar :items="archives" :ym="$route.params.ym" />
     <google-adsense
       ad-slot="5919567639"

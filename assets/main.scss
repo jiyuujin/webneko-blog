@@ -1,40 +1,20 @@
 /* stylelint-disable no-descending-specificity */
 
+@use 'node_modules/@nekohack/normalize.css/dist/index.css';
+
 @import 'ad';
 @import 'article';
 @import 'calendar';
 @import 'card';
 @import 'contribute';
 @import 'footer';
-@import 'form';
+//@import 'form';
 @import 'header';
 @import 'layout';
-@import 'privacy-policy';
+//@import 'privacy-policy';
 @import 'social';
 @import 'switch';
 @import 'tag';
-
-a {
-  color: #c71582;
-  text-decoration: none;
-}
-
-.main {
-  margin: 0 auto;
-}
-
-@media (max-width: 600px) {
-  .main {
-    width: 100%;
-    padding: 0 4px;
-  }
-}
-
-@media (max-width: 960px) {
-  .main {
-    max-width: 960px;
-  }
-}
 
 .light-theme {
   color: #000;

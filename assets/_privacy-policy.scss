@@ -19,7 +19,7 @@
   }
 }
 
-.dark-theme {
+@media (prefers-color-scheme: dark) {
   .privacy-policy {
     &-title {
       color: #fff;
