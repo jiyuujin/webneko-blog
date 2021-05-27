@@ -18,13 +18,37 @@
 
   &-date {
     position: absolute;
-    top: calc(75% + 25px);
+    top: 70%;
     left: 0;
     width: 100%;
     font-size: 1.44rem;
     font-weight: bold;
     line-height: 24px;
     text-align: center;
+  }
+
+  &-tags {
+    position: absolute;
+    top: calc(90% - 25px);
+    left: 0;
+    width: 100%;
+    font-size: 1.08rem;
+    font-weight: bold;
+    line-height: 16px;
+    text-align: center;
+
+    .tag {
+      display: inline-block;
+      padding: 0 7px;
+      margin-right: 4px;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 18px;
+      color: #8b949e;
+      background-color: transparent;
+      border: 1px solid #30363d;
+      border-radius: 2em;
+    }
   }
 
   img {
@@ -49,11 +73,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    vertical-align: middle;
     width: 100%;
     margin: 2% 0 2% 0;
     overflow: hidden;
     text-align: left;
+    vertical-align: middle;
 
     &::before {
       position: absolute;
@@ -77,6 +101,15 @@
 }
 
 @media (prefers-color-scheme: dark) {
+  .cover {
+    &-tags {
+      .tag {
+        color: #f3f3f3;
+        border: 1px solid #dedede;
+      }
+    }
+  }
+
   .feeds {
     a {
       color: #fff;
@@ -106,6 +139,16 @@
       width: 88%;
       margin: 2% 6% 2% 6%;
       font-size: 1.2rem;
+      text-align: left;
+    }
+
+    &-tags {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 88%;
+      margin: 2% 6% 2% 6%;
+      font-size: 1.08rem;
       text-align: left;
     }
   }

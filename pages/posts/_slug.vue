@@ -16,6 +16,12 @@
       <div class="cover-date">
         {{ new Date(currentPost.fields.publishDate).toLocaleDateString() }}
       </div>
+
+      <div class="cover-tags">
+        <div v-for="tag in currentPost.fields.tags" :key="tag" class="tag">
+          {{ tag }}
+        </div>
+      </div>
     </div>
 
     <loaded-markdown :body="currentPost.fields.body" />
