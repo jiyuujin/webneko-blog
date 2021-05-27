@@ -1,16 +1,19 @@
-.tag-text {
-  width: 100%;
-  padding: 4px 12px 8px;
+.tags {
+  max-width: 100%;
+  margin-top: 0.5rem;
+  font-size: 0.9em;
 
   .tag {
     display: inline-block;
-    padding: 0.5rem 0.75rem;
-    margin: 0.25rem;
-    color: #fff;
-    background-color: #718096;
-    border-color: #2e3439;
-    border-width: 1px;
-    border-radius: 9999px;
+    padding: 0 7px;
+    margin-right: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    color: #8b949e;
+    background-color: transparent;
+    border: 1px solid #30363d;
+    border-radius: 2em;
 
     a {
       color: #fff;
@@ -19,15 +22,14 @@
   }
 }
 
-.dark-theme {
-  .tag-text {
+@media (prefers-color-scheme: dark) {
+  .tags {
     .tag {
-      color: #718096;
-      background-color: #fff;
-      border-color: #a0aec0;
+      color: #f3f3f3;
+      border: 1px solid #dedede;
 
       a {
-        color: #718096;
+        //color: #718096;
       }
     }
   }

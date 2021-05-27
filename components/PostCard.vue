@@ -30,6 +30,11 @@
       <div class="feed-card__item-date">
         {{ new Date(post.fields.publishDate).toLocaleDateString() }}
       </div>
+      <div class="feed-card__item-tags">
+        <div v-for="tag in post.fields.tags" :key="tag" class="tag">
+          {{ tag }}
+        </div>
+      </div>
     </div>
   </nuxt-link>
 </template>
