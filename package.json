@@ -29,7 +29,7 @@
     "@nuxtjs/markdownit": "2.0.0",
     "@nuxtjs/markdownit-loader": "1.2.0",
     "@nuxtjs/pwa": "3.3.5",
-    "@nuxtjs/sentry": "5.0.3",
+    "@nuxtjs/sentry": "5.1.0",
     "@nuxtjs/sitemap": "2.4.0",
     "@vue/composition-api": "0.6.7",
     "contentful": "8.3.7",
