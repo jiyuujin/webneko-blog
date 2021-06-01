@@ -41,6 +41,8 @@
 
     <buy-me-a-coffee />
 
+    <stripe-link />
+
     <div class="latest-article">
       <h2 class="latest-article-title">あわせてよみたい..</h2>
       <div class="feeds">
@@ -64,6 +66,7 @@ const SocialMenu = () => import('~/components/SocialMenu.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 const LoadedMarkdown = () => import('~/components/LoadedMarkdown.vue')
 const BuyMeACoffee = () => import('~/components/BuyMeACoffee.vue')
+const StripeLink = () => import('~/components/StripeLink.vue')
 
 export default Vue.extend({
   components: {
@@ -71,7 +74,8 @@ export default Vue.extend({
     SocialMenu,
     GoogleAdsense,
     LoadedMarkdown,
-    BuyMeACoffee
+    BuyMeACoffee,
+    StripeLink
   },
   async asyncData({ params, $sentry }) {
     const isLatest: boolean = true
