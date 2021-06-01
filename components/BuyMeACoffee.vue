@@ -8,14 +8,14 @@
       rel="noopener noreferrer"
     >
       <img
-        v-if="!isClient"
-        src="/icon/buy_me_a_coffee-white.svg"
+        v-if="isLight"
+        src="/icon/buy_me_a_coffee-black.svg"
         alt="Buy me a coffee"
         decoding="async"
       />
       <img
-        v-else
-        src="/icon/buy_me_a_coffee-black.svg"
+        v-if="isDark"
+        src="/icon/buy_me_a_coffee-white.svg"
         alt="Buy me a coffee"
         decoding="async"
       />
@@ -24,18 +24,18 @@
 </template>
 
 <script lang="ts">
-import { ref } from '@vue/composition-api'
-
 import { useLayout } from '~/composables/layout'
 
 export default {
   setup() {
     const { mode } = useLayout()
-    const isClient =
+    const isLight =
       !process.server &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches === true &&
-      ref(true)
-    return { mode, isClient }
+      window.matchMedia('(prefers-color-scheme: dark)').matches === false
+    const isDark =
+      !process.server &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches === true
+    return { mode, isLight, isDark }
   }
 }
 </script>

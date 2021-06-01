@@ -8,14 +8,14 @@
       rel="noopener noreferrer"
     >
       <img
-        v-if="!isClient"
-        src="/icon/stripe-white.svg"
+        v-if="isLight"
+        src="/icon/stripe-black.svg"
         alt="Stripe"
         decoding="async"
       />
       <img
-        v-else
-        src="/icon/stripe-black.svg"
+        v-if="isDark"
+        src="/icon/stripe-white.svg"
         alt="Stripe"
         decoding="async"
       />
@@ -24,18 +24,18 @@
 </template>
 
 <script lang="ts">
-import { ref } from '@vue/composition-api'
-
 import { useLayout } from '~/composables/layout'
 
 export default {
   setup() {
     const { mode } = useLayout()
-    const isClient =
+    const isLight =
       !process.server &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches === true &&
-      ref(true)
-    return { mode, isClient }
+      window.matchMedia('(prefers-color-scheme: dark)').matches === false
+    const isDark =
+      !process.server &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches === true
+    return { mode, isLight, isDark }
   }
 }
 </script>
