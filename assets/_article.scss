@@ -75,11 +75,26 @@
 }
 
 .link-preview-widget {
-  display: table;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  padding: 1.2rem 0.8rem;
-  border: 1px solid #e6e6e6;
-  border-radius: 4px;
+  min-height: 60px;
+  padding: 4px;
+  margin: 20px auto;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.8;
+  text-decoration: none;
+  color: #757575 !important;
+  background-color: #fefefe;
+  border: 3px solid #74bfea;
+  transition: all 0.5s ease;
+
+  &:hover {
+    color: #fefefe !important;
+    background-color: #0d6ba3;
+  }
 }
 
 .link-preview-widget > a {
