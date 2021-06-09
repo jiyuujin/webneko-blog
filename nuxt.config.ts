@@ -42,7 +42,7 @@ export default {
       {
         hid: 'twitter:card',
         name: 'twitter:card',
-        content: 'summary'
+        content: 'summary_large_image'
       },
       {
         hid: 'twitter:site',
@@ -78,7 +78,7 @@ export default {
       {
         hid: 'og:image',
         name: 'og:image',
-        content: '/icon/webneko-blog-black.png'
+        content: '/bakeneko-ogp.jpg'
       }
     ],
     link: [
