@@ -60,26 +60,6 @@
   }
 }
 
-@media (max-width: 340px) {
-  .feed-card {
-    &__item {
-      &-title {
-        max-width: 180px;
-      }
-    }
-  }
-}
-
-@media (max-width: 600px) {
-  .feed-card {
-    &__item {
-      &-title {
-        max-width: 250px;
-      }
-    }
-  }
-}
-
 @media (prefers-color-scheme: dark) {
   .feed-card {
     &__item {
