@@ -61,6 +61,8 @@ import Vue from 'vue'
 
 import { fetchPost, fetchPosts } from '~/api/blog'
 
+import {POST_BASE_URL, URL_SCHEMA} from '~/utils/constant'
+
 const PostCard = () => import('~/components/PostCard.vue')
 const SocialMenu = () => import('~/components/SocialMenu.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
@@ -116,7 +118,11 @@ export default Vue.extend({
           name: 'twitter:description',
           content: this.currentPost.fields.description
         },
-        { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image'
+        },
         {
           hid: 'twitter:image',
           name: 'twitter:image',
@@ -136,7 +142,7 @@ export default Vue.extend({
         {
           hid: 'og:url',
           name: 'og:url',
-          content: `/${this.currentPost.fields.slug}` || ''
+          content: `${URL_SCHEMA}${POST_BASE_URL}${this.currentPost.fields.slug}`
         },
         {
           hid: 'og:image',
