@@ -1,117 +1,3 @@
-.message {
-  position: relative;
-  padding: 1.5rem;
-  padding-top: 0.75rem;
-  padding-right: 1rem;
-  padding-bottom: 0.75rem;
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-  color: #000;
-  background-color: #f7fafc;
-  border-color: #718096;
-  border-style: solid;
-  border-width: 0;
-  border-left-width: 4px;
-  border-bottom-right-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
-
-  ::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1.25rem;
-    height: 1.25rem;
-    margin-top: -0.75rem;
-    margin-left: -0.75rem;
-    font-family: 'Dosis', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 700;
-    line-height: 1.25;
-    color: #fff;
-    text-align: center;
-    content: '!';
-    background-color: #718096;
-    border-radius: 9999px;
-  }
-
-  .is-primary {
-    border: 4px solid #0078cc;
-
-    ::before {
-      background-color: #0078cc;
-    }
-  }
-
-  .is-info {
-    border: 4px solid #3fa1aa;
-
-    ::before {
-      background-color: #3fa1aa;
-    }
-  }
-
-  .is-success {
-    border: 4px solid #56c501;
-
-    ::before {
-      background-color: #56c501;
-    }
-  }
-
-  .is-warning {
-    border: 4px solid #c1c529;
-
-    ::before {
-      background-color: #c1c529;
-    }
-  }
-
-  .is-danger {
-    border: 4px solid #ff4500;
-
-    ::before {
-      background-color: #ff4500;
-    }
-  }
-}
-
-.link-preview-widget {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 60px;
-  padding: 4px;
-  margin: 20px auto;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.8;
-  text-decoration: none;
-  color: #757575 !important;
-  background-color: #fefefe;
-  border: 3px solid #74bfea;
-  transition: all 0.5s ease;
-
-  &:hover {
-    color: #fefefe !important;
-    background-color: #0d6ba3;
-  }
-}
-
-.link-preview-widget > a {
-  display: table-cell;
-  flex: 1;
-  flex-direction: column;
-  padding: 16px;
-  color: inherit;
-  text-decoration: none;
-  vertical-align: middle;
-  cursor: pointer;
-  background-color: transparent;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-box-flex: 1;
-}
-
 .article {
   width: 52%;
   margin: 2% 24% 2% 24%;
@@ -282,59 +168,54 @@
       width: 80%;
       margin: 0 10%;
     }
+  }
+}
 
-    .scrap-item {
-      display: flex;
-      flex-wrap: wrap;
+.scrap-item {
+  display: flex;
+  flex-wrap: wrap;
 
-      &_left {
-        flex-direction: row;
-      }
+  &_left {
+    flex-direction: row;
+  }
 
-      .time {
-        position: relative;
-        margin: 0 20px 20px;
-        font-size: 8px;
-      }
+  .time {
+    position: relative;
+    margin: 0 20px 20px;
+    font-size: 8px;
+  }
 
-      .balloon {
-        position: relative;
-        display: inline-block;
-        max-width: 400px;
-        padding: 8px 15px;
-        margin: 10px 20px 20px;
-        text-align: left;
-        background: #f0f0f0;
-        border-radius: 15px;
+  .balloon {
+    position: relative;
+    display: inline-block;
+    max-width: 400px;
+    padding: 8px 15px;
+    margin: 10px 20px 20px;
+    text-align: left;
+    background: #f0f0f0;
+    border-radius: 15px;
 
-        ::after {
-          position: absolute;
-          top: 0;
-          left: -10px;
-          content: '';
-          border: 14px solid transparent;
-          border-top-color: #f0f0f0;
-        }
-      }
-
-      .icon-box {
-        width: 40px;
-        height: 40px;
-        overflow: hidden;
-        background: #f0f0f0;
-        border: 2px solid #ddd;
-        border-radius: 50%;
-      }
+    ::after {
+      position: absolute;
+      top: 0;
+      left: -10px;
+      content: '';
+      border: 14px solid transparent;
+      border-top-color: #f0f0f0;
     }
+  }
+
+  .icon-box {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    background: #f0f0f0;
+    border: 2px solid #ddd;
+    border-radius: 50%;
   }
 }
 
 @media (prefers-color-scheme: dark) {
-  .message {
-    color: #f7fafc;
-    background-color: #0b0d2e;
-  }
-
   .article {
     p {
       color: #fff;
@@ -351,20 +232,20 @@
         color: #fff;
       }
     }
+  }
 
-    .scrap-item {
-      .balloon {
-        color: #fefefe;
-        background-color: #51565d;
+  .scrap-item {
+    .balloon {
+      color: #fefefe;
+      background-color: #51565d;
 
-        ::after {
-          border-top-color: #51565d;
-        }
+      ::after {
+        border-top-color: #51565d;
       }
+    }
 
-      .icon-box {
-        background-color: #51565d;
-      }
+    .icon-box {
+      background-color: #51565d;
     }
   }
 }
