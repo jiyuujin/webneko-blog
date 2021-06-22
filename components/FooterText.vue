@@ -42,7 +42,7 @@
 <script lang="ts">
 import { useLayout } from '~/composables/layout'
 
-import { CONTACT_URL } from '~/utils/constant'
+import { CONTACT_URL } from '~/utils/constants'
 
 export default {
   setup(props, ctx) {

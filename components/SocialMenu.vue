@@ -24,7 +24,7 @@ import {
   TWITTER_URL,
   HATENA_URL,
   NOTE_URL
-} from '~/utils/constant'
+} from '~/utils/constants'
 
 export default {
   props: {
