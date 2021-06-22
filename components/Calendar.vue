@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="calendar-header">
-      <nuxt-link :to="`/archives/${prevYm}`" role="button" aria-pressed="true">
+      <nuxt-link :to="`/archive/${prevYm}`" role="button" aria-pressed="true">
         {{ prevM }}
       </nuxt-link>
     </div>

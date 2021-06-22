@@ -7,7 +7,7 @@
     </div>
 
     <div class="read-more">
-      <nuxt-link :to="`/archives/${getCurrentMonth}`">
+      <nuxt-link :to="`/archive/${getCurrentMonth}`">
         <img
           v-if="mode === 'light'"
           src="/icon/archive-black.svg"
