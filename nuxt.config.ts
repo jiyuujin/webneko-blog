@@ -2,6 +2,8 @@ import { Configuration } from 'webpack'
 import { Context } from '@nuxt/types'
 import { ContentfulClientApi, Entry } from 'contentful'
 
+import { generalOg, twitterOg } from './utils/og.constants'
+
 const contentful = require('contentful')
 const sass = require('sass')
 const fiber = require('fibers')
@@ -22,64 +24,8 @@ export default {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1'
       },
-      {
-        hid: 'description',
-        name: 'description',
-        content:
-          '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。'
-      },
-      {
-        hid: 'twitter:title',
-        name: 'twitter:title',
-        content: 'Web猫ブログ'
-      },
-      {
-        hid: 'twitter:description',
-        name: 'twitter:description',
-        content:
-          '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。'
-      },
-      {
-        hid: 'twitter:card',
-        name: 'twitter:card',
-        content: 'summary_large_image'
-      },
-      {
-        hid: 'twitter:site',
-        name: 'twitter:site',
-        content: '@jiyuujinlab'
-      },
-      {
-        hid: 'og:site_name',
-        name: 'og:site_name',
-        content: 'Web猫ブログ'
-      },
-      {
-        hid: 'og:type',
-        name: 'og:type',
-        content: 'website'
-      },
-      {
-        hid: 'og:title',
-        name: 'og:title',
-        content: 'Web猫ブログ'
-      },
-      {
-        hid: 'og:description',
-        name: 'og:description',
-        content:
-          '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。'
-      },
-      {
-        hid: 'og:url',
-        name: 'og:url',
-        content: 'https://webneko.dev/'
-      },
-      {
-        hid: 'og:image',
-        name: 'og:image',
-        content: '/bakeneko-ogp.jpg'
-      }
+      ...generalOg(),
+      ...twitterOg()
     ],
     link: [
       {

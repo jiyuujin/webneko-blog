@@ -61,7 +61,8 @@ import Vue from 'vue'
 
 import { fetchPost, fetchPosts } from '~/api/blog'
 
-import {POST_BASE_URL, URL_SCHEMA} from '~/utils/constant'
+import Endpoints from '~/utils/endpoints.constants'
+import { generalOg, twitterOg } from '~/utils/og.constants'
 
 const PostCard = () => import('~/components/PostCard.vue')
 const SocialMenu = () => import('~/components/SocialMenu.vue')
@@ -103,52 +104,15 @@ export default Vue.extend({
     return {
       title: this.currentPost.fields.title,
       meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.currentPost.fields.description
-        },
-        {
-          hid: 'twitter:title',
-          name: 'twitter:title',
-          content: this.currentPost.fields.title
-        },
-        {
-          hid: 'twitter:description',
-          name: 'twitter:description',
-          content: this.currentPost.fields.description
-        },
-        {
-          hid: 'twitter:card',
-          name: 'twitter:card',
-          content: 'summary_large_image'
-        },
-        {
-          hid: 'twitter:image',
-          name: 'twitter:image',
-          content: '/bakeneko-ogp.jpg'
-        },
-        { hid: 'og:type', name: 'og:type', content: 'article' },
-        {
-          hid: 'og:title',
-          name: 'og:title',
-          content: this.currentPost.fields.title
-        },
-        {
-          hid: 'og:description',
-          name: 'og:description',
-          content: this.currentPost.fields.description
-        },
-        {
-          hid: 'og:url',
-          name: 'og:url',
-          content: `${URL_SCHEMA}${POST_BASE_URL}${this.currentPost.fields.slug}`
-        },
-        {
-          hid: 'og:image',
-          name: 'og:image',
-          content: '/bakeneko-ogp.jpg'
-        }
+        ...generalOg(
+          this.currentPost.fields.title,
+          this.currentPost.fields.description,
+          `${Endpoints.POST_BASE_URL}${this.currentPost.fields.slug}`
+        ),
+        ...twitterOg(
+          this.currentPost.fields.title,
+          this.currentPost.fields.description
+        )
       ]
     }
   }

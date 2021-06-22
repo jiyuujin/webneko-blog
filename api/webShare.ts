@@ -1,4 +1,4 @@
-import { URL_SCHEMA, POST_BASE_URL } from '~/utils/constant'
+import Endpoints from '~/utils/endpoints.constants'
 
 /**
  * Web Share API を使う
@@ -15,7 +15,7 @@ export const setupWebShare = async (title: string, slug: string) => {
     await window.navigator.share({
       title: 'Share API で共有！',
       text: title,
-      url: `${URL_SCHEMA}${POST_BASE_URL}${slug}`
+      url: `${Endpoints.POST_BASE_URL}${slug}`
     })
   } catch (e) {
     console.error(e)
