@@ -28,7 +28,7 @@ export const fetchPosts = async (isLatest: boolean = false) => {
   return result
 }
 
-export const fetchAllPosts = async () => {
+export const fetchAllPosts = async (tagName: string = '') => {
   const client = createClient()
 
   let result: PostItem[] = []
@@ -41,7 +41,21 @@ export const fetchAllPosts = async () => {
       result = entries.items
     })
 
-  return result
+  let resultByTag: PostItem[] = []
+  if (tagName !== '') {
+    for (let index = 0; index < result.length; index++) {
+      if (result[index].fields.tags !== undefined) {
+        for (let tag of result[index].fields.tags) {
+          if (tag === tagName) {
+            resultByTag.push(result[index])
+            break
+          }
+        }
+      }
+    }
+  }
+
+  return tagName === '' ? result : resultByTag
 }
 
 export const fetchTags = async () => {

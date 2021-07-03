@@ -15,7 +15,7 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import { fetchPostsByTag } from '~/api/blog'
+import { fetchAllPosts } from '~/api/blog'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 import Endpoints from '~/utils/endpoints.constants'
 
@@ -28,7 +28,7 @@ export default Vue.extend({
   async asyncData({ route }) {
     return {
       tagName: route.params.name,
-      posts: await fetchPostsByTag(route.params.name)
+      posts: await fetchAllPosts(route.params.name)
     }
   },
   head() {
