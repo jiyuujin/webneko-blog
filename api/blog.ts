@@ -28,6 +28,22 @@ export const fetchPosts = async (isLatest: boolean = false) => {
   return result
 }
 
+export const fetchAllPosts = async () => {
+  const client = createClient()
+
+  let result: PostItem[] = []
+  await client
+    .getEntries({
+      content_type: process.env.CTF_BLOG_POST_TYPE_ID,
+      order: ORDER
+    })
+    .then((entries: Posts) => {
+      result = entries.items
+    })
+
+  return result
+}
+
 export const fetchTags = async () => {
   const client = createClient()
 
