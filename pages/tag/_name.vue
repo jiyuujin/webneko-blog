@@ -42,7 +42,7 @@ export default Vue.extend({
         ),
         ...twitterOg(
           `${(this as any).tagName} 記事一覧`,
-          `${(this as any).tagName} の記事を集めました`,
+          `${(this as any).tagName} の記事を集めました`
         )
       ]
     }
