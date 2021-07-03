@@ -1,13 +1,13 @@
 <template>
   <main>
     <h2>Archives</h2>
-    <p v-for="post in posts" :key="post.fields.title">
-      <nuxt-link
-        :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
-      >
-        {{ post.fields.title }}
-      </nuxt-link>
+    <p>
+      {{ `このページは jiyuujin が書いてきた過去の記事を収集したページです。` }}
     </p>
+
+    <div class="feeds">
+      <post-card v-for="post in posts" :key="post.fields.title" :post="post" />
+    </div>
 
     <google-adsense
       ad-slot="5919567639"
@@ -24,10 +24,12 @@ import { fetchAllPosts } from '~/api/blog'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 import Endpoints from '~/utils/endpoints.constants'
 
+const PostCard = () => import('~/components/PostCard.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 
 export default Vue.extend({
   components: {
+    PostCard,
     GoogleAdsense
   },
   async asyncData({ $sentry }) {

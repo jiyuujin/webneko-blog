@@ -1,15 +1,16 @@
 <template>
-  <div class="section">
-    <div class="tag-text">
-      <div class="tag">
-        {{ $route.params.name }}
-      </div>
-    </div>
+  <main>
+    <h2>{{ `Archive at ${$route.params.name}` }}</h2>
+    <p>
+      {{
+        `このページは jiyuujin が書いてきた ${$route.params.name} の記事を収集したページです。`
+      }}
+    </p>
 
     <div class="feeds">
       <post-card v-for="post in posts" :key="post.fields.title" :post="post" />
     </div>
-  </div>
+  </main>
 </template>
 
 <script lang="ts">
