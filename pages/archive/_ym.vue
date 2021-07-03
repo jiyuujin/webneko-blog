@@ -1,12 +1,20 @@
 <template>
-  <div class="section">
+  <main>
+    <h2>{{ `${$route.params.ym} Tag's Page` }}</h2>
+    <p>
+      {{
+        `このページは jiyuujin が書いてきた ${$route.params.ym} の記事を収集したページです。`
+      }}
+    </p>
+
     <calendar :items="archives" :ym="$route.params.ym" />
+
     <google-adsense
       ad-slot="5919567639"
       ad-format="auto"
       :ad-style="{ display: 'block' }"
     />
-  </div>
+  </main>
 </template>
 
 <script lang="ts">
