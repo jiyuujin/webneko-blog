@@ -42,7 +42,7 @@
     "markdown-it-video": "0.6.3",
     "nuxt": "2.15.7",
     "sanitize-html": "2.4.0",
-    "ts-node": "9.1.1"
+    "ts-node": "10.1.0"
   },
   "devDependencies": {
     "@babel/core": "7.14.6",
