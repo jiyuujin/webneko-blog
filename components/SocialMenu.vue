@@ -18,7 +18,7 @@
 <script lang="ts">
 import { useLayout } from '~/composables/layout'
 
-import { setupWebShare } from '~/api/webShare'
+import { useWebShareSetup } from '~/modules/useWebShare'
 import {
   SOCIAL_LIST,
   TWITTER_URL,
@@ -62,7 +62,7 @@ export default {
           'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'
         )
       } else {
-        setupWebShare(props.title, props.slugText)
+        useWebShareSetup(props.title, props.slugText)
       }
     }
 

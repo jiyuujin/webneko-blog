@@ -1,11 +1,11 @@
-import Endpoints from '~/utils/endpoints.constants'
+import Endpoints from '../utils/endpoints.constants'
 
 /**
  * Web Share API を使う
  * @param title
  * @param slug
  */
-export const setupWebShare = async (title: string, slug: string) => {
+export const useWebShareSetup = async (title: string, slug: string) => {
   if (!window.navigator.share) {
     alert('ご利用のブラウザでは共有できません。')
     return
