@@ -2,6 +2,7 @@ import { Configuration } from 'webpack'
 import { Context } from '@nuxt/types'
 import { ContentfulClientApi, Entry } from 'contentful'
 
+import { useESBuildMinify, useESBuildLoader } from './modules/useESBuild'
 import { generalOg, twitterOg } from './utils/og.constants'
 
 const contentful = require('contentful')
@@ -243,6 +244,15 @@ export default {
       if (isClient) {
         config.devtool = '#source-map'
       }
+      useESBuildMinify(config)
+      useESBuildLoader(config, {
+        loader: 'jsx',
+        target: 'es2017'
+      })
+      useESBuildLoader(config, {
+        loader: 'tsx',
+        target: 'es2017'
+      })
     },
     babel: {
       plugins: [
