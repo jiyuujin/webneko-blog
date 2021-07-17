@@ -1,7 +1,7 @@
 # docker-compose logs -f --tail 10 webneko_blog_front
 
 # Nodeイメージを取得する
-FROM node:12.20.1-alpine
+FROM node:14-alpine
 
 # ワーキングディレクトリを指定する
 WORKDIR /app
