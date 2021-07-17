@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [14.x]
 
     steps:
     - uses: actions/checkout@v1
@@ -28,7 +28,7 @@ jobs:
     - name: Cache node modules
       uses: actions/cache@v1
       env:
-        cache-name: _cache_npm_node12
+        cache-name: _cache_npm_node14
       with:
         path: ~/.npm
         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
