@@ -1,0 +1,62 @@
+/* Not use scrap */
+
+.scrap-item {
+  display: flex;
+  flex-wrap: wrap;
+
+  &_left {
+    flex-direction: row;
+  }
+
+  .time {
+    position: relative;
+    margin: 0 20px 20px;
+    font-size: 8px;
+  }
+
+  .balloon {
+    position: relative;
+    display: inline-block;
+    max-width: 400px;
+    padding: 8px 15px;
+    margin: 10px 20px 20px;
+    text-align: left;
+    background: #f0f0f0;
+    border-radius: 15px;
+
+    ::after {
+      position: absolute;
+      top: 0;
+      left: -10px;
+      content: '';
+      border: 14px solid transparent;
+      border-top-color: #f0f0f0;
+    }
+  }
+
+  .icon-box {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    background: #f0f0f0;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .scrap-item {
+    .balloon {
+      color: #fefefe;
+      background-color: #51565d;
+
+      ::after {
+        border-top-color: #51565d;
+      }
+    }
+
+    .icon-box {
+      background-color: #51565d;
+    }
+  }
+}
