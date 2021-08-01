@@ -2,7 +2,7 @@ import { Configuration } from 'webpack'
 import { Context } from '@nuxt/types'
 import { ContentfulClientApi, Entry } from 'contentful'
 
-import { useESBuildMinify, useESBuildLoader } from './modules/useESBuild'
+import { useESBuildMinify, useESBuildLoader } from './hooks/useESBuild'
 import { generalOg, twitterOg } from './utils/og.constants'
 
 const contentful = require('contentful')

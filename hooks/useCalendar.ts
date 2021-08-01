@@ -1,10 +1,11 @@
 import { computed } from '@vue/composition-api'
 import dayjs from 'dayjs'
+
 import { PostItem } from '~/types/blog'
 
 type CalendarProps = {
-  items: Array<PostItem>
-  ym: string
+  items?: Array<PostItem>
+  ym?: string
 }
 
 export default (props: CalendarProps) => {
@@ -50,23 +51,25 @@ export default (props: CalendarProps) => {
     return null
   })
 
-  const currentDay = computed(() => {
-    const d = new Date(props.ym)
-    const day = dayjs(new Date(d.getFullYear(), d.getMonth() + 1, 0))
-    return dayjs(day).format('DD')
-  })
+  /**
+   * 現在の日付を取得する
+   * @param formatType
+   */
+  const formatCurrentDate = (formatType: string) => {
+    const target = props?.ym ? new Date(props?.ym) : new Date()
+    const day = dayjs(new Date(target.getFullYear(), target.getMonth() + 1, 0))
+    return dayjs(day).format(formatType)
+  }
 
-  const prevYm = computed(() => {
-    const d = new Date(props.ym)
-    const day = dayjs(new Date(d.getFullYear(), d.getMonth() - 1, 0))
-    return dayjs(day).format('YYYY-MM')
-  })
-
-  const prevM = computed(() => {
-    const d = new Date(props.ym)
-    const day = dayjs(new Date(d.getFullYear(), d.getMonth() - 1, 0))
-    return dayjs(day).format('MM')
-  })
+  /**
+   * 過去の日付を取得する
+   * @param formatType
+   */
+  const formatPreviousDate = (formatType: string) => {
+    const target = props?.ym ? new Date(props?.ym) : new Date()
+    const day = dayjs(new Date(target.getFullYear(), target.getMonth(), 0))
+    return dayjs(day).format(formatType)
+  }
 
   const getPost = (day: number) => {
     let post: PostItem | null | undefined
@@ -78,5 +81,11 @@ export default (props: CalendarProps) => {
     return post
   }
 
-  return { startOfMonth, endOfMonth, currentDay, prevYm, prevM, getPost }
+  return {
+    startOfMonth,
+    endOfMonth,
+    formatCurrentDate,
+    formatPreviousDate,
+    getPost
+  }
 }
