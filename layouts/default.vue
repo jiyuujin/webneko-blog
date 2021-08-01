@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import { provideLayout } from '~/composables/layout'
+import { provideLayout } from '~/hooks/useAppTheme'
 
 const FooterText = () => import('~/components/FooterText.vue')
 const CookieFooterWrapper = () => import('~/components/CookieFooterWrapper.vue')

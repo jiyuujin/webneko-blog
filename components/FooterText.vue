@@ -40,7 +40,7 @@
 </template>
 
 <script lang="ts">
-import { useLayout } from '~/composables/layout'
+import { useLayout } from '~/hooks/useAppTheme'
 
 import { CONTACT_URL } from '~/utils/constants'
 

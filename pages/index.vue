@@ -7,7 +7,7 @@
     </div>
 
     <div class="read-more">
-      <nuxt-link :to="`/archive/${getCurrentMonth}`">
+      <nuxt-link :to="`/archive/${formatCurrentDate('YYYY-MM')}`">
         <img
           v-if="mode === 'light'"
           src="/icon/archive-black.svg"
@@ -37,10 +37,8 @@
 </template>
 
 <script lang="ts">
-import { computed } from '@vue/composition-api'
-import dayjs from 'dayjs'
-
-import { useLayout } from '~/composables/layout'
+import { useLayout } from '~/hooks/useAppTheme'
+import useCalendar from '~/hooks/useCalendar'
 
 import { fetchPosts, fetchTags } from '~/api/blog'
 
@@ -58,10 +56,7 @@ export default {
   },
   setup(props, ctx) {
     const { mode } = useLayout()
-    const getCurrentMonth = computed(() => {
-      return dayjs().format('YYYY-MM')
-    })
-    return { mode, getCurrentMonth }
+    return { mode, ...useCalendar(props) }
   },
   async asyncData({ $sentry }) {
     try {

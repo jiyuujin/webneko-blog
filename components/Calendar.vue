@@ -1,8 +1,12 @@
 <template>
   <div>
     <div class="calendar-header">
-      <nuxt-link :to="`/archive/${prevYm}`" role="button" aria-pressed="true">
-        {{ prevM }}
+      <nuxt-link
+        :to="`/archive/${formatPreviousDate('YYYY-MM')}`"
+        role="button"
+        aria-pressed="true"
+      >
+        {{ formatPreviousDate('MM') }}
       </nuxt-link>
     </div>
 
@@ -11,7 +15,11 @@
         {{ weekday }}
       </span>
       <div v-for="i in startOfMonth" :key="i" class="day day--disabled" />
-      <div v-for="day in Number(currentDay)" :key="day" class="day">
+      <div
+        v-for="day in parseInt(formatCurrentDate('DD'))"
+        :key="day"
+        class="day"
+      >
         <div v-if="getPost(day)" class="tooltip">
           <a
             :href="`https://webneko.dev/posts/${getPost(day).fields.slug}`"
@@ -60,7 +68,7 @@
 </template>
 
 <script lang="ts">
-import useCalendar from '@/composables/calendar'
+import useCalendar from '~/hooks/useCalendar'
 
 const WEEKDAY_LIST = ['日', '月', '火', '水', '木', '金', '土']
 

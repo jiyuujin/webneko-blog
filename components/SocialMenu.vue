@@ -16,9 +16,9 @@
 </template>
 
 <script lang="ts">
-import { useLayout } from '~/composables/layout'
+import { useLayout } from '~/hooks/useAppTheme'
 
-import { useWebShareSetup } from '~/modules/useWebShare'
+import { useWebShareSetup } from '~/hooks/useWebShare'
 import {
   SOCIAL_LIST,
   TWITTER_URL,
