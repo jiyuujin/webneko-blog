@@ -36,24 +36,24 @@
     "noEmit": true,
     "paths": {
       "~/*": [
-        "./*"
+        "./client/*"
       ],
       "@/*": [
-        "./*"
+        "./client/*"
       ]
     }
   },
   "include": [
-    "components/**/*",
-    "layouts/**/*",
-    "middleware/**/*",
-    "pages/**/*",
-    "plugins/**/*",
-    "store/**/*",
-    "utils/**/*"
+    "client/components/**/*",
+    "client/layouts/**/*",
+    "client/middleware/**/*",
+    "client/pages/**/*",
+    "client/plugins/**/*",
+    "client/store/**/*",
+    "client/utils/**/*"
   ],
   "exclude": [
     "node_modules",
-    "tests"
+    "client/tests"
   ]
 }

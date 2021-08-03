@@ -2,8 +2,8 @@ import { Configuration } from 'webpack'
 import { Context } from '@nuxt/types'
 import { ContentfulClientApi, Entry } from 'contentful'
 
-import { useESBuildMinify, useESBuildLoader } from './hooks/useESBuild'
-import { generalOg, twitterOg } from './utils/og.constants'
+import { useESBuildMinify, useESBuildLoader } from './client/hooks/useESBuild'
+import { generalOg, twitterOg } from './client/utils/og.constants'
 
 const contentful = require('contentful')
 const sass = require('sass')
@@ -12,6 +12,8 @@ const fiber = require('fibers')
 require('dotenv').config()
 
 export default {
+  srcDir: 'client/',
+
   ssr: true,
 
   head: {
@@ -92,7 +94,7 @@ export default {
       lang: 'css'
     },
     {
-      src: '~/node_modules/highlight.js/styles/hopscotch.css',
+      src: '../node_modules/highlight.js/styles/hopscotch.css',
       lang: 'css'
     }
   ],

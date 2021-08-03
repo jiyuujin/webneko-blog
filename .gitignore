@@ -92,8 +92,8 @@ yarn.lock
 .firebase.json
 .github.json
 
-static/sw.js
+client/static/sw.js
 
-static/feeds.xml
+client/static/feeds.xml
 
 .lighthouseci

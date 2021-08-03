@@ -36,15 +36,15 @@
     "noEmit": true,
     "paths": {
       "~/*": [
-        "./*"
+        "./client/*"
       ],
       "@/*": [
-        "./*"
+        "./client/*"
       ]
     }
   },
   "include": [
-    "tests/**/*",
+    "client/tests/**/*",
     "node_modules/@nekohack/j-stylebook/dist/j-stylebook.css"
   ],
   "exclude": [
