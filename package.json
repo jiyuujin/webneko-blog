@@ -18,6 +18,7 @@
     "test": "jest",
     "test-cover": "jest --coverage",
     "test:w": "npm run test-cover -- --watch",
+    "backup": "ts-node client/api/backup.ts --project tsconfig.builder.json",
     "precommit": "npm run lint"
   },
   "dependencies": {

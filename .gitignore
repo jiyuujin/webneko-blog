@@ -97,3 +97,7 @@ client/static/sw.js
 client/static/feeds.xml
 
 .lighthouseci
+
+webneko-blog-export.json
+
+contentful-export-error-log-gzkue3szf85p-master-**.json
