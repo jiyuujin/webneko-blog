@@ -8,13 +8,13 @@
     "dev": "nuxt",
     "build": "npm run build:feeds && npm run build:front",
     "build:front": "nuxt build --no-lock",
-    "build:feeds": "ts-node --project tsconfig.builder.json api/feeds.ts",
+    "build:feeds": "ts-node --project tsconfig.builder.json client/api/feeds.ts",
     "start": "nuxt start",
     "generate": "nuxt generate --no-lock",
     "eslint": "eslint --ext .ts,.vue --ignore-path .gitignore -c .eslintrc.js .",
     "eslint:fix": "eslint --ext .ts,.vue --ignore-path .gitignore -c .eslintrc.js .",
-    "stylelint": "stylelint --config .stylelintrc.yml './assets/**/*.scss' './components/**/*.vue'",
-    "stylelint:fix": "stylelint --config .stylelintrc.yml './assets/**/*.scss' './components/**/*.vue' --fix",
+    "stylelint": "stylelint --config .stylelintrc.yml 'client/assets/**/*.scss' './components/**/*.vue'",
+    "stylelint:fix": "stylelint --config .stylelintrc.yml 'client/assets/**/*.scss' './components/**/*.vue' --fix",
     "test": "jest",
     "test-cover": "jest --coverage",
     "test:w": "npm run test-cover -- --watch",
@@ -97,14 +97,14 @@
       "^.*\\.(vue)$": "vue-jest",
       "^.+\\.(ts|tsx)$": "ts-jest"
     },
-    "testRegex": "(/tests/.*|(\\.|/)(test|spec))\\.ts?$",
+    "testRegex": "(/client/tests/.*|(\\.|/)(test|spec))\\.ts?$",
     "moduleNameMapper": {
-      "^@/(.*)$": "<rootDir>/$1",
-      "^~/(.*)$": "<rootDir>/$1",
+      "^@/(.*)$": "<rootDir>/client/$1",
+      "^~/(.*)$": "<rootDir>/client/$1",
       "^vue$": "vue/dist/vue.common.js"
     },
     "collectCoverageFrom": [
-      "src/components/**/*.{vue}"
+      "client/components/**/*.{vue}"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/.nuxt",
