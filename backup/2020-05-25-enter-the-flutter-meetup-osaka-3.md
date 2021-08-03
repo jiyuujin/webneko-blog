@@ -7,7 +7,7 @@ reaction: 🎥
 category: 
 tags: 
  - Flutter
- - Review
+ - YouTube
 ---
 
 ## "ONLINE" Flutter Osaka
