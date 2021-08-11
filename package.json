@@ -62,7 +62,7 @@
     "babel-core": "7.0.0-bridge.0",
     "core-js": "3.16.1",
     "dotenv": "10.0.0",
-    "esbuild-loader": "2.14.0",
+    "esbuild-loader": "2.15.0",
     "eslint": "7.32.0",
     "feed": "4.2.2",
     "fibers": "5.0.0",
