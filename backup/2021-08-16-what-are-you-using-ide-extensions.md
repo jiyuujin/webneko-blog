@@ -28,8 +28,8 @@ tags:
 - Bracket Pair Colorizer 2
    - IntelliJ では Rainbow bracket
 - Code Spell Checker
-- Draw.io integration
-   - IntelliJ では Diagrams.net Integration
+- Draw io integration
+   - IntelliJ では Diagrams net Integration
 - Remote Containers
 - Vetur
 - Flutter Intl
@@ -49,42 +49,56 @@ VSCode でも `setting.json` に下記設定を追加することで同様の機
 }
 ```
 
-### [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
+### Git Graph
 
 コミット履歴をツリー形式で表示してくれる。
 
-### [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2)
+[Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
+
+### Bracket Pair Colorizer 2
+
+対応する括弧を色分けして表示してくれる。
+
+[Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2)
 
 IntelliJ でも同様のエクステンションが存在する。
 
 [Rainbow bracket](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets)
 
-対応する括弧を色分けして表示してくれる。
-
-### [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+### Code Spell Checker
 
 スペルミスを検出してくれる。
 
-### [Draw.io integration](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio)
+[Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+
+### Draw io integration
+
+設計図を描画してくれる。
+
+[Draw.io integration](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio)
 
 IntelliJ でも同様のエクステンションが存在する。
 
 [Diagrams.net Integration](https://plugins.jetbrains.com/plugin/15635-diagrams-net-integration)
 
-設計図を描画してくれる。
-
-### [Remote Containers](https://code.visualstudio.com/docs/remote/containers)
+### Remote Containers
 
 Docker 内で VSCode Server を動かす。ソースコードはボリュームマウントするため Docker 内から見える (VSCode で編集できる)
 
-### [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
+[Remote Containers](https://code.visualstudio.com/docs/remote/containers)
+
+### Vetur
 
 言わずと知れた Vetur で Vue ファイルを操作しているとオススメのメッセージが表示されるため、ご存知の方も多いでしょう。
 
-### [Flutter Intl](https://marketplace.visualstudio.com/items?itemName=localizely.flutter-intl)
+[Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
+
+### Flutter Intl
+
+`pubspec.yaml` に必要なライブラリ書いてインストールする。適宜初期化してロケールを追加すれば、自動で `/lib/generated` に吐き出してくれる。
+
+[Flutter Intl](https://marketplace.visualstudio.com/items?itemName=localizely.flutter-intl)
 
 IntelliJ でも同様のエクステンションが存在する。
 
 [Flutter Intl](https://plugins.jetbrains.com/plugin/13666-flutter-intl)
-
-`pubspec.yaml` に必要なライブラリ書いてインストールする。適宜初期化してロケールを追加すれば、自動で `/lib/generated` に吐き出してくれる。
