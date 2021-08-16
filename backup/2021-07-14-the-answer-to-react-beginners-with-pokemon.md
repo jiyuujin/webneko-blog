@@ -19,55 +19,11 @@ tags:
 
 詳細は上記ドキュメントサイトを見ていただくとして。
 
-今回のゴールである Pokemon API をフェッチして Vercel へのデプロイを果たした。
+## React で Hooks を使うのが今の流行り
 
-[Hack Pokemon](https://hack-pokemon.vercel.app)
+そもそも React でコンポーネントを書く際、クラスと関数に分けられる。
 
-## 今回のテーマはフェッチと検索を扱う
-
-目標を Hooks API をベースとした Web アプリケーションを作ることとした。今回のターゲットを考慮して、フレームワーク Next.js を一切使わない選択をとった。
-
-その目標を達成するため複数の技術的なマイルストーンを合わせ準備している。
-
-- `useSWR` を利用して API をフェッチする
-- `useState` を利用した状態管理
-- `useMemo` を利用した再描画の仕組み
-
-今回は状態管理やユニットテストを扱っていない。次回以降、この辺りを中心にテーマを選定したい (ご気軽に Issue や PR ください)
-
-[jiyuujin/hack-react](https://github.com/jiyuujin/hack-react)
-
-### 状態管理で別の手段 `useEffect` も存在する
-
-API のフェッチを `useEffect` で行い state を `useState` で管理する方法も存在する。
-
-```tsx
-const [pokemonData, setPokemonData] = React.useState<Array<{ name: string; url: string }>>()
-React.useEffect(() => {
-    const data = fetch(`https://pokeapi.co/api/v2/pokemon?limit=200&offset=200`)
-    setPokemonData(data.results)
-}, [])
-
-{/*読み込み中*/}
-if (!pokemonData) return <div>Loading..</div>
-
-{/*読み込みに成功した*/}
-return (
-    <React.Fragment>
-        {pokemonData?.map((pokemon: { name: string; url: string }) => (
-            <div key={pokemon.name}>
-                {pokemon.name}
-            </div>
-        ))}
-    </React.Fragment>
-)
-```
-
-`useSWR` を使うか `useEffect` を使うのは各プロジェクトの設計方針により決定しましょう。
-
-## その他
-
-そもそも React でコンポーネントを書く際クラスと関数に分けられる。今回扱った教材の Hooks API は後者の範疇に入る。
+今回扱った教材の Hooks API は後者の範疇に入る。
 
 Hooks 導入以前まで、関数コンポーネントに state を持たせられなかった代わりに state を持たせるためクラスコンポーネントを実装する他なかった。
 
@@ -126,3 +82,49 @@ const Example = () => {
   );
 }
 ```
+
+今回のゴールである Pokemon API をフェッチして Vercel へのデプロイを果たした。
+
+[Hack Pokemon](https://hack-pokemon.vercel.app)
+
+## 今回のテーマはフェッチと検索を扱う
+
+目標を Hooks API をベースとした Web アプリケーションを作ることとした。今回のターゲットを考慮して、フレームワーク Next.js を一切使わない選択をとった。
+
+その目標を達成するため複数の技術的なマイルストーンを合わせ準備している。
+
+- `useSWR` を利用して API をフェッチする
+- `useState` を利用した状態管理
+- `useMemo` を利用した再描画の仕組み
+
+今回は状態管理やユニットテストを扱っていない。次回以降、この辺りを中心にテーマを選定したい (ご気軽に Issue や PR ください)
+
+[jiyuujin/hack-react](https://github.com/jiyuujin/hack-react)
+
+### 状態管理で別の手段 `useEffect` も存在する
+
+API のフェッチを `useEffect` で行い state を `useState` で管理する方法も存在する。
+
+```tsx
+const [pokemonData, setPokemonData] = React.useState<Array<{ name: string; url: string }>>()
+React.useEffect(() => {
+    const data = fetch(`https://pokeapi.co/api/v2/pokemon?limit=200&offset=200`)
+    setPokemonData(data.results)
+}, [])
+
+{/*読み込み中*/}
+if (!pokemonData) return <div>Loading..</div>
+
+{/*読み込みに成功した*/}
+return (
+    <React.Fragment>
+        {pokemonData?.map((pokemon: { name: string; url: string }) => (
+            <div key={pokemon.name}>
+                {pokemon.name}
+            </div>
+        ))}
+    </React.Fragment>
+)
+```
+
+`useSWR` を使うか `useEffect` を使うのは各プロジェクトの設計方針により決定しましょう。
