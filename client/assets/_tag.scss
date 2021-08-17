@@ -10,13 +10,13 @@
     font-size: 12px;
     font-weight: 500;
     line-height: 18px;
-    color: #8b949e;
+    color: #2c2e2f;
     background-color: transparent;
     border: 1px solid #30363d;
     border-radius: 2em;
 
     a {
-      color: #fff;
+      color: #2c2e2f;
       text-decoration: none;
     }
   }
@@ -25,7 +25,7 @@
 @media (prefers-color-scheme: dark) {
   .tags {
     .tag {
-      color: #f3f3f3;
+      color: #8b949e;
       border: 1px solid #dedede;
 
       a {
