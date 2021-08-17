@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@nekohack/footer-ui": "1.0.0",
-    "@nekohack/normalize.css": "2.3.3",
+    "@nekohack/normalize.css": "2.3.5",
     "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/google-adsense": "1.4.0",
     "@nuxtjs/google-analytics": "2.4.0",
