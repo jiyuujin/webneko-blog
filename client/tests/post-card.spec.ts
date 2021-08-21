@@ -12,9 +12,9 @@ describe('PostCard', () => {
           heroImage: {
             fields: {
               file: {
-                url: ''
-              }
-            }
+                url: '',
+              },
+            },
           },
           description: '',
           body: '',
@@ -29,23 +29,23 @@ describe('PostCard', () => {
               facebook: '',
               twitter: '',
               github: '',
-              image: ''
+              image: '',
             },
             sys: {
               contentType: {
                 sys: {
                   id: '',
                   linkType: '',
-                  type: ''
-                }
+                  type: '',
+                },
               },
               createdAt: '',
               environment: {
                 sys: {
                   id: '',
                   linkType: '',
-                  type: ''
-                }
+                  type: '',
+                },
               },
               id: '',
               locale: '',
@@ -54,21 +54,21 @@ describe('PostCard', () => {
                 sys: {
                   id: '',
                   linkType: '',
-                  type: ''
-                }
+                  type: '',
+                },
               },
               type: '',
-              updatedAt: ''
-            }
+              updatedAt: '',
+            },
           },
           publishDate: '',
           tags: [],
-          category: ''
-        }
-      }
+          category: '',
+        },
+      },
     }
     const wrapper = mount(PostCard, {
-      propsData: props
+      propsData: props,
     })
     expect(wrapper.exists()).toBe(true)
   })

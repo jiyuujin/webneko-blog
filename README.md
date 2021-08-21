@@ -17,4 +17,3 @@
 - [AWS Fargate](https://aws.amazon.com/jp/fargate/)
 - [Travis CI](https://docs.travis-ci.com/user/languages/javascript-with-nodejs/)
 - [Github Actions](https://docs.github.com/ja/actions/language-and-framework-guides/using-nodejs-with-github-actions)
-

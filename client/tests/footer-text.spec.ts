@@ -8,7 +8,7 @@ describe('Footer', () => {
       //
     }
     const wrapper = mount(FooterText, {
-      propsData: props
+      propsData: props,
     })
     expect(wrapper.exists()).toBe(true)
   })

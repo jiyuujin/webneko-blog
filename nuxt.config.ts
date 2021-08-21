@@ -21,69 +21,69 @@ export default {
     titleTemplate: 'Web猫ブログ | %s',
     meta: [
       {
-        charset: 'utf-8'
+        charset: 'utf-8',
       },
       {
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1'
+        content: 'width=device-width, initial-scale=1',
       },
       ...generalOg(),
-      ...twitterOg()
+      ...twitterOg(),
     ],
     link: [
       {
         rel: 'icon',
         type: 'image/png',
         sizes: '32x32',
-        href: '/icon/webneko-blog-white.png'
+        href: '/icon/webneko-blog-white.png',
       },
       {
         rel: 'icon',
         type: 'image/png',
         sizes: '16x16',
-        href: '/icon/webneko-blog-white.png'
+        href: '/icon/webneko-blog-white.png',
       },
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: '/icon/webneko-blog-white.png'
+        href: '/icon/webneko-blog-white.png',
       },
       {
         rel: 'manifest',
-        href: '/site.webmanifest'
+        href: '/site.webmanifest',
       },
       {
         rel: 'alternate',
         type: 'application/rss+xml',
         title: 'RSS for blog posts',
-        href: 'https://webneko.dev/feeds.xml'
+        href: 'https://webneko.dev/feeds.xml',
       },
       {
         rel: 'dns-prefetch',
-        href: '//pagead2.googlesyndication.com'
+        href: '//pagead2.googlesyndication.com',
       },
       {
         rel: 'dns-prefetch',
-        href: '//googleads.g.doubleclick.net'
+        href: '//googleads.g.doubleclick.net',
       },
       {
         rel: 'dns-prefetch',
-        href: '//tpc.googlesyndication.com'
+        href: '//tpc.googlesyndication.com',
       },
       {
         rel: 'dns-prefetch',
-        href: '//www.gstatic.com'
-      }
+        href: '//www.gstatic.com',
+      },
     ],
     script: [
       {
         async: true,
-        src: 'js/adsense.js'
-      }
+        src: 'js/adsense.js',
+      },
     ],
     htmlAttrs: {
-      lang: 'ja'
-    }
+      lang: 'ja',
+    },
   },
 
   loading: { color: '#fff' },
@@ -91,19 +91,15 @@ export default {
   css: [
     {
       src: '~/assets/main.scss',
-      lang: 'css'
+      lang: 'css',
     },
     {
       src: '../node_modules/highlight.js/styles/hopscotch.css',
-      lang: 'css'
-    }
+      lang: 'css',
+    },
   ],
 
-  plugins: [
-    '~plugins/composition-api.ts',
-    '~plugins/sanitize.ts',
-    '~plugins/markdown-it.ts'
-  ],
+  plugins: ['~plugins/composition-api.ts', '~plugins/sanitize.ts', '~plugins/markdown-it.ts'],
 
   components: true,
 
@@ -112,31 +108,31 @@ export default {
       '@nuxtjs/google-adsense',
       {
         id: 'ca-pub-7095980629133842',
-        pageLevelAds: true
-      }
+        pageLevelAds: true,
+      },
     ],
     [
       '@nuxtjs/google-analytics',
       {
-        id: 'UA-141123200-1'
-      }
+        id: 'UA-141123200-1',
+      },
     ],
     '@nuxtjs/sentry',
     '@nuxtjs/sitemap',
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
   ],
 
   module: {
     rules: [
       {
         test: /\.md/,
-        loader: 'markdownit-loader'
-      }
-    ]
+        loader: 'markdownit-loader',
+      },
+    ],
   },
 
   sentry: {
-    dsn: process.env.SENTRY_DSN
+    dsn: process.env.SENTRY_DSN,
   },
 
   sitemap: {
@@ -146,12 +142,12 @@ export default {
     async routes() {
       const client: ContentfulClientApi = contentful.createClient({
         space: process.env.CTF_SPACE_ID,
-        accessToken: process.env.CTF_CDA_ACCESS_TOKEN
+        accessToken: process.env.CTF_CDA_ACCESS_TOKEN,
       })
 
       const posts = await client.getEntries({
         content_type: process.env.CTF_BLOG_POST_TYPE_ID,
-        order: '-fields.publishDate'
+        order: '-fields.publishDate',
       })
 
       const urls: string[] = []
@@ -160,7 +156,7 @@ export default {
       })
 
       return urls
-    }
+    },
   },
 
   pwa: {
@@ -179,48 +175,48 @@ export default {
         {
           src: 'icon/webneko-blog-white-72.png',
           sizes: '72x72',
-          type: 'image/png'
+          type: 'image/png',
         },
         {
           src: 'icon/webneko-blog-white-96.png',
           sizes: '96x96',
-          type: 'image/png'
+          type: 'image/png',
         },
         {
           src: 'icon/webneko-blog-white-128.png',
           sizes: '128x128',
-          type: 'image/png'
+          type: 'image/png',
         },
         {
           src: 'icon/webneko-blog-white-144.png',
           sizes: '144x144',
-          type: 'image/png'
+          type: 'image/png',
         },
         {
           src: 'icon/webneko-blog-white-152.png',
           sizes: '152x152',
-          type: 'image/png'
+          type: 'image/png',
         },
         {
           src: 'icon/webneko-blog-white-192.png',
           sizes: '192x192',
-          type: 'image/png'
+          type: 'image/png',
         },
         {
           src: 'icon/webneko-blog-white-384.png',
           sizes: '384x384',
-          type: 'image/png'
+          type: 'image/png',
         },
         {
           src: 'icon/webneko-blog-white-512.png',
           sizes: '512x512',
-          type: 'image/png'
-        }
+          type: 'image/png',
+        },
       ],
       theme_color: '#ffbb33',
       background_color: '#ffbb33',
-      display: 'standalone'
-    }
+      display: 'standalone',
+    },
   },
 
   build: {
@@ -233,14 +229,14 @@ export default {
         maxSize: 128000,
         cacheGroups: {
           chunks: 'all', // 非同期で読み込む
-          enforce: false
-        }
-      }
+          enforce: false,
+        },
+      },
     },
     splitChunks: {
       layouts: true,
       pages: true,
-      commons: true
+      commons: true,
     },
     extend(config: Configuration, { isClient }: Context) {
       if (isClient) {
@@ -249,11 +245,11 @@ export default {
       useESBuildMinify(config)
       useESBuildLoader(config, {
         loader: 'jsx',
-        target: 'es2017'
+        target: 'es2017',
       })
       useESBuildLoader(config, {
         loader: 'tsx',
-        target: 'es2017'
+        target: 'es2017',
       })
     },
     babel: {
@@ -261,19 +257,19 @@ export default {
         [
           '@babel/plugin-proposal-private-methods',
           {
-            loose: true
-          }
-        ]
-      ]
+            loose: true,
+          },
+        ],
+      ],
     },
     loaders: {
       scss: {
         implementation: sass,
         sassOptions: {
-          fiber: fiber
-        }
-      }
-    }
+          fiber: fiber,
+        },
+      },
+    },
   },
 
   buildModules: [
@@ -283,9 +279,9 @@ export default {
       '@nuxt/typescript-build',
       {
         typeCheck: true,
-        ignoreNotFoundWarnings: true
-      }
-    ]
+        ignoreNotFoundWarnings: true,
+      },
+    ],
   ],
 
   router: {
@@ -300,12 +296,12 @@ export default {
     routes() {
       const client: ContentfulClientApi = contentful.createClient({
         space: process.env.CTF_SPACE_ID,
-        accessToken: process.env.CTF_CDA_ACCESS_TOKEN
+        accessToken: process.env.CTF_CDA_ACCESS_TOKEN,
       })
 
       const posts: any = client.getEntries({
         content_type: process.env.CTF_BLOG_POST_TYPE_ID,
-        order: '-fields.publishDate'
+        order: '-fields.publishDate',
       })
 
       const urls: string[] = []
@@ -314,7 +310,7 @@ export default {
       })
 
       return urls
-    }
+    },
   },
 
   env: {
@@ -323,6 +319,6 @@ export default {
     CTF_PERSON_ID: process.env.CTF_PERSON_ID,
     CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID,
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
-    CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN
-  }
+    CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
+  },
 }

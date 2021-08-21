@@ -10,13 +10,12 @@ window.addEventListener(
         let ad = document.createElement('script')
         ad.type = 'text/javascript'
         ad.async = true
-        ad.src =
-          'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+        ad.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
         let sc = document.getElementsByTagName('script')[0]
         sc.parentNode.insertBefore(ad, sc)
       })()
       lazyloadads = true
     }
   },
-  true
+  true,
 )

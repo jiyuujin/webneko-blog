@@ -3,10 +3,7 @@
     "collect": {
       "numberOfRuns": 1,
       "startServerCommand": "yarn start",
-      "url": [
-        "http://localhost:3000/",
-        "http://localhost:3000/contact"
-      ]
+      "url": ["http://localhost:3000/", "http://localhost:3000/contact"]
     },
     "assert": {
       "assertions": {

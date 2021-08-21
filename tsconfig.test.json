@@ -18,36 +18,17 @@
     "pretty": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "types": [
-      "@types/jest",
-      "@types/node",
-      "@types/webpack",
-      "@types/webpack-env",
-      "@nuxt/types"
-    ],
+    "types": ["@types/jest", "@types/node", "@types/webpack", "@types/webpack-env", "@nuxt/types"],
     "target": "es2018",
     "module": "esnext",
-    "lib": [
-      "esnext",
-      "esnext.asynciterable",
-      "dom"
-    ],
+    "lib": ["esnext", "esnext.asynciterable", "dom"],
     "noImplicitAny": false,
     "noEmit": true,
     "paths": {
-      "~/*": [
-        "./client/*"
-      ],
-      "@/*": [
-        "./client/*"
-      ]
+      "~/*": ["./client/*"],
+      "@/*": ["./client/*"]
     }
   },
-  "include": [
-    "client/tests/**/*",
-    "node_modules/@nekohack/j-stylebook/dist/j-stylebook.css"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["client/tests/**/*", "node_modules/@nekohack/j-stylebook/dist/j-stylebook.css"],
+  "exclude": ["node_modules"]
 }

@@ -7,10 +7,10 @@ describe('BuyMeACoffee', () => {
     const provide = {
       key() {
         return Symbol()
-      }
+      },
     }
     const wrapper = mount(BuyMeACoffee, {
-      provide
+      provide,
     })
     expect(wrapper.exists()).toBe(true)
   })

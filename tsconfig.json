@@ -27,20 +27,12 @@
     ],
     "target": "esnext",
     "module": "esnext",
-    "lib": [
-      "esnext",
-      "esnext.asynciterable",
-      "dom"
-    ],
+    "lib": ["esnext", "esnext.asynciterable", "dom"],
     "noImplicitAny": false,
     "noEmit": true,
     "paths": {
-      "~/*": [
-        "./client/*"
-      ],
-      "@/*": [
-        "./client/*"
-      ]
+      "~/*": ["./client/*"],
+      "@/*": ["./client/*"]
     }
   },
   "include": [
@@ -52,8 +44,5 @@
     "client/store/**/*",
     "client/utils/**/*"
   ],
-  "exclude": [
-    "node_modules",
-    "client/tests"
-  ]
+  "exclude": ["node_modules", "client/tests"]
 }

@@ -18,9 +18,7 @@ const dateFormat = (date: string, option: string) => {
 ;(async function () {
   const lang = 'en-US'
 
-  const jsonObject = JSON.parse(
-    await fs.readFileSync('./webneko-blog-export.json', 'utf8')
-  )
+  const jsonObject = JSON.parse(await fs.readFileSync('./webneko-blog-export.json', 'utf8'))
 
   Object(jsonObject?.entries).forEach((obj: unknown | any) => {
     const field = obj.fields
@@ -33,10 +31,7 @@ const dateFormat = (date: string, option: string) => {
 
       const titleText = field.title[lang]
 
-      const descriptionText = field.description[lang].replace(
-        /^\s\n+|\s\n+$/g,
-        ''
-      )
+      const descriptionText = field.description[lang].replace(/^\s\n+|\s\n+$/g, '')
 
       const slugText = field.slug[lang]
 
@@ -60,7 +55,7 @@ const dateFormat = (date: string, option: string) => {
       const bodyText = field.body[lang]
 
       let content = ''
-      content += `---\n`
+      content += '---\n'
       content += `date: ${dateText}\n`
       content += `title: ${titleText}\n`
       content += `description: ${descriptionText}\n`
@@ -68,7 +63,7 @@ const dateFormat = (date: string, option: string) => {
       content += `reaction: ${reactionText}\n`
       content += `category: ${categoryText}\n`
       content += `tags: \n${tagsText}`
-      content += `---\n\n`
+      content += '---\n\n'
       content += bodyText
 
       fs.writeFile(`./backup/${dateText}-${slugText}.md`, content, (err) => {

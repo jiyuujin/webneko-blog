@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "github>jiyuujin/renovate-config"
-  ],
+  "extends": ["github>jiyuujin/renovate-config"],
   "automerge": true,
   "major": {
     "automerge": false

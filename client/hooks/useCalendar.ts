@@ -86,6 +86,6 @@ export default (props: CalendarProps) => {
     endOfMonth,
     formatCurrentDate,
     formatPreviousDate,
-    getPost
+    getPost,
   }
 }

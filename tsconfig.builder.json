@@ -5,8 +5,6 @@
     "outDir": "dist",
     "noEmit": false
   },
-  "include": [
-    "client/api/feeds.ts"
-  ],
+  "include": ["client/api/feeds.ts"],
   "exclude": ["node_modules"]
 }
