@@ -7,10 +7,10 @@ describe('SocialMenu', () => {
     const props = {
       slugText: '',
       title: '',
-      isVertical: false
+      isVertical: false,
     }
     const wrapper = mount(SocialMenu, {
-      propsData: props
+      propsData: props,
     })
     expect(wrapper.exists()).toBe(true)
   })

@@ -6,8 +6,8 @@ const defaultOptions = {
   allowedAttributes: {
     div: ['message'],
     a: ['href'],
-    img: ['src']
-  }
+    img: ['src'],
+  },
 }
 
 Vue.use(sanitizeHTML, defaultOptions)

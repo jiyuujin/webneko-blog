@@ -8,7 +8,7 @@ describe('Header', () => {
       //
     }
     const wrapper = mount(HeaderText, {
-      propsData: props
+      propsData: props,
     })
     expect(wrapper.exists()).toBe(true)
   })

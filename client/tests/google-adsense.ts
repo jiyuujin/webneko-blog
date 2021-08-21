@@ -10,10 +10,10 @@ describe('GoogleAdsense', () => {
       adLayout: 'TestLayout',
       adStyle: {
         //
-      }
+      },
     }
     const wrapper = mount(GoogleAdsense, {
-      propsData: props
+      propsData: props,
     })
     expect(wrapper.exists()).toBe(true)
   })

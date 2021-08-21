@@ -7,10 +7,10 @@ describe('ModeChange', () => {
     const provide = {
       key() {
         return Symbol()
-      }
+      },
     }
     const wrapper = mount(ModeChange, {
-      provide
+      provide,
     })
     expect(wrapper.exists()).toBe(true)
   })

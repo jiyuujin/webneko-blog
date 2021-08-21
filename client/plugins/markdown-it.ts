@@ -12,20 +12,14 @@ export default ({ app }, inject) => {
       const hl = require('highlight.js')
       if (lang && hl.getLanguage(lang)) {
         try {
-          return (
-            '<pre class="hljs"><code>' +
-            hl.highlight(lang, str, true).value +
-            '</code></pre>'
-          )
+          return '<pre class="hljs"><code>' + hl.highlight(lang, str, true).value + '</code></pre>'
         } catch (__) {}
       }
       // 言語設定がない場合、プレーンテキストとして表示する
       return (
-        '<pre class="hljs"><code>' +
-        hl.highlight('plaintext', str, true).value +
-        '</code></pre>'
+        '<pre class="hljs"><code>' + hl.highlight('plaintext', str, true).value + '</code></pre>'
       )
-    }
+    },
   })
     .use(require('markdown-it-container'), 'warning', {
       validate: function (params) {
@@ -38,14 +32,14 @@ export default ({ app }, inject) => {
         } else {
           return '</div>\n'
         }
-      }
+      },
     })
     .use(require('markdown-it-link-attributes'), {
       pattern: /https?:/,
       attrs: {
         target: '_blank',
-        rel: 'nofollow noopener noreferrer'
-      }
+        rel: 'nofollow noopener noreferrer',
+      },
     })
     .use(require('markdown-it-attrs'))
     .use(require('markdown-it-video'))

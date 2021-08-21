@@ -5,10 +5,10 @@ import HistoryTags from '../components/HistoryTags.vue'
 describe('HistoryTags', () => {
   test('correctly render', () => {
     const props = {
-      tags: ['Vue']
+      tags: ['Vue'],
     }
     const wrapper = mount(HistoryTags, {
-      propsData: props
+      propsData: props,
     })
     expect(wrapper.exists()).toBe(true)
   })

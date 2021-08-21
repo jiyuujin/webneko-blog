@@ -8,6 +8,4 @@ close #0
 
 ## ⛏ 変更内容 / Details of Changes
 
-
-
 ## 📸 スクリーンショット / Screenshots

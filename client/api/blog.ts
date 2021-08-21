@@ -18,7 +18,7 @@ export const fetchPosts = async (isLatest: boolean = false) => {
       content_type: process.env.CTF_BLOG_POST_TYPE_ID,
       order: ORDER,
       limit: isLatest ? LATEST_PAGE : PAGE,
-      skip: 0
+      skip: 0,
       // skip: (state.page - 1) * PAGE
     })
     .then((entries: Posts) => {
@@ -35,7 +35,7 @@ export const fetchAllPosts = async (tagName: string = '') => {
   await client
     .getEntries({
       content_type: process.env.CTF_BLOG_POST_TYPE_ID,
-      order: ORDER
+      order: ORDER,
     })
     .then((entries: Posts) => {
       result = entries.items
@@ -65,7 +65,7 @@ export const fetchTags = async () => {
   await client
     .getEntries({
       content_type: process.env.CTF_BLOG_POST_TYPE_ID,
-      order: ORDER
+      order: ORDER,
     })
     .then((entries: Posts) => {
       data = entries.items
@@ -95,7 +95,7 @@ export const fetchTags = async () => {
   return Object.keys(counts)
     .map((e) => ({
       key: e,
-      value: counts[e]
+      value: counts[e],
     }))
     .sort(function (a, b) {
       if (a.value < b.value) return 1
@@ -111,7 +111,7 @@ export const fetchPost = async (params: Param) => {
   await client
     .getEntries({
       content_type: process.env.CTF_BLOG_POST_TYPE_ID,
-      order: ORDER
+      order: ORDER,
     })
     .then((entries: Posts) => {
       if (params.slug) {
@@ -123,9 +123,7 @@ export const fetchPost = async (params: Param) => {
 
       if (params.ym) {
         result = entries.items.filter((item: PostItem) => {
-          return dayjs(item.fields.publishDate)
-            .format('YYYY-MM')
-            .includes(params.ym)
+          return dayjs(item.fields.publishDate).format('YYYY-MM').includes(params.ym)
         })
       }
     })
@@ -140,7 +138,7 @@ export const fetchPostsByTag = async (name: string) => {
   await client
     .getEntries({
       content_type: process.env.CTF_BLOG_POST_TYPE_ID,
-      order: ORDER
+      order: ORDER,
     })
     .then((entries: Posts) => {
       data = entries.items

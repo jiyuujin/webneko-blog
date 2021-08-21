@@ -32,11 +32,7 @@ declare module 'vuex-type-helper' {
 
   export interface ActionContext<State, Getters, Actions, Mutations>
     extends BaseActionContext<State, any> {
-    bindFirebaseRef: (
-      key: string,
-      ref: firestore.Query,
-      options?: BindOptions
-    ) => Promise<void>
+    bindFirebaseRef: (key: string, ref: firestore.Query, options?: BindOptions) => Promise<void>
     unbindFirebaseRef: (key: string) => void
   }
 }

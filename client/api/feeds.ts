@@ -15,18 +15,18 @@ let feed = new Feed({
   feed_url: 'https://webneko.dev/feeds.xml',
   site_url: 'https://webneko.dev/',
   copyright: 'nekohack',
-  language: 'ja'
+  language: 'ja',
 })
 
 const client = contentful.createClient({
   space: process.env.CTF_SPACE_ID,
-  accessToken: process.env.CTF_CDA_ACCESS_TOKEN
+  accessToken: process.env.CTF_CDA_ACCESS_TOKEN,
 })
 
 client
   .getEntries({
     content_type: process.env.CTF_BLOG_POST_TYPE_ID,
-    order: '-fields.publishDate'
+    order: '-fields.publishDate',
   })
   .then(async (entries) => {
     for (let index = 0; index < entries.items.length; index++) {
@@ -37,12 +37,12 @@ client
         link: `https://webneko.dev/posts/${post.fields.slug}`,
         author: [
           {
-            name: 'jiyuujin'
-          }
+            name: 'jiyuujin',
+          },
         ],
         description: post.fields.description,
         body: post.fields.body,
-        date: new Date(post.fields.publishDate)
+        date: new Date(post.fields.publishDate),
       })
     }
     await promisify(fs.writeFile)('./client/static/feeds.xml', feed.rss2())
