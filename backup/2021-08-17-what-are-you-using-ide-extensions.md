@@ -20,20 +20,20 @@ tags:
 
 ## 私がお世話になっているエクステンション
 
-私自身全くエクステンションをインストールしていないことは無いが、エディタの機能をフル活用している訳でもありません。
+私自身少ないなりにもエクステンションをインストールしているが、エディタの機能をフル活用している訳でもありません。
 
-ちなみに Vetur や Flutter Intl は、 Vue や Flutter といった固有のフレームワークを使う際に便利なエクステンションで、全てのデベロッパが必要という訳ではありません。
+ちなみに Vetur や Flutter Intl は固有のフレームワークを使う際に便利なエクステンションで、全てのデベロッパが必要になる訳ではありません。
 
 - Git Graph
 - Bracket Pair Colorizer 2
-   - IntelliJ では Rainbow bracket
+    - IntelliJ では Rainbow bracket
 - Code Spell Checker
 - Draw io integration
-   - IntelliJ では Diagrams net Integration
+    - IntelliJ では Diagrams net Integration
 - Remote Containers
 - Vetur
 - Flutter Intl
-   - IntelliJ でも Flutter Intl
+    - IntelliJ でも Flutter Intl
 
 またエクステンションでは無いものの、ファイル保存時に自動で ESLint fix してくれる機能がある。 IntelliJ では File Watcher という機能が存在する。
 
