@@ -1,6 +1,6 @@
 ---
 date: 2021-07-14
-title: アンサー記事 - ポケモンと共に React を学ぶ
+title: アンサー - ポケモンと共に React を学ぶ
 description: チームメンバー並びに社内のエンジニアの力を底上げするため React 教育にあたって、今回作成したドキュメントサイトを補足する内容となっています。
 slug: the-answer-to-react-beginners-with-pokemon
 reaction: 🦁
