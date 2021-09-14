@@ -1,21 +1,24 @@
 <template>
-  <div>
+  <main>
+    <nav-text />
     <transition-group name="fade">
       <nuxt key="top-nuxt" />
     </transition-group>
     <footer-text />
     <cookie-footer-wrapper />
-  </div>
+  </main>
 </template>
 
 <script lang="ts">
 import { provideLayout } from '~/hooks/useAppTheme'
 
+const NavText = () => import('~/components/NavText.vue')
 const FooterText = () => import('~/components/FooterText.vue')
 const CookieFooterWrapper = () => import('~/components/CookieFooterWrapper.vue')
 
 export default {
   components: {
+    NavText,
     FooterText,
     CookieFooterWrapper
   },
