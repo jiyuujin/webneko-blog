@@ -1,7 +1,5 @@
 <template>
   <div class="section">
-    <header-text />
-
     <div class="feeds">
       <post-card v-for="post in posts" :key="post.fields.title" :post="post" />
     </div>
@@ -44,14 +42,12 @@ import { fetchPosts, fetchTags } from '~/api/blog'
 
 const HistoryTags = () => import('~/components/HistoryTags.vue')
 const PostCard = () => import('~/components/PostCard.vue')
-const HeaderText = () => import('~/components/HeaderText.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 
 export default {
   components: {
     HistoryTags,
     PostCard,
-    HeaderText,
     GoogleAdsense
   },
   setup(props, ctx) {
