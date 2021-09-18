@@ -99,7 +99,7 @@ export default {
     },
   ],
 
-  plugins: ['~plugins/composition-api.ts', '~plugins/sanitize.ts', '~plugins/markdown-it.ts'],
+  plugins: ['~plugins/sanitize.ts', '~plugins/markdown-it.ts'],
 
   components: true,
 
@@ -282,6 +282,7 @@ export default {
         ignoreNotFoundWarnings: true,
       },
     ],
+    '@nuxtjs/composition-api/module',
   ],
 
   router: {
