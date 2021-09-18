@@ -1,4 +1,4 @@
-import { ref, provide, inject } from '@vue/composition-api'
+import { ref, provide, inject } from '@nuxtjs/composition-api'
 
 export const key = Symbol()
 
