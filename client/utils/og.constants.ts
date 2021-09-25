@@ -1,6 +1,4 @@
-import Endpoints from './endpoints.constants'
-
-export const generalOg = (title?: string, description?: string, url?: string) => [
+export const generalOg = (title?: string, description?: string, url?: string, image?: string) => [
   {
     hid: 'description',
     name: 'description',
@@ -38,11 +36,12 @@ export const generalOg = (title?: string, description?: string, url?: string) =>
   {
     hid: 'og:image',
     name: 'og:image',
-    content: `${Endpoints.BASE_URL}bakeneko-ogp.jpg`,
+    // content: `${Endpoints.BASE_URL}bakeneko-ogp.jpg`,
+    content: image,
   },
 ]
 
-export const twitterOg = (title?: string, description?: string) => [
+export const twitterOg = (title?: string, description?: string, image?: string) => [
   {
     hid: 'twitter:description',
     name: 'twitter:description',
@@ -78,6 +77,7 @@ export const twitterOg = (title?: string, description?: string) => [
   {
     hid: 'twitter:image',
     name: 'twitter:image',
-    content: `${Endpoints.BASE_URL}bakeneko-ogp.jpg`,
+    // content: `${Endpoints.BASE_URL}bakeneko-ogp.jpg`,
+    content: image,
   },
 ]
