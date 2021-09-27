@@ -1,11 +1,11 @@
 import { mount } from '@vue/test-utils'
 
-import FooterText from '~/components/FooterText.vue'
+import CookieFooterWrapper from '~/components/CookieFooterWrapper.vue'
 
-describe('Footer', () => {
+describe('CookieFooterWrapper', () => {
   test('correctly render', () => {
     const props = {}
-    const wrapper = mount(FooterText, {
+    const wrapper = mount(CookieFooterWrapper, {
       propsData: props,
     })
     expect(wrapper.exists()).toBe(true)

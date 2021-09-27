@@ -1,6 +1,6 @@
 import { createLocalVue, mount } from '@vue/test-utils'
 
-import ModeChange from '~/components/ModeChange.vue'
+import StripeLink from '~/components/StripeLink.vue'
 import { key } from '~/hooks/useAppTheme'
 
 const localVue = createLocalVue()
@@ -20,11 +20,11 @@ Object.defineProperty(window, 'matchMedia', {
   })),
 })
 
-describe('ModeChange', () => {
+describe('StripeLink', () => {
   let wrapper: any
 
   const mountFunction = (options: any) => {
-    return mount(ModeChange, {
+    return mount(StripeLink, {
       localVue,
       ...options
     })

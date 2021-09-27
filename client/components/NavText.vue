@@ -26,12 +26,8 @@
 
 <script lang="ts">
 import useFixedNav from '~/hooks/useFixedNav'
-// const ModeChange = () => import('~/components/ModeChange.vue')
 
 export default {
-  components: {
-    // ModeChange
-  },
   setup() {
     return { ...useFixedNav() }
   }

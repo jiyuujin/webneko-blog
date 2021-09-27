@@ -40,14 +40,7 @@
 </template>
 
 <script lang="ts">
-import { useLayout } from '~/hooks/useAppTheme'
-
-import { CONTACT_URL } from '~/utils/constants'
-
 export default {
-  setup(props, ctx) {
-    const { mode } = useLayout()
-    return { mode, contactUrl: CONTACT_URL }
-  }
+  //
 }
 </script>

@@ -16,8 +16,6 @@
 </template>
 
 <script lang="ts">
-import { useLayout } from '~/hooks/useAppTheme'
-
 import { useWebShareSetup } from '~/hooks/useWebShare'
 import {
   SOCIAL_LIST,
@@ -42,8 +40,6 @@ export default {
     }
   },
   setup(props, ctx) {
-    const { mode } = useLayout()
-
     const handleClick = (item: string) => {
       let url = ''
 
@@ -66,7 +62,7 @@ export default {
       }
     }
 
-    return { mode, SOCIAL_LIST, handleClick }
+    return { SOCIAL_LIST, handleClick }
   }
 }
 </script>

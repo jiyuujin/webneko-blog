@@ -5,6 +5,7 @@
         :to="`/archive/${formatPreviousDate('YYYY-MM')}`"
         role="button"
         aria-pressed="true"
+        :name="formatPreviousDate('YYYY-MM')"
       >
         {{ formatPreviousDate('MM') }}
       </nuxt-link>
