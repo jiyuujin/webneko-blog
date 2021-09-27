@@ -12,6 +12,8 @@
 <script lang="ts">
 import Vue from 'vue'
 
+Vue.config.ignoredElements = ['adsbygoogle']
+
 export default Vue.extend({
   props: {
     adSlot: {

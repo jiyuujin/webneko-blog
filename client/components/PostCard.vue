@@ -3,26 +3,9 @@
     :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
     class="feed-card"
   >
-    <template v-if="post.fields.reaction">
-      <span class="reaction-img">
-        {{ post.fields.reaction }}
-      </span>
-    </template>
-    <template v-else>
-      <img
-        v-if="mode === 'light'"
-        src="/icon/mikaeri-white.svg"
-        alt="archive"
-        decoding="async"
-      />
-      <img
-        v-if="mode === 'dark'"
-        src="/icon/mikaeri-black.svg"
-        alt="archive"
-        decoding="async"
-        :style="{ backgroundColor: '#fff' }"
-      />
-    </template>
+    <span class="reaction-img">
+      {{ post.fields.reaction }}
+    </span>
     <div class="feed-card__item">
       <div class="feed-card__item-title">
         {{ post.fields.title }}
@@ -40,8 +23,6 @@
 </template>
 
 <script lang="ts">
-import { useLayout } from '~/hooks/useAppTheme'
-
 export default {
   props: {
     post: {
@@ -50,10 +31,6 @@ export default {
         return {}
       }
     }
-  },
-  setup(props, ctx) {
-    const { mode } = useLayout()
-    return { mode }
   }
 }
 </script>
