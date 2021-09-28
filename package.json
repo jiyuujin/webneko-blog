@@ -37,7 +37,7 @@
     "contentful": "8.5.8",
     "dayjs": "1.10.7",
     "markdown-it": "12.2.0",
-    "markdown-it-attrs": "4.0.0",
+    "markdown-it-attrs": "4.1.0",
     "markdown-it-container": "3.0.0",
     "markdown-it-highlightjs": "3.5.0",
     "markdown-it-link-attributes": "3.0.0",
