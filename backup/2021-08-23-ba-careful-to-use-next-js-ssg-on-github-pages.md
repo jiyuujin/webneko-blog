@@ -8,6 +8,7 @@ category: Server
 tags: 
  - NextJS
  - React
+ - SSG
  - GithubPages
 ---
 

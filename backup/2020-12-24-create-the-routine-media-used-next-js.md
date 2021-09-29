@@ -14,6 +14,7 @@ tags:
  - Hosting
  - Vercel
  - NextJS
+ - SSG
 ---
 
 JAMStack は、JavaScript と API、Markup からなることば。2 年前自ら製作を開始、現在もこうして運営中の当ブログも、この内のひとつ。しかし Headless CMS を使わずに、トリガービルドや自動ビルドを利用することでこの JAMStack を実現する話を今回させていただければ。

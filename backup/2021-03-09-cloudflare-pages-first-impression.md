@@ -10,6 +10,7 @@ tags:
  - Vercel
  - Netlify
  - Hosting
+ - SSG
 ---
 
 ## Cloudflare Pages を使う
