@@ -8,11 +8,12 @@ category: Application
 tags: 
  - Flutter
  - Dart
+ - Riverpod
 ---
 
-前提として Flutter Handson Osaka 8 ではバージョン `1.26.0-17.6.pre` を利用したが、バージョン `2.0.1` でも動作に問題が無いことを確認した。
+前提として Flutter Handson Osaka 8 では `1.26.0-17.6.pre` を利用したが `2.0.1` でも動作に問題が無いことを確認した。
 
-実質 flutter_riverpod と hooks_riverpod の二択です。
+「人狼」アプリで使う Riverpod は、実質 flutter_riverpod と hooks_riverpod の二択です。
 
 - [riverpod](https://pub.dev/packages/riverpod)
 - [flutter_riverpod](https://pub.dev/packages/flutter_riverpod)
@@ -29,7 +30,6 @@ Flutter で Riverpod を使う上で基本的な用法を使う場合は flutter
 dependencies:
   flutter:
     sdk: flutter
-  flutter_hooks: ^0.15.0
   hooks_riverpod: ^0.12.4
   state_notifier: ^0.6.0
 ```
