@@ -6,9 +6,6 @@ slug: enter-the-fourth-v-kansai-vue-js-nuxt-meetup-in-osaka
 reaction: 4️⃣
 category: 
 tags: 
- - Vue
- - Nuxt
- - AWS
  - Review
 ---
 

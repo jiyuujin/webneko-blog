@@ -6,8 +6,6 @@ slug: enter-the-kansai-ts-1-in-osaka
 reaction: 💪
 category: 
 tags: 
- - TypeScript
- - AWS
  - Review
 ---
 

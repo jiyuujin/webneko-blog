@@ -6,8 +6,6 @@ slug: enter-the-kng6-in-osaka
 reaction: 💙
 category: 
 tags: 
- - TypeScript
- - NodeJS
  - Review
 ---
 

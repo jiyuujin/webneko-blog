@@ -6,8 +6,9 @@ slug: enter-the-flutter-handson-osaka-1
 reaction: 🤟
 category: 
 tags: 
- - Flutter
  - Review
+ - YouTube
+ - DevRel
 ---
 
 ## ミートアップの開催を前に

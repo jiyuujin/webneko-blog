@@ -7,7 +7,6 @@ reaction: 😛
 category: 
 tags: 
  - Review
- - Vue
 ---
 
 ## 1年間、お疲れさまでした

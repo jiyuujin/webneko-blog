@@ -6,7 +6,7 @@ slug: enter-the-flutter-meetup-osaka-5
 reaction: 4️⃣
 category: 
 tags: 
- - Flutter
+ - Review
  - YouTube
 ---
 

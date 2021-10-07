@@ -6,7 +6,6 @@ slug: enter-the-v-kansai-11-with-kyoto-dev-cafe
 reaction: 🟩
 category: 
 tags: 
- - Vue
  - Review
 ---
 

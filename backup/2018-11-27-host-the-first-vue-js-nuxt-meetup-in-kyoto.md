@@ -6,7 +6,7 @@ slug: host-the-first-vue-js-nuxt-meetup-in-kyoto
 reaction: 😀
 category: 
 tags: 
- - Vue
+ - Review
 ---
 
 ## 今日はイベント開催のご案内です

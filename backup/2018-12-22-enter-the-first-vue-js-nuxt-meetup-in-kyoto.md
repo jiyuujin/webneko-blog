@@ -6,7 +6,6 @@ slug: enter-the-first-vue-js-nuxt-meetup-in-kyoto
 reaction: ❣️
 category: 
 tags: 
- - Vue
  - Review
 ---
 

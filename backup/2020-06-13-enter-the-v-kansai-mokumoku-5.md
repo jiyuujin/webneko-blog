@@ -6,8 +6,6 @@ slug: enter-the-v-kansai-mokumoku-5
 reaction: 5️⃣
 category: 
 tags: 
- - Vue
- - TypeScript
  - Review
 ---
 

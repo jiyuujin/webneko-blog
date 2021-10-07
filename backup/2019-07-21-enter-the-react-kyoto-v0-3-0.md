@@ -6,10 +6,7 @@ slug: enter-the-react-kyoto-v0-3-0
 reaction: 😉
 category: 
 tags: 
- - React
  - Review
- - Storybook
- - TypeScript
 ---
 
 当初私自身が立ち上げた訳ではなく、2 年ほどブランクが空いていることもあり、比較的集客しやすい大阪に変更。

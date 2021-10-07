@@ -6,7 +6,6 @@ slug: enter-the-third-v-kansai-vue-js-nuxt-meetup-in-kyoto
 reaction: 3️⃣
 category: 
 tags: 
- - Vue
  - Review
 ---
 

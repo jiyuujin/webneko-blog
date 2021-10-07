@@ -6,7 +6,6 @@ slug: enter-the-final-v-kansai-of-the-heisei-period
 reaction: 5️⃣
 category: 
 tags: 
- - Vue
  - Review
 ---
 

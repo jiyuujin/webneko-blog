@@ -6,8 +6,6 @@ slug: enter-the-v-kansai-7-in-kyoto
 reaction: 7️⃣
 category: 
 tags: 
- - Vue
- - Nuxt
  - Review
 ---
 

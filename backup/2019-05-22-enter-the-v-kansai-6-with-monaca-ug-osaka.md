@@ -6,7 +6,6 @@ slug: enter-the-v-kansai-6-with-monaca-ug-osaka
 reaction: 🍘
 category: 
 tags: 
- - Vue
  - Review
 ---
 

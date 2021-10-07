@@ -6,7 +6,7 @@ slug: enter-the-dart-meetup-osaka-1
 reaction: 🛠
 category: 
 tags: 
- - Flutter
+ - Review
  - YouTube
 ---
 

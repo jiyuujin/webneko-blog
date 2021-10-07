@@ -6,8 +6,8 @@ slug: some-activities-of-the-flutter-osaka-in-2020
 reaction: 😲
 category: Scrap
 tags: 
- - Flutter
  - Review
+ - Flutter
 ---
 
 自らの経験では、去年一年間良く Flutter を触った認識。

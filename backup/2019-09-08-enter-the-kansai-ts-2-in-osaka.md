@@ -6,10 +6,7 @@ slug: enter-the-kansai-ts-2-in-osaka
 reaction: 2️⃣
 category: 
 tags: 
- - TypeScript
  - Review
- - AWS
- - Vue
 ---
 
 ## 参加率 90.19％ 😳

@@ -6,9 +6,6 @@ slug: enter-the-v-kansai-9-with-fjug-osaka
 reaction: 🔥
 category: 
 tags: 
- - Vue
- - Firebase
- - Firestore
  - Review
 ---
 
