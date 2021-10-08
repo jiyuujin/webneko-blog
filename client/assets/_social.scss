@@ -1,8 +1,10 @@
 .social-menu {
-  margin: 2% 24% 2% 24%;
-  overflow: hidden;
-  color: #000;
   text-align: center;
+
+  button {
+    background: transparent;
+    border: 0;
+  }
 
   img {
     width: 36px;
@@ -20,14 +22,5 @@
 
   &-horizontal {
     display: inline;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .menu {
-    a {
-      color: #fff;
-      background-color: #303030;
-    }
   }
 }
