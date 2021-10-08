@@ -66,7 +66,7 @@ describe('Calendar', () => {
             tags: [],
             category: '',
           },
-        }
+        },
       ],
       ym: '202109',
     }

@@ -8,7 +8,7 @@ const localVue = createLocalVue()
 // Resolved the type error `window.matchMedia is not a function`
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
-  value: jest.fn().mockImplementation(query => ({
+  value: jest.fn().mockImplementation((query) => ({
     matches: false,
     media: query,
     onchange: null,
@@ -26,18 +26,18 @@ describe('StripeLink', () => {
   const mountFunction = (options: any) => {
     return mount(StripeLink, {
       localVue,
-      ...options
+      ...options,
     })
   }
 
   test('correctly render', () => {
     const provideMock = {
       [key as symbol]: {
-        state: {}
-      }
+        state: {},
+      },
     }
     const options = {
-      provide: provideMock
+      provide: provideMock,
     }
     wrapper = mountFunction(options)
     expect(wrapper.exists()).toBe(true)
