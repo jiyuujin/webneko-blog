@@ -1,17 +1,17 @@
 <template>
   <div class="social-menu">
-    <div
+    <button
       v-for="item in SOCIAL_LIST"
       :key="item"
       :class="isVertical ? 'social-menu-vertical' : 'social-menu-horizontal'"
+      @click="handleClick(item)"
     >
       <img
         :src="`/icon/${item}.svg`"
         :alt="item"
         decoding="async"
-        @click="handleClick(item)"
       />
-    </div>
+    </button>
   </div>
 </template>
 

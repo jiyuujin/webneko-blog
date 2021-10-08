@@ -1,6 +1,6 @@
 <template>
   <div class="switch">
-    <label class="switch-label">
+    <label class="switch-label" for="btn-mode">
       <input id="btn-mode" type="checkbox" @input="change" />
       <span id="icon-rotate" class="switch-mode" />
     </label>
