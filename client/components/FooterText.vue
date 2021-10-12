@@ -40,7 +40,11 @@
 </template>
 
 <script lang="ts">
+import { CONTACT_URL } from '~/utils/constants'
+
 export default {
-  //
+  data() {
+    return { contactUrl: CONTACT_URL }
+  }
 }
 </script>
