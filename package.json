@@ -34,7 +34,7 @@
     "@nuxtjs/pwa": "3.3.5",
     "@nuxtjs/sentry": "5.1.4",
     "@nuxtjs/sitemap": "2.4.0",
-    "contentful": "8.5.8",
+    "contentful": "9.1.3",
     "dayjs": "1.10.7",
     "markdown-it": "12.2.0",
     "markdown-it-attrs": "4.1.0",
