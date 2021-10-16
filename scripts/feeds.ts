@@ -6,6 +6,7 @@ const fs = require('fs-extra')
 const { Feed } = require('feed')
 const { promisify } = require('util')
 
+require('ts-node').register()
 require('dotenv').config()
 
 let feed = new Feed({
