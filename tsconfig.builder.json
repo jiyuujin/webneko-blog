@@ -5,6 +5,12 @@
     "outDir": "dist",
     "noEmit": false
   },
-  "include": ["client/api/feeds.ts"],
-  "exclude": ["node_modules"]
+  "include": ["scripts/feeds.ts", "scripts/og-gen.ts"],
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "transpileOnly": true,
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
 }

@@ -96,6 +96,8 @@ client/static/sw.js
 
 client/static/feeds.xml
 
+client/static/og/*.jpg
+
 .lighthouseci
 
 webneko-blog-export.json
