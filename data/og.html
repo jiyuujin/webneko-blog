@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OG Image</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1200,height=630" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body,
+      h1 {
+        margin: 0;
+        font-family: 'Noto Sans JP', sans-serif;
+      }
+
+      :root {
+        --primary-color: #fb3;
+        --font-color: #303030;
+        --og-width: 1200px;
+        --og-height: 630px;
+        --og-padding: 60px;
+        --og-inner-padding: 30px;
+        --og-inner-height: calc(var(--og-height) - var(--og-padding) * 2);
+        --og-inner-width: calc(var(--og-width) - var(--og-padding) * 2);
+        --logo-height: 120px;
+        --logo-width: 120px;
+      }
+
+      .root {
+        width: var(--og-inner-width);
+        height: var(--og-inner-height);
+        padding: var(--og-padding);
+        background-color: var(--primary-color);
+      }
+
+      .main {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        width: calc(var(--og-inner-width) - var(--og-inner-padding) * 2);
+        height: calc(var(--og-inner-height) - var(--og-inner-padding) * 2);
+        padding: var(--og-inner-padding);
+        color: var(--font-color);
+        background-color: white;
+        border-radius: 25px;
+      }
+
+      .title {
+        font-weight: bold;
+      }
+
+      .logo {
+        display: flex;
+        flex-direction: row-reverse;
+        height: var(--logo-height);
+      }
+
+      .logo img {
+        width: var(--logo-width);
+        height: var(--logo-height);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="root">
+      <div class="main">
+        <h1 class="title"></h1>
+        <div class="logo">
+          <img src="./nekohack.png" />
+        </div>
+      </div>
+    </div>
+    <script>
+      async function setTitleText() {
+        const title = typeof getTitle === 'function' ? await getTitle() : 'Web猫ブログ'
+        const titleElement = document.querySelector('.title')
+        titleElement.innerHTML = title
+      }
+
+      function setTitleFontSize(fontSize = 100) {
+        const titleElement = document.querySelector('.title')
+        titleElement.style.fontSize = fontSize + 'px'
+        const titleHeight = titleElement.getBoundingClientRect().height
+        if (!(titleHeight <= 300)) {
+          setTitleFontSize(--fontSize)
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', async () => {
+        await setTitleText()
+        setTitleFontSize()
+      })
+    </script>
+  </body>
+</html>
