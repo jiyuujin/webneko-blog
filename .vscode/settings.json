@@ -1,0 +1,29 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.lintTask.enable": true,
+  "peacock.color": "#5f00cc",
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#5f00cc",
+    "activityBar.activeBorder": "#e0ee90",
+    "activityBar.background": "#5f00cc",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#e0ee90",
+    "activityBarBadge.foreground": "#15202b",
+    "editorGroup.border": "#5f00cc",
+    "panel.border": "#5f00cc",
+    "sash.hoverBorder": "#5f00cc",
+    "sideBar.border": "#2d0061",
+    "statusBar.background": "#2d0061",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#5f00cc",
+    "statusBarItem.remoteBackground": "#2d0061",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#2d0061",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#1857a499",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  }
+}

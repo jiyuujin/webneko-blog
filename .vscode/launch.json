@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "webneko-blog",
+      "request": "launch",
+      "type": "node",
+      "console": "integratedTerminal",
+      "autoAttachChildProcesses": true,
+      "restart": true
+    }
+  ]
+}
