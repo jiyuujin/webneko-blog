@@ -8,6 +8,7 @@ category: Server
 tags: 
  - Contentful
  - TypeScript
+ - CMS
 ---
 
 CMS には API ベースと Git ベースの二種類が存在。それぞれの違いについては下記リンクが大変分かり易いので、こちらでは割愛させていただく。

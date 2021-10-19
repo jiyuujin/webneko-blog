@@ -8,6 +8,7 @@ category: Front
 tags: 
  - Nuxt
  - Contentful
+ - CMS
 ---
 
 特別なスタイルを当てなければブログの開発にたった 1 日。インフラの構築もたった 1 日、テスト環境では Netlify を、本番環境では AWS Fargate を採用。

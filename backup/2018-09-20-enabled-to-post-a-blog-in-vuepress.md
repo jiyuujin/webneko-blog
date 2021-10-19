@@ -8,6 +8,7 @@ category: Front
 tags: 
  - Vue
  - VuePress
+ - CMS
 ---
 
 結果的には `Nuxt.js` 案を採用した訳ですが、製作前は `VuePress` 案も検討していました。
