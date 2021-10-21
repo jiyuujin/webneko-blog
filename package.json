@@ -46,7 +46,7 @@
     "nuxt": "2.15.8",
     "puppeteer": "10.4.0",
     "sanitize-html": "2.5.2",
-    "ts-node": "10.3.0"
+    "ts-node": "10.3.1"
   },
   "devDependencies": {
     "@babel/core": "7.15.8",
