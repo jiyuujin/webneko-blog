@@ -1,9 +1,7 @@
 .calendar-header {
   position: relative;
-  display: -webkit-flex;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -20,10 +18,10 @@
     border-radius: 24px;
 
     &:hover {
-      -webkit-transform: scale(1.1, 1.2);
-      -moz-transform: scale(1.15, 1.25);
-      -o-transform: scale(1.15, 1.25);
-      -ms-transform: scale(1.15, 1.25);
+      transform: scale(1.1, 1.2);
+      transform: scale(1.15, 1.25);
+      transform: scale(1.15, 1.25);
+      transform: scale(1.15, 1.25);
       transform: scale(1.15, 1.25);
     }
   }
@@ -36,7 +34,7 @@
   grid-auto-rows: 120px;
   width: 100%;
   overflow: auto;
-  border-left: 1px solid rgba(166, 168, 179, 0.12);
+  border-left: 1px solid rgb(166 168 179 / 12%);
 }
 
 .weekday {
@@ -46,15 +44,14 @@
   color: #99a1a7;
   text-align: center;
   text-transform: uppercase;
-  border-right: 1px solid rgba(166, 168, 179, 0.12);
-  border-bottom: 1px solid rgba(166, 168, 179, 0.12);
+  border-right: 1px solid rgb(166 168 179 / 12%);
+  border-bottom: 1px solid rgb(166 168 179 / 12%);
 }
 
 .day {
   position: relative;
   z-index: 1;
   box-sizing: border-box;
-  display: -webkit-flex;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -65,8 +62,8 @@
   text-align: center;
   letter-spacing: 1px;
   vertical-align: middle;
-  border-right: 1px solid rgba(166, 168, 179, 0.12);
-  border-bottom: 1px solid rgba(166, 168, 179, 0.12);
+  border-right: 1px solid rgb(166 168 179 / 12%);
+  border-bottom: 1px solid rgb(166 168 179 / 12%);
 
   .date {
     width: 100%;
@@ -78,15 +75,15 @@
   }
 }
 
-.day--existed {
-  opacity: 1;
+.day-existed {
+  opacity: 100%;
 }
 
-.day--not-existed {
-  opacity: 0.4;
+.day-not-existed {
+  opacity: 40%;
 }
 
-.day--disabled {
+.day-disabled {
   cursor: not-allowed;
 }
 
@@ -102,7 +99,7 @@
   color: #555;
   background: #fff;
   border: solid 3px #555;
-  opacity: 0;
+  opacity: 0%;
 
   ::before {
     position: absolute;
@@ -110,7 +107,7 @@
     left: 50%;
     z-index: 1000;
     margin-left: -15px;
-    content: '';
+    content: "";
     border: 12px solid transparent;
     border-top: 12px solid #fff;
   }
@@ -121,7 +118,7 @@
     left: 50%;
     z-index: 1000;
     margin-left: -17px;
-    content: '';
+    content: "";
     border: 14px solid transparent;
     border-top: 14px solid #555;
   }
@@ -130,7 +127,7 @@
 .day:hover > .tooltip,
 .day:focus > .tooltip {
   visibility: visible;
-  opacity: 1;
+  opacity: 100%;
 }
 
 @media (max-width: 600px) {
@@ -148,7 +145,7 @@
     width: 100%;
   }
 
-  .day--disabled {
+  .day-disabled {
     display: none;
   }
 }

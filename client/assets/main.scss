@@ -1,23 +1,29 @@
 /* stylelint-disable no-descending-specificity */
 
-@use 'node_modules/@nekohack/normalize.css/dist/index.css';
+@use "node_modules/@nekohack/normalize.css/dist/index.css";
 
-@import 'ad';
-@import 'anchor-link';
-//@import 'article';
-@import 'button';
-@import 'calendar';
-//@import 'feed';
-@import 'contribute';
-@import 'footer';
-//@import 'form';
-@import 'nav';
-//@import 'heading';
-//@import 'privacy-policy';
-//@import 'scrap';
-@import 'social';
-@import 'switch';
-@import 'tag';
+@import "ad";
+@import "anchor-link";
+
+/* @import 'article'; */
+@import "button";
+@import "calendar";
+
+/* @import 'feed'; */
+@import "contribute";
+@import "footer";
+
+/* @import 'form'; */
+@import "nav";
+
+/* @import 'heading'; */
+
+/* @import 'privacy-policy'; */
+
+/* @import 'scrap'; */
+@import "social";
+@import "switch";
+@import "tag";
 
 .light-theme {
   color: #000;

@@ -1,4 +1,4 @@
-input[type='checkbox'] {
+input[type="checkbox"] {
   display: none;
 }
 
@@ -28,14 +28,14 @@ input[type='checkbox'] {
       position: absolute;
       bottom: 0;
       left: 0;
-      content: '⛅️';
+      content: "⛅️";
     }
 
     &::after {
       position: absolute;
       top: 0;
       right: 0;
-      content: '🌙';
+      content: "🌙";
       transform: scale(1, -1);
     }
   }
@@ -55,14 +55,14 @@ input[type='checkbox'] {
     position: absolute;
     bottom: 0;
     left: 0;
-    content: '⛅️';
+    content: "⛅️";
   }
 
   &::after {
     position: absolute;
     top: 0;
     right: 0;
-    content: '🌙';
+    content: "🌙";
     transform: scale(1, -1);
   }
 }

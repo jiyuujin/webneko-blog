@@ -15,7 +15,7 @@
       <span v-for="weekday in weekdays" :key="weekday" class="weekday">
         {{ weekday }}
       </span>
-      <div v-for="i in startOfMonth" :key="i" class="day day--disabled" />
+      <div v-for="i in startOfMonth" :key="i" class="day day-disabled" />
       <div
         v-for="day in parseInt(formatCurrentDate('DD'))"
         :key="day"
@@ -46,7 +46,7 @@
             <img
               :alt="getPost(day).fields.slug"
               src="/icon/bakeneko2.png"
-              class="day--existed"
+              class="day-existed"
             />
             <!--
             <span class="tooltip">
@@ -59,11 +59,11 @@
           <img
             :alt="getPost(day) ? getPost(day).fields.slug : ''"
             src="/icon/bakeneko2.png"
-            class="day--not-existed"
+            class="day-not-existed"
           />
         </div>
       </div>
-      <div v-for="i in endOfMonth" :key="i" class="day day--disabled" />
+      <div v-for="i in endOfMonth" :key="i" class="day day-disabled" />
     </div>
   </div>
 </template>
