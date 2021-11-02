@@ -175,6 +175,13 @@ export const ColorThemeProvider: FC = ({ children }) => {
 }
 ```
 
+やっていることを掻い摘んで話すと下記の通りだ。
+
+- `createContext` で Union 型を定義する
+- Global に `Provider` を登録する
+
+そして保存したタイミングで localStorage に格納することで、次回以降のアクセスについてもそのテーマで表示される。
+
 ## 最後に
 
 これ以外にスタイルの定義を CSS modules で書いていたり、ライブラリ内の react を preact として書き換えてたりしている。
