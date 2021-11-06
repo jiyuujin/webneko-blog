@@ -30,7 +30,7 @@ async function captureOgImage(browser: any, title: string, imagePath: string) {
 
   const jsonObject = JSON.parse(await fs.readFileSync('./webneko-blog-export.json', 'utf8'))
 
-  let ogList = []
+  let ogList = [{ title: 'Web猫ブログ', slug: 'top' }]
 
   Object(jsonObject?.entries).forEach((obj: unknown | any) => {
     const field = obj.fields
