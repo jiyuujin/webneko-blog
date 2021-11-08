@@ -1,5 +1,11 @@
 <template>
   <div v-if="currentPost" class="section">
+    <notify-alert
+      v-if="errorType(new Date(currentPost.fields.publishDate)) !== 'normal'"
+      :title="currentPost.fields.title"
+      :error-type="errorType(new Date(currentPost.fields.publishDate))"
+    />
+
     <div class="cover">
       <!--
       <template v-if="currentPost.fields.heroImage">
@@ -66,6 +72,7 @@ import { fetchPost, fetchPosts } from '~/api/blog'
 import Endpoints from '~/utils/endpoints.constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 
+const NotifyAlert = () => import('~/components/NotifyAlert.vue')
 const PostCard = () => import('~/components/PostCard.vue')
 const SocialMenu = () => import('~/components/SocialMenu.vue')
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
@@ -75,6 +82,7 @@ const StripeLink = () => import('~/components/StripeLink.vue')
 
 export default Vue.extend({
   components: {
+    NotifyAlert,
     PostCard,
     SocialMenu,
     GoogleAdsense,
@@ -120,6 +128,15 @@ export default Vue.extend({
           `${Endpoints.BASE_URL}og/${this.currentPost.fields.slug}.jpg`,
         )
       ]
+    }
+  },
+  methods: {
+    errorType(d: Date) {
+      if (d.getFullYear() + 1 < new Date().getFullYear()) {
+        if (d.getFullYear() + 3 < new Date().getFullYear()) return 'error'
+        return 'warning'
+      }
+      return 'normal'
     }
   }
 })
