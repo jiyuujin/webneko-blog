@@ -1,6 +1,7 @@
 <template>
   <div v-if="currentPost" class="section">
     <div class="cover">
+      <!--
       <template v-if="currentPost.fields.heroImage">
         <img
           :src="currentPost.fields.heroImage.fields.file.url"
@@ -8,6 +9,7 @@
           decoding="async"
         />
       </template>
+      -->
 
       <div class="cover-title">
         {{ currentPost.fields.title }}
