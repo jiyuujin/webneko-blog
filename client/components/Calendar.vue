@@ -15,10 +15,10 @@
       <span v-for="weekday in weekdays" :key="weekday" class="weekday">
         {{ weekday }}
       </span>
-      <div v-for="i in startOfMonth" :key="i" class="day day-disabled" />
+      <div v-for="i in startOfMonth" :key="`start_${i}`" class="day day-disabled" />
       <div
         v-for="day in parseInt(formatCurrentDate('DD'))"
-        :key="day"
+        :key="`day_${day}`"
         class="day"
       >
         <div v-if="getPost(day)" class="tooltip">
@@ -63,7 +63,7 @@
           />
         </div>
       </div>
-      <div v-for="i in endOfMonth" :key="i" class="day day-disabled" />
+      <div v-for="i in endOfMonth" :key="`end_${i}`" class="day day-disabled" />
     </div>
   </div>
 </template>
