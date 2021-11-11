@@ -1,0 +1,55 @@
+name: Backup CI
+
+on:
+  schedule:
+    - cron: '0/5 * * * *'
+#  push:
+#    branches:
+#      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: _cache_npm_node14
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Export posts
+        run: |
+          npm install
+          npm install contentful-cli -g
+          contentful login --management-token $CTF_MANAGEMENT_TOKEN
+          contentful space export --space-id $CTF_SPACE_ID --content-file webneko-blog-export.json
+        env:
+          CI: true
+          CTF_SPACE_ID: ${{ secrets.CTF_SPACE_ID }}
+          CTF_MANAGEMENT_TOKEN: ${{ secrets.CTF_MANAGEMENT_TOKEN }}
+
+      - name: Deploy to S3
+        run: |
+          npm run build:og-gen
+          aws s3 sync ./client/static/og/ s3://nekohack-og-image/ --delete --acl public-read
