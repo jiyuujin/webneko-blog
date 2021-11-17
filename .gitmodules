@@ -1,0 +1,4 @@
+[submodule "payment-lambda"]
+	path = payment-lambda
+	url = https://github.com/jiyuujin/payment-lambda
+	branch = master
