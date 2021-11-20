@@ -1,18 +1,18 @@
 /* stylelint-disable no-descending-specificity */
 
-@use "node_modules/@nekohack/normalize.css/dist/index.css";
+@use 'node_modules/@nekohack/normalize.css/dist/index.css';
 
-@import "ad";
-@import "anchor-link";
-@import "button";
-@import "calendar";
-@import "contribute";
-@import "footer";
-@import "nav";
-@import "notify-alert";
-@import "social";
-@import "switch";
-@import "tag";
+@import 'ad';
+@import 'anchor-link';
+@import 'button';
+@import 'calendar';
+@import 'contribute';
+@import 'footer';
+@import 'nav';
+@import 'notify-alert';
+@import 'social';
+@import 'switch';
+@import 'tag';
 
 .light-theme {
   color: #000;
