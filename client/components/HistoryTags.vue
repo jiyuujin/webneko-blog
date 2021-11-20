@@ -1,7 +1,7 @@
 <template>
   <div v-if="tags" class="tags">
     <div v-for="tag in tags" :key="tag.key" class="tag">
-      <a :href="`/tag/${tag.key}`">
+      <a :href="`/tag/${tag.key}`" :title="`${tag.key}を見る`">
         {{ `${tag.key} (${tag.value})` }}
       </a>
     </div>

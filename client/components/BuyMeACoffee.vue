@@ -2,6 +2,7 @@
   <div class="buy-me-a-coffee">
     <a
       href="https://www.buymeacoffee.com/VqwL7dpxl"
+      title="BuyMeACoffeeで支払う"
       role="button"
       aria-pressed="true"
       target="_blank"

@@ -2,6 +2,7 @@
   <div class="stripe">
     <a
       href="https://buy.stripe.com/3cs8xk7S55pxg2QdQQ"
+      title="Stripeで支払う"
       role="button"
       aria-pressed="true"
       target="_blank"

@@ -5,7 +5,7 @@
     <p>
       Issue はこちらでよろしくお願いします:
       <wbr />
-      <a href="https://github.com/jiyuujin/webneko-blog/issues" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/jiyuujin/webneko-blog/issues" title="Issueはこちらでよろしくお願いします" target="_blank" rel="noopener noreferrer">
         https://github.com/jiyuujin/webneko-blog/issues
       </a>
     </p>
