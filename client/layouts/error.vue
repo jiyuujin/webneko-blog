@@ -1,7 +1,7 @@
 <template>
   <div class="error">
     <img alt="bakeneko" :src="`/icon/bakeneko.svg`" />
-    <nuxt-link to="/" class="icon">
+    <nuxt-link to="/" title="トップへ戻る" class="icon">
       Oooops, something is wrong \ {{ error.statusCode }} / error
     </nuxt-link>
   </div>

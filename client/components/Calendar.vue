@@ -3,6 +3,7 @@
     <div class="calendar-header">
       <nuxt-link
         :to="`/archive/${formatPreviousDate('YYYY-MM')}`"
+        :title="`${formatPreviousDate('YYYY-MM')}の記事を見る`"
         role="button"
         aria-pressed="true"
         :name="formatPreviousDate('YYYY-MM')"
@@ -24,6 +25,7 @@
         <div v-if="getPost(day)" class="tooltip">
           <a
             :href="`https://webneko.dev/posts/${getPost(day).fields.slug}`"
+            :title="`${getPost(day).fields.slug}の記事を見る`"
             role="button"
             aria-pressed="true"
             target="_blank"
@@ -38,6 +40,7 @@
         <div v-if="getPost(day)">
           <a
             :href="`https://webneko.dev/posts/${getPost(day).fields.slug}`"
+            :title="`${getPost(day).fields.slug}の記事を見る`"
             role="button"
             aria-pressed="true"
             target="_blank"

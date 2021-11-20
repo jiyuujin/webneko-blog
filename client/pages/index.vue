@@ -5,7 +5,7 @@
     </div>
 
     <div class="read-more">
-      <nuxt-link :to="`/archive/${formatCurrentDate('YYYY-MM')}`">
+      <nuxt-link :to="`/archive/${formatCurrentDate('YYYY-MM')}`" :title="`${formatCurrentDate('YYYY-MM')}の記事を見る`">
         <img
           v-if="mode === 'light'"
           src="/icon/archive-black.svg"

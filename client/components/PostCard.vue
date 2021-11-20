@@ -1,6 +1,7 @@
 <template>
   <nuxt-link
     :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
+    :title="`${post.fields.slug}の記事を見る`"
     class="feed-card"
   >
     <span class="reaction-img">
