@@ -48,7 +48,7 @@
           >
             <img
               :alt="getPost(day).fields.slug"
-              src="/icon/bakeneko2.png"
+              src="https://nekohack-inc.s3.ap-northeast-3.amazonaws.com/bakeneko2.png"
               class="day-existed"
             />
             <!--
@@ -61,7 +61,7 @@
         <div v-else>
           <img
             :alt="getPost(day) ? getPost(day).fields.slug : ''"
-            src="/icon/bakeneko2.png"
+            src="https://nekohack-inc.s3.ap-northeast-3.amazonaws.com/bakeneko2.png"
             class="day-not-existed"
           />
         </div>
