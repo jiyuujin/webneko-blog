@@ -3,9 +3,9 @@ name: Og-Gen CI
 on:
   schedule:
     - cron: '0/5 * * * *'
-#  push:
-#    branches:
-#      - master
+  #  push:
+  #    branches:
+  #      - master
   pull_request:
     branches:
       - master
