@@ -17,5 +17,5 @@ rules:
   at-rule-no-unknown: null
   scss/at-rule-no-unknown: true
   no-empty-source: null
-  selector-class-pattern: "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$"
+  selector-class-pattern: '^([a-z][a-z0-9]*)(-[a-z0-9]+)*$'
   no-invalid-position-at-import-rule: null
