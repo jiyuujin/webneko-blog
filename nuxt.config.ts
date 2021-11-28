@@ -242,6 +242,7 @@ export default {
       if (isClient) {
         config.devtool = '#source-map'
       }
+      config.node = { fs: 'empty', child_process: 'empty', net: 'empty', tls: 'empty' } as any
       useESBuildMinify(config)
       useESBuildLoader(config, {
         loader: 'jsx',
