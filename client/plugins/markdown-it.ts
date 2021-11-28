@@ -43,6 +43,7 @@ export default ({ app }, inject) => {
     })
     .use(require('markdown-it-attrs'))
     .use(require('markdown-it-video'))
+    .use(require('@nekohack/markdown-it-link-preview'))
 
   const defaultRender =
     md.renderer.rules.link_open ||
