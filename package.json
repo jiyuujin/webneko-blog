@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@nekohack/footer-ui": "1.0.0",
-    "@nekohack/markdown-it-link-preview": "^1.0.0",
+    "@nekohack/markdown-it-link-preview": "1.0.0",
     "@nekohack/normalize.css": "2.4.0",
     "@nuxtjs/composition-api": "0.30.0",
     "@nuxtjs/dotenv": "1.4.1",
