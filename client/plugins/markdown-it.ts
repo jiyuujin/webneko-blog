@@ -8,16 +8,17 @@ export default ({ app }, inject) => {
     html: true,
     linkify: true,
     typography: true,
-    highlight: (str, lang) => {
+    // https://github.com/highlightjs/highlight.js/issues/2277
+    highlight(str, lang) {
       const hl = require('highlight.js')
       if (lang && hl.getLanguage(lang)) {
         try {
-          return '<pre class="hljs"><code>' + hl.highlight(lang, str, true).value + '</code></pre>'
+          return '<pre class="hljs"><code>' + hl.highlight(str, { language: lang, ignoreIllegals: true }).value + '</code></pre>'
         } catch (__) {}
       }
       // 言語設定がない場合、プレーンテキストとして表示する
       return (
-        '<pre class="hljs"><code>' + hl.highlight('plaintext', str, true).value + '</code></pre>'
+        '<pre class="hljs"><code>' + str + '</code></pre>'
       )
     },
   })
