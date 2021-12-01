@@ -94,7 +94,7 @@ export default {
       lang: 'css',
     },
     {
-      src: '../node_modules/highlight.js/styles/hopscotch.css',
+      src: '../node_modules/highlight.js/styles/hybrid.css',
       lang: 'css',
     },
   ],
