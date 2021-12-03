@@ -55,8 +55,26 @@
 
       .logo {
         display: flex;
-        flex-direction: row-reverse;
+        flex-direction: row;
+        justify-content: space-between;
         height: var(--logo-height);
+      }
+
+      .logo .profile {
+        display: flex;
+        align-items: center;
+        vertical-align: middle;
+      }
+
+      .name {
+        margin-left: 32px;
+        font-size: 40px;
+        font-weight: bold;
+      }
+
+      .logo .profile img {
+        object-fit: cover;
+        border-radius: 50%;
       }
 
       .logo img {
@@ -70,6 +88,10 @@
       <div class="main">
         <h1 class="title"></h1>
         <div class="logo">
+          <div class="profile">
+            <img src="./bakeneko2.png" />
+            <p class="name">jiyuujin</p>
+          </div>
           <img src="./nekohack.png" />
         </div>
       </div>
@@ -81,7 +103,7 @@
         titleElement.innerHTML = title
       }
 
-      function setTitleFontSize(fontSize = 100) {
+      function setTitleFontSize(fontSize = 80) {
         const titleElement = document.querySelector('.title')
         titleElement.style.fontSize = fontSize + 'px'
         const titleHeight = titleElement.getBoundingClientRect().height
