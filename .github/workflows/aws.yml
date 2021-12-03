@@ -28,17 +28,6 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Export posts
-        run: |
-          npm install
-          npm install contentful-cli -g
-          contentful login --management-token $CTF_MANAGEMENT_TOKEN
-          contentful space export --space-id $CTF_SPACE_ID --content-file webneko-blog-export.json
-        env:
-          CI: true
-          CTF_SPACE_ID: ${{ secrets.CTF_SPACE_ID }}
-          CTF_MANAGEMENT_TOKEN: ${{ secrets.CTF_MANAGEMENT_TOKEN }}
-
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
