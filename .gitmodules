@@ -1,7 +1,7 @@
-[submodule "payment-lambda"]
-  path = payment-lambda
-  url = https://github.com/jiyuujin/payment-lambda
-  branch = master
+[submodule "payment-server"]
+  path = payment-server
+  url = https://github.com/nekohack/payment-server
+  branch = main
 [submodule "normalize.css"]
   path = normalize.css
   url = https://github.com/jiyuujin/normalize.css
