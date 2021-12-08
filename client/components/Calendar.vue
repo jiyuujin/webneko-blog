@@ -31,6 +31,10 @@
             target="_blank"
             rel="noopener noreferrer"
           >
+            <img
+              :alt="getPost(day).fields.slug"
+              src="https://nekohack-inc.s3.ap-northeast-3.amazonaws.com/bakeneko2.png"
+            />
             {{ getPost(day).fields.title }}
           </a>
         </div>
@@ -49,7 +53,6 @@
             <img
               :alt="getPost(day).fields.slug"
               src="https://nekohack-inc.s3.ap-northeast-3.amazonaws.com/bakeneko2.png"
-              class="day-existed"
             />
             <!--
             <span class="tooltip">
@@ -62,7 +65,7 @@
           <img
             :alt="getPost(day) ? getPost(day).fields.slug : ''"
             src="https://nekohack-inc.s3.ap-northeast-3.amazonaws.com/bakeneko2.png"
-            class="day-not-existed"
+            :style="{ opacity: '40%' }"
           />
         </div>
       </div>
