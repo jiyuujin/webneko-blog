@@ -47,7 +47,7 @@
     "markdown-it-video": "0.6.3",
     "nuxt": "2.15.8",
     "puppeteer": "11.0.0",
-    "sanitize-html": "2.6.0",
+    "sanitize-html": "2.6.1",
     "ts-node": "10.4.0"
   },
   "devDependencies": {
