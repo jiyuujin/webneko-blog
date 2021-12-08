@@ -1,5 +1,5 @@
 {
-  "family": "nginx",
+  "family": "first-run-task-definition",
   "networkMode": "awsvpc",
   "containerDefinitions": [
     {
@@ -16,6 +16,7 @@
     }
   ],
   "requiresCompatibilities": [
+    "EC2",
     "FARGATE"
   ],
   "executionRoleArn": "ecsTaskExecutionRole",
