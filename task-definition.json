@@ -1,0 +1,24 @@
+{
+  "family": "nginx",
+  "networkMode": "awsvpc",
+  "containerDefinitions": [
+    {
+      "name": "nginx",
+      "image": "nginx",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true
+    }
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "executionRoleArn": "ecsTaskExecutionRole",
+  "cpu": "256",
+  "memory": "512"
+}
