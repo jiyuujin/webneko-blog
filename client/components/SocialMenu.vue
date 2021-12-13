@@ -1,17 +1,20 @@
 <template>
   <div class="social-menu">
-    <button
+    <a
       v-for="item in SOCIAL_LIST"
       :key="item"
+      :href="urlText(item)"
+      role="button"
       :class="isVertical ? 'social-menu-vertical' : 'social-menu-horizontal'"
-      @click="handleClick(item)"
+      target="_blank"
+      rel="noopener noreferrer"
     >
       <img
         :src="`/icon/${item}.svg`"
         :alt="item"
         decoding="async"
       />
-    </button>
+    </a>
   </div>
 </template>
 
@@ -40,29 +43,30 @@ export default {
     }
   },
   setup(props, ctx) {
-    const handleClick = (item: string) => {
-      let url = ''
-
+    const urlText = (item: string) => {
       if (item === 'twitter') {
-        url = TWITTER_URL(props.title, props.slugText)
+        return TWITTER_URL(props.title, props.slugText)
       } else if (item === 'hatena') {
-        url = HATENA_URL(props.slugText)
+        return HATENA_URL(props.slugText)
       } else if (item === 'note') {
-        url = NOTE_URL(props.slugText)
+        return NOTE_URL(props.slugText)
       }
-
-      if (item !== 'share') {
-        window.open(
-          encodeURI(decodeURI(url)),
-          'tweetwindow',
-          'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'
-        )
-      } else {
-        useWebShareSetup(props.title, props.slugText)
-      }
+      return ''
     }
 
-    return { SOCIAL_LIST, handleClick }
+    const tweetWindow = (item: string) => {
+      window !== undefined && window.open(
+        encodeURI(decodeURI(urlText(item))),
+        'tweetwindow',
+        'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'
+      )
+    }
+
+    const webShare = () => {
+      window !== undefined && useWebShareSetup(props.title, props.slugText)
+    }
+
+    return { SOCIAL_LIST, urlText, tweetWindow, webShare }
   }
 }
 </script>
