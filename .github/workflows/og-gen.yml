@@ -59,4 +59,5 @@ jobs:
       - name: Deploy to S3
         run: |
           npm run build:og-gen
-          aws s3 sync ./client/static/og/ s3://nekohack-og-image/ --delete --acl public-read
+#          aws s3 sync ./client/static/og/ s3://nekohack-og-image/ --delete --acl public-read
+          aws s3 sync ./data/og/ s3://nekohack-og-image/ --delete --acl public-read
