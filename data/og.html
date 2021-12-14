@@ -77,6 +77,17 @@
         border-radius: 50%;
       }
 
+      .logo .social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
+      }
+
+      .logo .reaction {
+        padding-right: 8px;
+      }
+
       .logo img {
         width: var(--logo-width);
         height: var(--logo-height);
@@ -92,7 +103,10 @@
             <img src="./bakeneko2.png" />
             <p class="name">jiyuujin</p>
           </div>
-          <img src="./nekohack.png" />
+          <div class="social">
+            <div class="reaction"></div>
+            <img src="./nekohack.png" />
+          </div>
         </div>
       </div>
     </div>
@@ -101,6 +115,12 @@
         const title = typeof getTitle === 'function' ? await getTitle() : 'Web猫ブログ'
         const titleElement = document.querySelector('.title')
         titleElement.innerHTML = title
+      }
+
+      async function setReactionText() {
+        const reaction = typeof getReaction === 'function' ? await getReaction() : ''
+        const reactionElement = document.querySelector('.reaction')
+        reactionElement.innerHTML = reaction
       }
 
       function setTitleFontSize(fontSize = 80) {
@@ -112,9 +132,20 @@
         }
       }
 
+      function setReactionFontSize(fontSize = 40) {
+        const reactionElement = document.querySelector('.reaction')
+        reactionElement.style.fontSize = fontSize + 'px'
+        const reactionHeight = reactionElement.getBoundingClientRect().height
+        if (!(reactionHeight <= 300)) {
+          setReactionFontSize(--fontSize)
+        }
+      }
+
       document.addEventListener('DOMContentLoaded', async () => {
         await setTitleText()
         setTitleFontSize()
+        await setReactionText()
+        setReactionFontSize()
       })
     </script>
   </body>
