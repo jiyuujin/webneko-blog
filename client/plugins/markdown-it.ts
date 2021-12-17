@@ -55,7 +55,7 @@ export default ({ app }, inject) => {
     const aIndex = tokens[idx].attrIndex('target')
     if (tokens[idx]['attrs'][0][1].match('http')) {
       if (aIndex < 0) {
-        tokens[idx].attrPush(['class', 'link-preview-widget'])
+        tokens[idx].attrPush(['class', 'custom-link'])
       } else {
         tokens[idx].attrs[aIndex][1] = '_blank'
       }
