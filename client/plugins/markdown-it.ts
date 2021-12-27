@@ -13,13 +13,15 @@ export default ({ app }, inject) => {
       const hl = require('highlight.js')
       if (lang && hl.getLanguage(lang)) {
         try {
-          return '<pre class="hljs"><code>' + hl.highlight(str, { language: lang, ignoreIllegals: true }).value + '</code></pre>'
+          return (
+            '<pre class="hljs"><code>' +
+            hl.highlight(str, { language: lang, ignoreIllegals: true }).value +
+            '</code></pre>'
+          )
         } catch (__) {}
       }
       // 言語設定がない場合、プレーンテキストとして表示する
-      return (
-        '<pre class="hljs"><code>' + str + '</code></pre>'
-      )
+      return '<pre class="hljs"><code>' + str + '</code></pre>'
     },
   })
     .use(require('markdown-it-container'), 'warning', {
