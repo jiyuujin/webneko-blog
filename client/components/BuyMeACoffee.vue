@@ -8,7 +8,7 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      <BuyMeACoffeeSvg />
+      <BuyMeACoffeeSvg :style="{ width: '160px' }" />
       <span>{{ `BuyMeACoffeeで支払う` }}</span>
     </a>
   </div>
