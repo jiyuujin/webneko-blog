@@ -12,17 +12,6 @@
           <span>問い合わせはこちら</span>
         </a>
       </div>
-      <div class="contact-more">
-        <a
-          href="https://github.com/jiyuujin/webneko-blog"
-          role="button"
-          aria-pressed="true"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          jiyuujin/webneko-blog
-        </a>
-      </div>
       <div class="copyright">
         <a
           href="https://github.com/nekohack"
