@@ -8,35 +8,18 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      <img
-        v-if="isLight"
-        src="/icon/buy_me_a_coffee-black.svg"
-        alt="Buy me a coffee"
-        decoding="async"
-      />
-      <img
-        v-if="isDark"
-        src="/icon/buy_me_a_coffee-white.svg"
-        alt="Buy me a coffee"
-        decoding="async"
-      />
+      <BuyMeACoffeeSvg />
+      <span>{{ `BuyMeACoffeeで支払う` }}</span>
     </a>
   </div>
 </template>
 
 <script lang="ts">
-import { useLayout } from '~/hooks/useAppTheme'
+import BuyMeACoffeeSvg from '~/static/icon/buy_me_a_coffee.svg'
 
 export default {
-  setup() {
-    const { mode } = useLayout()
-    const isLight =
-      !process.server &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches === false
-    const isDark =
-      !process.server &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches === true
-    return { mode, isLight, isDark }
+  components: {
+    BuyMeACoffeeSvg
   }
 }
 </script>

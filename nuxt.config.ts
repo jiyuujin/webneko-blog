@@ -120,6 +120,7 @@ export default {
     '@nuxtjs/sentry',
     '@nuxtjs/sitemap',
     '@nuxtjs/markdownit',
+    'nuxt-svg-loader',
   ],
 
   module: {

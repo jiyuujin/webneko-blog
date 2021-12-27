@@ -23,7 +23,8 @@
       "@types/webpack",
       "@types/webpack-env",
       "@nuxt/types",
-      "@nuxtjs/sentry"
+      "@nuxtjs/sentry",
+      "shims-svg.d.ts"
     ],
     "target": "esnext",
     "module": "esnext",
@@ -36,6 +37,7 @@
     }
   },
   "include": [
+    "shims-svg.d.ts",
     "client/components/**/*",
     "client/layouts/**/*",
     "client/middleware/**/*",

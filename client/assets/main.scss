@@ -5,26 +5,14 @@
 @import 'ad';
 @import 'anchor-link';
 @import 'button';
+@import 'buy-me-a-coffee';
 @import 'calendar';
-@import 'contribute';
 @import 'footer';
 @import 'link-preview';
 @import 'nav';
 @import 'notify-alert';
 @import 'social';
+@import 'stripe';
 @import 'switch';
 @import 'tag';
 
-.light-theme {
-  color: #000;
-  background: #fff;
-}
-
-.dark-theme {
-  color: #fff;
-  background: #303030;
-
-  a {
-    color: #42b883;
-  }
-}

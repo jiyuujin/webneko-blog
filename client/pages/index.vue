@@ -6,20 +6,7 @@
 
     <div class="read-more">
       <nuxt-link :to="`/archive/${formatCurrentDate('YYYY-MM')}`" :title="`${formatCurrentDate('YYYY-MM')}の記事を見る`">
-        <img
-          v-if="mode === 'light'"
-          src="/icon/archive-black.svg"
-          alt="archive"
-          decoding="async"
-          :style="{ width: '40px' }"
-        />
-        <img
-          v-if="mode === 'dark'"
-          src="/icon/archive-white.svg"
-          alt="archive"
-          decoding="async"
-          :style="{ width: '40px' }"
-        />
+        <ArchiveSvg />
         <span>これまでの記事</span>
       </nuxt-link>
     </div>
@@ -35,8 +22,9 @@
 </template>
 
 <script lang="ts">
-import { useLayout } from '~/hooks/useAppTheme'
 import useCalendar from '~/hooks/useCalendar'
+
+import ArchiveSvg from '~/static/icon/archive.svg'
 
 import { fetchPosts, fetchTags } from '~/api/blog'
 
@@ -46,13 +34,13 @@ const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
 
 export default {
   components: {
+    ArchiveSvg,
     HistoryTags,
     PostCard,
     GoogleAdsense
   },
   setup(props, ctx) {
-    const { mode } = useLayout()
-    return { mode, ...useCalendar(props) }
+    return { ...useCalendar(props) }
   },
   async asyncData({ $sentry }) {
     try {

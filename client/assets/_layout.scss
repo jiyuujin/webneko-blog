@@ -1,0 +1,33 @@
+svg {
+  max-width: 160px;
+  height: 40px;
+
+  path {
+    fill: #303030;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  svg {
+    max-width: 160px;
+    height: 40px;
+
+    path {
+      fill: #fefefe;
+    }
+  }
+}
+
+.light-theme {
+  color: #000;
+  background: #fff;
+}
+
+.dark-theme {
+  color: #fff;
+  background: #303030;
+
+  a {
+    color: #42b883;
+  }
+}
