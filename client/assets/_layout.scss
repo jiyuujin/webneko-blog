@@ -1,5 +1,5 @@
 svg {
-  max-width: 160px;
+  width: 40px;
   height: 40px;
 
   path {
@@ -9,7 +9,7 @@ svg {
 
 @media (prefers-color-scheme: dark) {
   svg {
-    max-width: 160px;
+    width: 40px;
     height: 40px;
 
     path {

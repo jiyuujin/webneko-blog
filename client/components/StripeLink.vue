@@ -8,7 +8,7 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      <StripeSvg />
+      <StripeSvg :style="{ width: '160px' }" />
       <span>{{ `Stripeで支払う` }}</span>
     </a>
   </div>
