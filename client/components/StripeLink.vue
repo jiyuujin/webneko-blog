@@ -8,35 +8,18 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      <img
-        v-if="isLight"
-        src="/icon/stripe-black.svg"
-        alt="Stripe"
-        decoding="async"
-      />
-      <img
-        v-if="isDark"
-        src="/icon/stripe-white.svg"
-        alt="Stripe"
-        decoding="async"
-      />
+      <StripeSvg />
+      <span>{{ `Stripeで支払う` }}</span>
     </a>
   </div>
 </template>
 
 <script lang="ts">
-import { useLayout } from '~/hooks/useAppTheme'
+import StripeSvg from '~/static/icon/stripe.svg'
 
 export default {
-  setup() {
-    const { mode } = useLayout()
-    const isLight =
-      !process.server &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches === false
-    const isDark =
-      !process.server &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches === true
-    return { mode, isLight, isDark }
+  components: {
+    StripeSvg
   }
 }
 </script>
