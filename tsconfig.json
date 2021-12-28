@@ -38,6 +38,7 @@
   },
   "include": [
     "shims-svg.d.ts",
+    "shims-vue.d.ts",
     "client/components/**/*",
     "client/layouts/**/*",
     "client/middleware/**/*",

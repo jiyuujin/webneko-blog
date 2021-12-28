@@ -29,6 +29,11 @@
       "@/*": ["./client/*"]
     }
   },
-  "include": ["client/tests/**/*", "node_modules/@nekohack/j-stylebook/dist/j-stylebook.css"],
+  "include": [
+    "shims-svg.d.ts",
+    "shims-vue.d.ts",
+    "client/tests/**/*",
+    "node_modules/@nekohack/j-stylebook/dist/j-stylebook.css"
+  ],
   "exclude": ["node_modules"]
 }
