@@ -76,11 +76,11 @@
 }
 
 .day-existed {
-  opacity: 100%;
+  opacity: 1;
 }
 
 .day-not-existed {
-  opacity: 40%;
+  opacity: 0.4;
 }
 
 .day-disabled {
@@ -99,7 +99,7 @@
   color: #555;
   background: #fff;
   border: solid 3px #555;
-  opacity: 0%;
+  opacity: 0;
 
   ::before {
     position: absolute;
@@ -127,7 +127,7 @@
 .day:hover > .tooltip,
 .day:focus > .tooltip {
   visibility: visible;
-  opacity: 100%;
+  opacity: 1;
 }
 
 @media (max-width: 600px) {
