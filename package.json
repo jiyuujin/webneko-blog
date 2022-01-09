@@ -39,7 +39,7 @@
     "contentful": "8.5.8",
     "dayjs": "1.10.7",
     "highlight.js": "11.4.0",
-    "markdown-it": "12.3.0",
+    "markdown-it": "12.3.2",
     "markdown-it-attrs": "4.1.3",
     "markdown-it-container": "3.0.0",
     "markdown-it-highlightjs": "3.6.0",
