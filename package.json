@@ -78,7 +78,7 @@
     "jest": "27.4.7",
     "prettier": "2.5.1",
     "sass": "1.47.0",
-    "sass-loader": "10.2.0",
+    "sass-loader": "10.2.1",
     "stylelint": "14.2.0",
     "stylelint-a11y": "1.2.3",
     "stylelint-config-recess-order": "3.0.0",
