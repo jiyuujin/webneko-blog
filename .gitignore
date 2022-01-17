@@ -110,6 +110,7 @@ client/static/feeds.xml
 client/static/og/*.jpg
 !client/static/og/top.jpg
 data/og/*.jpg
+!data/og/top.jpg
 
 .lighthouseci
 
