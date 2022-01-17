@@ -9,8 +9,6 @@ const contentful = require('contentful')
 const sass = require('sass')
 const fiber = require('fibers')
 
-require('dotenv').config()
-
 export default {
   srcDir: 'client/',
 
@@ -275,7 +273,6 @@ export default {
   },
 
   buildModules: [
-    '@nuxtjs/dotenv',
     '@nuxtjs/pwa',
     [
       '@nuxt/typescript-build',
@@ -316,13 +313,15 @@ export default {
     },
   },
 
-  env: {
-    SENTRY_DSN: process.env.SENTRY_DSN,
-    LHCI_GITHUB_APP_TOKEN: process.env.LHCI_GITHUB_APP_TOKEN,
-    CTF_PERSON_ID: process.env.CTF_PERSON_ID,
-    CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID,
-    CTF_SPACE_ID: process.env.CTF_SPACE_ID,
-    CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
-    OG_BASIC_ENDPOINT: process.env.OG_BASIC_ENDPOINT,
+  publicRuntimeConfig: {
+    sentryDsn: process.env.SENTRY_DSN,
+    lhciGithubAppToken: process.env.LHCI_GITHUB_APP_TOKEN,
+    blogPostTypeID: process.env.CTF_BLOG_POST_TYPE_ID,
+    spaceId: process.env.CTF_SPACE_ID,
+    cdaAccessToken: process.env.CTF_CDA_ACCESS_TOKEN,
+  },
+
+  privateRuntimeConfig: {
+    //
   },
 }
