@@ -1,10 +1,10 @@
 const contentful = require('contentful')
-const config = {
-  space: process.env.CTF_SPACE_ID,
-  accessToken: process.env.CTF_CDA_ACCESS_TOKEN,
-}
 
-export const createClient = () => {
+export const createClient = ({ spaceId, cdaAccessToken }) => {
+  const config = {
+    space: spaceId,
+    accessToken: cdaAccessToken,
+  }
   return contentful.createClient(config)
 }
 
