@@ -32,10 +32,10 @@ export default Vue.extend({
     GoogleAdsense,
     Calendar
   },
-  async asyncData({ params }) {
+  async asyncData({ params, $config }) {
     return {
       ym: params.ym,
-      archives: await fetchPost({
+      archives: await fetchPost($config, {
         slug: '',
         ym: params.ym
       })

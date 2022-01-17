@@ -90,16 +90,16 @@ export default Vue.extend({
     BuyMeACoffee,
     StripeLink
   },
-  async asyncData({ params, $sentry }) {
+  async asyncData({ params, $sentry, $config }) {
     const isLatest: boolean = true
     try {
       return {
         slug: params.slug,
-        currentPost: await fetchPost({
+        currentPost: await fetchPost($config, {
           slug: params.slug,
           ym: ''
         }),
-        latestPosts: await fetchPosts(isLatest)
+        latestPosts: await fetchPosts($config, isLatest)
       }
     } catch (error) {
       $sentry.captureException(error)

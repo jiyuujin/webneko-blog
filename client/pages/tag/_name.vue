@@ -26,10 +26,10 @@ export default Vue.extend({
   components: {
     PostCard
   },
-  async asyncData({ route }) {
+  async asyncData({ route, $config }) {
     return {
       tagName: route.params.name,
-      posts: await fetchAllPosts(route.params.name)
+      posts: await fetchAllPosts($config, route.params.name)
     }
   },
   head() {

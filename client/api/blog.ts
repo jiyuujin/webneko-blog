@@ -9,13 +9,13 @@ export const LATEST_PAGE = 6
 
 export const ORDER = '-fields.publishDate'
 
-export const fetchPosts = async (isLatest: boolean = false) => {
-  const client = createClient()
+export const fetchPosts = async ($config, isLatest: boolean = false) => {
+  const client = createClient($config)
 
   let result: PostItem[] = []
   await client
     .getEntries({
-      content_type: process.env.CTF_BLOG_POST_TYPE_ID,
+      content_type: $config.blogPostTypeID,
       order: ORDER,
       limit: isLatest ? LATEST_PAGE : PAGE,
       skip: 0,
@@ -28,13 +28,13 @@ export const fetchPosts = async (isLatest: boolean = false) => {
   return result
 }
 
-export const fetchAllPosts = async (tagName: string = '') => {
-  const client = createClient()
+export const fetchAllPosts = async ($config, tagName: string = '') => {
+  const client = createClient($config)
 
   let result: PostItem[] = []
   await client
     .getEntries({
-      content_type: process.env.CTF_BLOG_POST_TYPE_ID,
+      content_type: $config.blogPostTypeID,
       order: ORDER,
     })
     .then((entries: Posts) => {
@@ -58,13 +58,13 @@ export const fetchAllPosts = async (tagName: string = '') => {
   return tagName === '' ? result : resultByTag
 }
 
-export const fetchTags = async () => {
-  const client = createClient()
+export const fetchTags = async ($config) => {
+  const client = createClient($config)
 
   let data: PostItem[] = []
   await client
     .getEntries({
-      content_type: process.env.CTF_BLOG_POST_TYPE_ID,
+      content_type: $config.blogPostTypeID,
       order: ORDER,
     })
     .then((entries: Posts) => {
@@ -104,13 +104,13 @@ export const fetchTags = async () => {
     })
 }
 
-export const fetchPost = async (params: Param) => {
-  const client = createClient()
+export const fetchPost = async ($config, params: Param) => {
+  const client = createClient($config)
 
   let result: object = {}
   await client
     .getEntries({
-      content_type: process.env.CTF_BLOG_POST_TYPE_ID,
+      content_type: $config.blogPostTypeID,
       order: ORDER,
     })
     .then((entries: Posts) => {
@@ -131,13 +131,13 @@ export const fetchPost = async (params: Param) => {
   return result
 }
 
-export const fetchPostsByTag = async (name: string) => {
-  const client = createClient()
+export const fetchPostsByTag = async ($config, name: string) => {
+  const client = createClient($config)
 
   let data: PostItem[] = []
   await client
     .getEntries({
-      content_type: process.env.CTF_BLOG_POST_TYPE_ID,
+      content_type: $config.blogPostTypeID,
       order: ORDER,
     })
     .then((entries: Posts) => {
