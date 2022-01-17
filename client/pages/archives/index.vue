@@ -32,10 +32,10 @@ export default Vue.extend({
     PostCard,
     GoogleAdsense
   },
-  async asyncData({ $sentry }) {
+  async asyncData({ $sentry, $config }) {
     try {
       return {
-        posts: await fetchAllPosts()
+        posts: await fetchAllPosts($config)
       }
     } catch (error) {
       $sentry.captureException(error)

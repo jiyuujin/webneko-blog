@@ -42,11 +42,11 @@ export default {
   setup(props, ctx) {
     return { ...useCalendar(props) }
   },
-  async asyncData({ $sentry }) {
+  async asyncData({ $sentry, $config }) {
     try {
       return {
-        posts: await fetchPosts(),
-        tags: await fetchTags()
+        posts: await fetchPosts($config),
+        tags: await fetchTags($config)
       }
     } catch (error) {
       $sentry.captureException(error)
