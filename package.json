@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "npm run build:feeds && npm run build:og-gen && npm run build:front",
+    "build": "npm run build:feeds && npm run build:front",
     "build:front": "nuxt build --no-lock",
     "build:feeds": "ts-node --project tsconfig.builder.json scripts/feeds.ts",
     "build:og-gen": "ts-node --project tsconfig.builder.json scripts/og-gen.ts",
