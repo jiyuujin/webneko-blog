@@ -28,6 +28,12 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
+      - shell: bash
+        run: |
+          touch .env
+          echo "CTF_SPACE_ID=${{ secrets.CTF_SPACE_ID }}" >> .env
+          echo "CTF_CDA_ACCESS_TOKEN=${{ secrets.CTF_CDA_ACCESS_TOKEN }}" >> .env
+
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
