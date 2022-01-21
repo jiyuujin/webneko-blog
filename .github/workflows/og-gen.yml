@@ -56,6 +56,15 @@ jobs:
           CTF_SPACE_ID: ${{ secrets.CTF_SPACE_ID }}
           CTF_MANAGEMENT_TOKEN: ${{ secrets.CTF_MANAGEMENT_TOKEN }}
 
+      - shell: bash
+        run: |
+          touch .env
+          echo "SENTRY_DSN=${{ secrets.SENTRY_DSN }}" >> .env
+          echo "LHCI_GITHUB_APP_TOKEN=${{ secrets.LHCI_GITHUB_APP_TOKEN }}" >> .env
+          echo "CTF_BLOG_POST_TYPE_ID=${{ secrets.CTF_BLOG_POST_TYPE_ID }}" >> .env
+          echo "CTF_SPACE_ID=${{ secrets.CTF_SPACE_ID }}" >> .env
+          echo "CTF_CDA_ACCESS_TOKEN=${{ secrets.CTF_CDA_ACCESS_TOKEN }}" >> .env
+
       - name: Deploy to S3
         run: |
           npm run build:og-gen
