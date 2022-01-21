@@ -6,7 +6,8 @@ const fs = require('fs-extra')
 const { Feed } = require('feed')
 const { promisify } = require('util')
 
-require('dotenv').config()
+const path = require('path')
+require('dotenv').config({ path: path.join(__dirname, '..', '.env') })
 
 let feed = new Feed({
   title: 'Web猫ブログ',
