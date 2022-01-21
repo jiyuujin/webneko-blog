@@ -4,9 +4,9 @@ on:
   #  push:
   #    branches:
   #      - master
-  # pull_request:
-  #   branches:
-  #     - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   deploy:
@@ -27,6 +27,15 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
+
+      - shell: bash
+        run: |
+          touch .env
+          echo "SENTRY_DSN=${{ secrets.SENTRY_DSN }}" >> .env
+          echo "LHCI_GITHUB_APP_TOKEN=${{ secrets.LHCI_GITHUB_APP_TOKEN }}" >> .env
+          echo "CTF_BLOG_POST_TYPE_ID=${{ secrets.CTF_BLOG_POST_TYPE_ID }}" >> .env
+          echo "CTF_SPACE_ID=${{ secrets.CTF_SPACE_ID }}" >> .env
+          echo "CTF_CDA_ACCESS_TOKEN=${{ secrets.CTF_CDA_ACCESS_TOKEN }}" >> .env
 
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
