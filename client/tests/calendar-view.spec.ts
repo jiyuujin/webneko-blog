@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
 
-import Calendar from '~/components/Calendar.vue'
+import CalendarView from '~/components/CalendarView.vue'
 
-describe('Calendar', () => {
+describe('CalendarView', () => {
   test('correctly render', () => {
     const props = {
       items: [
@@ -70,7 +70,7 @@ describe('Calendar', () => {
       ],
       ym: '202109',
     }
-    const wrapper = mount(Calendar, {
+    const wrapper = mount(CalendarView, {
       propsData: props,
     })
     expect(wrapper.exists()).toBe(true)

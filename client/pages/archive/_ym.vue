@@ -7,7 +7,7 @@
       }}
     </p>
 
-    <calendar :items="archives" :ym="$route.params.ym" />
+    <calendar-view :items="archives" :ym="$route.params.ym" />
 
     <google-adsense
       ad-slot="5919567639"
@@ -25,12 +25,12 @@ import { generalOg, twitterOg } from '~/utils/og.constants'
 import Endpoints from '~/utils/endpoints.constants'
 
 const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
-const Calendar = () => import('~/components/Calendar.vue')
+const CalendarView = () => import('~/components/CalendarView.vue')
 
 export default Vue.extend({
   components: {
     GoogleAdsense,
-    Calendar
+    CalendarView
   },
   async asyncData({ params, $config }) {
     return {
