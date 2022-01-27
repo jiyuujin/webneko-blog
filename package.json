@@ -72,7 +72,7 @@
     "eslint": "8.7.0",
     "eslint-plugin-vuejs-accessibility": "1.1.1",
     "feed": "4.2.2",
-    "fibers": "5.0.0",
+    "fibers": "5.0.1",
     "fs-extra": "9.1.0",
     "jest": "27.4.7",
     "prettier": "2.5.1",
