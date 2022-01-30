@@ -1,0 +1,22 @@
+{
+  "family": "custom-service",
+  "networkMode": "awsvpc",
+  "containerDefinitions": [
+    {
+      "name": "custom",
+      "image": "nginx",
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true
+    }
+  ],
+  "requiresCompatibilities": ["EC2", "FARGATE"],
+  "executionRoleArn": "ecsTaskExecutionRole",
+  "cpu": "256",
+  "memory": "512"
+}
