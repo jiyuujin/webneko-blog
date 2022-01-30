@@ -1,20 +1,43 @@
 version: 2.1
 
 orbs:
-  aws-ecr: circleci/aws-ecr@6.15.3
-  aws-ecs: circleci/aws-ecs@1.4.0
+  aws-cli: circleci/aws-cli@2.0.6
+  aws-ecr: circleci/aws-ecr@7.3.0
+  aws-ecs: circleci/aws-ecs@2.2.1
 
 executors:
+  aws-cli:
+    working_directory: ~/workspace
+    environment:
+      AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+      AWS_DEFAULT_REGION: ap-northeast-1
+    docker:
+      - image: amazon/aws-cli
   default:
+    working_directory: ~/workspace
     docker:
       - image: circleci/node:14
 
-jobs:
-  build:
-    executor: default
-    working_directory: ~/workspace
+commands:
+  prepare_node_dependency:
+    description: Prepare
     steps:
       - checkout
+
+      - run: sudo apt-get update && sudo apt-get install -y nasm autoconf automake libtool dpkg libpng-dev g++
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+
+      - run: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
 
       - setup_remote_docker:
           version: 19.03.13
@@ -25,42 +48,33 @@ jobs:
             echo 'export ECR_REPOSITORY="webneko-blog"' >> $BASH_ENV
             echo 'export FULL_IMAGE_NAME="${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com/${ECR_REPOSITORY}:${IMAGE_TAG}"' >> $BASH_ENV
 
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      - run:
-          name: Setup CLI
-          command: |
-            curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
-            unzip awscli-bundle.zip
-            sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
-
       - run:
           name: Build image
           command: |
             docker build -t $FULL_IMAGE_NAME .
 
-      - run:
-          name: Login to ECR
-          command: eval $(aws ecr get-login --region ap-northeast-1 --no-include-email)
+jobs:
+  install_and_setup_cli:
+    executor:
+      name: aws-cli
+    steps:
+      - aws-cli/install
+      - aws-cli/setup
 
-      - run:
-          name: Push image
-          command: |
-            docker push $FULL_IMAGE_NAME
+  master_build:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - aws-cli/install
+      - aws-cli/setup
+      - prepare_node_dependency
 
 workflows:
   version: 2
-  build:
+  push:
     jobs:
-      - build:
+      - master_build:
           filters:
             branches:
               only: master
