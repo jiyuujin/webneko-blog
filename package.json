@@ -59,7 +59,7 @@
     "@nuxt/typescript-runtime": "2.1.0",
     "@swc/core": "1.2.135",
     "@types/jest": "27.4.0",
-    "@types/node": "16.11.21",
+    "@types/node": "16.11.22",
     "@types/webpack": "5.28.0",
     "@types/webpack-env": "1.16.3",
     "@typescript-eslint/eslint-plugin": "5.10.2",
