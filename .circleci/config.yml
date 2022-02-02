@@ -16,6 +16,9 @@ executors:
       - image: amazon/aws-cli
   default:
     working_directory: ~/workspace
+    environment:
+      CTF_SPACE_ID: $CTF_SPACE_ID
+      CTF_CDA_ACCESS_TOKEN: $CTF_CDA_ACCESS_TOKEN
     docker:
       - image: circleci/node:14
 
@@ -48,10 +51,16 @@ commands:
             echo 'export ECR_REPOSITORY="webneko-blog"' >> $BASH_ENV
             echo 'export FULL_IMAGE_NAME="${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com/${ECR_REPOSITORY}:${CIRCLE_SHA1}"' >> $BASH_ENV
 
-      - run:
-          name: Build image
-          command: |
-            docker build -t $FULL_IMAGE_NAME .
+  package_and_deploy:
+    description: Deploy
+    steps:
+      - aws-ecr/build-and-push-image:
+          account-url: AWS_ECR_ACCOUNT_URL
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          region: AWS_REGION
+          repo: ECR_REPOSITORY
+          tag: CIRCLE_SHA1
 
 jobs:
   install_and_setup_cli:
@@ -69,6 +78,7 @@ jobs:
       - aws-cli/install
       - aws-cli/setup
       - prepare_node_dependency
+      - package_and_deploy
 
 workflows:
   version: 2
