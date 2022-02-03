@@ -1,0 +1,9 @@
+node_modules
+package-lock.json
+yarn.lock
+*.log
+.nuxt
+nuxt.d.ts
+.output
+.env
+.idea
