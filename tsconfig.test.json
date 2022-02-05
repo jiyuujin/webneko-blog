@@ -25,14 +25,14 @@
     "noImplicitAny": false,
     "noEmit": true,
     "paths": {
-      "~/*": ["./client/*"],
-      "@/*": ["./client/*"]
+      "~/*": ["./app/*"],
+      "@/*": ["./app/*"]
     }
   },
   "include": [
-    "shims-svg.d.ts",
-    "shims-vue.d.ts",
-    "client/tests/**/*",
+    "app/types/shims-svg.d.ts",
+    "app/types/shims-vue.d.ts",
+    "app/tests/**/*",
     "node_modules/@nekohack/j-stylebook/dist/j-stylebook.css"
   ],
   "exclude": ["node_modules"]

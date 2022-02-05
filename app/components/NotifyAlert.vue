@@ -28,9 +28,9 @@ export default {
   },
   setup(props) {
     const backgroundColor = computed(() => {
-      if (props.errorType === 'error') return 'alert-block_error'
-      if (props.errorType === 'warning') return 'alert-block_warning'
-      return 'alert-block_normal'
+      if (props.errorType === 'error') return 'error'
+      if (props.errorType === 'warning') return 'warning'
+      return 'normal'
     })
     const years = computed(() => {
       if (props.errorType === 'error') return 3
@@ -41,3 +41,17 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.normal {
+  border-color: #318a62;
+}
+
+.warning {
+  border-color: #b29400;
+}
+
+.error {
+  border-color: #c00;
+}
+</style>

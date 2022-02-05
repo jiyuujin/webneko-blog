@@ -2,15 +2,15 @@ import { Configuration } from 'webpack'
 import { Context } from '@nuxt/types'
 import { ContentfulClientApi, Entry } from 'contentful'
 
-import { useESBuildMinify, useESBuildLoader } from './client/hooks/useESBuild'
-import { generalOg, twitterOg } from './client/utils/og.constants'
+import { useESBuildMinify, useESBuildLoader } from './app/hooks/useESBuild'
+import { generalOg, twitterOg } from './app/utils/og.constants'
 
 const contentful = require('contentful')
 const sass = require('sass')
 const fiber = require('fibers')
 
 export default {
-  srcDir: 'client/',
+  srcDir: 'app/',
 
   ssr: true,
 

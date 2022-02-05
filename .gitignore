@@ -103,12 +103,12 @@ yarn.lock
 .firebase.json
 .github.json
 
-client/static/sw.js
+app/static/sw.js
 
-client/static/feeds.xml
+app/static/feeds.xml
 
-client/static/og/*.jpg
-!client/static/og/top.jpg
+app/static/og/*.jpg
+!app/static/og/top.jpg
 data/og/*.jpg
 !data/og/top.jpg
 

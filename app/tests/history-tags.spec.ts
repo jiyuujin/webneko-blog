@@ -1,13 +1,13 @@
 import { mount } from '@vue/test-utils'
 
-import NotifyAlert from '../components/NotifyAlert.vue'
+import HistoryTags from '~/components/HistoryTags.vue'
 
-describe('NotifyAlert', () => {
+describe('HistoryTags', () => {
   test('correctly render', () => {
     const props = {
-      title: 'Test',
+      tags: ['Vue'],
     }
-    const wrapper = mount(NotifyAlert, {
+    const wrapper = mount(HistoryTags, {
       propsData: props,
     })
     expect(wrapper.exists()).toBe(true)

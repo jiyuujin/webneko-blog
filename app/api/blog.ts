@@ -1,7 +1,7 @@
 import { createClient } from '~/plugins/contentful'
 import dayjs from 'dayjs'
 
-import { PostItem, Posts, Param } from '~/types/blog'
+import { PostItem, Posts, Param } from '~/types/addon-contentful'
 
 export const PAGE = 10
 

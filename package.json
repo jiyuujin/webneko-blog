@@ -15,8 +15,8 @@
     "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore",
     "eslint": "eslint --ext .ts,.vue --ignore-path .gitignore -c .eslintrc.js .",
     "eslint:fix": "eslint --ext .ts,.vue --ignore-path .gitignore -c .eslintrc.js .",
-    "stylelint": "stylelint --config .stylelintrc.yml 'client/assets/**/*.scss' './components/**/*.vue'",
-    "stylelint:fix": "stylelint --config .stylelintrc.yml 'client/assets/**/*.scss' './components/**/*.vue' --fix",
+    "stylelint": "stylelint --config .stylelintrc.yml 'app/assets/**/*.scss'",
+    "stylelint:fix": "stylelint --config .stylelintrc.yml 'app/assets/**/*.scss' --fix",
     "test": "jest --testEnvironment jsdom",
     "test-cover": "jest --testEnvironment jsdom --coverage",
     "test:w": "npm run test-cover -- --watch",
@@ -107,15 +107,15 @@
       "^.+\\.(ts|tsx)$": "ts-jest",
       "^.+\\.svg$": "<rootDir>/__mocks__/svg-transform.js"
     },
-    "testRegex": "(/client/tests/.*|(\\.|/)(test|spec))\\.ts?$",
+    "testRegex": "(/app/tests/.*|(\\.|/)(test|spec))\\.ts?$",
     "moduleNameMapper": {
-      "^@/(.*)$": "<rootDir>/client/$1",
-      "^~/(.*)$": "<rootDir>/client/$1",
+      "^@/(.*)$": "<rootDir>/app/$1",
+      "^~/(.*)$": "<rootDir>/app/$1",
       "^vue$": "vue/dist/vue.common.js",
       ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/file-mock.js"
     },
     "collectCoverageFrom": [
-      "client/components/**/*.{vue}"
+      "app/components/**/*.{vue}"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/.nuxt",
