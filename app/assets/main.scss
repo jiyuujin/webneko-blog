@@ -1,1 +1,12 @@
 @use 'node_modules/@nekohack/normalize.css/dist/index.css';
+@use 'node_modules/highlight.js/styles/hybrid.css';
+
+.count {
+  color: #303030;
+}
+
+@media (prefers-color-scheme: dark) {
+  .count {
+    color: #fefefe;
+  }
+}

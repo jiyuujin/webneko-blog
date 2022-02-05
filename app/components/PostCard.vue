@@ -1,5 +1,5 @@
 <template>
-  <div class="feed-card">
+  <nuxt-link :to="`/posts/${post.fields.slug}`" class="feed-card">
     <span class="reaction-img">
       {{ post.fields.reaction }}
     </span>
@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </nuxt-link>
 </template>
 
 <script lang="ts">

@@ -13,7 +13,15 @@
   },
   "dependencies": {
     "@nekohack/normalize.css": "^2.4.1",
-    "contentful": "^9.1.6"
+    "contentful": "^9.1.6",
+    "dayjs": "^1.10.7",
+    "highlight.js": "^11.4.0",
+    "markdown-it": "^12.3.2",
+    "markdown-it-attrs": "^4.1.3",
+    "markdown-it-container": "^3.0.0",
+    "markdown-it-highlightjs": "^3.6.0",
+    "markdown-it-link-attributes": "^3.0.0",
+    "markdown-it-video": "^0.6.3"
   },
   "devDependencies": {
     "@nekohack/eslint-config-vue": "^1.1.0",
