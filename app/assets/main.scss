@@ -1,6 +1,35 @@
 @use 'node_modules/@nekohack/normalize.css/dist/index.css';
 @use 'node_modules/highlight.js/styles/hybrid.css';
 
+@use 'buy-me-a-coffee';
+@use 'stripe';
+
+.social-menu {
+  text-align: center;
+
+  button {
+    background: transparent;
+    border: 0;
+  }
+
+  img {
+    width: 36px;
+    height: 36px;
+    margin: 8px;
+    cursor: pointer;
+  }
+
+  &-vertical {
+    position: sticky;
+    top: 60px;
+    left: 2%;
+  }
+
+  &-horizontal {
+    display: inline;
+  }
+}
+
 .count {
   color: #303030;
 }

@@ -29,6 +29,16 @@
 
       <loaded-markdown :body="currentPost.fields.body" />
 
+      <social-menu
+        :slug-text="currentPost.fields.slug"
+        :title="currentPost.fields.title"
+        :is-vertical="!isVertical"
+      />
+
+      <buy-me-a-coffee />
+
+      <stripe-link />
+
       <div class="latest-article">
         <h2 class="latest-article-title">あわせてよみたい..</h2>
         <div class="feeds">
@@ -48,7 +58,12 @@ import { useAsyncData } from '#app'
 import { fetchPost, fetchPosts } from '~/api/blog'
 
 import PostCard from '~/components/PostCard.vue'
+import SocialMenu from '~/components/SocialMenu.vue'
 import LoadedMarkdown from '~/components/LoadedMarkdown.vue'
+import BuyMeACoffee from '~/components/BuyMeACoffee.vue'
+import StripeLink from '~/components/StripeLink.vue'
+
+const isVertical = ref(true)
 
 const route = useRoute()
 const slug = () => route.params.slug
