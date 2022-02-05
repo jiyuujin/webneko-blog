@@ -1,7 +1,7 @@
 import { computed } from '@nuxtjs/composition-api'
 import dayjs from 'dayjs'
 
-import { PostItem } from '~/types/blog'
+import { PostItem } from '~/types/addon-contentful'
 
 type CalendarProps = {
   items?: Array<PostItem>
