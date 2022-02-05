@@ -1,6 +1,12 @@
 <template>
   <main>
     <div v-if="currentPost" class="section">
+      <notify-alert
+        v-if="errorType(new Date(currentPost.fields.publishDate)) !== 'normal'"
+        :title="currentPost.fields.title"
+        :error-type="errorType(new Date(currentPost.fields.publishDate))"
+      />
+
       <div class="cover">
         <!--
         <template v-if="currentPost.fields.heroImage">
@@ -57,6 +63,7 @@
 import { useAsyncData } from '#app'
 import { fetchPost, fetchPosts } from '~/api/blog'
 
+import NotifyAlert from '~/components/NotifyAlert.vue'
 import PostCard from '~/components/PostCard.vue'
 import SocialMenu from '~/components/SocialMenu.vue'
 import LoadedMarkdown from '~/components/LoadedMarkdown.vue'
