@@ -1,5 +1,7 @@
 import Endpoints from './endpoints.constants'
 
+export const CONTACT_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSfFzwsCVnFbu-lV0Jz2fEYHR97hpBSK2g6kEwc-G1fo976ngA/viewform'
 export const SOCIAL_LIST = ['twitter', 'hatena', 'note']
 export const TWITTER_URL = (title: string, slug: string) =>
   `http://twitter.com/share?text=${title}&url=${Endpoints.POST_BASE_URL}${slug}`

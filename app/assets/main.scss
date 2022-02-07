@@ -2,6 +2,8 @@
 @use 'node_modules/highlight.js/styles/hybrid.css';
 
 @use 'buy-me-a-coffee';
+@use 'footer';
+@use 'nav';
 @use 'stripe';
 
 .alert-block {
