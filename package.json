@@ -17,6 +17,7 @@
     "eslint:fix": "eslint --ext .ts,.vue --ignore-path .gitignore -c .eslintrc.js .",
     "stylelint": "stylelint --config .stylelintrc.yml 'app/assets/**/*.scss'",
     "stylelint:fix": "stylelint --config .stylelintrc.yml 'app/assets/**/*.scss' --fix",
+    "htmllint": "markuplint **/*.html **/*.vue",
     "test": "jest --testEnvironment jsdom",
     "test-cover": "jest --testEnvironment jsdom --coverage",
     "test:w": "npm run test-cover -- --watch",
@@ -53,6 +54,7 @@
   "devDependencies": {
     "@babel/core": "7.17.0",
     "@babel/preset-env": "7.16.11",
+    "@markuplint/vue-parser": "1.0.3-beta.1",
     "@nekohack/eslint-config-vue": "1.1.0",
     "@nuxt/types": "2.15.8",
     "@nuxt/typescript-build": "2.1.0",
@@ -75,6 +77,7 @@
     "fibers": "5.0.1",
     "fs-extra": "9.1.0",
     "jest": "27.5.0",
+    "markuplint": "1.11.4",
     "prettier": "2.5.1",
     "sass": "1.49.7",
     "sass-loader": "10.2.1",

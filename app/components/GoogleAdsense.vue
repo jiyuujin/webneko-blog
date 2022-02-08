@@ -1,5 +1,5 @@
 <template>
-  <div class="ad">
+  <div role="presentation" class="ad-wrapper">
     <adsbygoogle
       :slot="adSlot"
       :ad-format="adFormat"
