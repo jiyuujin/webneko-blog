@@ -18,8 +18,7 @@
         <div
           v-for="tag in filterTags"
           :key="tag"
-          :class="tag === 'Scrap' && 'scrap-tag'"
-          class="tag"
+          :class="['tag', tag === 'Scrap' && 'scrap-tag']"
         >
           {{ tag }}
         </div>

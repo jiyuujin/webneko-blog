@@ -1,0 +1,38 @@
+{
+  "parser": {
+    ".vue$": "@markuplint/vue-parser"
+  },
+  "rules": {
+    "attr-duplication": true,
+    "character-reference": false,
+    "deprecated-attr": true,
+    "deprecated-element": true,
+    "doctype": true,
+    "id-duplication": true,
+    "permitted-contents": false,
+    "required-attr": true,
+    "invalid-attr": {
+      "option": {
+        "ignoreAttrNamePrefix": [
+          "key",
+          "ref"
+        ]
+      }
+    },
+    "landmark-roles": true,
+    "required-h1": true,
+    "wai-aria": true,
+    "class-naming": "/.+/",
+    "attr-equal-space-after": true,
+    "attr-equal-space-before": true,
+    "attr-spacing": true,
+    "attr-value-quotes": true,
+    "case-sensitive-attr-name": true,
+    "case-sensitive-tag-name": true,
+    "indentation": false
+  },
+  "excludeFiles": [
+    "node_modules/@nuxt/vue-app/template/components/nuxt-error.vue",
+    "node_modules/@nuxtjs/markdownit-loader/example/src/app.vue"
+  ]
+}
