@@ -9,6 +9,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
+          <img src="~/assets/notion.svg" alt="Notion logo" class="notion-logo" />
           <span>問い合わせはこちら</span>
         </a>
       </div>
@@ -24,7 +25,7 @@
           <img
             src="~/assets/nekohack_logo.svg"
             alt="nekohack logo"
-            class="nekohack logo"
+            class="nekohack-logo"
           />
         </a>
       </div>

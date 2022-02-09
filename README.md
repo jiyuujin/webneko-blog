@@ -9,6 +9,7 @@
 
 ## Skills
 
+- [Notion](https://nekohack.notion.site/jiyuujin-Yuma-Kitamura-c0a6b685fb524ca4823cc1dccbf2f9b8)
 - [Nuxt](https://ja.nuxtjs.org/guide/)
 - [Nuxt 3](https://v3.nuxtjs.org/)
 - [Contentful](https://www.contentful.com/)
