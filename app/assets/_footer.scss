@@ -31,12 +31,6 @@ footer {
 }
 
 .contact-more {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 2em;
-  vertical-align: center;
-
   a {
     display: flex;
     align-items: center;
@@ -65,7 +59,12 @@ footer {
   }
 }
 
-.logo {
+.notion-logo {
+  height: 2em;
+  margin-right: 0.2rem;
+}
+
+.nekohack-logo {
   height: 4em;
 }
 

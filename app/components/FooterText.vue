@@ -9,6 +9,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
+          <NotionSvg class="notion-logo" />
           <span>問い合わせはこちら</span>
         </a>
       </div>
@@ -21,7 +22,7 @@
           rel="noopener noreferrer"
         >
           ©︎ jiyuujin LAB. by {{ ' ' }}
-          <img src="/icon/nekohack.svg" alt="nekohack logo" class="logo" />
+          <img src="/icon/nekohack.svg" alt="nekohack logo" class="nekohack-logo" />
         </a>
       </div>
     </div>
@@ -29,9 +30,14 @@
 </template>
 
 <script lang="ts">
+import NotionSvg from '~/static/icon/notion.svg'
+
 import { CONTACT_URL } from '~/utils/constants'
 
 export default {
+  components: {
+    NotionSvg
+  },
   data() {
     return { contactUrl: CONTACT_URL }
   }
