@@ -9,11 +9,13 @@
 
 ## Skills
 
-- [j-stylebook](https://www.npmjs.com/package/@nekohack/j-stylebook)
-- [Nuxt.js](https://ja.nuxtjs.org/guide/)
-- [Nuxt.js PWA](https://pwa.nuxtjs.org/)
+- [Notion](https://nekohack.notion.site/jiyuujin-Yuma-Kitamura-c0a6b685fb524ca4823cc1dccbf2f9b8)
+- [Nuxt](https://ja.nuxtjs.org/guide/)
 - [Contentful](https://www.contentful.com/)
 - [AWS ECS](https://aws.amazon.com/jp/ecs/features/)
 - [AWS Fargate](https://aws.amazon.com/jp/fargate/)
-- [Travis CI](https://docs.travis-ci.com/user/languages/javascript-with-nodejs/)
 - [Github Actions](https://docs.github.com/ja/actions/language-and-framework-guides/using-nodejs-with-github-actions)
+
+### Unused
+
+- [Travis CI](https://docs.travis-ci.com/user/languages/javascript-with-nodejs/)
