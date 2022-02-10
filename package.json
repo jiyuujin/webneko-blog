@@ -20,9 +20,7 @@
     "htmllint": "markuplint **/*.html **/*.vue",
     "test": "jest --testEnvironment jsdom",
     "test-cover": "jest --testEnvironment jsdom --coverage",
-    "test:w": "npm run test-cover -- --watch",
-    "backup": "ts-node --project tsconfig.builder.json scripts/backup.ts",
-    "precommit": "npm run lint"
+    "test:w": "npm run test-cover -- --watch"
   },
   "dependencies": {
     "@nekohack/footer-ui": "1.0.0",
