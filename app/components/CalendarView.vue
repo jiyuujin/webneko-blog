@@ -48,11 +48,9 @@
             rel="noopener noreferrer"
           >
             <BakenekoSvg />
-            <!--
             <span class="tooltip">
               {{ getPost(day).fields.title }}
             </span>
-            -->
           </a>
         </div>
         <div v-else>

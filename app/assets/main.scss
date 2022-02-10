@@ -8,7 +8,8 @@
 @import 'markdown';
 @import 'nav';
 @import 'stripe';
-//@import 'switch';
+
+/* @import 'switch'; */
 @import 'tag';
 
 svg {
@@ -85,22 +86,22 @@ svg {
 
 .alert-block {
   padding: 0.5rem 1.5rem;
-  border-left-width: 0.5rem;
-  border-left-style: solid;
   margin: 1rem 0;
-  background-color: #f3f5f7;
   text-align: left;
+  background-color: #f3f5f7;
+  border-left-style: solid;
+  border-left-width: 0.5rem;
 }
 
-.alert-block_normal {
+.normal {
   border-color: #318a62;
 }
 
-.alert-block_warning {
+.warning {
   border-color: #b29400;
 }
 
-.alert-block_error {
+.error {
   border-color: #c00;
 }
 
