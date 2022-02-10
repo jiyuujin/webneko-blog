@@ -31,10 +31,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              :alt="getPost(day).fields.slug"
-              src="https://nekohack-inc.s3.ap-northeast-3.amazonaws.com/bakeneko2.png"
-            />
+            <BakenekoSvg />
             {{ getPost(day).fields.title }}
           </a>
         </div>
@@ -50,10 +47,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              :alt="getPost(day).fields.slug"
-              src="https://nekohack-inc.s3.ap-northeast-3.amazonaws.com/bakeneko2.png"
-            />
+            <BakenekoSvg />
             <!--
             <span class="tooltip">
               {{ getPost(day).fields.title }}
@@ -62,11 +56,7 @@
           </a>
         </div>
         <div v-else>
-          <img
-            :alt="getPost(day) ? getPost(day).fields.slug : ''"
-            src="https://nekohack-inc.s3.ap-northeast-3.amazonaws.com/bakeneko2.png"
-            :style="{ opacity: '40%' }"
-          />
+          <BakenekoSvg :style="{ opacity: '40%' }" />
         </div>
       </div>
       <div v-for="i in endOfMonth" :key="`end_${i}`" class="day day-disabled" />
@@ -77,9 +67,14 @@
 <script lang="ts">
 import useCalendar from '~/hooks/useCalendar'
 
+import BakenekoSvg from '~/static/icon/bakeneko.svg'
+
 const WEEKDAY_LIST = ['日', '月', '火', '水', '木', '金', '土']
 
 export default {
+  components: {
+    BakenekoSvg
+  },
   props: {
     items: {
       type: Array,
