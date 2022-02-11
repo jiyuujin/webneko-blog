@@ -117,7 +117,7 @@ export default Vue.extend({
         ...generalOg(
           this.currentPost.fields.title,
           this.currentPost.fields.description,
-          `${Endpoints.POST_BASE_URL}${this.currentPost.fields.slug}`,
+          `${Endpoints.BASE_URL}posts/${this.currentPost.fields.slug}`,
           `${Endpoints.OG_BASIC_ENDPOINT}${this.currentPost.fields.slug}.jpg`,
         ),
         ...twitterOg(

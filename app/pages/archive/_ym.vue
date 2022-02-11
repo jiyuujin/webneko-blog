@@ -48,7 +48,7 @@ export default Vue.extend({
         ...generalOg(
           `${(this as any).ym} 記事一覧`,
           `${(this as any).tagName} の記事を集めました`,
-          `${Endpoints.TAG_BASE_URL}${(this as any).ym}`
+          `${Endpoints.BASE_URL}tags/${(this as any).ym}`
         ),
         ...twitterOg(
           `${(this as any).ym} 記事一覧`,
