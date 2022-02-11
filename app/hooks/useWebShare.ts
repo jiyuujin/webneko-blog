@@ -15,7 +15,7 @@ export const useWebShareSetup = async (title: string, slug: string) => {
     await window.navigator.share({
       title: 'Share API で共有！',
       text: title,
-      url: `${Endpoints.POST_BASE_URL}${slug}`,
+      url: `${Endpoints.BASE_URL}posts/${slug}`,
     })
   } catch (e) {
     console.error(e)
