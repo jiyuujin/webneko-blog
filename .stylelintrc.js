@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['@nekohack/stylelint-config'],
+  extends: ['@nekohack/stylelint-config', 'stylelint-config-recess-order'],
   overrides: [
     {
       files: ['**/*.vue'],
@@ -10,7 +10,7 @@ module.exports = {
       customSyntax: 'postcss-scss',
     },
   ],
-  plugins: ['stylelint-scss'],
+  plugins: ['stylelint-scss', 'stylelint-a11y'],
   rules: {
     'at-rule-no-unknown': null,
     'scss/at-rule-no-unknown': [
