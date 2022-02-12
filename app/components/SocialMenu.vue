@@ -12,6 +12,8 @@
       <img
         :src="`/icon/${item}.svg`"
         :alt="item"
+        width="36"
+        height="36"
         decoding="async"
       />
     </a>
