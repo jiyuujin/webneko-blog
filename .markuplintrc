@@ -32,7 +32,11 @@
     "indentation": false
   },
   "excludeFiles": [
+    "node_modules/@nuxt/vue-app/template/components/nuxt-build-indicator.vue",
     "node_modules/@nuxt/vue-app/template/components/nuxt-error.vue",
+    "node_modules/@nuxt/vue-app/template/components/nuxt-loading.vue",
+    "node_modules/@nuxt/vue-app/template/layouts/default.vue",
+    "node_modules/@nuxt/vue-app/template/pages/index.vue",
     "node_modules/@nuxtjs/markdownit-loader/example/src/app.vue"
   ]
 }
