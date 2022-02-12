@@ -1,6 +1,6 @@
 <template>
   <div class="error">
-    <img alt="bakeneko" :src="`/icon/bakeneko.svg`" />
+    <img alt="bakeneko" :src="`/icon/bakeneko.svg`" width="80" height="80" decoding="async" />
     <nuxt-link to="/" title="トップへ戻る" class="icon">
       Oooops, something is wrong \ {{ error.statusCode }} / error
     </nuxt-link>

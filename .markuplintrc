@@ -1,4 +1,5 @@
 {
+  "extends": ["markuplint:recommended"],
   "parser": {
     ".vue$": "@markuplint/vue-parser"
   },
