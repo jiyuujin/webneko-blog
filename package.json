@@ -70,7 +70,7 @@
     "core-js": "3.21.0",
     "dotenv": "10.0.0",
     "esbuild-loader": "2.18.0",
-    "eslint": "8.8.0",
+    "eslint": "8.9.0",
     "eslint-plugin-vuejs-accessibility": "1.1.1",
     "feed": "4.2.2",
     "fibers": "5.0.1",
