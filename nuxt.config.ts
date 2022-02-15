@@ -109,12 +109,6 @@ export default {
         pageLevelAds: true,
       },
     ],
-    [
-      '@nuxtjs/google-analytics',
-      {
-        id: 'UA-141123200-1',
-      },
-    ],
     '@nuxtjs/sentry',
     '@nuxtjs/sitemap',
     '@nuxtjs/markdownit',
@@ -132,6 +126,10 @@ export default {
 
   sentry: {
     dsn: process.env.SENTRY_DSN,
+  },
+
+  googleAnalytics: {
+    id: 'UA-141123200-1',
   },
 
   sitemap: {
@@ -281,6 +279,7 @@ export default {
         ignoreNotFoundWarnings: true,
       },
     ],
+    '@nuxtjs/google-analytics',
     '@nuxtjs/composition-api/module',
   ],
 
