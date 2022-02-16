@@ -50,7 +50,7 @@
     "ts-node": "10.5.0"
   },
   "devDependencies": {
-    "@babel/core": "7.17.2",
+    "@babel/core": "7.17.4",
     "@babel/preset-env": "7.16.11",
     "@markuplint/vue-parser": "2.0.0",
     "@nekohack/eslint-config-vue": "1.1.0",
