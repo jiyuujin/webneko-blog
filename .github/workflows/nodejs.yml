@@ -40,6 +40,7 @@ jobs:
         run: |
           npm install
           npm run build
+          npm run build --spa
         env:
           CI: true
           CTF_SPACE_ID: ${{ secrets.CTF_SPACE_ID }}
