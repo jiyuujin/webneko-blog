@@ -13,8 +13,6 @@
 </template>
 
 <script lang="ts">
-import { provideLayout } from '~/hooks/useAppTheme'
-
 const NoticeBar = () => import('~/components/NoticeBar.vue')
 const NavText = () => import('~/components/NavText.vue')
 const FooterText = () => import('~/components/FooterText.vue')
@@ -26,9 +24,6 @@ export default {
     NavText,
     FooterText,
     CookieFooterWrapper
-  },
-  setup() {
-    provideLayout()
   }
 }
 </script>
