@@ -7,7 +7,6 @@
         <nuxt key="top-nuxt" />
       </transition-group>
       <footer-text />
-      <cookie-footer-wrapper />
     </main>
   </div>
 </template>
@@ -16,14 +15,12 @@
 const NoticeBar = () => import('~/components/NoticeBar.vue')
 const NavText = () => import('~/components/NavText.vue')
 const FooterText = () => import('~/components/FooterText.vue')
-const CookieFooterWrapper = () => import('~/components/CookieFooterWrapper.vue')
 
 export default {
   components: {
     NoticeBar,
     NavText,
-    FooterText,
-    CookieFooterWrapper
+    FooterText
   }
 }
 </script>
