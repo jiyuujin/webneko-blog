@@ -83,7 +83,7 @@
     "prettier": "2.6.0",
     "sass": "1.49.9",
     "sass-loader": "10.2.1",
-    "stylelint": "14.5.3",
+    "stylelint": "14.6.0",
     "stylelint-a11y": "1.2.3",
     "stylelint-config-recess-order": "3.0.0",
     "stylelint-scss": "4.2.0",
