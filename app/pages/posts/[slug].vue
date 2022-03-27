@@ -62,6 +62,8 @@
 <script setup lang="ts">
 import { useAsyncData } from '#app'
 import { fetchPost, fetchPosts } from '~/api/blog'
+import Endpoints from '~/utils/endpoints.constants'
+import { generalOg, twitterOg } from '~/utils/og.constants'
 
 import NotifyAlert from '~/components/NotifyAlert.vue'
 import PostCard from '~/components/PostCard.vue'
@@ -89,4 +91,20 @@ const errorType = (d: Date) => {
   }
   return 'normal'
 }
+
+useMeta({
+  meta: [
+    ...generalOg(
+      currentPost.fields?.title,
+      currentPost.fields?.description,
+      `${Endpoints.BASE_URL}posts/${currentPost.fields?.slug}`,
+      `${Endpoints.OG_BASIC_ENDPOINT}${currentPost.fields?.slug}.jpg`,
+    ),
+    ...twitterOg(
+      currentPost.fields?.title,
+      currentPost.fields?.description,
+      `${Endpoints.OG_BASIC_ENDPOINT}${currentPost.fields?.slug}.jpg`,
+    )
+  ]
+})
 </script>
