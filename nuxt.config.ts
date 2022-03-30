@@ -12,6 +12,9 @@ export default defineNuxtConfig({
       ...generalOg(),
       ...twitterOg(),
     ],
+    htmlAttrs: {
+      lang: 'ja',
+    },
   },
   css: ['~/assets/main.scss'],
   serverMiddleware: [{ path: '/api/hello', handler: '~/server/api/hello.ts' }],
