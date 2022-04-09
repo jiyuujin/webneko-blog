@@ -1,5 +1,6 @@
 import { defineNuxtConfig } from 'nuxt3'
 import 'dotenv/config'
+import { gtagList } from './app/utils/gtag.constants'
 import { generalOg, twitterOg } from './app/utils/og.constants'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
@@ -9,9 +10,14 @@ export default defineNuxtConfig({
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      ...gtagList(),
       ...generalOg(),
       ...twitterOg(),
     ],
+    __dangerouslyDisableSanitizersByTagID: {
+      GAsrc: ['innerHTML'],
+      GAcode: ['innerHTML'],
+    },
     htmlAttrs: {
       lang: 'ja',
     },
@@ -22,5 +28,6 @@ export default defineNuxtConfig({
   publicRuntimeConfig: {
     space: process.env.CTF_SPACE_ID,
     accessToken: process.env.CTF_CDA_ACCESS_TOKEN,
+    gtagId: process.env.GTAG_ID,
   },
 })
