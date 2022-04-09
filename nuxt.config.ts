@@ -3,6 +3,7 @@ import { Context } from '@nuxt/types'
 import { ContentfulClientApi, Entry } from 'contentful'
 
 import { useESBuildMinify, useESBuildLoader } from './app/hooks/useESBuild'
+import { gtagList } from './app/utils/gtag.constants'
 import { generalOg, twitterOg } from './app/utils/og.constants'
 
 const contentful = require('contentful')
@@ -25,9 +26,14 @@ export default {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1',
       },
+      ...gtagList(),
       ...generalOg(),
       ...twitterOg(),
     ],
+    __dangerouslyDisableSanitizersByTagID: {
+      GAsrc: ['innerHTML'],
+      GAcode: ['innerHTML'],
+    },
     link: [
       {
         rel: 'icon',
@@ -126,10 +132,6 @@ export default {
 
   sentry: {
     dsn: process.env.SENTRY_DSN,
-  },
-
-  googleAnalytics: {
-    id: 'UA-141123200-1',
   },
 
   sitemap: {
@@ -318,6 +320,7 @@ export default {
     blogPostTypeID: process.env.CTF_BLOG_POST_TYPE_ID,
     spaceId: process.env.CTF_SPACE_ID,
     cdaAccessToken: process.env.CTF_CDA_ACCESS_TOKEN,
+    gtagId: process.env.GTAG_ID,
   },
 
   privateRuntimeConfig: {
