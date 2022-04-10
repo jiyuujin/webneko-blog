@@ -91,10 +91,6 @@ export default {
       src: '~/assets/main.scss',
       lang: 'css',
     },
-    {
-      src: '../node_modules/highlight.js/styles/hybrid.css',
-      lang: 'css',
-    },
   ],
 
   plugins: ['~plugins/sanitize.ts', '~plugins/markdown-it.ts'],
