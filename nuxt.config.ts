@@ -1,12 +1,11 @@
 import { Configuration } from 'webpack'
 import { Context } from '@nuxt/types'
-import { ContentfulClientApi, Entry } from 'contentful'
 
 import { useESBuildMinify, useESBuildLoader } from './app/hooks/useESBuild'
 import { gtagList } from './app/utils/gtag.constants'
 import { generalOg, twitterOg } from './app/utils/og.constants'
+import { manifestData } from './app/utils/manifest.constants'
 
-const contentful = require('contentful')
 const sass = require('sass')
 const fiber = require('fibers')
 
@@ -19,13 +18,8 @@ export default {
     title: 'トップ',
     titleTemplate: 'Web猫ブログ | %s',
     meta: [
-      {
-        charset: 'utf-8',
-      },
-      {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1',
-      },
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       ...gtagList(),
       ...generalOg(),
       ...twitterOg(),
@@ -134,87 +128,9 @@ export default {
     dsn: process.env.SENTRY_DSN,
   },
 
-  sitemap: {
-    path: '/sitemap.xml',
-    hostname: 'https://webneko.dev/',
-    cacheTime: 1000 * 60 * 15,
-    async routes() {
-      const client: ContentfulClientApi = contentful.createClient({
-        space: process.env.CTF_SPACE_ID,
-        accessToken: process.env.CTF_CDA_ACCESS_TOKEN,
-      })
-
-      const posts = await client.getEntries({
-        content_type: process.env.CTF_BLOG_POST_TYPE_ID,
-        order: '-fields.publishDate',
-      })
-
-      const urls: string[] = []
-      posts.items.forEach((post: Entry<any>, index: number) => {
-        urls[index] = 'posts/' + post.fields.slug
-      })
-
-      return urls
-    },
-  },
-
   pwa: {
     manifest: {
-      name: 'Web猫ブログ',
-      short_name: 'Web猫ブログ',
-      title: 'Web猫ブログ',
-      'og:title': 'Web猫ブログ',
-      description:
-        '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。',
-      'og:description':
-        '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。',
-      lang: 'en',
-      start_url: 'https://webneko.dev/',
-      icons: [
-        {
-          src: 'icon/webneko-blog-white-72.png',
-          sizes: '72x72',
-          type: 'image/png',
-        },
-        {
-          src: 'icon/webneko-blog-white-96.png',
-          sizes: '96x96',
-          type: 'image/png',
-        },
-        {
-          src: 'icon/webneko-blog-white-128.png',
-          sizes: '128x128',
-          type: 'image/png',
-        },
-        {
-          src: 'icon/webneko-blog-white-144.png',
-          sizes: '144x144',
-          type: 'image/png',
-        },
-        {
-          src: 'icon/webneko-blog-white-152.png',
-          sizes: '152x152',
-          type: 'image/png',
-        },
-        {
-          src: 'icon/webneko-blog-white-192.png',
-          sizes: '192x192',
-          type: 'image/png',
-        },
-        {
-          src: 'icon/webneko-blog-white-384.png',
-          sizes: '384x384',
-          type: 'image/png',
-        },
-        {
-          src: 'icon/webneko-blog-white-512.png',
-          sizes: '512x512',
-          type: 'image/png',
-        },
-      ],
-      theme_color: '#ffbb33',
-      background_color: '#ffbb33',
-      display: 'standalone',
+      ...manifestData(),
     },
   },
 
@@ -283,35 +199,6 @@ export default {
     ],
     '@nuxtjs/composition-api/module',
   ],
-
-  router: {
-    //
-  },
-
-  generate: {
-    // 404対応
-    fallback: true,
-    // Payload機能
-    // https://ja.nuxtjs.org/api/configuration-generate/#-code-payload-code-%E3%81%AB%E3%82%88%E3%82%8B%E5%8B%95%E7%9A%84%E3%83%AB%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E7%94%9F%E6%88%90%E3%81%AE%E9%AB%98%E9%80%9F%E5%8C%96
-    routes() {
-      const client: ContentfulClientApi = contentful.createClient({
-        space: process.env.CTF_SPACE_ID,
-        accessToken: process.env.CTF_CDA_ACCESS_TOKEN,
-      })
-
-      const posts: any = client.getEntries({
-        content_type: process.env.CTF_BLOG_POST_TYPE_ID,
-        order: '-fields.publishDate',
-      })
-
-      const urls: string[] = []
-      posts.items.forEach((val: any, idx: number) => {
-        urls[idx] = 'posts/' + val.fields.slug
-      })
-
-      return urls
-    },
-  },
 
   publicRuntimeConfig: {
     sentryDsn: process.env.SENTRY_DSN,
