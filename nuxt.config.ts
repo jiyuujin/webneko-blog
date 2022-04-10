@@ -92,7 +92,7 @@ export default {
       lang: 'css',
     },
     {
-      src: '../node_modules/highlight.js/styles/hybrid.css',
+      src: '~/node_modules/highlight.js/styles/hybrid.css',
       lang: 'css',
     },
   ],
