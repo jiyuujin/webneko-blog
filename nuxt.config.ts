@@ -6,6 +6,9 @@ import { generalOg, twitterOg } from './app/utils/og.constants'
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   srcDir: 'app/',
+  app: {
+    buildAssetsDir: '/_nuxt/',
+  },
   mode: 'universal',
   target: 'static',
   head: {
