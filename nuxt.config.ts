@@ -1,4 +1,4 @@
-import { defineNuxtConfig } from 'nuxt3'
+import { defineNuxtConfig } from 'nuxt'
 import 'dotenv/config'
 import { gtagList } from './app/utils/gtag.constants'
 import { generalOg, twitterOg } from './app/utils/og.constants'
@@ -6,7 +6,7 @@ import { generalOg, twitterOg } from './app/utils/og.constants'
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   srcDir: 'app/',
-  mode: 'spa',
+  mode: 'universal',
   target: 'static',
   head: {
     meta: [

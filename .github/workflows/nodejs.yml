@@ -3,10 +3,10 @@ name: Node.js CI
 on:
   push:
     branches:
-      - next
+      - main
   pull_request:
     branches:
-      - next
+      - main
 
 jobs:
   build:
@@ -40,7 +40,7 @@ jobs:
         run: |
           npm install
           npm run build
-          npm run build --spa
+          npm run generate
         env:
           CI: true
           CTF_SPACE_ID: ${{ secrets.CTF_SPACE_ID }}

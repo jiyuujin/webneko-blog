@@ -1,14 +1,15 @@
 import dayjs from 'dayjs'
 
-import createClient from '~/plugins/contentful'
+import createContentfulClient from '~/services/contentful'
 
 export const PAGE = 20
 export const LATEST_PAGE = 8
 export const ORDER = '-fields.publishDate'
 
 export const fetchPosts = (isLatest?: boolean) => {
-  const client = createClient()
-  return client.getEntries({
+  const $client = createContentfulClient()
+
+  return $client.getEntries({
     content_type: 'blogPost',
     order: ORDER,
     limit: isLatest ? LATEST_PAGE : PAGE,
@@ -17,10 +18,10 @@ export const fetchPosts = (isLatest?: boolean) => {
 }
 
 export const fetchPost = async (params) => {
-  const client = createClient()
+  const $client = createContentfulClient()
 
   let result: object = {}
-  await client
+  await $client
     .getEntries({
       content_type: 'blogPost',
       order: ORDER,

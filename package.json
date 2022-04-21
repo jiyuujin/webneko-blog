@@ -7,6 +7,7 @@
     "dev": "nuxi dev",
     "build": "nuxi build",
     "start": "node .output/server/index.mjs",
+    "generate": "nuxi generate",
     "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore",
     "eslint": "eslint --ext .ts,.vue --ignore-path .gitignore -c .eslintrc.js .",
     "eslint:fix": "eslint --ext .ts,.vue --ignore-path .gitignore -c .eslintrc.js ."
@@ -31,7 +32,7 @@
     "dotenv": "^15.0.0",
     "eslint": "^8.8.0",
     "express": "^4.17.2",
-    "nuxt3": "latest",
+    "nuxt": "^3.0.0-rc.1",
     "prettier": "^2.5.1",
     "sass": "^1.49.7",
     "sass-loader": "^12.4.0",

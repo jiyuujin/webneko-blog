@@ -1,7 +1,7 @@
 import { useRuntimeConfig } from '#app'
 import contentful from 'contentful'
 
-const createClient = () => {
+const createContentfulClient = () => {
   const $config = useRuntimeConfig()
   return contentful.createClient({
     space: $config.space,
@@ -9,4 +9,4 @@ const createClient = () => {
   })
 }
 
-export default createClient
+export default createContentfulClient

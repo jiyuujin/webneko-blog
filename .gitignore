@@ -5,5 +5,6 @@ yarn.lock
 .nuxt
 nuxt.d.ts
 .output
+dist
 .env
 .idea
