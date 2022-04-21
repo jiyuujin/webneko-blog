@@ -32,4 +32,7 @@ export default defineNuxtConfig({
     accessToken: process.env.CTF_CDA_ACCESS_TOKEN,
     gtagId: process.env.GTAG_ID,
   },
+  build: {
+    extractCSS: true,
+  },
 })
