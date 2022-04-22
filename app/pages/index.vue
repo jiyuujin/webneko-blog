@@ -19,7 +19,7 @@ const { data: posts } = await useAsyncData('posts', () => {
   return fetchPosts()
 })
 
-useMeta({
+useHead({
   title: 'Web猫ブログ',
   meta: [
     ...generalOg(),

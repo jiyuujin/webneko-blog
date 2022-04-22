@@ -92,7 +92,7 @@ const errorType = (d: Date) => {
   return 'normal'
 }
 
-useMeta({
+useHead({
   meta: [
     ...generalOg(
       currentPost.fields?.title,
