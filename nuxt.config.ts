@@ -1,4 +1,5 @@
 import { defineNuxtConfig } from 'nuxt'
+import svgLoader from 'vite-svg-loader'
 import 'dotenv/config'
 import { gtagList } from './app/utils/gtag.constants'
 import { generalOg, twitterOg } from './app/utils/og.constants'
@@ -29,7 +30,9 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/main.scss'],
   serverMiddleware: [{ path: '/api/hello', handler: '~/server/api/hello.ts' }],
-  buildModules: ['@nuxtjs/svg'],
+  vite: {
+    plugins: [svgLoader()],
+  },
   publicRuntimeConfig: {
     space: process.env.CTF_SPACE_ID,
     accessToken: process.env.CTF_CDA_ACCESS_TOKEN,

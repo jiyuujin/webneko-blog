@@ -9,7 +9,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="~/assets/notion.svg" alt="Notion logo" class="notion-logo" />
+          <NotionLogo />
           <span>問い合わせはこちら</span>
         </a>
       </div>
@@ -22,11 +22,7 @@
           rel="noopener noreferrer"
         >
           ©︎ jiyuujin LAB. by {{ ' ' }}
-          <img
-            src="~/assets/nekohack_logo.svg"
-            alt="nekohack logo"
-            class="nekohack-logo"
-          />
+          <NekohackLogo />
         </a>
       </div>
     </div>
@@ -34,9 +30,15 @@
 </template>
 
 <script lang="ts">
+import NotionLogo from '~/assets/notion.svg'
+import NekohackLogo from '~/assets/nekohack_logo.svg'
 import { CONTACT_URL } from '~/utils/constants'
 
 export default {
+  components: {
+    NotionLogo,
+    NekohackLogo
+  },
   data() {
     return { contactUrl: CONTACT_URL }
   }

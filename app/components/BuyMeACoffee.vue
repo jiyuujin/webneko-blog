@@ -8,19 +8,19 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      <img
-        :src="`/assets/buy_me_a_coffee_logo.svg`"
-        alt="Buy Me A Coffee logo"
-        decoding="async"
-      />
+      <BuyMeACoffeeLogo />
       <span>{{ `BuyMeACoffeeで支払う` }}</span>
     </a>
   </div>
 </template>
 
 <script lang="ts">
+import BuyMeACoffeeLogo from '~/assets/buy_me_a_coffee_logo.svg'
+
 export default {
-  //
+  components: {
+    BuyMeACoffeeLogo
+  }
 }
 </script>
 

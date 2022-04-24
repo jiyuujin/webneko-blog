@@ -1,5 +1,6 @@
 <template>
   <div class="social-menu">
+    <!-- eslint-disable-next-line vuejs-accessibility/anchor-has-content -->
     <a
       v-for="item in SOCIAL_LIST"
       :key="item"
@@ -9,16 +10,23 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      <img
-        :src="`/assets/${item}_logo.svg`"
-        :alt="item"
-        decoding="async"
-      />
+      <template v-if="item === 'twitter'">
+        <TwitterLogo />
+      </template>
+      <template v-if="item === 'note'">
+        <NoteLogo />
+      </template>
+      <template v-if="item === 'hatena'">
+        <HatenaLogo />
+      </template>
     </a>
   </div>
 </template>
 
 <script lang="ts">
+import TwitterLogo from '~/assets/twitter_logo.svg'
+import NoteLogo from '~/assets/note_logo.svg'
+import HatenaLogo from '~/assets/hatena_logo.svg'
 import { useWebShareSetup } from '~/hooks/useWebShare'
 import {
   SOCIAL_LIST,
@@ -28,6 +36,11 @@ import {
 } from '~/utils/constants'
 
 export default {
+  components: {
+    TwitterLogo,
+    NoteLogo,
+    HatenaLogo
+  },
   props: {
     slugText: {
       type: String,
