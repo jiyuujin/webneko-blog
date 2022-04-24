@@ -8,19 +8,19 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      <img
-        :src="`/assets/stripe_logo.svg`"
-        alt="Stripe logo"
-        decoding="async"
-      />
+      <StripeLogo />
       <span>{{ `Stripeで支払う` }}</span>
     </a>
   </div>
 </template>
 
 <script lang="ts">
+import StripeLogo from '~/assets/stripe_logo.svg'
+
 export default {
-  //
+  components: {
+    StripeLogo
+  }
 }
 </script>
 
