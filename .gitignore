@@ -8,3 +8,5 @@ nuxt.d.ts
 dist
 .env
 .idea
+
+app/public/feeds.xml

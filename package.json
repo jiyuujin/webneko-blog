@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
+    "build:feeds": "ts-node --project tsconfig.builder.json scripts/feeds.ts",
     "start": "node .output/server/index.mjs",
     "generate": "nuxi generate",
     "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore",
@@ -22,15 +23,18 @@
     "markdown-it-container": "^3.0.0",
     "markdown-it-highlightjs": "^3.6.0",
     "markdown-it-link-attributes": "^3.0.0",
-    "markdown-it-video": "^0.6.3"
+    "markdown-it-video": "^0.6.3",
+    "ts-node": "^10.7.0"
   },
   "devDependencies": {
     "@nekohack/eslint-config-vue": "^1.1.0",
+    "@swc/core": "^1.2.173",
     "@typescript-eslint/eslint-plugin": "^5.10.2",
     "@typescript-eslint/parser": "^5.10.2",
     "dotenv": "^15.0.0",
     "eslint": "^8.8.0",
     "express": "^4.17.2",
+    "feed": "^4.2.2",
     "nuxt": "^3.0.0-rc.1",
     "prettier": "^2.5.1",
     "sass": "^1.49.7",
