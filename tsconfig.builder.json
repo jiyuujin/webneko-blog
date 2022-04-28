@@ -1,5 +1,4 @@
 {
-  "extends": "./tsconfig.json",
   "compilerOptions": {
     "module": "commonjs",
     "outDir": "dist",
@@ -9,7 +8,6 @@
   "exclude": ["node_modules"],
   "ts-node": {
     "transpileOnly": true,
-    "transpiler": "ts-node/transpilers/swc-experimental",
     "compilerOptions": {
       "module": "CommonJS"
     }

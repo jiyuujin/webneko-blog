@@ -36,6 +36,12 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
+      - shell: bash
+        run: |
+          touch .env
+          echo "CTF_SPACE_ID=${{ secrets.CTF_SPACE_ID }}" >> .env
+          echo "CTF_CDA_ACCESS_TOKEN=${{ secrets.CTF_CDA_ACCESS_TOKEN }}" >> .env
+
       - name: Transpile
         run: |
           npm install
