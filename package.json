@@ -8,7 +8,7 @@
     "build": "nuxi build",
     "build:feeds": "ts-node --project tsconfig.builder.json scripts/feeds.ts",
     "start": "node .output/server/index.mjs",
-    "generate": "nuxi generate",
+    "generate": "nuxi generate && npm run build:feeds",
     "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore",
     "eslint": "eslint --ext .ts,.vue --ignore-path .gitignore -c .eslintrc.js .",
     "eslint:fix": "eslint --ext .ts,.vue --ignore-path .gitignore -c .eslintrc.js ."
@@ -28,7 +28,6 @@
   },
   "devDependencies": {
     "@nekohack/eslint-config-vue": "^1.1.0",
-    "@swc/core": "^1.2.173",
     "@typescript-eslint/eslint-plugin": "^5.10.2",
     "@typescript-eslint/parser": "^5.10.2",
     "dotenv": "^15.0.0",
