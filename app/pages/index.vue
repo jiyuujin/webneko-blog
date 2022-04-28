@@ -15,9 +15,7 @@ import { generalOg, twitterOg } from '~/utils/og.constants'
 
 import PostCard from '~/components/PostCard.vue'
 
-const { data: posts } = await useAsyncData('posts', () => {
-  return fetchPosts()
-})
+const posts = await fetchPosts()
 
 useHead({
   title: 'Web猫ブログ',
