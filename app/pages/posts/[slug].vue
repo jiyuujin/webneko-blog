@@ -76,13 +76,9 @@ const isVertical = ref(true)
 
 const route = useRoute()
 const slug = () => route.params.slug
-const { data: currentPost } = await useAsyncData('currentPost', () => {
-  return fetchPost(route.params)
-})
+const currentPost = await fetchPost(route.params)
 
-const { data: latestPosts } = await useAsyncData('latestPosts', () => {
-  return fetchPosts(true)
-})
+const latestPosts = await fetchPosts(true)
 
 const errorType = (d: Date) => {
   if (d.getFullYear() + 1 < new Date().getFullYear()) {
