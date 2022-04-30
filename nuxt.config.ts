@@ -54,7 +54,7 @@ export default {
         rel: 'alternate',
         type: 'application/rss+xml',
         title: 'RSS for blog posts',
-        href: 'https://webneko.dev/feeds.xml',
+        href: 'https://nuxt2.webneko.dev/feeds.xml',
       },
       {
         rel: 'dns-prefetch',

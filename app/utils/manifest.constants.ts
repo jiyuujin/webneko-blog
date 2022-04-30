@@ -9,7 +9,7 @@ export const manifestData = () => {
     'og:description':
       '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。',
     lang: 'en',
-    start_url: 'https://webneko.dev/',
+    start_url: 'https://nuxt2.webneko.dev/',
     icons: [
       {
         src: 'icon/webneko-blog-white-72.png',

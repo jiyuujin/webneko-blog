@@ -13,8 +13,8 @@ let feed = new Feed({
   title: 'Web猫ブログ',
   description:
     '2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。',
-  feed_url: 'https://webneko.dev/feeds.xml',
-  site_url: 'https://webneko.dev/',
+  feed_url: 'https://nuxt2.webneko.dev/feeds.xml',
+  site_url: 'https://nuxt2.webneko.dev/',
   copyright: 'nekohack',
   language: 'ja',
 })
@@ -34,8 +34,8 @@ client
       const post = entries.items[index]
       feed.items.push({
         title: post.fields.title,
-        id: `https://webneko.dev/posts/${post.fields.slug}`,
-        link: `https://webneko.dev/posts/${post.fields.slug}`,
+        id: `https://nuxt2.webneko.dev/posts/${post.fields.slug}`,
+        link: `https://nuxt2.webneko.dev/posts/${post.fields.slug}`,
         author: [
           {
             name: 'jiyuujin',
