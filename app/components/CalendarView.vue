@@ -24,7 +24,7 @@
       >
         <div v-if="getPost(day)" class="tooltip">
           <a
-            :href="`https://webneko.dev/posts/${getPost(day).fields.slug}`"
+            :href="`https://nuxt2.webneko.dev/posts/${getPost(day).fields.slug}`"
             :title="`${getPost(day).fields.slug}の記事を見る`"
             role="button"
             aria-pressed="true"
@@ -40,7 +40,7 @@
         </div>
         <div v-if="getPost(day)">
           <a
-            :href="`https://webneko.dev/posts/${getPost(day).fields.slug}`"
+            :href="`https://nuxt2.webneko.dev/posts/${getPost(day).fields.slug}`"
             :title="`${getPost(day).fields.slug}の記事を見る`"
             role="button"
             aria-pressed="true"
