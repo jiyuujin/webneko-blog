@@ -5,10 +5,10 @@
   "private": true,
   "scripts": {
     "dev": "nuxi dev",
-    "build": "nuxi build",
+    "build": "nuxi build && npm run build:feeds",
     "build:feeds": "ts-node --project tsconfig.builder.json scripts/feeds.ts",
     "start": "node .output/server/index.mjs",
-    "generate": "nuxi generate && npm run build:feeds",
+    "generate": "nuxi generate",
     "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore",
     "eslint": "eslint --ext .ts,.vue --ignore-path .gitignore -c .eslintrc.js .",
     "eslint:fix": "eslint --ext .ts,.vue --ignore-path .gitignore -c .eslintrc.js ."
