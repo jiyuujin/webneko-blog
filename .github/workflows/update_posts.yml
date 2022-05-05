@@ -2,7 +2,7 @@ name: Update posts CI
 
 on:
   schedule:
-    - cron: '0/5 * * * *'
+    - cron: '5 22 * * *'
   push:
     branches:
       - main
