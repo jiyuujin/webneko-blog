@@ -1,6 +1,7 @@
 import { defineNuxtConfig } from 'nuxt'
 import svgLoader from 'vite-svg-loader'
 import 'dotenv/config'
+import { adsenseList } from './app/utils/adsense.constants'
 import { gtagList } from './app/utils/gtag.constants'
 import { generalOg, twitterOg } from './app/utils/og.constants'
 
@@ -16,11 +17,14 @@ export default defineNuxtConfig({
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      ...adsenseList(),
       ...gtagList(),
       ...generalOg(),
       ...twitterOg(),
     ],
     __dangerouslyDisableSanitizersByTagID: {
+      ADsrc: ['innerHTML'],
+      ADcode: ['innerHTML'],
       GAsrc: ['innerHTML'],
       GAcode: ['innerHTML'],
     },
@@ -32,6 +36,11 @@ export default defineNuxtConfig({
   serverMiddleware: [{ path: '/api/hello', handler: '~/server/api/hello.ts' }],
   vite: {
     plugins: [svgLoader()],
+  },
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => ['adsbygoogle'].includes(tag),
+    },
   },
   publicRuntimeConfig: {
     space: process.env.CTF_SPACE_ID,
