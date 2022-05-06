@@ -45,6 +45,8 @@
 
       <stripe-link />
 
+      <google-adsense />
+
       <div class="latest-article">
         <h2 class="latest-article-title">あわせてよみたい..</h2>
         <div class="feeds">
@@ -71,6 +73,7 @@ import SocialMenu from '~/components/SocialMenu.vue'
 import LoadedMarkdown from '~/components/LoadedMarkdown.vue'
 import BuyMeACoffee from '~/components/BuyMeACoffee.vue'
 import StripeLink from '~/components/StripeLink.vue'
+import GoogleAdsense from '~/components/GoogleAdsense.vue'
 
 const isVertical = ref(true)
 
