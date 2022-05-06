@@ -34,12 +34,14 @@
 
     <loaded-markdown :body="currentPost.fields.body" />
 
-    <google-adsense
-      ad-slot="5228106955"
-      ad-format="fluid"
-      ad-layout="in-article"
-      :ad-style="{ display: 'block', 'text-align': 'center' }"
-    />
+    <template v-if="featAdsense">
+      <google-adsense
+        ad-slot="5228106955"
+        ad-format="fluid"
+        ad-layout="in-article"
+        :ad-style="{ display: 'block', 'text-align': 'center' }"
+      />
+    </template>
 
     <social-menu
       :slug-text="currentPost.fields.slug"
@@ -71,6 +73,7 @@ import { fetchPost, fetchPosts } from '~/api/blog'
 
 import Endpoints from '~/utils/endpoints.constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
+import { ADSENSE } from '~/utils/feature'
 
 const NotifyAlert = () => import('~/components/NotifyAlert.vue')
 const PostCard = () => import('~/components/PostCard.vue')
@@ -107,7 +110,8 @@ export default Vue.extend({
   },
   data() {
     return {
-      isVertical: true
+      isVertical: true,
+      featAdsense: ADSENSE
     }
   },
   head() {
