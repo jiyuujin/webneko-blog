@@ -5,6 +5,7 @@ import { useESBuildMinify, useESBuildLoader } from './app/hooks/useESBuild'
 import { gtagList } from './app/utils/gtag.constants'
 import { generalOg, twitterOg } from './app/utils/og.constants'
 import { manifestData } from './app/utils/manifest.constants'
+import { ADSENSE } from './app/utils/feature'
 
 const sass = require('sass')
 const fiber = require('fibers')
@@ -98,7 +99,7 @@ export default {
   components: true,
 
   modules: [
-    [
+    ADSENSE && [
       '@nuxtjs/google-adsense',
       {
         id: 'ca-pub-7095980629133842',
