@@ -98,13 +98,13 @@ export default {
   components: true,
 
   modules: [
-    [
-      '@nuxtjs/google-adsense',
-      {
-        id: 'ca-pub-7095980629133842',
-        pageLevelAds: true,
-      },
-    ],
+    // [
+    //   '@nuxtjs/google-adsense',
+    //   {
+    //     id: 'ca-pub-7095980629133842',
+    //     pageLevelAds: true,
+    //   },
+    // ],
     '@nuxtjs/sentry',
     '@nuxtjs/sitemap',
     '@nuxtjs/markdownit',
