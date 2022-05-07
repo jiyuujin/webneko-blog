@@ -4,7 +4,7 @@
         <title>Web猫ブログ</title>
         <link>undefined</link>
         <description>2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。</description>
-        <lastBuildDate>Fri, 06 May 2022 22:26:13 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 07 May 2022 22:25:30 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>ja</language>
@@ -637,7 +637,7 @@
             <link>https://webneko.dev/posts/migrated-to-dev-domain-on-webneko-blog</link>
             <guid>https://webneko.dev/posts/migrated-to-dev-domain-on-webneko-blog</guid>
             <pubDate>Wed, 29 May 2019 03:00:00 GMT</pubDate>
-            <description><![CDATA[devドメイン解禁されました。機会あって webneko.devを取得しています。]]></description>
+            <description><![CDATA[この度 dev ドメインが解禁されました。機会あって webneko.dev を取得しています。]]></description>
         </item>
         <item>
             <title><![CDATA[Monaca UG 共催 イベントリポート]]></title>
