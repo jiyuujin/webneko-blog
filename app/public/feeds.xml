@@ -4,13 +4,13 @@
         <title>Web猫ブログ</title>
         <link>undefined</link>
         <description>2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。</description>
-        <lastBuildDate>Sat, 14 May 2022 22:27:01 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 15 May 2022 22:26:12 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>ja</language>
         <copyright>nekohack</copyright>
         <item>
-            <title><![CDATA[内々勉強会 - markuplint をカスタマイズする会]]></title>
+            <title><![CDATA[markuplint のルールをカスタマイズする]]></title>
             <link>https://webneko.dev/posts/customize-markuplint-to-audit-accessibility</link>
             <guid>https://webneko.dev/posts/customize-markuplint-to-audit-accessibility</guid>
             <pubDate>Thu, 21 Apr 2022 09:00:00 GMT</pubDate>
@@ -24,7 +24,7 @@
             <description><![CDATA[React (Vite) × LINE Front-end Framework のハンズオンの延長線上として、当ブログでは Next.js を　Vite の代わりに利用した際注意することを補足させていただきます。]]></description>
         </item>
         <item>
-            <title><![CDATA[内々勉強会 - markuplint をおさわりする会]]></title>
+            <title><![CDATA[手始めに markuplint を導入する]]></title>
             <link>https://webneko.dev/posts/setup-markuplint-to-audit-accessibility</link>
             <guid>https://webneko.dev/posts/setup-markuplint-to-audit-accessibility</guid>
             <pubDate>Thu, 14 Apr 2022 09:00:00 GMT</pubDate>
@@ -38,7 +38,7 @@
             <description><![CDATA[React 18 が正式リリースされたのを受け、簡単に記録させていただきました。]]></description>
         </item>
         <item>
-            <title><![CDATA[内々勉強会 - Axe Con をシェアする会]]></title>
+            <title><![CDATA[Axe Con 2022 をシェアする]]></title>
             <link>https://webneko.dev/posts/accessibility-study-2022-04-07</link>
             <guid>https://webneko.dev/posts/accessibility-study-2022-04-07</guid>
             <pubDate>Thu, 07 Apr 2022 09:00:00 GMT</pubDate>
