@@ -68,7 +68,7 @@
     "babel-core": "7.0.0-bridge.0",
     "core-js": "3.22.5",
     "dotenv": "10.0.0",
-    "esbuild-loader": "2.18.0",
+    "esbuild-loader": "2.19.0",
     "eslint": "8.12.0",
     "eslint-plugin-vuejs-accessibility": "1.1.1",
     "feed": "4.2.2",
