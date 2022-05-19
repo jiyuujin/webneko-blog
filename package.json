@@ -49,8 +49,8 @@
     "ts-node": "10.7.0"
   },
   "devDependencies": {
-    "@babel/core": "7.17.12",
-    "@babel/preset-env": "7.17.12",
+    "@babel/core": "7.18.0",
+    "@babel/preset-env": "7.18.0",
     "@markuplint/vue-parser": "2.3.1",
     "@nekohack/eslint-config-vue": "1.1.0",
     "@nekohack/stylelint-config": "0.3.0",
