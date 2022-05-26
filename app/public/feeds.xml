@@ -4,7 +4,7 @@
         <title>Web猫ブログ</title>
         <link>undefined</link>
         <description>2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。</description>
-        <lastBuildDate>Wed, 25 May 2022 22:27:57 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 26 May 2022 22:27:53 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>ja</language>
@@ -38,9 +38,9 @@
             <description><![CDATA[React 18 が正式リリースされたのを受け、簡単に記録させていただきました。]]></description>
         </item>
         <item>
-            <title><![CDATA[Axe Con 2022 をシェアする]]></title>
-            <link>https://webneko.dev/posts/accessibility-study-2022-04-07</link>
-            <guid>https://webneko.dev/posts/accessibility-study-2022-04-07</guid>
+            <title><![CDATA[Axe Con 2022 Recap]]></title>
+            <link>https://webneko.dev/posts/axe-con-2022-recap</link>
+            <guid>https://webneko.dev/posts/axe-con-2022-recap</guid>
             <pubDate>Thu, 07 Apr 2022 09:00:00 GMT</pubDate>
             <description><![CDATA[毎週木曜の昼に内々でアクセシビリティ勉強会を開催しています、今回は最新ニュース (Axe Con 2022) を中心に記録しています。]]></description>
         </item>
