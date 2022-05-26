@@ -46,7 +46,7 @@
     "nuxt-svg-loader": "1.2.0",
     "puppeteer": "11.0.0",
     "sanitize-html": "2.7.0",
-    "ts-node": "10.7.0"
+    "ts-node": "10.8.0"
   },
   "devDependencies": {
     "@babel/core": "7.18.2",
