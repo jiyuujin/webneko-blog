@@ -4,11 +4,18 @@
         <title>Web猫ブログ</title>
         <link>undefined</link>
         <description>2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。</description>
-        <lastBuildDate>Sun, 29 May 2022 22:26:57 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 30 May 2022 14:55:52 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>ja</language>
         <copyright>nekohack</copyright>
+        <item>
+            <title><![CDATA[Nuxt 3 にあげる]]></title>
+            <link>https://webneko.dev/posts/nuxt3-release-candidate</link>
+            <guid>https://webneko.dev/posts/nuxt3-release-candidate</guid>
+            <pubDate>Mon, 30 May 2022 09:00:00 GMT</pubDate>
+            <description><![CDATA[この度 Nuxt 3 の RC がリリースされたことに伴い、当ブログ (webneko.dev) も合わせて更新した話を書かせていただいた。]]></description>
+        </item>
         <item>
             <title><![CDATA[markuplint のルールをカスタマイズする]]></title>
             <link>https://webneko.dev/posts/customize-markuplint-to-audit-accessibility</link>
@@ -701,13 +708,6 @@
             <guid>https://webneko.dev/posts/enter-the-laravel-vue-js-meetup-7</guid>
             <pubDate>Mon, 04 Feb 2019 15:00:00 GMT</pubDate>
             <description><![CDATA[昨年後半より、露出をメキメキと増やしていますが、この度東京で初めて喋る機会をいただきました。]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Vue.js/Nuxt採用事例についての勉強会 リポート]]></title>
-            <link>https://webneko.dev/posts/enter-the-startup-case-study-of-vue-js-and-nuxt</link>
-            <guid>https://webneko.dev/posts/enter-the-startup-case-study-of-vue-js-and-nuxt</guid>
-            <pubDate>Sun, 03 Feb 2019 15:00:00 GMT</pubDate>
-            <description><![CDATA[(たまたま)翌日のLaravel/Vue.js Meetup #7(1/31)と同じ時期だったため、急遽【Nuxt.js/Vue.js】スタートアップ企業導入事例(1/30)にも参戦させていただきました。]]></description>
         </item>
     </channel>
 </rss>
