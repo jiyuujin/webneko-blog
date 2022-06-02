@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@nekohack/normalize.css": "2.6.0",
-    "contentful": "9.1.29",
+    "contentful": "9.1.30",
     "dayjs": "1.11.2",
     "highlight.js": "11.5.1",
     "markdown-it": "13.0.1",
