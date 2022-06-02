@@ -4,11 +4,18 @@
         <title>Web猫ブログ</title>
         <link>undefined</link>
         <description>2018年10月より運営の当ブログを始め、Vue.jsやNuxtを使ったフロントエンドを中心に設計・開発しています。</description>
-        <lastBuildDate>Wed, 01 Jun 2022 22:29:08 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 02 Jun 2022 20:20:41 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>ja</language>
         <copyright>nekohack</copyright>
+        <item>
+            <title><![CDATA[GAAD Japan 2022 Recap]]></title>
+            <link>https://webneko.dev/posts/gaad-japan-2022-recap</link>
+            <guid>https://webneko.dev/posts/gaad-japan-2022-recap</guid>
+            <pubDate>Thu, 02 Jun 2022 09:00:00 GMT</pubDate>
+            <description><![CDATA[5 月第 3 木曜日の「世界的な」アクセシビリティを考える日を始め、アクセシビリティの祭典や TechFeed Conference など多くの知見が 5 月に発表されたので、その記録をば。]]></description>
+        </item>
         <item>
             <title><![CDATA[Nuxt 3 にあげる]]></title>
             <link>https://webneko.dev/posts/nuxt3-release-candidate</link>
@@ -73,9 +80,9 @@
             <description><![CDATA[一年に一度限りの「ねこの日」に小休止です。]]></description>
         </item>
         <item>
-            <title><![CDATA[WAI-ARIA 勉強会 メモ]]></title>
-            <link>https://webneko.dev/posts/wai-aria-study-202202</link>
-            <guid>https://webneko.dev/posts/wai-aria-study-202202</guid>
+            <title><![CDATA[WAI-ARIA Study Recap]]></title>
+            <link>https://webneko.dev/posts/wai-aria-study-recap</link>
+            <guid>https://webneko.dev/posts/wai-aria-study-recap</guid>
             <pubDate>Thu, 17 Feb 2022 09:00:00 GMT</pubDate>
             <description><![CDATA[昨夜、開催された WAI-ARIA 勉強会のメモを記録しておきました。いま一度見直しておきたい気持ちです。]]></description>
         </item>
@@ -701,13 +708,6 @@
             <guid>https://webneko.dev/posts/enter-the-nuxt-js-meetup-7-piece-of-cake</guid>
             <pubDate>Tue, 19 Feb 2019 15:00:00 GMT</pubDate>
             <description><![CDATA[一昨日行われたLaravel JP Conference参戦の序でに、特別に東京滞在を延長！Nuxt Meetup #7に参戦しました。会議室を提供いただいた株式会社ピースオブケイク様、この度はありがとうございました。]]></description>
-        </item>
-        <item>
-            <title><![CDATA[東京で初登壇させていただきました]]></title>
-            <link>https://webneko.dev/posts/enter-the-laravel-vue-js-meetup-7</link>
-            <guid>https://webneko.dev/posts/enter-the-laravel-vue-js-meetup-7</guid>
-            <pubDate>Mon, 04 Feb 2019 15:00:00 GMT</pubDate>
-            <description><![CDATA[昨年後半より、露出をメキメキと増やしていますが、この度東京で初めて喋る機会をいただきました。]]></description>
         </item>
     </channel>
 </rss>
