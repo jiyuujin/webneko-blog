@@ -4,6 +4,7 @@ import 'dotenv/config'
 import { adsenseList } from './app/utils/adsense.constants'
 import { gtagList } from './app/utils/gtag.constants'
 import { generalOg, twitterOg } from './app/utils/og.constants'
+import { icons, manifest } from './app/utils/pwa.constants'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
@@ -22,6 +23,7 @@ export default defineNuxtConfig({
       ...generalOg(),
       ...twitterOg(),
     ],
+    link: [...icons(), ...manifest()],
     __dangerouslyDisableSanitizersByTagID: {
       ADsrc: ['innerHTML'],
       ADcode: ['innerHTML'],
