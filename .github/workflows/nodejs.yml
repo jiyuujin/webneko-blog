@@ -39,12 +39,14 @@ jobs:
       - shell: bash
         run: |
           touch .env
+          echo "CTF_BLOG_POST_TYPE_ID=${{ secrets.CTF_BLOG_POST_TYPE_ID }}" >> .env
           echo "CTF_SPACE_ID=${{ secrets.CTF_SPACE_ID }}" >> .env
           echo "CTF_CDA_ACCESS_TOKEN=${{ secrets.CTF_CDA_ACCESS_TOKEN }}" >> .env
 
       - name: Transpile
         run: |
           npm install
+          npm run build:feeds
           npm run generate
         env:
           CI: true
