@@ -47,14 +47,16 @@
 
       <google-adsense />
 
-      <div class="latest-article">
-        <h2 class="latest-article-title">あわせてよみたい..</h2>
-        <div class="feeds">
-          <post-card
-            v-for="post in latestPosts.items"
-            :key="post.fields.title"
-            :post="post"
-          />
+      <div v-if="SHOW_LATEST_POSTS">
+        <div class="latest-article">
+          <h2 class="latest-article-title">あわせてよみたい..</h2>
+          <div class="feeds">
+            <post-card
+              v-for="post in latestPosts[0].children"
+              :key="post.title"
+              :post="post"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -66,6 +68,7 @@ import { useAsyncData } from '#app'
 import { fetchPost, fetchPosts } from '~/api/blog'
 import Endpoints from '~/utils/endpoints.constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
+import { SHOW_LATEST_POSTS } from '~/utils/feature.constants'
 
 import NotifyAlert from '~/components/NotifyAlert.vue'
 import PostCard from '~/components/PostCard.vue'
