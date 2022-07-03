@@ -24,7 +24,7 @@
     "markdown-it-highlightjs": "4.0.1",
     "markdown-it-link-attributes": "4.0.0",
     "markdown-it-video": "0.6.3",
-    "ts-node": "10.8.1"
+    "ts-node": "10.8.2"
   },
   "devDependencies": {
     "@nekohack/eslint-config-vue": "1.1.0",
