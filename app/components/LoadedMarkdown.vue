@@ -1,7 +1,6 @@
 <template>
   <div class="article">
     <div class="post-detail" v-html="$md.render(body)" />
-    <div class="count">{{ `(${useStringWidth(body)} characters)` }}</div>
   </div>
 </template>
 
@@ -16,7 +15,8 @@ export default {
     }
   },
   setup(props) {
-    return { useStringWidth }
+    console.log(`${useStringWidth(props.body)} characters`)
+    return {}
   }
 }
 </script>
