@@ -64,8 +64,7 @@
 </template>
 
 <script setup lang="ts">
-import { useAsyncData } from '#app'
-import { fetchPost, fetchPosts } from '~/api/blog'
+import { useFetchPost, useFetchPosts } from '~/hooks/useBlogData'
 import Endpoints from '~/utils/endpoints.constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 import { SHOW_LATEST_POSTS } from '~/utils/feature.constants'
@@ -80,11 +79,9 @@ import GoogleAdsense from '~/components/GoogleAdsense.vue'
 
 const isVertical = ref(true)
 
-const route = useRoute()
-const slug = () => route.params.slug
-const currentPost = await fetchPost(route.params)
+const currentPost = await useFetchPost()
 
-const latestPosts = await fetchPosts(true)
+const latestPosts = await useFetchPosts(true)
 
 const errorType = (d: Date) => {
   if (d.getFullYear() + 1 < new Date().getFullYear()) {

@@ -9,13 +9,12 @@
 </template>
 
 <script setup lang="ts">
-import { useAsyncData } from '#app'
-import { fetchPosts } from '~/api/blog'
+import { useFetchPosts } from '~/hooks/useBlogData'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 
 import PostCard from '~/components/PostCard.vue'
 
-const posts = await fetchPosts()
+const posts = await useFetchPosts()
 
 useHead({
   title: 'Web猫ブログ',
