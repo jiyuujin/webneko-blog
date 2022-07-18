@@ -2,7 +2,7 @@
   <main>
     <div class="section">
       <div class="feeds">
-        <post-card v-for="post in posts.items" :key="post.fields.title" :post="post" />
+        <post-card v-for="(post, index) in posts" :key="index" :post="post" />
       </div>
     </div>
   </main>
