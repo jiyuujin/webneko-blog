@@ -2,9 +2,9 @@
   <main>
     <div v-if="currentPost" class="section">
       <notify-alert
-        v-if="errorType(new Date(currentPost.fields.publishDate)) !== 'normal'"
-        :title="currentPost.fields.title"
-        :error-type="errorType(new Date(currentPost.fields.publishDate))"
+        v-if="errorType(new Date(currentPost?.date)) !== 'normal'"
+        :title="currentPost?.title"
+        :error-type="errorType(new Date(currentPost?.date))"
       />
 
       <div class="cover">
@@ -19,25 +19,30 @@
         -->
 
         <div class="cover-title">
-          {{ currentPost.fields.title }}
+          {{ currentPost?.title }}
         </div>
 
         <div class="cover-date">
-          {{ new Date(currentPost.fields.publishDate).toLocaleDateString() }}
+          {{ new Date(currentPost?.date).toLocaleDateString() }}
         </div>
 
         <div class="cover-tags">
-          <div v-for="tag in currentPost.fields.tags" :key="tag" class="tag">
+          <div v-for="tag in currentPost?.tags" :key="tag" class="tag">
             {{ tag }}
           </div>
         </div>
       </div>
 
-      <loaded-markdown :body="currentPost.fields.body" />
+      <div v-if="USE_CONTENTFUL">
+        <loaded-markdown :body="currentPost?.body" />
+      </div>
+      <div v-if="USE_CONTENT">
+        <loaded-markdown>{{ currentPost?.body }}</loaded-markdown>
+      </div>
 
       <social-menu
-        :slug-text="currentPost.fields.slug"
-        :title="currentPost.fields.title"
+        :slug-text="currentPost?.slug"
+        :title="currentPost?.title"
         :is-vertical="!isVertical"
       />
 
@@ -53,7 +58,7 @@
           <div class="feeds">
             <post-card
               v-for="post in latestPosts[0].children"
-              :key="post.title"
+              :key="post?.title"
               :post="post"
             />
           </div>
@@ -67,7 +72,7 @@
 import { useFetchPost, useFetchPosts } from '~/hooks/useBlogData'
 import Endpoints from '~/utils/endpoints.constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
-import { SHOW_LATEST_POSTS } from '~/utils/feature.constants'
+import { USE_CONTENT, USE_CONTENTFUL, SHOW_LATEST_POSTS } from '~/utils/feature.constants'
 
 import NotifyAlert from '~/components/NotifyAlert.vue'
 import PostCard from '~/components/PostCard.vue'
@@ -94,15 +99,15 @@ const errorType = (d: Date) => {
 useHead({
   meta: [
     ...generalOg(
-      currentPost.fields?.title,
-      currentPost.fields?.description,
-      `${Endpoints.BASE_URL}posts/${currentPost.fields?.slug}`,
-      `${Endpoints.OG_BASIC_ENDPOINT}${currentPost.fields?.slug}.jpg`,
+      USE_CONTENT && !USE_CONTENTFUL ? currentPost.title : currentPost.fields?.title,
+      USE_CONTENT && !USE_CONTENTFUL ? currentPost.description : currentPost.fields?.description,
+      USE_CONTENT && !USE_CONTENTFUL ? `${Endpoints.BASE_URL}posts/${currentPost.slug}` : `${Endpoints.BASE_URL}posts/${currentPost.fields?.slug}`,
+      USE_CONTENT && !USE_CONTENTFUL ? `${Endpoints.OG_BASIC_ENDPOINT}${currentPost.slug}.jpg` : `${Endpoints.OG_BASIC_ENDPOINT}${currentPost.fields?.slug}.jpg`,
     ),
     ...twitterOg(
-      currentPost.fields?.title,
-      currentPost.fields?.description,
-      `${Endpoints.OG_BASIC_ENDPOINT}${currentPost.fields?.slug}.jpg`,
+      USE_CONTENT && !USE_CONTENTFUL ? currentPost.title : currentPost.fields?.title,
+      USE_CONTENT && !USE_CONTENTFUL ? currentPost.description : currentPost.fields?.description,
+      USE_CONTENT && !USE_CONTENTFUL ? `${Endpoints.OG_BASIC_ENDPOINT}${currentPost.slug}.jpg` : `${Endpoints.OG_BASIC_ENDPOINT}${currentPost.fields?.slug}.jpg`,
     )
   ]
 })

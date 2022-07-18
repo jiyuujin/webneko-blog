@@ -1,14 +1,14 @@
 <template>
-  <nuxt-link :to="`/posts/${post.fields.slug}`" class="feed-card">
+  <nuxt-link :to="`/posts/${postInfo?.slug}`" class="feed-card">
     <span class="reaction-img">
-      {{ post.fields.reaction }}
+      {{ postInfo?.reaction }}
     </span>
     <div class="feed-card__item">
       <div class="feed-card__item-title">
-        {{ post.fields.title }}
+        {{ postInfo?.title }}
       </div>
       <div class="feed-card__item-date">
-        {{ new Date(post.fields.publishDate).toLocaleDateString() }}
+        {{ new Date(postInfo?.date).toLocaleDateString() }}
       </div>
       <div class="feed-card__item-tags">
         <div
@@ -25,6 +25,8 @@
 </template>
 
 <script lang="ts">
+import { USE_CONTENT, USE_CONTENTFUL } from '~/utils/feature.constants'
+
 export default {
   props: {
     post: {
@@ -35,12 +37,16 @@ export default {
     }
   },
   setup(props) {
-    const filterTags = computed(() => {
-      return props.post.fields.category === 'Scrap'
-        ? ['Scrap'].concat(props.post.fields.tags!)
-        : props.post.fields.tags
+    const postInfo = computed(() => {
+      if (USE_CONTENT && !USE_CONTENTFUL) return props.post
+      return props.post.fields
     })
-    return { filterTags }
+    const filterTags = computed(() => {
+      return postInfo.category === 'Scrap'
+        ? ['Scrap'].concat(postInfo.tags!)
+        : postInfo.tags
+    })
+    return { postInfo, filterTags }
   }
 }
 </script>

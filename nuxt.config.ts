@@ -5,6 +5,8 @@ import { adsenseList } from './app/utils/adsense.constants'
 import { gtagList } from './app/utils/gtag.constants'
 import { generalOg, twitterOg } from './app/utils/og.constants'
 import { icons, manifest } from './app/utils/pwa.constants'
+import { USE_CONTENT } from './app/utils/feature.constants'
+import { initContent } from './app/services/content'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
@@ -36,6 +38,8 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/main.scss'],
   serverMiddleware: [{ path: '/api/hello', handler: '~/server/api/hello.ts' }],
+  modules: [...(USE_CONTENT ? ['@nuxt/content', '@nuxtjs/color-mode'] : [])],
+  ...(USE_CONTENT ? initContent() : {}),
   vite: {
     plugins: [svgLoader()],
   },
@@ -51,5 +55,6 @@ export default defineNuxtConfig({
   },
   build: {
     extractCSS: true,
+    transpile: [USE_CONTENT ? 'shiki' : ''],
   },
 })
