@@ -8,7 +8,12 @@
         {{ postInfo?.title }}
       </div>
       <div class="feed-card__item-date">
-        {{ new Date(postInfo?.date).toLocaleDateString() }}
+        <div v-if="USE_CONTENT">
+          {{ new Date(postInfo?.date).toLocaleDateString() }}
+        </div>
+        <div v-if="USE_CONTENTFUL">
+          {{ new Date(postInfo?.publishDate).toLocaleDateString() }}
+        </div>
       </div>
       <div class="feed-card__item-tags">
         <div
@@ -46,7 +51,7 @@ export default {
         ? ['Scrap'].concat(postInfo.tags!)
         : postInfo.tags
     })
-    return { postInfo, filterTags }
+    return { postInfo, filterTags, USE_CONTENT, USE_CONTENTFUL }
   }
 }
 </script>
