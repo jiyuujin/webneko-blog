@@ -23,7 +23,12 @@
         </div>
 
         <div class="cover-date">
-          {{ new Date(currentPost?.date).toLocaleDateString() }}
+          <div v-if="USE_CONTENT">
+            {{ new Date(currentPost?.date).toLocaleDateString() }}
+          </div>
+          <div v-if="USE_CONTENTFUL">
+            {{ new Date(currentPost?.publishDate).toLocaleDateString() }}
+          </div>
         </div>
 
         <div class="cover-tags">
