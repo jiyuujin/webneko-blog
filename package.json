@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build && npm run build:feeds",
+    "build:backup": "ts-node --project tsconfig.builder.json scripts/backup.ts",
     "build:feeds": "ts-node --project tsconfig.builder.json scripts/feeds.ts",
     "start": "node .output/server/index.mjs",
     "generate": "nuxi generate",

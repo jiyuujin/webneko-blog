@@ -10,3 +10,8 @@ dist
 .idea
 
 app/public/feeds.xml
+
+webneko-blog-export.json
+
+# Nuxt Content に移行した後 ignore 対象から外す
+app/content/posts/*.md

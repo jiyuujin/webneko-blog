@@ -4,7 +4,7 @@
     "outDir": "dist",
     "noEmit": false
   },
-  "include": ["scripts/feeds.ts"],
+  "include": ["scripts/backup.ts", "scripts/feeds.ts"],
   "exclude": ["node_modules"],
   "ts-node": {
     "transpileOnly": true,
