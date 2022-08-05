@@ -104,15 +104,15 @@ const errorType = (d: Date) => {
 useHead({
   meta: [
     ...generalOg(
-      USE_CONTENT && !USE_CONTENTFUL ? currentPost.title : currentPost.fields?.title,
-      USE_CONTENT && !USE_CONTENTFUL ? currentPost.description : currentPost.fields?.description,
-      USE_CONTENT && !USE_CONTENTFUL ? `${Endpoints.BASE_URL}posts/${currentPost.slug}` : `${Endpoints.BASE_URL}posts/${currentPost.fields?.slug}`,
-      USE_CONTENT && !USE_CONTENTFUL ? `${Endpoints.OG_BASIC_ENDPOINT}${currentPost.slug}.jpg` : `${Endpoints.OG_BASIC_ENDPOINT}${currentPost.fields?.slug}.jpg`,
+      (USE_CONTENT && !USE_CONTENTFUL) ? currentPost.value.title : currentPost.title,
+      (USE_CONTENT && !USE_CONTENTFUL) ? currentPost.value.description : currentPost.description,
+      (USE_CONTENT && !USE_CONTENTFUL) ? `${Endpoints.BASE_URL}posts/${currentPost.value.slug}` : `${Endpoints.BASE_URL}posts/${currentPost.slug}`,
+      (USE_CONTENT && !USE_CONTENTFUL) ? `${Endpoints.OG_BASIC_ENDPOINT}${currentPost.value.slug}.jpg` : `${Endpoints.OG_BASIC_ENDPOINT}${currentPost.slug}.jpg`,
     ),
     ...twitterOg(
-      USE_CONTENT && !USE_CONTENTFUL ? currentPost.title : currentPost.fields?.title,
-      USE_CONTENT && !USE_CONTENTFUL ? currentPost.description : currentPost.fields?.description,
-      USE_CONTENT && !USE_CONTENTFUL ? `${Endpoints.OG_BASIC_ENDPOINT}${currentPost.slug}.jpg` : `${Endpoints.OG_BASIC_ENDPOINT}${currentPost.fields?.slug}.jpg`,
+      (USE_CONTENT && !USE_CONTENTFUL) ? currentPost.value.title : currentPost.title,
+      (USE_CONTENT && !USE_CONTENTFUL) ? currentPost.value.description : currentPost.description,
+      (USE_CONTENT && !USE_CONTENTFUL) ? `${Endpoints.OG_BASIC_ENDPOINT}${currentPost.value.slug}.jpg` : `${Endpoints.OG_BASIC_ENDPOINT}${currentPost.slug}.jpg`,
     )
   ]
 })
