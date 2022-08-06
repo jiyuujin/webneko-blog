@@ -102,6 +102,7 @@ const errorType = (d: Date) => {
 }
 
 useHead({
+  title: (USE_CONTENT && !USE_CONTENTFUL) ? currentPost.value.title : currentPost.title,
   meta: [
     ...generalOg(
       (USE_CONTENT && !USE_CONTENTFUL) ? currentPost.value.title : currentPost.title,
