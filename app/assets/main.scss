@@ -6,6 +6,11 @@
 @use 'nav';
 @use 'stripe';
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .alert-block {
   padding: 0.5rem 1.5rem;
   margin: 1rem 0;
