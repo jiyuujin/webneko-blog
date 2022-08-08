@@ -6,7 +6,9 @@
           <a href="/" title="トップへ戻る">
             webneko<span class="nav-hidden">.dev</span>
           </a>
+          <!--
           <Nuxt3Svg />
+          -->
         </h1>
 
         <div class="nav-links">
@@ -23,11 +25,11 @@
 </template>
 
 <script lang="ts">
-import Nuxt3Svg from '~/assets/nuxt3.svg'
+// import Nuxt3Svg from '~/assets/nuxt3.svg'
 
 export default {
-  components: {
-    Nuxt3Svg
-  }
+  // components: {
+  //   Nuxt3Svg
+  // }
 }
 </script>
