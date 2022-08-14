@@ -6,6 +6,9 @@
 @use 'nav';
 @use 'stripe';
 
+/* ダークモードを使わない場合 */
+@use 'single-theme';
+
 body {
   margin: 0;
   padding: 0;
