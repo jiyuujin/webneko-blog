@@ -25,7 +25,7 @@
     "markdown-it-attrs": "4.1.4",
     "markdown-it-container": "3.0.0",
     "markdown-it-highlightjs": "4.0.1",
-    "markdown-it-link-attributes": "4.0.0",
+    "markdown-it-link-attributes": "4.0.1",
     "markdown-it-video": "0.6.3",
     "ts-node": "10.9.1"
   },
