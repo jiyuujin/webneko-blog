@@ -42,6 +42,6 @@
     "sass": "1.54.8",
     "sass-loader": "13.0.2",
     "typescript": "4.8.2",
-    "vite-svg-loader": "3.4.0"
+    "vite-svg-loader": "3.5.1"
   }
 }
