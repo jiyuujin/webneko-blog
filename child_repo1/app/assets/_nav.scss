@@ -1,0 +1,151 @@
+.nav-container {
+  width: 100%;
+  height: 6rem;
+}
+
+.nav {
+  z-index: 199;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 6rem;
+  background: #fff;
+  transition: 200ms;
+}
+
+.nav-active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4rem;
+  box-shadow: 0 0 16px 0 rgb(0 0 0 / 10%);
+  transition: 300ms;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.nav-icon {
+  font-size: 2rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+}
+
+.nav-links {
+  display: none;
+  align-items: center;
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.3rem 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #000 !important;
+  cursor: pointer;
+  background: transparent;
+  filter: brightness(90%);
+  border: none;
+  border-radius: 0.2rem;
+  transition: 250ms background-color;
+
+  &:hover {
+    color: #000;
+    background-color: #474747;
+  }
+}
+
+.hamburger-container {
+  display: flex;
+  align-items: center;
+
+  & a {
+    margin-right: 1rem;
+  }
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.hamburger-item {
+  width: 30px;
+  height: 2px;
+  margin: 0.2rem 0;
+  background: #fff;
+}
+
+@media (max-width: 320px) {
+  .nav-hidden {
+    display: none;
+  }
+}
+
+@media (min-width: 900px) {
+  .nav-links {
+    display: flex;
+  }
+
+  .hamburger,
+  .hamburger-container {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav {
+    background-color: #303030;
+  }
+
+  .nav-icon {
+    a {
+      color: #fff;
+    }
+  }
+
+  .nav-link {
+    color: #fff;
+
+    &:hover {
+      color: #fff;
+      background-color: #474747;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav {
+    background-color: #303030;
+  }
+
+  .nav-icon {
+    a {
+      color: #fff;
+    }
+  }
+
+  .nav-link {
+    color: #fff !important;
+
+    &:hover {
+      color: #fff;
+      background-color: #747474;
+    }
+  }
+}

@@ -1,0 +1,68 @@
+name: Update posts CI
+
+on:
+  #  push:
+  #    branches:
+  #      - main
+  #  pull_request:
+  #    branches:
+  #      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: _cache_npm_node16
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - shell: bash
+        run: |
+          touch .env
+          echo "CTF_BLOG_POST_TYPE_ID=${{ secrets.CTF_BLOG_POST_TYPE_ID }}" >> .env
+          echo "CTF_SPACE_ID=${{ secrets.CTF_SPACE_ID }}" >> .env
+          echo "CTF_CDA_ACCESS_TOKEN=${{ secrets.CTF_CDA_ACCESS_TOKEN }}" >> .env
+
+      - name: Transpile
+        run: |
+          npm install
+          npm run build
+          npm run build:feeds
+        env:
+          CI: true
+          CTF_SPACE_ID: ${{ secrets.CTF_SPACE_ID }}
+          CTF_CDA_ACCESS_TOKEN: ${{ secrets.CTF_CDA_ACCESS_TOKEN }}
+
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -N .
+          if ! git diff --exit-code --quiet
+          then
+            git add .
+            git commit -m "Add changes" -a
+            git push origin HEAD:${GITHUB_REF};
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,17 @@
+node_modules
+package-lock.json
+yarn.lock
+*.log
+.nuxt
+nuxt.d.ts
+.output
+dist
+.env
+.idea
+
+app/public/feeds.xml
+
+webneko-blog-export.json
+
+# Nuxt Content に移行した後 ignore 対象から外す
+app/content/posts/*.md

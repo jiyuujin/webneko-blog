@@ -1,0 +1,79 @@
+@use 'node_modules/@nekohack/normalize.css/dist/index.css';
+@use 'node_modules/highlight.js/styles/hybrid.css';
+
+@use 'buy-me-a-coffee';
+@use 'footer';
+@use 'nav';
+@use 'stripe';
+
+/* ダークモードを使わない場合 */
+@use 'single-theme';
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.alert-block {
+  padding: 0.5rem 1.5rem;
+  margin: 1rem 0;
+  text-align: left;
+  background-color: #f3f5f7;
+  border-left-style: solid;
+  border-left-width: 0.5rem;
+}
+
+.normal {
+  border-color: #318a62;
+}
+
+.warning {
+  border-color: #b29400;
+}
+
+.error {
+  border-color: #c00;
+}
+
+.social-menu {
+  text-align: center;
+
+  button {
+    background: transparent;
+    border: 0;
+  }
+
+  svg {
+    width: 36px;
+    height: 36px;
+    margin: 8px;
+  }
+
+  &-vertical {
+    position: sticky;
+    top: 60px;
+    left: 2%;
+  }
+
+  &-horizontal {
+    display: inline;
+  }
+}
+
+.count {
+  color: #303030;
+}
+
+@media (prefers-color-scheme: dark) {
+  .alert-block {
+    background-color: #626262;
+  }
+
+  .alert-block a {
+    color: #718096;
+  }
+
+  .count {
+    color: #fefefe;
+  }
+}
