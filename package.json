@@ -51,7 +51,7 @@
   "devDependencies": {
     "@babel/core": "7.18.2",
     "@babel/preset-env": "7.18.2",
-    "@markuplint/vue-parser": "2.3.1",
+    "@markuplint/vue-parser": "2.3.2",
     "@nekohack/eslint-config-vue": "1.1.0",
     "@nekohack/stylelint-config": "0.3.0",
     "@nuxt/types": "2.15.8",
