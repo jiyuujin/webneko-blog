@@ -72,7 +72,7 @@
     "eslint": "8.16.0",
     "eslint-plugin-vuejs-accessibility": "1.1.1",
     "feed": "4.2.2",
-    "fibers": "5.0.1",
+    "fibers": "5.0.3",
     "fs-extra": "9.1.0",
     "jest": "27.5.1",
     "markuplint": "2.8.0",
