@@ -1,6 +1,6 @@
 <template>
   <div class="error">
-    <img alt="bakeneko" :src="`/icon/bakeneko.svg`" width="80" height="80" decoding="async" />
+    <img alt="bakeneko" :src="`/assets/bakeneko_logo.svg`" />
     <nuxt-link to="/" title="トップへ戻る" class="icon">
       Oooops, something is wrong \ {{ error.statusCode }} / error
     </nuxt-link>
@@ -8,9 +8,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
+export default {
   props: {
     error: {
       type: Object,
@@ -19,7 +17,7 @@ export default Vue.extend({
       }
     }
   }
-})
+}
 </script>
 
 <style scoped>

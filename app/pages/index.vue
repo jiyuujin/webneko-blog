@@ -1,56 +1,26 @@
 <template>
-  <div class="section">
-    <div class="feeds">
-      <post-card v-for="post in posts" :key="post.fields.title" :post="post" />
+  <main>
+    <div class="section">
+      <div class="feeds">
+        <post-card v-for="(post, index) in posts" :key="index" :post="post" />
+      </div>
     </div>
-
-    <div class="read-more">
-      <nuxt-link :to="`/archive/${formatCurrentDate('YYYY-MM')}`" :title="`${formatCurrentDate('YYYY-MM')}の記事を見る`">
-        <ArchiveSvg />
-        <span>これまでの記事</span>
-      </nuxt-link>
-    </div>
-
-    <google-adsense
-      ad-slot="5919567639"
-      ad-format="auto"
-      :ad-style="{ display: 'block' }"
-    />
-
-    <history-tags :tags="tags" />
-  </div>
+  </main>
 </template>
 
-<script lang="ts">
-import useCalendar from '~/hooks/useCalendar'
+<script setup lang="ts">
+import { useFetchPosts } from '~/hooks/useBlogData'
+import { generalOg, twitterOg } from '~/utils/og.constants'
 
-import ArchiveSvg from '~/static/icon/archive.svg'
+import PostCard from '~/components/PostCard.vue'
 
-import { fetchPosts, fetchTags } from '~/api/blog'
+const posts = await useFetchPosts()
 
-const HistoryTags = () => import('~/components/HistoryTags.vue')
-const PostCard = () => import('~/components/PostCard.vue')
-const GoogleAdsense = () => import('~/components/GoogleAdsense.vue')
-
-export default {
-  components: {
-    ArchiveSvg,
-    HistoryTags,
-    PostCard,
-    GoogleAdsense
-  },
-  setup(props, ctx) {
-    return { ...useCalendar(props) }
-  },
-  async asyncData({ $sentry, $config }) {
-    try {
-      return {
-        posts: await fetchPosts($config),
-        tags: await fetchTags($config)
-      }
-    } catch (error) {
-      $sentry.captureException(error)
-    }
-  }
-}
+useHead({
+  title: 'Web猫ブログ',
+  meta: [
+    ...generalOg(),
+    ...twitterOg()
+  ]
+})
 </script>

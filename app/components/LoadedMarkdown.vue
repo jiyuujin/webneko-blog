@@ -1,12 +1,20 @@
 <template>
   <div class="article">
-    <div class="post-detail" v-html="$md.render(body)" />
-    <div class="count">{{ `(${useStringWidth(body)} characters)` }}</div>
+    <div v-if="USE_CONTENTFUL">
+      <div class="post-detail" v-html="$md.render(body)" />
+    </div>
+    <div v-if="USE_CONTENT">
+      <div class="post-detail">
+        <content-doc v-slot="{ doc }">
+          <content-renderer :value="doc" />
+        </content-doc>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { useStringWidth } from '~/hooks/useStringWidth'
+import { USE_CONTENT, USE_CONTENTFUL } from '~/utils/feature.constants'
 
 export default {
   props: {
@@ -15,8 +23,8 @@ export default {
       default: ''
     }
   },
-  setup(props) {
-    return { useStringWidth }
+  data() {
+    return { USE_CONTENT, USE_CONTENTFUL }
   }
 }
 </script>

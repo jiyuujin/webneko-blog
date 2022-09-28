@@ -1,4 +1,4 @@
-import Endpoints from '../utils/endpoints.constants'
+import Endpoints from '~/utils/endpoints.constants'
 
 /**
  * Web Share API を使う

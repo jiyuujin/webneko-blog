@@ -8,18 +8,18 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      <BuyMeACoffeeSvg :style="{ width: '160px' }" />
+      <BuyMeACoffeeLogo />
       <span>{{ `BuyMeACoffeeで支払う` }}</span>
     </a>
   </div>
 </template>
 
 <script lang="ts">
-import BuyMeACoffeeSvg from '~/static/icon/buy_me_a_coffee.svg'
+import BuyMeACoffeeLogo from '~/assets/buy_me_a_coffee_logo.svg'
 
 export default {
   components: {
-    BuyMeACoffeeSvg
+    BuyMeACoffeeLogo
   }
 }
 </script>

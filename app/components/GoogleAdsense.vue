@@ -1,5 +1,5 @@
 <template>
-  <div role="presentation" class="ad-wrapper">
+  <div class="ad">
     <adsbygoogle
       :slot="adSlot"
       :ad-format="adFormat"
@@ -10,11 +10,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-
-Vue.config.ignoredElements = ['adsbygoogle']
-
-export default Vue.extend({
+export default {
   props: {
     adSlot: {
       type: String,
@@ -33,5 +29,5 @@ export default Vue.extend({
       default: null
     }
   }
-})
+}
 </script>
