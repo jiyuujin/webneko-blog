@@ -8,18 +8,18 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      <StripeSvg :style="{ width: '160px' }" />
+      <StripeLogo />
       <span>{{ `Stripeで支払う` }}</span>
     </a>
   </div>
 </template>
 
 <script lang="ts">
-import StripeSvg from '~/static/icon/stripe.svg'
+import StripeLogo from '~/assets/stripe_logo.svg'
 
 export default {
   components: {
-    StripeSvg
+    StripeLogo
   }
 }
 </script>

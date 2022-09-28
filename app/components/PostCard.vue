@@ -1,24 +1,26 @@
 <template>
-  <nuxt-link
-    :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
-    :title="`${post.fields.slug}の記事を見る`"
-    class="feed-card"
-  >
+  <nuxt-link :to="`/posts/${postInfo?.slug}`" class="feed-card">
     <span class="reaction-img">
-      {{ post.fields.reaction }}
+      {{ postInfo?.reaction }}
     </span>
     <div class="feed-card__item">
       <div class="feed-card__item-title">
-        {{ post.fields.title }}
+        {{ postInfo?.title }}
       </div>
       <div class="feed-card__item-date">
-        {{ new Date(post.fields.publishDate).toLocaleDateString() }}
+        <div v-if="USE_CONTENT">
+          {{ new Date(postInfo?.date).toLocaleDateString() }}
+        </div>
+        <div v-if="USE_CONTENTFUL">
+          {{ new Date(postInfo?.publishDate).toLocaleDateString() }}
+        </div>
       </div>
       <div class="feed-card__item-tags">
         <div
           v-for="tag in filterTags"
           :key="tag"
-          :class="['tag', tag === 'Scrap' && 'scrap-tag']"
+          :class="tag === 'Scrap' && 'scrap-tag'"
+          class="tag"
         >
           {{ tag }}
         </div>
@@ -28,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import { computed } from '@nuxtjs/composition-api'
+import { USE_CONTENT, USE_CONTENTFUL } from '~/utils/feature.constants'
 
 export default {
   props: {
@@ -40,12 +42,16 @@ export default {
     }
   },
   setup(props) {
-    const filterTags = computed(() => {
-      return props.post.fields.category === 'Scrap'
-        ? ['Scrap'].concat(props.post.fields.tags!)
-        : props.post.fields.tags
+    const postInfo = computed(() => {
+      if (USE_CONTENT && !USE_CONTENTFUL) return props.post
+      return props.post.fields
     })
-    return { filterTags }
+    const filterTags = computed(() => {
+      return postInfo.category === 'Scrap'
+        ? ['Scrap'].concat(postInfo.tags!)
+        : postInfo.tags
+    })
+    return { postInfo, filterTags, USE_CONTENT, USE_CONTENTFUL }
   }
 }
 </script>

@@ -33,7 +33,7 @@ export const generalOg = (title?: string, description?: string, url?: string, im
   {
     hid: 'og:url',
     name: 'og:url',
-    content: url ? url : 'https://nuxt2.webneko.dev/',
+    content: url ? url : 'https://webneko.dev/',
   },
   {
     hid: 'og:image',

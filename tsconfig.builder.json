@@ -1,15 +1,13 @@
 {
-  "extends": "./tsconfig.json",
   "compilerOptions": {
     "module": "commonjs",
     "outDir": "dist",
     "noEmit": false
   },
-  "include": ["scripts/feeds.ts", "scripts/og-gen.ts"],
+  "include": ["scripts/backup.ts", "scripts/feeds.ts"],
   "exclude": ["node_modules"],
   "ts-node": {
     "transpileOnly": true,
-    "transpiler": "ts-node/transpilers/swc-experimental",
     "compilerOptions": {
       "module": "CommonJS"
     }
