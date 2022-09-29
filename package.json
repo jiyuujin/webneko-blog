@@ -34,7 +34,7 @@
     "@nuxtjs/sentry": "5.1.7",
     "@nuxtjs/sitemap": "2.4.0",
     "contentful": "8.5.8",
-    "dayjs": "1.11.2",
+    "dayjs": "1.11.5",
     "highlight.js": "11.5.1",
     "markdown-it": "12.3.2",
     "markdown-it-attrs": "4.1.4",
