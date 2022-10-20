@@ -85,7 +85,7 @@
     "stylelint": "14.14.0",
     "stylelint-a11y": "1.2.3",
     "stylelint-config-recess-order": "3.0.0",
-    "stylelint-scss": "4.2.0",
+    "stylelint-scss": "4.3.0",
     "ts-jest": "27.1.5",
     "util": "0.12.5",
     "vue-jest": "3.0.7"
