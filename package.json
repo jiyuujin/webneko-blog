@@ -27,7 +27,7 @@
     "@nekohack/markdown-it-link-preview": "1.0.7",
     "@nekohack/normalize.css": "2.6.0",
     "@nuxtjs/composition-api": "0.33.1",
-    "@nuxtjs/google-adsense": "1.4.0",
+    "@nuxtjs/google-adsense": "2.1.0",
     "@nuxtjs/markdownit": "2.0.0",
     "@nuxtjs/markdownit-loader": "1.2.0",
     "@nuxtjs/pwa": "3.3.5",
